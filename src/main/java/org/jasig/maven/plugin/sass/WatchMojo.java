@@ -20,23 +20,24 @@ package org.jasig.maven.plugin.sass;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
- * @goal watch
+ * runs Sass with the {@code watch} option.
  */
+@Mojo(name = "watch")
 public class WatchMojo extends AbstractSassMojo {
 
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        getLog().info("Watching SASS Templates");
+	public void execute() throws MojoExecutionException, MojoFailureException {
+		this.getLog().info("Watching SASS Templates");
 
-        // build sass script
-        final StringBuilder sassBuilder = new StringBuilder();
-        buildBasicSASSScript(sassBuilder);
-        sassBuilder.append("Sass::Plugin.watch");
-        final String sassScript = sassBuilder.toString();
+		// build sass script
+		final StringBuilder sassBuilder = new StringBuilder();
+		this.buildBasicSASSScript(sassBuilder);
+		sassBuilder.append("Sass::Plugin.watch");
+		final String sassScript = sassBuilder.toString();
 
-        // ...and execute
-        executeSassScript(sassScript);
-    }
+		// ...and execute
+		this.executeSassScript(sassScript);
+	}
 }

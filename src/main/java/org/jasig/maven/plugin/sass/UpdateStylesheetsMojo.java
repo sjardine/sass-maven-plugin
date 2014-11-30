@@ -18,28 +18,29 @@
  */
 package org.jasig.maven.plugin.sass;
 
+import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
+
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.Mojo;
 
 /**
- * Mojo that compiles SASS Templates into CSS files. Uses JRuby to execute a generated script that calls the SASS GEM
- *
- * @goal update-stylesheets
- * @phase process-sources
+ * Mojo that compiles SASS Templates into CSS files. Uses JRuby to execute a
+ * generated script that calls the SASS GEM.
  */
+@Mojo(name = "update-stylesheets", defaultPhase = PROCESS_SOURCES)
 public class UpdateStylesheetsMojo extends AbstractSassMojo {
 
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        getLog().info("Compiling SASS Templates");
+	public void execute() throws MojoExecutionException, MojoFailureException {
+		this.getLog().info("Compiling SASS Templates");
 
-        // build sass script
-        final StringBuilder sassBuilder = new StringBuilder();
-        buildBasicSASSScript(sassBuilder);
-        sassBuilder.append("Sass::Plugin.update_stylesheets");
-        final String sassScript = sassBuilder.toString();
+		// build sass script
+		final StringBuilder sassBuilder = new StringBuilder();
+		this.buildBasicSASSScript(sassBuilder);
+		sassBuilder.append("Sass::Plugin.update_stylesheets");
+		final String sassScript = sassBuilder.toString();
 
-        // ...and execute
-        executeSassScript(sassScript);
-    }
+		// ...and execute
+		this.executeSassScript(sassScript);
+	}
 }
