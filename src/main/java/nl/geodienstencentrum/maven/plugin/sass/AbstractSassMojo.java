@@ -1,22 +1,23 @@
-/**
- * Licensed to Jasig under one or more contributor license
- * agreements. See the NOTICE file distributed with this work
- * for additional information regarding copyright ownership.
- * Jasig licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file
- * except in compliance with the License. You may obtain a
- * copy of the License at:
+/*
+ * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2010-2014 Jasig.
+ *
+ * See the NOTICE file distributed with this work for additional information
+ * regarding copyright ownership.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on
- * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
-package org.jasig.maven.plugin.sass;
+package nl.geodienstencentrum.maven.plugin.sass;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
+import nl.geodienstencentrum.maven.plugin.sass.compiler.CompilerCallback;
+
 import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.model.FileSet;
 import org.apache.maven.plugin.AbstractMojo;
@@ -44,7 +47,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
 /**
- * Base for batching SASS Mojos.
+ * Base for batching Sass Mojos.
  */
 public abstract class AbstractSassMojo extends AbstractMojo {
 
@@ -52,8 +55,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Sources for compilation with their destination directory containing SASS
 	 * files. Allows for multiple resource sources and destinations. If
 	 * specified it precludes the direct specification of
-	 * sassSourceDirectory/relativeOutputDirectory/destination parameters. <br/>
-	 * Example configuration
+	 * sassSourceDirectory/relativeOutputDirectory/destination parameters.
+	 *
+	 * Example configuration:
 	 *
 	 * <pre>
 	 *      &lt;resource&gt;
@@ -102,18 +106,19 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	protected boolean failOnError;
 
 	/**
-	 * Defines options for Sass::Plugin.options. See <a
-	 * href="://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#options">Sass
+	 * Defines options for Sass::Plugin.options. See <a href=
+	 * "http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#options">Sass
 	 * options</a> If the value is a string it must by quoted in the maven
-	 * configuration: &lt;cache_location>'/tmp/sass'&lt;/cache_location> <br/>
+	 * configuration: &lt;cache_location&gt;'/tmp/sass'&lt;/cache_location&gt;
+	 *
 	 * If no options are set the default configuration set is used which is:
 	 *
 	 * <pre>
-	 * &lt;unix_newlines>true&lt;/unix_newlines&gt;
-	 * &lt;cache>true&lt;/cache&gt;
-	 * &lt;always_update>true&lt;/always_update&gt;
-	 * &lt;cache_location>${project.build.directory}/sass_cache&lt;/cache_location&gt;
-	 * &lt;style>:expanded&lt;/style&gt;
+	 * &lt;unix_newlines&gt;true&lt;/unix_newlines&gt;
+	 * &lt;cache&gt;true&lt;/cache&gt;
+	 * &lt;always_update&gt;true&lt;/always_update&gt;
+	 * &lt;cache_location&gt;${project.build.directory}/sass_cache&lt;/cache_location&gt;
+	 * &lt;style&gt;:expanded&lt;/style&gt;
 	 * </pre>
 	 *
 	 */
@@ -123,23 +128,22 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	                "always_update", "true", "style", ":expanded"));
 
 	/**
-	 * Enable the use of Compass style library mixins, this emulates the
-	 * {@code --compass} commandline option of Sass.
+	 * Enable the use of Compass style library mixins.
 	 */
 	@Parameter(defaultValue = "false")
 	protected boolean useCompass;
 
 	/**
 	 * Directory containing SASS files, defaults to the Maven Web application
-	 * sources directory (src/main/sass)
+	 * sources directory (src/main/sass).
 	 */
 	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
 	protected File sassSourceDirectory;
 
 	/**
-	 * Defines files in the source directories to include
+	 * Defines files in the source directories to include.
 	 *
-	 * Defaults to: "**&#47;scss"
+	 * Defaults to: {@code **&#47;scss}
 	 */
 	@Parameter
 	protected String[] includes = new String[] { "**/scss" };
@@ -167,7 +171,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	protected File destination;
 
 	/**
-	 * Execute the SASS Compilation Ruby Script
+	 * Execute the SASS Compilation Ruby Script.
+	 *
+	 * @param sassScript
+	 *            the sass script
+	 * @throws MojoExecutionException
+	 *             the mojo execution exception
+	 * @throws MojoFailureException
+	 *             the mojo failure exception
 	 */
 	protected void executeSassScript(String sassScript)
 	        throws MojoExecutionException, MojoFailureException {
@@ -193,12 +204,19 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		}
 	}
 
+	/**
+	 * Builds the basic sass script.
+	 *
+	 * @param sassScript
+	 *            the sass script
+	 * @throws MojoExecutionException
+	 *             the mojo execution exception
+	 */
 	protected void buildBasicSASSScript(final StringBuilder sassScript)
 	        throws MojoExecutionException {
 		final Log log = this.getLog();
 
-		sassScript.append("require 'rubygems'\n");
-
+		sassScript.append("require 'rubygems'").append("\n");
 		if (this.gemPaths.length > 0) {
 			sassScript.append("env = { 'GEM_PATH' => [\n");
 			for (final String gemPath : this.gemPaths) {
@@ -211,11 +229,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 					sassScript.append("    '").append(p).append("',\n");
 				}
 			}
-			// remove trailing comma
+			/* remove trailing comma+\n */
 			sassScript.setLength(sassScript.length() - 2);
 			sassScript.append("\n");
-			sassScript.append("] }\n");
-			sassScript.append("Gem.paths = env\n");
+			sassScript.append("] }").append("\n");
+			sassScript.append("Gem.paths = env").append("\n");
 		}
 
 		for (final String gem : this.gems) {
@@ -227,15 +245,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 		if (this.useCompass) {
 			log.info("Running with Compass enabled.");
-			sassScript.append("require 'compass'\n");
-			sassScript.append("require 'compass/exec'\n");
-			sassScript.append("Compass.add_project_configuration \n");
+			sassScript.append("require 'compass'").append("\n");
+			sassScript.append("require 'compass/exec'").append("\n");
+			sassScript.append("require 'compass/core'").append("\n");
+			sassScript.append("require 'compass/import-once'").append("\n");
+			sassScript.append("Compass.add_project_configuration ")
+			.append("\n");
 			this.sassOptions.put("load_paths",
 			        "Compass.configuration.sass_load_paths");
-			// manually specify these paths
-			sassScript
-			        .append("Compass::Frameworks.register_directory('jar:'+File.join(Compass.base_directory, 'stylesheets/compass'))\n");
-
 		}
 
 		// Get all template locations from resources and set option
@@ -261,13 +278,13 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			this.sassOptions
 			        .put("cache_location",
 			                "'"
-							+ FilenameUtils
-							.separatorsToUnix(sassCacheDirStr)
+			                        + FilenameUtils
+			                                .separatorsToUnix(sassCacheDirStr)
 			                        + "'");
 		}
 
 		// Add the plugin configuration options
-		sassScript.append("Sass::Plugin.options.merge!(\n");
+		sassScript.append("Sass::Plugin.options.merge!(").append("\n");
 		for (final Iterator<Entry<String, String>> entryItr = this.sassOptions
 		        .entrySet().iterator(); entryItr.hasNext();) {
 			final Entry<String, String> optEntry = entryItr.next();
@@ -279,7 +296,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			sassScript.append("\n");
 		}
-		sassScript.append(")\n");
+		sassScript.append(")").append("\n");
 
 		// add remaining template locations with 'add_template_location' (need
 		// to be done after options.merge)
@@ -287,30 +304,44 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			final Entry<String, String> location = templateLocations.next();
 			sassScript.append("Sass::Plugin.add_template_location('")
 			        .append(location.getKey()).append("', '")
-			        .append(location.getValue()).append("')\n");
+			        .append(location.getValue()).append("')").append("\n");
 		}
 
 		// set up sass compiler callback for reporting
 		sassScript
-		        .append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }\n");
+		        .append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }")
+		.append("\n");
 		sassScript
-		        .append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }\n");
+		        .append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }")
+		.append("\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }\n");
+		        .append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }")
+		.append("\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }\n");
+		        .append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }")
+		.append("\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }\n");
+		        .append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }")
+		.append("\n");
 
 		// make ruby give use some debugging info when requested
 		if (log.isDebugEnabled()) {
-			sassScript.append("require 'pp'\npp Sass::Plugin.options\n");
+			sassScript.append("require 'pp'").append("\n");
+			sassScript.append("pp Sass::Plugin.options").append("\n");
 			if (this.useCompass) {
-				sassScript.append("pp Compass::configuration\n");
+				sassScript.append("pp Compass.base_directory").append("\n");
+				sassScript.append("pp Compass::Core.base_directory").append(
+				        "\n");
+				sassScript.append("pp Compass::configuration").append("\n");
 			}
 		}
 	}
 
+	/**
+	 * Gets the template locations.
+	 *
+	 * @return the template locations
+	 */
 	private Iterator<Entry<String, String>> getTemplateLocations() {
 		final Log log = this.getLog();
 		List<Resource> _resources = this.resources;
