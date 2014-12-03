@@ -26,7 +26,6 @@
 	<artifactId>sass-maven-plugin</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
-
 	<name>Sass Compiler Plugin</name>
 	<description>Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
 	<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
@@ -37,13 +36,21 @@
 	</organization>
 	<licenses>
 		<license>
-			<name>Apache License</name>
+			<name>Apache License 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
 			<comments />
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	<developers></developers>
+	<developers>
+		<developer>
+			<id>mprins</id>
+			<name>Mark Prins</name>
+			<email>mprins@users.sf.net</email>
+			<organization>GeodienstenCentrum</organization>
+			<organizationUrl>http://www.geodienstencentrum.nl/</organizationUrl>
+		</developer>
+	</developers>
 	<contributors></contributors>
 	<mailingLists />
 	<prerequisites>
@@ -62,7 +69,16 @@
 		<system>Travis</system>
 		<url>https://travis-ci.org/mprins/${project.artifactId}/</url>
 	</ciManagement>
-	<distributionManagement />
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 	<properties>
 		<project.build.sourceVersion>1.7</project.build.sourceVersion>
 		<project.build.targetVersion>1.7</project.build.targetVersion>
@@ -70,6 +86,9 @@
 		<compass.version>1.0.1</compass.version>
 		<jruby.version>1.6.8</jruby.version>
 		<debug>true</debug>
+		<github.username />
+		<github.password />
+		<github.site.dryRun>false</github.site.dryRun>
 	</properties>
 	<dependencyManagement />
 	<dependencies>
@@ -343,8 +362,7 @@
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.11-SNAPSHOT</version>
 				<configuration>
-					<message>site update for version ${project.version} (rev.
-						${buildNumber})</message>
+					<message>site update for version ${project.version} (rev. ${buildNumber})</message>
 					<password>${github.password}</password>
 					<userName>${github.username}</userName>
 					<host>api.github.com</host>
@@ -359,6 +377,17 @@
 						<phase>site-deploy</phase>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -384,6 +413,54 @@
 					</snapshots>
 				</repository>
 			</repositories>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<debug>false</debug>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.10.1</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.sonatype.plugins</groupId>
+						<artifactId>nexus-staging-maven-plugin</artifactId>
+						<version>1.6.5</version>
+						<extensions>true</extensions>
+						<configuration>
+							<serverId>ossrh</serverId>
+							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 	</profiles>
 </project>
