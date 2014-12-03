@@ -18,13 +18,11 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:merge="http://maven.apache.org/plugin-merge"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:merge="http://maven.apache.org/plugin-merge" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.geodienstencentrum.maven</groupId>
 	<artifactId>sass-maven-plugin</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<packaging>maven-plugin</packaging>
 	<name>Sass Compiler Plugin</name>
 	<description>Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
@@ -51,7 +49,7 @@
 			<organizationUrl>http://www.geodienstencentrum.nl/</organizationUrl>
 		</developer>
 	</developers>
-	<contributors></contributors>
+	<contributors />
 	<mailingLists />
 	<prerequisites>
 		<maven>3.1</maven>
@@ -60,7 +58,8 @@
 		<connection>scm:git:git://github.com/GeoDienstenCentrum/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:GeoDienstenCentrum/${project.artifactId}.git</developerConnection>
 		<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
-	</scm>
+	  <tag>sass-maven-plugin-0.1</tag>
+  </scm>
 	<issueManagement>
 		<system>GitHub</system>
 		<url>https://github.com/GeoDienstenCentrum/${project.artifactId}/issues/</url>
@@ -360,7 +359,7 @@
 			<plugin>
 				<groupId>com.github.github</groupId>
 				<artifactId>site-maven-plugin</artifactId>
-				<version>0.11-SNAPSHOT</version>
+				<version>0.10</version>
 				<configuration>
 					<message>site update for version ${project.version} (rev. ${buildNumber})</message>
 					<password>${github.password}</password>
