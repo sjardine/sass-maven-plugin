@@ -1,0 +1,28 @@
+-classpath
+'C:/maven-repository/org/apache/maven/maven-model/3.2.3/maven-model-3.2.3.jar;C:/maven-repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.jar;C:/maven-repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar;C:/maven-repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar;C:/maven-repository/commons-io/commons-io/2.4/commons-io-2.4.jar;C:/maven-repository/javax/inject/javax.inject/1/javax.inject-1.jar;C:/maven-repository/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.jar;C:/maven-repository/org/jruby/jruby-complete/1.6.8/jruby-complete-1.6.8.jar;C:/maven-repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar;C:/maven-repository/org/codehaus/plexus/plexus-utils/3.0.17/plexus-utils-3.0.17.jar;C:/maven-repository/org/apache/maven/maven-plugin-api/3.2.3/maven-plugin-api-3.2.3.jar;C:/maven-repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar;C:/maven-repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar;C:/maven-repository/org/apache/maven/maven-artifact/3.2.3/maven-artifact-3.2.3.jar;C:/maven-repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M5/org.eclipse.sisu.plexus-0.0.0.M5.jar;C:/maven-repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar;C:/maven-repository/com/google/guava/guava/18.0/guava-18.0.jar'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'C:/workspace/sass-maven-plugin_GDC/src/main/java;C:/workspace/sass-maven-plugin_GDC/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2014 <a href="https://github.com/GeoDienstenCentrum">GeoDienstenCentrum</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/workspace/sass-maven-plugin_GDC/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Sass Compiler Plugin 0.1-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' 'C:/workspace/sass-maven-plugin_GDC/target/javadoc-bundle-options'
+-packagesheader
+'sass-maven-plugin'
+-tag
+"todo:a:To Do:"
+-use
+-version
+-windowtitle
+'Sass Compiler Plugin 0.1-SNAPSHOT API'
