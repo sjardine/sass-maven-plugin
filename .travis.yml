@@ -1,15 +1,32 @@
 language: java
 
-script: 
+before_install:
+  - unset GEM_PATH
+
+install:
+  # install without testing
+  - mvn install -Dmaven.test.skip=true -B -V -fae
+
+script:
+  # execute tests
   - mvn -e verify
 
 after_success:
-  - mvn clean test -Ptravis-ci jacoco:report coveralls:report
+  # generate code coverage report
+  - mvn -Ptravis-ci clean verify jacoco:report coveralls:report
 
 jdk:
   - openjdk7
   - oraclejdk7
   - oraclejdk8
 
+os:
+  - linux
+  # - osx
+
 matrix:
   fast_finish: true
+
+cache:
+  directories:
+  - cache

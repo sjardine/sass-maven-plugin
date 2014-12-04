@@ -33,7 +33,7 @@ import org.codehaus.plexus.util.StringUtils;
  */
 public class Resource {
 
-	/** Directories containing SASS files. */
+	/** Directories containing Sass files. */
 	protected FileSet source;
 
 	/**

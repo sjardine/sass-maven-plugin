@@ -1,0 +1,75 @@
+/*
+ * Copyright 2014 Mark Prins, GeoDienstenCentrum
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package nl.geodienstencentrum.maven.plugin.sass;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.File;
+
+import nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo;
+
+import org.apache.maven.plugin.testing.MojoRule;
+import org.apache.maven.plugin.testing.resources.TestResources;
+import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.Test;
+
+/**
+ * Testcase for {@link nl.geodienstencentrum.maven.plugin.sass.Resource }.
+ *
+ * @author Mark C. Prins
+ *
+ */
+public class ResourceTest {
+	/** Test resources. */
+	@Rule
+	public TestResources resources = new TestResources();
+
+	/** test rule. */
+	@Rule
+	public MojoRule rule = new MojoRule();
+
+	/**
+	 * Test method for
+	 * {@link nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations() }
+	 * .
+	 *
+	 * @throws Exception
+	 *             if any
+	 * @todo finish this test/implementation; right now it does nothing
+	 * @see nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations()
+	 */
+	@Test
+	@Ignore("needs more work")
+	public void testGetDirectoriesAndDestinations() throws Exception {
+		final File projectCopy = this.resources
+		        .getBasedir("maven-compass-resources-test");
+		final File pom = new File(projectCopy, "pom.xml");
+
+		assertNotNull("POM file should not be null.", pom);
+		assertTrue("POM file should exist as file.",
+		        pom.exists() && pom.isFile());
+
+		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
+		        .lookupMojo("update-stylesheets", pom);
+		assertNotNull(myMojo);
+
+		// directory should return ${basedir}/src/main/scss
+		// includes should return *.scss
+	}
+
+}

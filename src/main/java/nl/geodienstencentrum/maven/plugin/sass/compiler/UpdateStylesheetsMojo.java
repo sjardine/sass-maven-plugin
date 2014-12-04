@@ -33,11 +33,12 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "update-stylesheets", defaultPhase = PROCESS_SOURCES)
 public class UpdateStylesheetsMojo extends AbstractSassMojo {
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/**
+	 * Execute the compiler script.
+	 *
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
+	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		this.getLog().info("Compiling SASS Templates");
 
