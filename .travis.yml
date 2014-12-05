@@ -4,7 +4,7 @@ script:
   - mvn -e verify
 
 after_success:
-  - mvn clean test jacoco:report coveralls:report
+  - mvn clean test -Ptravis-ci jacoco:report coveralls:report
 
 jdk:
   - openjdk7
@@ -13,5 +13,3 @@ jdk:
 
 matrix:
   fast_finish: true
-  allow_failures:
-    - jdk: oraclejdk8
