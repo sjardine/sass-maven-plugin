@@ -3,7 +3,7 @@ sass-maven-plugin
 
 Maven Plugin to Compile Sass files into CSS.
 
-See here for more details: https://GeoDienstenCentrum.github.io/sass-maven-plugin/
+See here for more details: https://GeoDienstenCentrum.github.io/sass-maven-plugin/sass-maven-plugin/plugin-info.html
 
 [![Coverage Status](https://img.shields.io/coveralls/GeoDienstenCentrum/sass-maven-plugin.svg)](https://coveralls.io/r/GeoDienstenCentrum/sass-maven-plugin)
 
