@@ -47,11 +47,21 @@
 				href="${project.url}/doap_${project.artifactId}.rdf" type="application/rdf+xml" />
 		</head>
 		<links>
-			<!--item name="Travis CI dashboard" href="" / -->
 			<item name="Issues dashboard" href="${project.issueManagement.url}" />
 		</links>
 		<menu ref="parent" />
 		<menu ref="modules" />
 		<menu ref="reports" />
 	</body>
+	<poweredBy>
+		<logo href="https://coveralls.io/r/GeoDienstenCentrum/sass-maven-plugin"
+			img="https://img.shields.io/coveralls/GeoDienstenCentrum/sass-maven-plugin.svg" 
+			name="Coverage status" />
+		<logo href="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin"
+			img="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master" 
+			name="Build status" />
+		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
+			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
+			name="Maven Central" />
+	</poweredBy>
 </project>

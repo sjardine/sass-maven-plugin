@@ -1,6 +1,10 @@
 language: java
 
-script: mvn -e verify
+script: 
+  - mvn -e verify
+
+after_success:
+  - mvn clean test jacoco:report coveralls:report
 
 jdk:
   - openjdk7
