@@ -4,20 +4,20 @@
 'UTF-8'
 -protected
 -sourcepath
-'E:/workspace/sass-maven-plugin_GDC/src/main/java;E:/workspace/sass-maven-plugin_GDC/target/generated-sources/plugin;E:/workspace/sass-maven-plugin_GDC/target/generated-sources/annotations'
+'C:/workspace/sass-maven-plugin_GDC/target/checkout/src/main/java;C:/workspace/sass-maven-plugin_GDC/target/checkout/target/generated-sources/plugin;C:/workspace/sass-maven-plugin_GDC/target/checkout/target/generated-sources/annotations'
 -author
 -bottom
 'Copyright &#169; 2014 <a href="https://github.com/GeoDienstenCentrum">GeoDienstenCentrum</a>. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'E:/workspace/sass-maven-plugin_GDC/target/site/apidocs'
+'C:/workspace/sass-maven-plugin_GDC/target/checkout/target/site/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Sass Compiler Plugin 2.0-SNAPSHOT API'
+'Sass Compiler Plugin 2.0-RC2 API'
 -linkoffline
-'http://docs.oracle.com/javase/7/docs/api' 'E:/workspace/sass-maven-plugin_GDC/target/javadoc-bundle-options'
+'http://docs.oracle.com/javase/7/docs/api' 'C:/workspace/sass-maven-plugin_GDC/target/checkout/target/javadoc-bundle-options'
 -packagesheader
 'sass-maven-plugin'
 -tag
@@ -25,4 +25,4 @@
 -use
 -version
 -windowtitle
-'Sass Compiler Plugin 2.0-SNAPSHOT API'
+'Sass Compiler Plugin 2.0-RC2 API'
