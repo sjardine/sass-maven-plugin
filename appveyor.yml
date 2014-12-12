@@ -1,10 +1,8 @@
-# see: http://www.appveyor.com/docs/build-configuration
-
 init:
   - git config --global core.autocrlf true
   - git config --global core.safecrlf true
 
-clone_folder: c:\projects\sass-maven-plugin
+clone_folder: C:\projects\sass-maven-plugin
 
 # can't use shallow clone because we need to convert line endings in test expectations
 shallow_clone: false
@@ -21,8 +19,8 @@ install:
   - set PATH=%PATH%;C:\bin\apache-maven-3.2.3\bin
   - set MVN_VERSION=3.2.3
   - IF NOT exist "C:\bin\apache-maven-%MVN_VERSION%\bin\*.*" (echo Maven %MVN_VERSION% not installed, so install it & cinst maven -Version %MVN_VERSION%) ELSE (echo  Maven %MVN_VERSION% already installed)
-  - cd c:\projects\sass-maven-plugin
-  - mvn install -Dmaven.test.skip=true -B -V -fae -q -T2C
+  - cd C:\projects\sass-maven-plugin
+  - mvn install -Dmaven.test.skip=true -B -V -fae -q -T2
 
 build: off
 

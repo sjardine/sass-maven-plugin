@@ -82,6 +82,43 @@ public class UpdateStylesheetsMojoTest {
 	/**
 	 * Test method for
 	 * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute() }
+	 * . This tests a more complete example that produces two stylesheets.
+	 *
+	 * @throws Exception
+	 *             if any
+	 * @see nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute()
+	 */
+	@Test
+	public void testExecute2() throws Exception {
+		final File projectCopy = this.resources.getBasedir("complete-test");
+		final File pom = new File(projectCopy, "pom.xml");
+		assertNotNull("POM file should not be null.", pom);
+		assertTrue("POM file should exist as file.",
+				pom.exists() && pom.isFile());
+
+		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
+				.lookupConfiguredMojo(projectCopy, "update-stylesheets");
+		assertNotNull(myMojo);
+
+		// test if execution was succesful, if not fail
+		myMojo.execute();
+		TestResources.assertDirectoryContents(
+				new File(projectCopy.getAbsolutePath() + "/target/css/"),
+		        "compiled.css.map", "compiled.css", "print.css.map",
+		        "print.css");
+
+		// this may fail when line endings differ, eg. on Windows
+		// set up git to check out with native file endings
+		TestResources.assertFileContents(projectCopy, "expected_compiled.css",
+				"target/css/compiled.css");
+
+		TestResources.assertFileContents(projectCopy, "expected_print.css",
+				"target/css/print.css");
+	}
+
+	/**
+	 * Test method for
+	 * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute() }
 	 * on a misconfigured project.
 	 *
 	 * @throws Exception

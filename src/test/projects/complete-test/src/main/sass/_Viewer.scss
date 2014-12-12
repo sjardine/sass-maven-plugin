@@ -1,0 +1,88 @@
+/* css voor Viewer.js */
+
+#toggleSize {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	width: 21px;
+	height: 21px;
+	z-index: $z-MapControl;
+	display: block;
+	border: $ControlBorder;
+	&.max { /*max icon*/
+		background: url('../img/maxmin.png') no-repeat -21px 0;
+	}
+	&.restore { /*min icon*/
+		background: url('../img/maxmin.png') no-repeat 0 0;
+	}
+	&:focus, &:hover {
+		opacity: 0.8;
+	}
+}
+
+#toggleBaseMap {
+	position: absolute;
+	bottom: 150px;
+	/* afstand vanaf de rand van de kaart */
+	right: 10px;
+	@include border-radius(3px);
+	/* -right iets (2px) meer dan de breedte van de achtergrond sprite>40px */
+	padding: 2px 50px 2px 10px;
+	z-index: $z-MapControl;
+	line-height: 22px;
+	color: #fff;
+	font-size: 14px;
+	text-align: left;
+	text-decoration: none;
+	display: block;
+	border: $ControlBorder;
+	background-color: $BlueColour;
+	&:hover {
+		background-color: $BlueColourTransp;
+	}
+	background-repeat: no-repeat;
+	background-image: url('../img/lufotopo.png');
+	&.lufo { /*lufo icon*/
+		background-position: top right;
+	}
+	&.topo { /*kaart icon*/
+		background-position: right bottom;
+	}	
+}
+
+.transparantieslider {
+	position: absolute;
+	z-index: $z-MapControl;
+	top: 53px;
+	right: 55px;
+	@include border-radius(3px);
+	border:6px solid;
+	height:3px;
+	width: 200px;
+	line-height: 21px;
+	color: #fff;
+	background-color: #ececec;
+	display: block;
+}
+
+.transparantieslider .ui-slider-handle {
+	border: $ControlBorder;
+	background: $BlueColour;
+	padding: 3px;
+	top: -10px; /* border width times 2 */
+	font-size: 16px;
+	font-weight: normal;
+	color: #fff;
+	cursor:pointer;
+	outline: none;
+	@include border-radius(6px);
+	&:hover {
+		background-color: $BlueColourTransp;
+	}
+}
+
+.transparantieslider a {
+	text-align: center;
+	line-height: 1.2em;
+	text-decoration: none
+}
