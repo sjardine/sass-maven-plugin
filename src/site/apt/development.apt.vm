@@ -1,0 +1,61 @@
+	 -----
+	 Development 
+	 -----
+	 mprins
+	 -----
+
+Development
+
+%{toc|section=1|fromDepth=2|toDepth=2}
+
+* {Building from source}
+
+  * Check out the sourcecode
+
++----+
+git checkout ${project.scm.url} ${project.artifactId}
++----+  
+  
+  * build using Maven
+  
++----+
+cd ${project.artifactId}
+mvn install
++----+
+
+  []
+
+
+* {Code Conventions}
+
+  We use tabs.
+  
+* {Unit testing}
+
+  Please provide a unit or integration test with your pull request.
+
+* {Contributing}
+
+  Please read the {{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/blob/master/CONTRIBUTING.md} contributing}} 
+  document befor submitting a pull request. You may be required to sign the 
+  {{{https://www.clahub.com/agreements/GeoDienstenCentrum/sass-maven-plugin} Contributor License Agreement}} before
+  your contribution is merged.
+
+* {Creating Release}
+
+  Asuumeing the requirements for pushing to the OSRRH repository are set up, 
+  eg. account, gpg signature. use the following commands:
+  
++----+
+mvn clean release:clean release:prepare
+git push --tags
+mvn release:perform
+git push
++----+
+
+  Then deploy the site to github:
+  
++----+
+mvn site-deploy -Dgithub.username=<username> -Dgithub.password=<password>
++----+
+

@@ -25,7 +25,7 @@
 	<version>2.0-SNAPSHOT</version>
 	<packaging>maven-plugin</packaging>
 	<name>Sass Compiler Plugin</name>
-	<description>Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
+	<description>A Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
 	<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
 	<inceptionYear>2014</inceptionYear>
 	<organization>
@@ -47,6 +47,44 @@
 			<email>mprins@users.sf.net</email>
 			<organization>GeodienstenCentrum</organization>
 			<organizationUrl>http://www.geodienstencentrum.nl/</organizationUrl>
+		</developer>
+		<developer>
+			<id>apetro</id>
+			<name>Andrew Petro</name>
+			<email>andrew.w.petro@gmail.com</email>
+			<url>https://github.com/apetro</url>
+			<organization>Jasig</organization>
+		</developer>
+		<developer>
+			<id>RangerRick</id>
+			<name>Benjamin Reed</name>
+			<email>github@raccoonfink.com</email>
+			<url>https://github.com/RangerRick</url>
+			<organization>raccoonfink</organization>
+			<organizationUrl>http://www.raccoonfink.com/</organizationUrl>
+		</developer>
+		<developer>
+			<id>edalquist</id>
+			<name>Eric Dalquist</name>
+			<url>https://github.com/edalquist</url>
+			<organization>Jasig</organization>
+		</developer>
+		<developer>
+			<id>mmjmanders</id>
+			<name>Mark Manders</name>
+			<email>mmjmanders@gmail.com</email>
+			<url>https://github.com/mmjmanders</url>
+		</developer>
+		<developer>
+			<id>joepjoosten</id>
+			<name>Joep Joosten</name>
+			<url>https://github.com/mmjmanders</url>
+		</developer>
+		<developer>
+			<id>jwachter</id>
+			<name>Johannes Wachter</name>
+			<email>me@jwachter.de</email>
+			<url>https://www.jwachter.de</url>
 		</developer>
 	</developers>
 	<contributors />

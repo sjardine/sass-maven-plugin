@@ -72,6 +72,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *      &lt;/resource&gt;
 	 * </pre>
 	 *
+	 * @since 2.0
 	 */
 	@Parameter()
 	protected List<Resource> resources;
@@ -81,6 +82,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * download gems into ${project.build.directory}/rubygems and a gemPath
 	 * pointed to this directory. Finally, individual gems can be loaded via the
 	 * &lt;gems&gt; configuration.
+	 *
+	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/rubygems")
 	protected String[] gemPaths = new String[0];
@@ -89,18 +92,24 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Defines gems to be loaded before Sass/Compass. This is useful to add gems
 	 * with custom Sass functions or stylesheets. Gems that hook into Compass
 	 * are transparently added to Sass' load_path.
+	 *
+	 * @since 2.0
 	 */
 	@Parameter()
 	protected String[] gems = new String[0];
 
 	/**
 	 * Build directory for the plugin.
+	 *
+	 * @since 2.0
 	 */
 	@Parameter(property = "buildDirectory", defaultValue = "${project.build.directory}")
 	protected File buildDirectory;
 
 	/**
 	 * Fail the build if errors occur during compilation of sass/scss templates.
+	 *
+	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "true")
 	protected boolean failOnError;
@@ -121,6 +130,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * &lt;style&gt;:expanded&lt;/style&gt;
 	 * </pre>
 	 *
+	 * @since 2.0
 	 */
 	@Parameter
 	protected Map<String, String> sassOptions = new HashMap<String, String>(
@@ -129,6 +139,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 	/**
 	 * Enable the use of Compass style library mixins.
+	 *
+	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "false")
 	protected boolean useCompass;
@@ -136,6 +148,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * Directory containing SASS files, defaults to the Maven Web application
 	 * sources directory (src/main/sass).
+	 * 
+	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
 	protected File sassSourceDirectory;
@@ -144,6 +158,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Defines files in the source directories to include.
 	 *
 	 * Defaults to: {@code **&#47;scss}
+	 * 
+	 * @since 2.0
 	 */
 	@Parameter
 	protected String[] includes = new String[] { "**/scss" };
@@ -151,6 +167,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * Defines which of the included files in the source directories to exclude
 	 * (none by default).
+	 * 
+	 * @since 2.0
 	 */
 	@Parameter
 	protected String[] excludes;
@@ -160,12 +178,16 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * the SCSS file. Allows, for example
 	 * "/media/skins/universality/coal/scss/portal.scss" to end up at
 	 * "/media/skins/universality/coal/portal.css" by specifying ".."
+	 * 
+	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "..")
 	protected String relativeOutputDirectory;
 
 	/**
 	 * Where to put the compiled CSS files.
+	 * 
+	 * @since 2.0
 	 */
 	@Parameter(property = "destination", defaultValue = "${project.build.directory}/${project.build.finalName}/css")
 	protected File destination;
