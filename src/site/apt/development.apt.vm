@@ -28,7 +28,11 @@ mvn install
 
 * {Code Conventions}
 
+  We use tabs.
+  
 * {Unit testing}
+
+  Please provide a unit or integration test with your pull request.
 
 * {Contributing}
 
@@ -38,3 +42,20 @@ mvn install
   your contribution is merged.
 
 * {Creating Release}
+
+  Asuumeing the requirements for pushing to the OSRRH repository are set up, 
+  eg. account, gpg signature. use the following commands:
+  
++----+
+mvn clean release:clean release:prepare
+git push --tags
+mvn release:perform
+git push
++----+
+
+  Then deploy the site to github:
+  
++----+
+mvn site-deploy -Dgithub.username=<username> -Dgithub.password=<password>
++----+
+
