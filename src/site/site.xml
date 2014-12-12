@@ -48,7 +48,13 @@
 		</head>
 		<links>
 			<item name="Issues dashboard" href="${project.issueManagement.url}" />
+			<item name="Developer Notes" href="/development.html" />
 		</links>
+		<menu name="Information">
+			<item name="Home" href="/index.html" />
+			<item name="Usage" href="/plugin-info.html" />
+			<item name="Release notes" href="/releasenotes.html" />
+		</menu>
 		<menu ref="parent" />
 		<menu ref="modules" />
 		<menu ref="reports" />
@@ -59,7 +65,10 @@
 			name="Coverage status" />
 		<logo href="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin"
 			img="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master" 
-			name="Build status" />
+			name="Travis-CI Build status" />
+		<logo href="https://ci.appveyor.com/project/mprins/sass-maven-plugin"
+			img="https://ci.appveyor.com/api/projects/status/qxc604b7o0rwxsel?svg=true"
+			name="AppVeyor-CI Build status" />
 		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
 			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
 			name="Maven Central" />

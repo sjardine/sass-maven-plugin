@@ -1,0 +1,40 @@
+	 -----
+	 Development 
+	 -----
+	 mprins
+	 -----
+
+Development
+
+%{toc|section=1|fromDepth=2|toDepth=2}
+
+* {Building from source}
+
+  * Check out the sourcecode
+
++----+
+git checkout ${project.scm.url} ${project.artifactId}
++----+  
+  
+  * build using Maven
+  
++----+
+cd ${project.artifactId}
+mvn install
++----+
+
+  []
+
+
+* {Code Conventions}
+
+* {Unit testing}
+
+* {Contributing}
+
+  Please read the {{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/blob/master/CONTRIBUTING.md} contributing}} 
+  document befor submitting a pull request. You may be required to sign the 
+  {{{https://www.clahub.com/agreements/GeoDienstenCentrum/sass-maven-plugin} Contributor License Agreement}} before
+  your contribution is merged.
+
+* {Creating Release}

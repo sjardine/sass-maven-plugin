@@ -1,0 +1,37 @@
+	 -----
+	 Release notes 
+	 -----
+	 mprins
+	 -----
+	 12 dec  2014
+	 -----
+
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+
+${project.name} ${project.version} Release Notes
+
+  These are the release notes for ${project.name} version ${project.version}. 
+
+%{toc|section=1|fromDepth=2|toDepth=2}
+
+* ${project.version} Release Notes
+
+  A complete list of issues can be seen in the tracker 
+  {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone }}
+
+  Please check the {{{/dependencies.html#provided}dependencies}} to find out about the 
+  specific Sass and Compass gems included in this release 
+  
+** Enhancements
+
+  * 
+  
+  []
+  
+** New
+
+  * 
+  
+  []
+  
