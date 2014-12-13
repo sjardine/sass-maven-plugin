@@ -103,13 +103,6 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	protected String[] gems = new String[0];
 
 	/**
-	 * Directory containing SASS files, defaults to the Maven Web application
-	 * sources directory ${project.basedir}/src/main/sass}.
-	 */
-	@Parameter(defaultValue = "${project.basedir}/src/main/sass")
-	protected File sassSourceDirectory;
-
-	/**
 	 * Build directory for the plugin.
 	 *
 	 * @since 2.0
@@ -145,8 +138,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 */
 	@Parameter
 	protected Map<String, String> sassOptions = new HashMap<String, String>(
-			ImmutableMap.of("unix_newlines", "true", "cache", "true",
-					"always_update", "true", "style", ":expanded"));
+	        ImmutableMap.of("unix_newlines", "true", "cache", "true",
+	                "always_update", "true", "style", ":expanded"));
 
 	/**
 	 * Enable the use of Compass style library mixins.
@@ -157,9 +150,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	protected boolean useCompass;
 
 	/**
-	 * Directory containing SASS files, defaults to the Maven Web application
-	 * sources directory (src/main/sass).
-	 * 
+	 * Directory containing Sass files, defaults to the Maven Web application
+	 * sources directory (${basedir}/src/main/sass).
+	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
@@ -169,7 +162,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Defines files in the source directories to include.
 	 *
 	 * Defaults to: {@code **&#47;scss}
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	@Parameter
@@ -178,7 +171,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * Defines which of the included files in the source directories to exclude
 	 * (none by default).
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	@Parameter
@@ -189,7 +182,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * the SCSS file. Allows, for example
 	 * "/media/skins/universality/coal/scss/portal.scss" to end up at
 	 * "/media/skins/universality/coal/portal.css" by specifying ".."
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "..")
@@ -197,7 +190,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 	/**
 	 * Where to put the compiled CSS files.
-	 * 
+	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
@@ -214,7 +207,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *             the mojo failure exception
 	 */
 	protected void executeSassScript(String sassScript)
-			throws MojoExecutionException, MojoFailureException {
+	        throws MojoExecutionException, MojoFailureException {
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
 
@@ -225,15 +218,15 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		try {
 			final CompilerCallback compilerCallback = new CompilerCallback(log);
 			jruby.getBindings(ScriptContext.ENGINE_SCOPE).put(
-					"compiler_callback", compilerCallback);
+			        "compiler_callback", compilerCallback);
 			jruby.eval(sassScript);
 			if (this.failOnError && compilerCallback.hadError()) {
 				throw new MojoFailureException(
-						"SASS compilation encountered errors (see above for details).");
+				        "SASS compilation encountered errors (see above for details).");
 			}
 		} catch (final ScriptException e) {
 			throw new MojoExecutionException(
-					"Failed to execute SASS ruby script:\n" + sassScript, e);
+			        "Failed to execute SASS ruby script:\n" + sassScript, e);
 		}
 	}
 
@@ -246,7 +239,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *             the mojo execution exception
 	 */
 	protected void buildBasicSASSScript(final StringBuilder sassScript)
-			throws MojoExecutionException {
+	        throws MojoExecutionException {
 		final Log log = this.getLog();
 
 		sassScript.append("require 'rubygems'").append("\n");
@@ -283,9 +276,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			sassScript.append("require 'compass/core'").append("\n");
 			sassScript.append("require 'compass/import-once'").append("\n");
 			sassScript.append("Compass.add_project_configuration ")
-			.append("\n");
+			        .append("\n");
 			this.sassOptions.put("load_paths",
-					"Compass.configuration.sass_load_paths");
+			        "Compass.configuration.sass_load_paths");
 		}
 
 		// Get all template locations from resources and set option
@@ -294,32 +287,32 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		// "./public/stylesheets")
 		// remaining locations are added later with 'add_template_location'
 		final Iterator<Entry<String, String>> templateLocations = this
-				.getTemplateLocations();
+		        .getTemplateLocations();
 		if (templateLocations.hasNext()) {
 			final Entry<String, String> location = templateLocations.next();
 			this.sassOptions.put("template_location", "'" + location.getKey()
-					+ "'");
+			        + "'");
 			this.sassOptions.put("css_location", "'" + location.getValue()
-					+ "'");
+			        + "'");
 		}
 
 		// If not explicitly set place the cache location in the target dir
 		if (!this.sassOptions.containsKey("cache_location")) {
 			final File sassCacheDir = new File(this.buildDirectory,
-					"sass_cache");
+			        "sass_cache");
 			final String sassCacheDirStr = sassCacheDir.toString();
 			this.sassOptions
-			.put("cache_location",
-					"'"
-							+ FilenameUtils
-							.separatorsToUnix(sassCacheDirStr)
-							+ "'");
+			        .put("cache_location",
+			                "'"
+			                        + FilenameUtils
+			                                .separatorsToUnix(sassCacheDirStr)
+			                        + "'");
 		}
 
 		// Add the plugin configuration options
 		sassScript.append("Sass::Plugin.options.merge!(").append("\n");
 		for (final Iterator<Entry<String, String>> entryItr = this.sassOptions
-				.entrySet().iterator(); entryItr.hasNext();) {
+		        .entrySet().iterator(); entryItr.hasNext();) {
 			final Entry<String, String> optEntry = entryItr.next();
 			final String opt = optEntry.getKey();
 			final String value = optEntry.getValue();
@@ -336,26 +329,26 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		while (templateLocations.hasNext()) {
 			final Entry<String, String> location = templateLocations.next();
 			sassScript.append("Sass::Plugin.add_template_location('")
-			.append(location.getKey()).append("', '")
-			.append(location.getValue()).append("')").append("\n");
+			        .append(location.getKey()).append("', '")
+			        .append(location.getValue()).append("')").append("\n");
 		}
 
 		// set up sass compiler callback for reporting
 		sassScript
-		.append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }")
-		.append("\n");
+		        .append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }")
+		        .append("\n");
 		sassScript
-		.append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }")
-		.append("\n");
+		        .append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }")
+		        .append("\n");
 		sassScript
-		.append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }")
-		.append("\n");
+		        .append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }")
+		        .append("\n");
 		sassScript
-		.append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }")
-		.append("\n");
+		        .append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }")
+		        .append("\n");
 		sassScript
-		.append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }")
-		.append("\n");
+		        .append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }")
+		        .append("\n");
 
 		// make ruby give use some debugging info when requested
 		if (log.isDebugEnabled()) {
@@ -364,7 +357,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			if (this.useCompass) {
 				sassScript.append("pp Compass.base_directory").append("\n");
 				sassScript.append("pp Compass::Core.base_directory").append(
-						"\n");
+				        "\n");
 				sassScript.append("pp Compass::configuration").append("\n");
 			}
 		}
@@ -389,10 +382,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			if (this.sassSourceDirectory != null) {
 				log.info("" + this.sassSourceDirectory);
 				resource.source.setDirectory(this.sassSourceDirectory
-						.toString());
+				        .toString());
 			} else {
 				log.error("\"" + this.sassSourceDirectory
-						+ "\" is not a directory.");
+				        + "\" is not a directory.");
 				resource.source.setDirectory("./src/main/sass");
 			}
 			if (this.includes != null) {
@@ -411,9 +404,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		final List<Entry<String, String>> locations = new ArrayList<Entry<String, String>>();
 		for (final Resource source : _resources) {
 			for (final Entry<String, String> entry : source
-					.getDirectoriesAndDestinations().entrySet()) {
+			        .getDirectoriesAndDestinations().entrySet()) {
 				log.info("Queueing Sass template for compile: "
-						+ entry.getKey() + " => " + entry.getValue());
+				        + entry.getKey() + " => " + entry.getValue());
 				locations.add(entry);
 			}
 		}

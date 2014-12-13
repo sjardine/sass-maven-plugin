@@ -5,15 +5,15 @@ before_install:
 
 install:
   # install without testing
-  - mvn install -Dmaven.test.skip=true -B -V -fae
+  - mvn install -Dmaven.test.skip=true -B -V -fae -q
 
 script:
   # execute tests
-  - mvn -e verify
+  - mvn -e verify -B
 
 after_success:
   # generate code coverage report
-  - mvn -Ptravis-ci clean verify jacoco:report coveralls:report
+  - mvn -B -e -fae -Ptravis-ci clean verify jacoco:report coveralls:report
 
 jdk:
   - openjdk7
