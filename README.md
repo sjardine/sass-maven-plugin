@@ -9,4 +9,6 @@ See here for more details: https://GeoDienstenCentrum.github.io/sass-maven-plugi
 
 [![Build Status](https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master)](https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/qxc604b7o0rwxsel?svg=true)](https://ci.appveyor.com/project/mprins/sass-maven-plugin)
+
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/nl.geodienstencentrum.maven/sass-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/nl.geodienstencentrum.maven/sass-maven-plugin/)
