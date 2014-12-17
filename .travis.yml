@@ -1,11 +1,13 @@
 language: java
 
+sudo: false
+
 before_install:
   - unset GEM_PATH
 
 install:
   # install without testing
-  - mvn install -Dmaven.test.skip=true -B -V -fae -q
+  - mvn install -Dmaven.test.skip=true -B -V -fae -q -T2
 
 script:
   # execute tests
@@ -30,3 +32,4 @@ matrix:
 cache:
   directories:
   - cache
+  - $HOME/.m2
