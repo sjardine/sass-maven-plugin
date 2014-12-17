@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sass Compiler Plugin 2.0-RC2 API'
+'Sass Compiler Plugin 2.0 API'
 -linkoffline
 'http://docs.oracle.com/javase/7/docs/api' 'C:/workspace/sass-maven-plugin_GDC/target/checkout/target/javadoc-bundle-options'
 -packagesheader
@@ -25,4 +25,4 @@
 -use
 -version
 -windowtitle
-'Sass Compiler Plugin 2.0-RC2 API'
+'Sass Compiler Plugin 2.0 API'
