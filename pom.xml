@@ -551,7 +551,6 @@
 									<goal>prepare-agent</goal>
 								</goals>
 								<configuration>
-									<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
 									<propertyName>surefireArgLine</propertyName>
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
@@ -562,16 +561,40 @@
 								<id>pre-integration-test</id>
 								<phase>pre-integration-test</phase>
 								<goals>
-									<goal>prepare-agent</goal>
+									<goal>prepare-agent-integration</goal>
 								</goals>
 								<configuration>
-									<destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+								<append>true</append>
 									<propertyName>failsafeArgLine</propertyName>
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
 								</configuration>
 							</execution>
+							<execution>
+								<id>post-unit-test</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+								<configuration>
+									<includes>
+										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
+									</includes>
+								</configuration>
+							</execution>
+							<execution>
+								<id>post-integration-test</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>report-integration</goal>
+								</goals>
+								<configuration>
+									<includes>
+										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
+									</includes>
+								</configuration>
+							</execution>							
 						</executions>
 					</plugin>
 					<plugin>
@@ -580,8 +603,8 @@
 						<version>3.0.1</version>
 						<configuration>
 							<jacocoReports>
-								<file>${project.build.directory}/coverage-reports/jacoco-it.exec</file>
-								<file>${project.build.directory}/coverage-reports/jacoco-ut.exec</file>
+								<file>${project.build.directory}/site/jacoco/jacoco.xml</file>
+								<file>${project.build.directory}/site/jacoco-it/jacoco.xml</file>
 							</jacocoReports>
 							<repoToken>${repoToken}</repoToken>
 						</configuration>
