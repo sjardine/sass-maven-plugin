@@ -51,12 +51,11 @@ import com.google.common.collect.ImmutableMap;
 /**
  * Base for batching Sass Mojos.
  *
- * @todo most Parameters should be private
  */
 public abstract class AbstractSassMojo extends AbstractMojo {
 
 	/**
-	 * Sources for compilation with their destination directory containing SASS
+	 * Sources for compilation with their destination directory containing Sass
 	 * files. Allows for multiple resource sources and destinations. If
 	 * specified it precludes the direct specification of
 	 * sassSourceDirectory/relativeOutputDirectory/destination parameters.
@@ -79,7 +78,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter
-	protected List<Resource> resources = Collections.emptyList();
+	private List<Resource> resources = Collections.emptyList();
 
 	/**
 	 * Defines paths where jruby will look for gems. E.g. a maven build could
@@ -90,7 +89,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/rubygems")
-	protected String[] gemPaths = new String[0];
+	private String[] gemPaths = new String[0];
 
 	/**
 	 * Defines gems to be loaded before Sass/Compass. This is useful to add gems
@@ -100,7 +99,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter
-	protected String[] gems = new String[0];
+	private String[] gems = new String[0];
 
 	/**
 	 * Build directory for the plugin.
@@ -108,7 +107,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}")
-	protected File buildDirectory;
+	private File buildDirectory;
 
 	/**
 	 * Fail the build if errors occur during compilation of sass/scss templates.
@@ -116,7 +115,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "true")
-	protected boolean failOnError;
+	private boolean failOnError;
 
 	/**
 	 * Defines options for Sass::Plugin.options. See <a href=
@@ -137,7 +136,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter
-	protected Map<String, String> sassOptions = new HashMap<String, String>(
+	private Map<String, String> sassOptions = new HashMap<String, String>(
 	        ImmutableMap.of("unix_newlines", "true", "cache", "true",
 	                "always_update", "true", "style", ":expanded"));
 
@@ -147,7 +146,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "false")
-	protected boolean useCompass;
+	private boolean useCompass;
 
 	/**
 	 * Directory containing Sass files, defaults to the Maven Web application
@@ -156,7 +155,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
-	protected File sassSourceDirectory;
+	private File sassSourceDirectory;
 
 	/**
 	 * Defines files in the source directories to include.
@@ -166,7 +165,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter
-	protected String[] includes = new String[] { "**/scss" };
+	private String[] includes = new String[] { "**/scss" };
 
 	/**
 	 * Defines which of the included files in the source directories to exclude
@@ -175,7 +174,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter
-	protected String[] excludes;
+	private String[] excludes;
 
 	/**
 	 * Defines an additional path section when calculating the destination for
@@ -186,7 +185,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "..")
-	protected String relativeOutputDirectory;
+	private String relativeOutputDirectory;
 
 	/**
 	 * Where to put the compiled CSS files.
@@ -194,10 +193,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
-	protected File destination;
+	private File destination;
 
 	/**
-	 * Execute the SASS Compilation Ruby Script.
+	 * Execute the Sass Compilation Ruby Script.
 	 *
 	 * @param sassScript
 	 *            the sass script
@@ -211,7 +210,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
 
-		log.debug("Execute SASS Ruby Script:\n" + sassScript);
+		log.debug("Execute Sass Ruby script:\n" + sassScript);
 
 		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
 		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
@@ -222,11 +221,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			jruby.eval(sassScript);
 			if (this.failOnError && compilerCallback.hadError()) {
 				throw new MojoFailureException(
-				        "SASS compilation encountered errors (see above for details).");
+				        "Sass compilation encountered errors (see above for details).");
 			}
 		} catch (final ScriptException e) {
 			throw new MojoExecutionException(
-			        "Failed to execute SASS ruby script:\n" + sassScript, e);
+			        "Failed to execute Sass ruby script:\n" + sassScript, e);
 		}
 	}
 
@@ -238,7 +237,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @throws MojoExecutionException
 	 *             the mojo execution exception
 	 */
-	protected void buildBasicSASSScript(final StringBuilder sassScript)
+	protected void buildBasicSassScript(final StringBuilder sassScript)
 	        throws MojoExecutionException {
 		final Log log = this.getLog();
 
@@ -373,14 +372,15 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		List<Resource> _resources = this.resources;
 
 		if (_resources.isEmpty()) {
-			log.info("No resource was specified, using short configuration.");
+			log.info("No resource element was specified, using short configuration.");
 			// If no resources specified, create a resource based on the other
 			// parameters and defaults
 			final Resource resource = new Resource();
 			resource.source = new FileSet();
 
 			if (this.sassSourceDirectory != null) {
-				log.info("" + this.sassSourceDirectory);
+				log.debug("Setting source directory: "
+						+ this.sassSourceDirectory.toString());
 				resource.source.setDirectory(this.sassSourceDirectory
 				        .toString());
 			} else {
@@ -389,11 +389,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 				resource.source.setDirectory("./src/main/sass");
 			}
 			if (this.includes != null) {
-				log.info("Setting includes: " + this.includes);
+				log.debug("Setting includes: " + Arrays.toString(this.includes));
 				resource.source.setIncludes(Arrays.asList(this.includes));
 			}
 			if (this.excludes != null) {
-				log.info("Setting excludes: " + this.excludes);
+				log.debug("Setting excludes: " + Arrays.toString(this.excludes));
 				resource.source.setExcludes(Arrays.asList(this.excludes));
 			}
 			resource.relativeOutputDirectory = this.relativeOutputDirectory;

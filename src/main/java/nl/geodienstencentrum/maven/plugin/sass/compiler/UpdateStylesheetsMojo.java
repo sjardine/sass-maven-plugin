@@ -40,11 +40,11 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		this.getLog().info("Compiling SASS Templates");
+		this.getLog().info("Compiling Sass Templates");
 
 		// build sass script
 		final StringBuilder sassBuilder = new StringBuilder();
-		this.buildBasicSASSScript(sassBuilder);
+		this.buildBasicSassScript(sassBuilder);
 		sassBuilder.append("Sass::Plugin.update_stylesheets");
 		final String sassScript = sassBuilder.toString();
 

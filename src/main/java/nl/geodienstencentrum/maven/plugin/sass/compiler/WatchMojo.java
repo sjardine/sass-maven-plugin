@@ -36,11 +36,11 @@ public class WatchMojo extends AbstractSassMojo {
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		this.getLog().info("Watching SASS Templates");
+		this.getLog().info("Watching Sass Templates");
 
 		// build sass script
 		final StringBuilder sassBuilder = new StringBuilder();
-		this.buildBasicSASSScript(sassBuilder);
+		this.buildBasicSassScript(sassBuilder);
 		sassBuilder.append("Sass::Plugin.watch");
 		final String sassScript = sassBuilder.toString();
 

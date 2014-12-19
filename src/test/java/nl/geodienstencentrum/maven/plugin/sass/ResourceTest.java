@@ -15,16 +15,17 @@
  */
 package nl.geodienstencentrum.maven.plugin.sass;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.util.List;
 
 import nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo;
 
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -50,11 +51,9 @@ public class ResourceTest {
 	 *
 	 * @throws Exception
 	 *             if any
-	 * @todo finish this test/implementation; right now it does nothing
 	 * @see nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations()
 	 */
 	@Test
-	@Ignore("needs more work")
 	public void testGetDirectoriesAndDestinations() throws Exception {
 		final File projectCopy = this.resources
 		        .getBasedir("maven-compass-resources-test");
@@ -65,9 +64,15 @@ public class ResourceTest {
 		        pom.exists() && pom.isFile());
 
 		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
-		        .lookupMojo("update-stylesheets", pom);
+		        .lookupConfiguredMojo(projectCopy, "update-stylesheets");
 		assertNotNull(myMojo);
 
+		@SuppressWarnings("unchecked")
+		final List<Resource> reslist = (List<Resource>) this.rule
+		.getVariableValueFromObject(myMojo, "resources");
+		final Resource res = reslist.get(0);
+		assertEquals(projectCopy.getAbsolutePath() + "/src/main/scss",
+		        res.source.getDirectory());
 		// directory should return ${basedir}/src/main/scss
 		// includes should return *.scss
 	}
