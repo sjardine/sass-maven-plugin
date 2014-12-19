@@ -534,6 +534,10 @@
 		</profile>
 		<profile>
 			<id>travis-ci</id>
+			<properties>
+				<!-- should be environment provided -->
+				<repoToken />
+			</properties>
 			<build>
 				<plugins>
 					<plugin>
@@ -549,6 +553,9 @@
 								<configuration>
 									<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
 									<propertyName>surefireArgLine</propertyName>
+									<includes>
+										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
+									</includes>
 								</configuration>
 							</execution>
 							<execution>
@@ -560,6 +567,9 @@
 								<configuration>
 									<destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
 									<propertyName>failsafeArgLine</propertyName>
+									<includes>
+										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
+									</includes>
 								</configuration>
 							</execution>
 						</executions>
@@ -573,7 +583,7 @@
 								<file>${project.build.directory}/coverage-reports/jacoco-it.exec</file>
 								<file>${project.build.directory}/coverage-reports/jacoco-ut.exec</file>
 							</jacocoReports>
-							<repoToken>${repo_token}</repoToken>
+							<repoToken>${repoToken}</repoToken>
 						</configuration>
 					</plugin>
 				</plugins>
