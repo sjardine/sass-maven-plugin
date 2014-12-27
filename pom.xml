@@ -125,6 +125,7 @@
 		<sass.version>3.4.12</sass.version>
 		<jruby.version>1.7.19</jruby.version>
 		<maven.version>3.2.5</maven.version>
+		<scss-lint.version>0.34.0</scss-lint.version>
 		<debug>true</debug>
 		<github.username />
 		<github.password />
@@ -159,6 +160,13 @@
 			<groupId>rubygems</groupId>
 			<artifactId>sass</artifactId>
 			<version>${sass.version}</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency>
+		<dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>scss-lint</artifactId>
+			<version>${scss-lint.version}</version>
 			<scope>provided</scope>
 			<type>gem</type>
 		</dependency>
@@ -252,6 +260,10 @@
 						<!-- delimiter>${*}</delimiter -->
 						<delimiter>@</delimiter>
 					</delimiters>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>css</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>expected</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
 				</configuration>
 			</plugin>
 			<plugin>

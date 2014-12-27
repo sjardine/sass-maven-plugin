@@ -1,0 +1,16 @@
+/* veel gebruikte kleuren, oa. voor controls in de kaart.*/
+$BlueColour:			rgb(39, 29, 108);
+$BlueColourTransp:		rgba($BlueColour, 0.8);
+$BlueColourLighter:		lighten($BlueColour, 10%);
+$BlueColourDarker:		darken($BlueColour, 10%);
+$ErrorColor:			rgb(255, 0, 0);
+$ControlBorderColour:	rgb(170, 170, 170);
+
+/* control borders in de kaart */
+$ControlBorder: 1px solid $ControlBorderColour;
+
+/* z-indexes */
+$z-zoekContainer: 1060;
+$z-MapControl: 900;
+$z-OverviewMapMinimizeButton: $z-MapControl + 100;
+$z-Debug: 10000;

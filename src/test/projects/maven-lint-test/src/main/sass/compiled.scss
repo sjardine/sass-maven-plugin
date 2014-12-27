@@ -1,0 +1,20 @@
+/* Compass mixins */
+@import 'compass/css3';
+
+/* kleuren en instellingen */
+@import 'colours_and_vars';
+
+/* pagina en widget elementen, volgorde is belangrijk */
+@import 'layout';
+@import 'style';
+@import 'openlayers';
+@import 'Viewer';
+@import 'ZoekFormulier';
+@import 'OverviewMap';
+@import 'ZoomControl';
+@import 'skipLinks';
+@import 'Debug';
+@import 'Tooltip';
+@import 'siteMenu';
+@import 'mainMenu';
+@import 'CoreNavButtons';

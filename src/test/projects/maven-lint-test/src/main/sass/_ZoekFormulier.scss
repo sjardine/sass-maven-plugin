@@ -1,0 +1,183 @@
+/** styles voor het zoekformulier (zoekformulier.jsp en ZoekFormulier.js) */
+#zoekContainer {
+	background:url(../img/new/title-bg.png) no-repeat 0 0;
+	z-index: $z-zoekContainer;
+	width: 663px;
+	height:40px;
+	position:absolute;
+	top: 93px;
+	left: 0px;
+}
+
+#zoekContainer .zoekinput {
+	margin: 0;
+	padding: 0;
+}
+
+#zoekContainer label {
+	font-family: "SoHo Medium";
+	color: white;
+	font-size: 1.25em;
+	margin-right: 5px;
+	margin-top: 0px;
+	padding: 0;
+	vertical-align: middle;
+	line-height: 100%;
+}
+
+#zoekContainer input {
+	font-size:91.7%;
+	position:absolute;
+	right: 5px;
+}
+
+#zoekContainer label {
+	display: none;
+}
+
+#zoekContainer #adres {
+	width: 269px;
+	height: 23px;
+	border: none;
+	color:#555;
+	margin-left:-24px;
+	padding-left:9px;
+	position:absolute;
+	right:44px;
+	top:9px;
+	vertical-align:2px;
+}
+
+#zoekContainer #searchButton {
+	border: 0px;
+}
+
+.zoekinput div {
+	display: inline;
+}
+
+/** @override jquery-ui */
+.ui-autocomplete-loading {
+	background: #fff url('../img/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+
+/** @override jquery-ui */
+.ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: #fff;
+	opacity: 0.9;
+	border: $ControlBorder;
+	padding: 0;
+	z-index: $z-zoekContainer + 1 !important;
+}
+
+/** @override jquery-ui */
+.ui-menu .ui-menu-item {
+	margin: 0px;
+	padding: 5px;
+	width: 100%;
+	line-height: 100%;
+}
+
+/** @override jquery-ui */
+li.ui-menu-item {
+	border: 1px solid $BlueColour;
+}
+
+/** @override jquery-ui */
+li.ui-menu-item a {
+	display: block !important;
+}
+
+/**
+	dropdown adreskeuzelijst menu vars.
+*/
+$magicWidth: 560px;
+$magicOffscreenMargin: 32767px;
+$magicPadding: 5px;
+$magicLineHeight: 25px;
+
+#zoekresultaten {
+	position: absolute;
+	left: 341px;
+	top: 37px;
+	min-width: $magicWidth /2 ;
+	z-index: $z-zoekContainer * 2;
+	background: #fff;
+}
+
+.adreskeuze_wrapper {
+	position: relative; 
+	height: $magicLineHeight;
+}
+
+.adreskeuze {
+	position: absolute; 
+	z-index: 100;
+	line-height: $magicLineHeight;
+}
+
+ul.adreslijst {
+	padding: 0; 
+	margin: 0; 
+	list-style: none; 
+	overflow: hidden; 
+	float: left; 
+	margin-right: 1px;
+
+	& a {
+		text-decoration: none; 
+		color: $BlueColour; 
+		padding-left: $magicPadding;
+	}
+
+	& li.list {
+		float:left;
+		width: $magicWidth;
+		margin: -$magicOffscreenMargin $magicWidth/-2 0 0;
+	}
+}
+
+ul.adreslijst li.list a.selector {
+	position: relative;
+	z-index: 50;
+	display: block;
+	float: left;
+	width: $magicWidth/2 - $magicPadding;
+	margin-top: $magicOffscreenMargin;
+	background: transparent;
+
+	&:hover,
+	&:focus,
+	&:active {
+		margin-right: 1px;
+	}
+}
+
+ul.adressen {
+	float: left; 
+	padding: $magicLineHeight 0 0 0; 
+	margin: 0; 
+	list-style: none; 
+	margin: -$magicLineHeight 0 0 0;
+
+	& a:hover,
+	& a:focus,
+	& a:active {
+		background: $BlueColourDarker;
+		margin-right: 1px;
+		color: #fff;
+	}
+
+	& li a {
+		float: left;
+		width: $magicWidth/2 - $magicPadding;
+		clear: left;
+		// voor <ie9
+		background: $BlueColour;
+		background: $BlueColourTransp;
+		color: #fff;
+	}
+}
