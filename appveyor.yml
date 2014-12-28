@@ -9,7 +9,7 @@ clone_folder: c:\projects\sass-maven-plugin
 # can't use shallow clone because we need to convert line endings in test expectations
 shallow_clone: false
 
-version: "{build}"
+version: "{build} ({branch})"
 
 skip_tags: true
 
@@ -28,7 +28,7 @@ build: off
 
 test_script:
   - cd C:\projects\sass-maven-plugin
-  - mvn -e verify -fae
+  - mvn -e verify -fae -B
 
 environment:
   
