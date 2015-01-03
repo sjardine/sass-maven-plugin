@@ -562,6 +562,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -576,6 +579,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -588,6 +594,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -600,8 +609,11 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
-							</execution>							
+							</execution>
 						</executions>
 					</plugin>
 					<plugin>
