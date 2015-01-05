@@ -123,8 +123,8 @@
 		<project.build.targetVersion>1.7</project.build.targetVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<compass.version>1.0.1</compass.version>
-		<jruby.version>1.6.8</jruby.version>
-		<maven.version>3.2.3</maven.version>
+		<jruby.version>1.7.18</jruby.version>
+		<maven.version>3.2.5</maven.version>
 		<debug>true</debug>
 		<github.username />
 		<github.password />
@@ -140,7 +140,7 @@
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
-			<version>3.3</version>
+			<version>3.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -163,7 +163,7 @@
 		<dependency>
 			<groupId>org.apache.maven.plugin-testing</groupId>
 			<artifactId>maven-plugin-testing-harness</artifactId>
-			<version>3.2.0</version>
+			<version>3.3.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -178,6 +178,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>jrjackson</artifactId>
+			<version>0.2.8</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency -->
 		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
 			<artifactId>maven-verifier</artifactId>
@@ -198,6 +205,7 @@
 					<exclude>**/spec/**</exclude>
 					<exclude>**/test/**</exclude>
 					<exclude>**/examples/**</exclude>
+                                        <exclude>**/src/**</exclude>
 				</excludes>
 			</resource>
 		</resources>
@@ -555,6 +563,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -569,6 +580,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -581,6 +595,9 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -593,8 +610,11 @@
 									<includes>
 										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
 									</includes>
+									<excludes>
+										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
+									</excludes>
 								</configuration>
-							</execution>							
+							</execution>
 						</executions>
 					</plugin>
 					<plugin>

@@ -1,0 +1,84 @@
+/* veel gebruikte kleuren, oa. voor controls in de kaart.*/
+/* control borders in de kaart */
+/* z-indexes */
+/* niet af te drukken elementen en klassen. In essentie alle eyecandy, navigatie, hyperlinks etc. */
+#toggleSize,
+#toggleBaseMap,
+.olControlZoom,
+.ZoomControl,
+#zoekContainer,
+#naarCoreLink,
+#kaartnavi,
+.dropDownMenu,
+.utilBlock,
+#cbslogo,
+#downloadLink,
+#transparantie,
+.OverviewMap,
+#mainMenu,
+#siteMenu,
+.pagetitle,
+#activeerKeys,
+.debug,
+#footerWrapper,
+#skiplinks {
+  display: none;
+}
+
+/*reset accordion container, accordion content, label, body etc.*/
+.header,
+.headertop,
+body,
+.settingsPanel,
+.settingsContent,
+.menuAccordion,
+.titel,
+.subtitel {
+  width: auto;
+  height: auto;
+  line-height: 1;
+  position: static;
+  display: initial;
+}
+
+.titel,
+.subtitel {
+  top: 0;
+}
+
+#inhoud {
+  page-break-after: avoid;
+}
+
+/*table*/
+#attribuutTabel {
+  display: block !important;
+}
+
+#legenda {
+  display: block !important;
+}
+
+a:after {
+  content: " (" attr(href) ") ";
+  font-size: 8pt;
+}
+
+.settingsPanel a:after {
+  content: "";
+  font-size: 8pt;
+}
+
+#cbsKaart {
+  border: 1px solid #aaaaaa;
+}
+
+/* @media ( max-device-ratio : 1/1) /* portrait of vierkant */
+/* @media(min-device-ratio:1/1) /* landscape of vierkant */
+@page {
+  margin: 1cm;
+  orphans: 4;
+  widows: 2;
+}
+
+/*# sourceMappingURL=print.css.map */

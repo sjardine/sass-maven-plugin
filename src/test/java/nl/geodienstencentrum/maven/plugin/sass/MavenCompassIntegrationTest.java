@@ -40,14 +40,8 @@ public class MavenCompassIntegrationTest {
 	/** The test source directory. */
 	private File testDir;
 
-	/** The groupid of the test project. */
-	private final String GROUPID = "nl.geodienstencentrum.maven.sass-maven-plugin";
-
 	/** The artifactid of the test project. */
 	private final String ARTIFACTID = "maven-compass-test";
-
-	/** The version of the test project. */
-	private final String VERSION = "1.0";
 
 	/** The packaging of the test project. */
 	private final String PACKAGING = "war";
@@ -64,10 +58,10 @@ public class MavenCompassIntegrationTest {
 				this.getClass(), "/" + this.ARTIFACTID);
 
 		this.verifier = new Verifier(this.testDir.getAbsolutePath());
-		this.verifier.deleteArtifact(this.GROUPID, this.ARTIFACTID,
-				this.VERSION, this.PACKAGING);
-		verifier.setMavenDebug(true);
-		// verifier.setLocalRepo("C:/maven-repository");
+		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(), 
+			this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(), 
+			this.PACKAGING);
+		this.verifier.setMavenDebug(true);
 		this.verifier.executeGoal("compile");
 	}
 
@@ -96,7 +90,7 @@ public class MavenCompassIntegrationTest {
 
 		final String compiled = this.verifier.getBasedir() + File.separator
 				+ "target" + File.separator + this.ARTIFACTID + "-"
-				+ this.VERSION + File.separator + "css" + File.separator
+				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
 				+ "compiled.css";
 
 		this.verifier.assertFilePresent(compiled);
@@ -114,7 +108,7 @@ public class MavenCompassIntegrationTest {
 	public void testForSourceMap() {
 		final String compiledMap = this.verifier.getBasedir() + File.separator
 				+ "target" + File.separator + this.ARTIFACTID + "-"
-				+ this.VERSION + File.separator + "css" + File.separator
+				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
 				+ "compiled.css.map";
 
 		this.verifier.assertFilePresent(compiledMap);
