@@ -3,7 +3,7 @@ language: java
 sudo: false
 
 before_install:
-  - unset GEM_PATH
+#  - unset GEM_PATH
 
 install:
   # install without testing
