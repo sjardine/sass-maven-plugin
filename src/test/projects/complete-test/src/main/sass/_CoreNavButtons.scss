@@ -30,7 +30,7 @@
 
 	&:hover, 
 	&:active {
-		@include single-box-shadow($ControlBorderColour, 0, 2px, 0, 0, true);
+		@include single-box-shadow(0, 2px, 0, 0, $ControlBorderColour, true);
 		border: 1px solid darken($ControlBorderColour, 50%);;
 	}
 }
