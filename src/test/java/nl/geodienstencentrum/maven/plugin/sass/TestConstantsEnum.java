@@ -21,7 +21,7 @@ package nl.geodienstencentrum.maven.plugin.sass;
  * @author mark
  */
 public enum TestConstantsEnum {
-	/** The groupid of the test project. */
+	/** The groupId of the test project. */
 	TEST_GROUPID("nl.geodienstencentrum.maven.sass-maven-plugin"),
 	/** The version of the test project. */
 	TEST_VERSION("1.0");

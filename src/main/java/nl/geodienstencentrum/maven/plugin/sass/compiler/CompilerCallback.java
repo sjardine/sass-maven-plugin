@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
  * Copyright 2010-2014 Jasig.
  *
  * See the NOTICE file distributed with this work for additional information
@@ -83,7 +83,7 @@ public class CompilerCallback {
 	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_template_modified-instance_method">on_template_modified</a>
 	 */
 	public void templateModified(String template) {
-		this.log.info("Change File detected " + template);
+		this.log.info("File Change detected " + template);
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class CompilerCallback {
 	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_template_deleted-instance_method">on_template_deleted</a>
 	 */
 	public void templateDeleted(String template) {
-		this.log.info("Delete File detected " + template);
+		this.log.info("File Delete detected " + template);
 	}
 
 	/**

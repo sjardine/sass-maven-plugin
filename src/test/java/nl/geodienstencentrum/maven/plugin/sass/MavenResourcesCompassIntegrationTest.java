@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public class MavenResourcesCompassIntegrationTest {
 	/** The test source directory. */
 	private File testDir;
 
-	/** The artifactid of the test project. */
+	/** The artifactId of the test project. */
 	private final String ARTIFACTID = "maven-compass-resources-test";
 
 	/** The packaging of the test project. */
@@ -54,13 +54,12 @@ public class MavenResourcesCompassIntegrationTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.testDir = ResourceExtractor.simpleExtractResources(
-				this.getClass(), "/" + this.ARTIFACTID);
-
+		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(), 
+				"/" + this.ARTIFACTID);
 		this.verifier = new Verifier(this.testDir.getAbsolutePath());
 		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(), 
-			this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(), 
-			this.PACKAGING);
+				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(), 
+				this.PACKAGING);
 		this.verifier.setMavenDebug(true);
 		this.verifier.executeGoal("compile");
 	}
@@ -73,12 +72,11 @@ public class MavenResourcesCompassIntegrationTest {
 	 */
 	@Test
 	public void testErrorFree() throws Exception {
-		this.verifier.resetStreams();
 		this.verifier.verifyErrorFreeLog();
 	}
 
 	/**
-	 * test for equal-ness of result end is a result is actualy there.
+	 * test for equal-ness of result and if a result is actually there.
 	 *
 	 * @throws Exception
 	 *             the exception
@@ -87,16 +85,13 @@ public class MavenResourcesCompassIntegrationTest {
 	public void testCompareResults() throws Exception {
 		final File expected = new File(this.testDir.getAbsolutePath()
 				+ File.separator + "expected.css");
-
 		final String compiled = this.verifier.getBasedir() + File.separator
 				+ "target" + File.separator + this.ARTIFACTID + "-"
 				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
 				+ "compiled.css";
-
-		this.verifier.assertFilePresent(compiled);
-
 		final File actual = new File(compiled);
 
+		this.verifier.assertFilePresent(compiled);
 		assertTrue("Compiled output should be as expected.",
 				FileUtils.contentEqualsIgnoreEOL(expected, actual, "UTF-8"));
 	}
@@ -122,6 +117,8 @@ public class MavenResourcesCompassIntegrationTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		this.verifier.setMavenDebug(false);
 		this.verifier.executeGoal("clean");
+		this.verifier.resetStreams();
 	}
 }
