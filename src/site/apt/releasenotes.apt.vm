@@ -1,5 +1,5 @@
 	 -----
-	 Release notes 
+	 Release notes
 	 -----
 	 mprins
 	 -----
@@ -11,27 +11,40 @@
 
 ${project.name} ${project.version} Release Notes
 
-  These are the release notes for ${project.name} version ${project.version}. 
+  These are the release notes for ${project.name} version ${project.version}.
 
 %{toc|section=1|fromDepth=2|toDepth=2}
 
 * ${project.version} Release Notes
 
-  A complete list of issues can be seen in the tracker 
-  {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone }}
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
 
-  Please check the {{{/dependencies.html#provided}dependencies}} to find out about the 
-  specific Sass and Compass gems included in this release 
-  
+  Please check the {{{/dependencies.html#provided}dependencies}} to find out about the
+  specific Sass and Compass gems included in this release.
+
 ** Enhancements
 
-  * 
-  
+  * update JRuby to latest release (1.7.18)
+
   []
-  
+
 ** New
 
-  * 
-  
+  *
+
   []
-  
+
+
+* 2.0 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues?q=milestone%3A2.0d}milestone }}.
+
+** Enhancements
+
+  * update versions of Sass (3.4.9) and Compass (1.0.1)
+
+  * java version update
+
+  []
