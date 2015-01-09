@@ -83,17 +83,21 @@ public class WatchMojoTest {
 				}
 			}.start();
 			// wait for watcher to start up...
-			this.wait(5000);
+			System.out.println("[TEST] Waiting 15 sec.");
+			this.wait(15000);
 			// modify a file in the project
 			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"_colours.scss");
 			// wait for watcher to catch up...
-			this.wait(5000);
+			System.out.println("[TEST] Waiting 15 sec.");
+			this.wait(15000);
 			// modify another file in the project
 			TestResources.cp(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"compiled.scss", "print.scss");
 			// wait for watcher to catch up...
-			this.wait(5000);
+			System.out.println("[TEST] Waiting 15 sec.");
+			this.wait(15000);
+			this.notifyAll();
 
 			// done; lets check compilation results
 			TestResources.assertDirectoryContents(
