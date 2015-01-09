@@ -91,7 +91,7 @@ public class MavenCompassIntegrationTest {
 				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
 				+ "compiled.css";
 		final File actual = new File(compiled);
-                
+
 		this.verifier.assertFilePresent(compiled);
 		assertTrue("Compiled output should be as expected.",
 				FileUtils.contentEqualsIgnoreEOL(expected, actual, "UTF-8"));
@@ -108,7 +108,7 @@ public class MavenCompassIntegrationTest {
 				+ "compiled.css.map";
 
 		this.verifier.assertFilePresent(compiledMap);
-        }
+	}
 
 	/**
 	 *  reset after test.

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -56,15 +56,15 @@ public class ResourceTest {
 	@Test
 	public void testGetDirectoriesAndDestinations() throws Exception {
 		final File projectCopy = this.resources
-		        .getBasedir("maven-compass-resources-test");
+				.getBasedir("maven-compass-resources-test");
 		final File pom = new File(projectCopy, "pom.xml");
 
 		assertNotNull("POM file should not be null.", pom);
 		assertTrue("POM file should exist as file.",
-		        pom.exists() && pom.isFile());
+				pom.exists() && pom.isFile());
 
 		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
-		        .lookupConfiguredMojo(projectCopy, "update-stylesheets");
+				.lookupConfiguredMojo(projectCopy, "update-stylesheets");
 		assertNotNull(myMojo);
 
 		@SuppressWarnings("unchecked")
@@ -72,7 +72,7 @@ public class ResourceTest {
 		.getVariableValueFromObject(myMojo, "resources");
 		final Resource res = reslist.get(0);
 		assertEquals(projectCopy.getAbsolutePath() + "/src/main/scss",
-		        res.source.getDirectory());
+				res.source.getDirectory());
 		// directory should return ${basedir}/src/main/scss
 		// includes should return *.scss
 	}

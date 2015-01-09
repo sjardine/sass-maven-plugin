@@ -19,11 +19,11 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -89,14 +89,14 @@ public class WatchMojoTest {
 			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"_colours.scss");
 			// wait for watcher to catch up...
-			System.out.println("[TEST] Waiting 15 sec.");
-			this.wait(15000);
+			System.out.println("[TEST] Waiting 30 sec.");
+			this.wait(30000);
 			// modify another file in the project
 			TestResources.cp(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"compiled.scss", "print.scss");
 			// wait for watcher to catch up...
-			System.out.println("[TEST] Waiting 15 sec.");
-			this.wait(15000);
+			System.out.println("[TEST] Waiting 30 sec.");
+			this.wait(30000);
 			this.notifyAll();
 
 			// done; lets check compilation results

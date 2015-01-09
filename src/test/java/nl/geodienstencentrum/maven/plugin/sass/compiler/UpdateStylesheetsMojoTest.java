@@ -103,8 +103,8 @@ public class UpdateStylesheetsMojoTest {
 		myMojo.execute();
 		TestResources.assertDirectoryContents(
 				new File(projectCopy.getAbsolutePath() + "/target/css/"),
-		        "compiled.css.map", "compiled.css", "print.css.map",
-		        "print.css");
+					"compiled.css.map", "compiled.css", "print.css.map",
+					"print.css");
 
 		// this may fail when line endings differ, eg. on Windows
 		// set up git to check out with native file endings
