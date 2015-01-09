@@ -15,30 +15,35 @@
  */
 package nl.geodienstencentrum.maven.plugin.sass.compiler;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
 /**
  * Testcase for
- * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.WatchMojo }
- * .
+ * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.WatchMojo }.
  *
  * @author Mark C. Prins
  */
 public class WatchMojoTest {
-	/** Test resources. */
+
+	/**
+	 * Test resources.
+	 */
 	@Rule
 	public TestResources resources = new TestResources();
 
-	/** test rule. */
+	/**
+	 * test rule.
+	 */
 	@Rule
 	public MojoRule rule = new MojoRule();
 
@@ -47,13 +52,12 @@ public class WatchMojoTest {
 	 * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.WatchMojo#execute() }
 	 * .
 	 *
-	 * @throws Exception
-	 *             if any
+	 * @throws Exception if any
 	 * @see nl.geodienstencentrum.maven.plugin.sass.compiler.WatchMojo#execute()
 	 */
 	@Test
-	@Ignore("TODO finish implementation")
 	public void testExecute() throws Exception {
+
 		// setup mojo and start execution
 		final File projectCopy = this.resources
 				.getBasedir("maven-compass-test");
@@ -64,36 +68,43 @@ public class WatchMojoTest {
 
 		final WatchMojo myMojo = (WatchMojo) this.rule
 				.lookupConfiguredMojo(projectCopy, "watch");
-		assertNotNull(myMojo);
-
-		Thread executor = new Thread("sassWatcher"){
-			@Override
-			public void run(){
-				try{
-					myMojo.execute();
-				} catch (MojoExecutionException | MojoFailureException e){
-					org.junit.Assert.fail("Execution failed: " + e);
-                                        this.interrupt();
+		assertNotNull("the 'watch' mojo should exist", myMojo);
+		// start 'watch'ing
+		synchronized (this) {
+			new Thread("sassWatcher") {
+				@Override
+				public void run() {
+					try {
+						myMojo.execute();
+					} catch (MojoExecutionException | MojoFailureException e) {
+						org.junit.Assert.fail("Execution failed: " + e);
+						this.interrupt();
+					}
 				}
-			}
-		};
-		executor.start();
+			}.start();
+			// wait for watcher to start up...
+			this.wait(5000);
+			// modify a file in the project
+			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
+					"_colours.scss");
+			// wait for watcher to catch up...
+			this.wait(5000);
+			// modify another file in the project
+			TestResources.cp(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
+					"compiled.scss", "print.scss");
+			// wait for watcher to catch up...
+			this.wait(5000);
 
-		// modify a file in the project
-		TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/", "_colours.scss"));
-
-		// check for update message in log
-		
-		// quit watching
-		executor.interrupt();
-		// check results
-		TestResources.assertDirectoryContents(
-				new File(projectCopy.getAbsolutePath() + "/target/css/"),
-		        "compiled.css.map", "compiled.css", "print.css.map",
-		        "print.css");
-		// this may fail when line endings differ, eg. on Windows
-		// set up git to check out with native file endings
-		TestResources.assertFileContents(projectCopy, "expected.css",
-				"target/maven-compass-test-1.0/css/compiled.css");
+			// done; lets check compilation results
+			TestResources.assertDirectoryContents(
+					new File(projectCopy.getAbsolutePath() + "/target/maven-compass-test-1.0/css/"),
+					"compiled.css.map", "compiled.css", "print.css.map", "print.css");
+			// this may fail when line endings differ, eg. on Windows
+			// set up git to check out with native file endings
+			TestResources.assertFileContents(projectCopy, "expected.css",
+					"target/maven-compass-test-1.0/css/compiled.css");
+			TestResources.assertFileContents(projectCopy, "print.css",
+					"target/maven-compass-test-1.0/css/print.css");
+		}
 	}
 }
