@@ -26,7 +26,7 @@ build: off
 
 test_script:
   - cd C:\projects\sass-maven-plugin
-  - mvn -e test -fae -B
+  - mvn -e -DWatchMojoTest.sleeptime=25000 test -fae -B
 
 environment:
   
@@ -40,6 +40,5 @@ matrix:
   fast_finish: true
 
 cache:
-  - cache
-  - C:\bin\apache-maven-3.2.5
+  - C:\bin\apache-maven-%MVN_VERSION%
   - C:\Users\appveyor\.m2\repository

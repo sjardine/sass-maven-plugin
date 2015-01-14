@@ -24,6 +24,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -46,6 +47,21 @@ public class WatchMojoTest {
 	 */
 	@Rule
 	public MojoRule rule = new MojoRule();
+
+	/** sleep time for the watcher. */
+	private static long SLEEP_TIME;
+
+	@BeforeClass
+	public static void readEnvironment() {
+		try {
+			SLEEP_TIME = Long.parseLong(System.getProperty("WatchMojoTest.sleeptime"));
+			if (SLEEP_TIME < 15000) {
+				SLEEP_TIME = 15000;
+			}
+		} catch (NumberFormatException e) {
+			SLEEP_TIME = 15000;
+		}
+	}
 
 	/**
 	 * Test method for
@@ -83,20 +99,20 @@ public class WatchMojoTest {
 				}
 			}.start();
 			// wait for watcher to start up...
-			System.out.println("[TEST] Waiting 15 sec.");
-			this.wait(15000);
+			System.out.println("[TEST] Waiting " + SLEEP_TIME / 1000 + " sec.");
+			this.wait(SLEEP_TIME);
 			// modify a file in the project
 			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"_colours.scss");
 			// wait for watcher to catch up...
-			System.out.println("[TEST] Waiting 30 sec.");
-			this.wait(30000);
+			System.out.println("[TEST] Waiting " + SLEEP_TIME * 2 / 1000 + " sec.");
+			this.wait(SLEEP_TIME * 2);
 			// modify another file in the project
 			TestResources.cp(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"compiled.scss", "print.scss");
 			// wait for watcher to catch up...
-			System.out.println("[TEST] Waiting 30 sec.");
-			this.wait(30000);
+			System.out.println("[TEST] Waiting " + SLEEP_TIME * 2 / 1000 + " sec.");
+			this.wait(SLEEP_TIME * 2);
 			this.notifyAll();
 
 			// done; lets check compilation results
