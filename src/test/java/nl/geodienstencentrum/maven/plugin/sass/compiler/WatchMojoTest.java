@@ -102,12 +102,14 @@ public class WatchMojoTest {
 			System.out.println("[TEST] Waiting " + SLEEP_TIME / 1000 + " sec.");
 			this.wait(SLEEP_TIME);
 			// modify a file in the project
+            System.out.println("[TEST] Modify (touch) '_colours.scss'.");
 			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"_colours.scss");
 			// wait for watcher to catch up...
 			System.out.println("[TEST] Waiting " + SLEEP_TIME * 2 / 1000 + " sec.");
 			this.wait(SLEEP_TIME * 2);
 			// modify another file in the project
+            System.out.println("[TEST] Create 'print.scss'.");
 			TestResources.cp(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"compiled.scss", "print.scss");
 			// wait for watcher to catch up...

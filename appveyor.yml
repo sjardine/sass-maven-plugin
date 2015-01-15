@@ -26,10 +26,10 @@ build: off
 
 test_script:
   - cd C:\projects\sass-maven-plugin
-  - mvn -e -DWatchMojoTest.sleeptime=25000 test -fae -B
+  - mvn -e -DWatchMojoTest.sleeptime=30000 test -fae -B
 
 environment:
-  
+
   matrix:
     - myEnv: JDK7
       JAVA_HOME: C:\Program Files\Java\jdk1.7.0
