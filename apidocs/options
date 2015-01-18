@@ -1,23 +1,37 @@
 -classpath
-'C:/maven-repository/org/apache/maven/maven-model/3.2.3/maven-model-3.2.3.jar;C:/maven-repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.3/maven-plugin-annotations-3.3.jar;C:/maven-repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M5/org.eclipse.sisu.inject-0.0.0.M5.jar;C:/maven-repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar;C:/maven-repository/commons-io/commons-io/2.4/commons-io-2.4.jar;C:/maven-repository/javax/inject/javax.inject/1/javax.inject-1.jar;C:/maven-repository/org/codehaus/plexus/plexus-classworlds/2.4/plexus-classworlds-2.4.jar;C:/maven-repository/org/jruby/jruby-complete/1.6.8/jruby-complete-1.6.8.jar;C:/maven-repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar;C:/maven-repository/org/codehaus/plexus/plexus-utils/3.0.17/plexus-utils-3.0.17.jar;C:/maven-repository/org/apache/maven/maven-plugin-api/3.2.3/maven-plugin-api-3.2.3.jar;C:/maven-repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar;C:/maven-repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar;C:/maven-repository/org/apache/maven/maven-artifact/3.2.3/maven-artifact-3.2.3.jar;C:/maven-repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M5/org.eclipse.sisu.plexus-0.0.0.M5.jar;C:/maven-repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar;C:/maven-repository/com/google/guava/guava/18.0/guava-18.0.jar'
+'/var/tmp/maven-repo/org/apache/maven/maven-core/3.2.5/maven-core-3.2.5.jar:/var/tmp/maven-repo/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar:/var/tmp/maven-repo/org/apache/maven/maven-model-builder/3.2.5/maven-model-builder-3.2.5.jar:/var/tmp/maven-repo/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0.M1/org.eclipse.sisu.plexus-0.3.0.M1.jar:/var/tmp/maven-repo/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/var/tmp/maven-repo/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/var/tmp/maven-repo/org/eclipse/aether/aether-impl/1.0.0.v20140518/aether-impl-1.0.0.v20140518.jar:/var/tmp/maven-repo/org/apache/maven/maven-settings/3.2.5/maven-settings-3.2.5.jar:/var/tmp/maven-repo/commons-io/commons-io/2.4/commons-io-2.4.jar:/var/tmp/maven-repo/org/apache/maven/maven-artifact/3.2.5/maven-artifact-3.2.5.jar:/var/tmp/maven-repo/com/google/guava/guava/16.0.1/guava-16.0.1.jar:/var/tmp/maven-repo/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar:/var/tmp/maven-repo/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar:/var/tmp/maven-repo/org/apache/maven/maven-model/3.2.5/maven-model-3.2.5.jar:/var/tmp/maven-repo/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar:/var/tmp/maven-repo/org/sonatype/sisu/sisu-guice/3.2.3/sisu-guice-3.2.3-no_aop.jar:/var/tmp/maven-repo/org/apache/maven/maven-aether-provider/3.2.5/maven-aether-provider-3.2.5.jar:/var/tmp/maven-repo/org/apache/maven/maven-settings-builder/3.2.5/maven-settings-builder-3.2.5.jar:/var/tmp/maven-repo/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar:/var/tmp/maven-repo/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0.M1/org.eclipse.sisu.inject-0.3.0.M1.jar:/var/tmp/maven-repo/org/apache/maven/maven-repository-metadata/3.2.5/maven-repository-metadata-3.2.5.jar:/var/tmp/maven-repo/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/var/tmp/maven-repo/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar:/var/tmp/maven-repo/org/jruby/jruby-complete/1.7.18/jruby-complete-1.7.18.jar:/var/tmp/maven-repo/javax/inject/javax.inject/1/javax.inject-1.jar:/var/tmp/maven-repo/org/apache/maven/maven-plugin-api/3.2.5/maven-plugin-api-3.2.5.jar:/var/tmp/maven-repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/var/tmp/maven-repo/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar:/var/tmp/maven-repo/org/apache/maven/plugin-tools/maven-plugin-annotations/3.4/maven-plugin-annotations-3.4.jar:/var/tmp/maven-repo/org/eclipse/aether/aether-spi/1.0.0.v20140518/aether-spi-1.0.0.v20140518.jar'
 -encoding
 'UTF-8'
 -protected
 -sourcepath
-'C:/workspace/sass-maven-plugin_GDC/target/checkout/src/main/java;C:/workspace/sass-maven-plugin_GDC/target/checkout/target/generated-sources/plugin;C:/workspace/sass-maven-plugin_GDC/target/checkout/target/generated-sources/annotations'
+'/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java:/home/mprins/workspace/sass-maven-plugin/target/checkout/target/generated-sources/plugin:/home/mprins/workspace/sass-maven-plugin/target/checkout/target/generated-sources/annotations'
 -author
 -bottom
-'Copyright &#169; 2014 <a href="https://github.com/GeoDienstenCentrum">GeoDienstenCentrum</a>. All rights reserved.'
+'Copyright &#169; 2014&#x2013;2015 <a href="https://github.com/GeoDienstenCentrum">GeoDienstenCentrum</a>. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'C:/workspace/sass-maven-plugin_GDC/target/checkout/target/site/apidocs'
+'/home/mprins/workspace/sass-maven-plugin/target/checkout/target/site/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'Sass Compiler Plugin 2.0 API'
+'Sass Compiler Plugin 2.1-RC2 API'
+-link
+'http://maven.apache.org/ref/3.2.5/maven-core/apidocs'
+-link
+'http://maven.apache.org/plugin-tools/maven-plugin-annotations/apidocs'
+-link
+'http://commons.apache.org/io/apidocs'
+-link
+'http://maven.apache.org/plugin-testing/maven-plugin-testing-harness/apidocs'
+-link
+'http://maven.apache.org/ref/3.2.5/maven-compat/apidocs'
+-link
+'http://junit.org/apidocs'
+-link
+'http://maven.apache.org/shared/maven-verifier/apidocs'
 -linkoffline
-'http://docs.oracle.com/javase/7/docs/api' 'C:/workspace/sass-maven-plugin_GDC/target/checkout/target/javadoc-bundle-options'
+'http://docs.oracle.com/javase/7/docs/api' '/home/mprins/workspace/sass-maven-plugin/target/checkout/target/javadoc-bundle-options'
 -packagesheader
 'sass-maven-plugin'
 -tag
@@ -25,4 +39,4 @@
 -use
 -version
 -windowtitle
-'Sass Compiler Plugin 2.0 API'
+'Sass Compiler Plugin 2.1-RC2 API'
