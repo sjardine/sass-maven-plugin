@@ -8,6 +8,7 @@
 
 ~~ http://maven.apache.org/doxia/references/apt-format.html
 
+~~ note that we're using eg. ${project.properties.get("jruby.version")} to work around a limitation getting pom properties with a dot.
 
 ${project.name} ${project.version} Release Notes
 
@@ -20,12 +21,15 @@ ${project.name} ${project.version} Release Notes
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
 
-  Please check the {{{/dependencies.html#provided}dependencies}} to find out about the
-  specific Sass and Compass gems included in this release.
+  This release features Compass version ${project.properties.get("compass.version")} running on JRuby ${project.properties.get("jruby.version")}.
+  Please check the {{{/dependencies.html#provided}full dependencies}} to find out about the
+  specific Sass and other transitive dependncies included in this release.
 
 ** Enhancements
 
-  * update JRuby to latest release (1.7.18)
+  * update JRuby to latest release (${project.properties.get("jruby.version")})
+
+  * update Compass (${project.properties.get("compass.version")}) and Sass to latest release
 
   []
 

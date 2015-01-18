@@ -120,7 +120,7 @@
 		<project.build.sourceVersion>1.7</project.build.sourceVersion>
 		<project.build.targetVersion>1.7</project.build.targetVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<compass.version>1.0.1</compass.version>
+		<compass.version>1.0.3</compass.version>
 		<jruby.version>1.7.18</jruby.version>
 		<maven.version>3.2.5</maven.version>
 		<debug>true</debug>
