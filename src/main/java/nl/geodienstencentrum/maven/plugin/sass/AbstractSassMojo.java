@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
  * Copyright 2010-2014 Jasig.
  *
  * See the NOTICE file distributed with this work for additional information
@@ -45,7 +45,6 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Parameter;
 
 import com.google.common.collect.ImmutableList;
-//import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 
 /**
@@ -196,6 +195,16 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	private File destination;
 
 	/**
+	 * Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.
+	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} <em>(default)</em> or 
+	 * {@code 2.0} <em>(experimental)</em>.
+	 *
+	 * @since 2.1
+	 */
+	@Parameter(defaultValue = "1.9")
+	private Float rubyVersion;
+	
+	/**
 	 * Execute the Sass Compilation Ruby Script.
 	 *
 	 * @param sassScript
@@ -209,9 +218,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	        throws MojoExecutionException, MojoFailureException {
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
+		System.setProperty("org.jruby.embed.compat.version", String.format("ruby%2.0f", rubyVersion*10));
+		log.debug("Setting 'org.jruby.embed.compat.version' to: " + String.format("ruby%2.0f", rubyVersion*10));
 
-		log.debug("Execute Sass Ruby script:\n" + sassScript);
-
+		log.debug("Execute Sass Ruby script:\n\n" + sassScript);
 		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
 		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
 		try {
@@ -227,6 +237,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			throw new MojoExecutionException(
 			        "Failed to execute Sass ruby script:\n" + sassScript, e);
 		}
+		log.debug("\n");
 	}
 
 	/**
@@ -289,10 +300,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		        .getTemplateLocations();
 		if (templateLocations.hasNext()) {
 			final Entry<String, String> location = templateLocations.next();
-			this.sassOptions.put("template_location", "'" + location.getKey()
-			        + "'");
-			this.sassOptions.put("css_location", "'" + location.getValue()
-			        + "'");
+			this.sassOptions.put("template_location", 
+			                     "'" + location.getKey() + "'");
+			this.sassOptions.put("css_location", 
+			                     "'" + location.getValue() + "'");
 		}
 
 		// If not explicitly set place the cache location in the target dir
@@ -300,12 +311,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			final File sassCacheDir = new File(this.buildDirectory,
 			        "sass_cache");
 			final String sassCacheDirStr = sassCacheDir.toString();
-			this.sassOptions
-			        .put("cache_location",
-			                "'"
-			                        + FilenameUtils
-			                                .separatorsToUnix(sassCacheDirStr)
-			                        + "'");
+			this.sassOptions.put("cache_location",
+			        "'" + FilenameUtils.separatorsToUnix(sassCacheDirStr) + "'");
 		}
 
 		// Add the plugin configuration options
@@ -355,8 +362,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			sassScript.append("pp Sass::Plugin.options").append("\n");
 			if (this.useCompass) {
 				sassScript.append("pp Compass.base_directory").append("\n");
-				sassScript.append("pp Compass::Core.base_directory").append(
-				        "\n");
+				sassScript.append("pp Compass::Core.base_directory").append("\n");
 				sassScript.append("pp Compass::configuration").append("\n");
 			}
 		}
