@@ -17,10 +17,10 @@ after_success:
   # generate code coverage report
   - mvn -B -e -fae -Ptravis-ci clean verify jacoco:report coveralls:report
 
-jdk:
-  - openjdk7
-  - oraclejdk7
-  - oraclejdk8
+#jdk:
+#  - openjdk7
+#  - oraclejdk7
+#  - oraclejdk8
 
 os:
   - linux
