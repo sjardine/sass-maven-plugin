@@ -49,19 +49,21 @@ public class HelpMojoTest {
 	/**
 	 * Test method for
 	 * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo#execute() }
-	 * .
+	 * , it tests execution.
 	 *
 	 * @throws Exception if any
 	 */
 	@Test
 	public void testExecute() throws Exception {
-	final File projectCopy = this.resources
-		.getBasedir("maven-compass-test");
-	final File pom = new File(projectCopy, "pom.xml");
-	final HelpMojo myMojo = (HelpMojo) this.rule.lookupEmptyMojo("help", pom);
-	assertNotNull("POM file should not be null.", pom);
-	assertTrue("POM file should exist as file.",
-		pom.exists() && pom.isFile());
-	assertNotNull("The 'help' mojo should exist", myMojo);
+		final File projectCopy = this.resources.getBasedir("maven-compass-test");
+		final File pom = new File(projectCopy, "pom.xml");
+		final HelpMojo myMojo = (HelpMojo) this.rule.lookupEmptyMojo("help", pom);
+		assertNotNull("POM file should not be null.", pom);
+		assertTrue("POM file should exist as file.",pom.exists() && pom.isFile());
+		assertNotNull("The 'help' mojo should exist", myMojo);
+		// set -Ddetail=true
+		rule.setVariableValueToObject(myMojo, "detail", true);
+		// should execute and not error
+		myMojo.execute();
 	}
 }
