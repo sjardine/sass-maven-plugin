@@ -120,6 +120,7 @@
 		<project.build.sourceVersion>1.7</project.build.sourceVersion>
 		<project.build.targetVersion>1.7</project.build.targetVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
 		<jruby.version>1.7.19</jruby.version>
 		<maven.version>3.2.5</maven.version>
@@ -236,7 +237,7 @@
 				<!-- Downloads and installs the required Ruby Gems -->
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
-				<version>1.0.7</version>
+				<version>1.0.8</version>
 				<executions>
 					<execution>
 						<id>install-gems</id>
@@ -382,7 +383,7 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>2.7</version>
+							<version>2.8</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -560,12 +561,7 @@
 								</goals>
 								<configuration>
 									<propertyName>surefireArgLine</propertyName>
-									<includes>
-										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
-									</includes>
-									<excludes>
-										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
-									</excludes>
+									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 							<execution>
@@ -577,12 +573,7 @@
 								<configuration>
 								<append>true</append>
 									<propertyName>failsafeArgLine</propertyName>
-									<includes>
-										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
-									</includes>
-									<excludes>
-										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
-									</excludes>
+									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 							<execution>
@@ -592,12 +583,7 @@
 									<goal>report</goal>
 								</goals>
 								<configuration>
-									<includes>
-										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
-									</includes>
-									<excludes>
-										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
-									</excludes>
+									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 							<execution>
@@ -607,12 +593,7 @@
 									<goal>report-integration</goal>
 								</goals>
 								<configuration>
-									<includes>
-										<include>nl.geodienstencentrum.maven.plugin.sass.*</include>
-									</includes>
-									<excludes>
-										<exclude>nl.geodienstencentrum.maven.plugin.sass.compiler.HelpMojo.*</exclude>
-									</excludes>
+									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 						</executions>
