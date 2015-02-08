@@ -124,21 +124,21 @@ public class WatchMojoTest {
 
 			// done; lets check compilation results
 			TestResources.assertFileContents(projectCopy, "expected.css",
-					"target/maven-compass-test-1.0/css/compiled.css");
+					"target/maven-compass-test-1.0-SNAPSHOT/css/compiled.css");
 			if (!IS_WINDOWS) {
 				// skip for now because the jruby watcher fails to see the changes on windows
 				// this would be better with org.junit.Assume.assumeThat.assumeThat
 				// but since TestResources assertions are void...
 				TestResources.assertDirectoryContents(
 						new File(projectCopy.getAbsolutePath()
-							+ "/target/maven-compass-test-1.0/css/"),
+							+ "/target/maven-compass-test-1.0-SNAPSHOT/css/"),
 						"compiled.css.map", "compiled.css",
 						"print.css.map", "print.css");
 				// this may fail when line endings differ, eg. on Windows
 				// set up git to check out with native file endings
 				TestResources.assertFileContents(projectCopy,
 						"print.css",
-						"target/maven-compass-test-1.0/css/print.css");
+						"target/maven-compass-test-1.0-SNAPSHOT/css/print.css");
 			}
 		}
 	}

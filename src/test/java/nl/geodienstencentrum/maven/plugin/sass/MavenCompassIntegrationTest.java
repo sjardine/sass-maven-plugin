@@ -47,7 +47,7 @@ public class MavenCompassIntegrationTest {
 	private final String PACKAGING = "war";
 
 	/**
-	 * Delete any of this artifact in the local repository, setup the Maven 
+	 * Delete any of this artifact in the local repository, setup the Maven
 	 * project and verifier and execute the 'compile' goal.
 	 *
 	 * @throws Exception
@@ -55,13 +55,14 @@ public class MavenCompassIntegrationTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(), 
+		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(),
 				"/" + this.ARTIFACTID);
 		this.verifier = new Verifier(this.testDir.getAbsolutePath());
-		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(), 
-				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(), 
+		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(),
+				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(),
 				this.PACKAGING);
-		this.verifier.setMavenDebug(true);
+		boolean debug = new Boolean(System.getProperty("debug"));
+		this.verifier.setMavenDebug(debug);
 		this.verifier.executeGoal("compile");
 	}
 

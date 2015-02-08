@@ -70,12 +70,12 @@ public class UpdateStylesheetsMojoTest {
 		myMojo.execute();
 		TestResources.assertDirectoryContents(
 				new File(projectCopy.getAbsolutePath()
-						+ "/target/maven-compass-test-1.0/css/"),
+						+ "/target/maven-compass-test-1.0-SNAPSHOT/css/"),
 						"compiled.css.map", "compiled.css");
 		// this may fail when line endings differ, eg. on Windows
 		// set up git to check out with native file endings
 		TestResources.assertFileContents(projectCopy, "expected.css",
-				"target/maven-compass-test-1.0/css/compiled.css");
+				"target/maven-compass-test-1.0-SNAPSHOT/css/compiled.css");
 	}
 
 	/**

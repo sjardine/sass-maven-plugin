@@ -54,13 +54,14 @@ public class MavenResourcesCompassIntegrationTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(), 
+		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(),
 				"/" + this.ARTIFACTID);
 		this.verifier = new Verifier(this.testDir.getAbsolutePath());
-		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(), 
-				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(), 
+		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(),
+				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(),
 				this.PACKAGING);
-		this.verifier.setMavenDebug(true);
+		boolean debug = new Boolean(System.getProperty("debug"));
+		this.verifier.setMavenDebug(debug);
 		this.verifier.executeGoal("compile");
 	}
 

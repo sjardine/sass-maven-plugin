@@ -211,6 +211,7 @@
 		<testResources>
 			<testResource>
 				<directory>src/test/projects</directory>
+				<filtering>true</filtering>
 			</testResource>
 		</testResources>
 		<plugins>
@@ -231,6 +232,18 @@
 					<doUpdate>false</doUpdate>
 					<timestampFormat>{0,date,yyyy-MM-dd HH:mm:ssa}</timestampFormat>
 					<shortRevisionLength>5</shortRevisionLength>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<useDefaultDelimiters>false</useDefaultDelimiters>
+					<delimiters>
+						<!-- delimiter>${*}</delimiter -->
+						<delimiter>@</delimiter>
+					</delimiters>
 				</configuration>
 			</plugin>
 			<plugin>

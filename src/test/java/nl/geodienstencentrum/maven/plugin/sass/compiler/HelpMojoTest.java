@@ -16,7 +16,8 @@
 package nl.geodienstencentrum.maven.plugin.sass.compiler;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import java.io.File;
 
@@ -57,9 +58,10 @@ public class HelpMojoTest {
 	public void testExecute() throws Exception {
 		final File projectCopy = this.resources.getBasedir("maven-compass-test");
 		final File pom = new File(projectCopy, "pom.xml");
+		assumeNotNull("POM file should not be null.", pom);
+		assumeTrue("POM file should exist as file.",pom.exists() && pom.isFile());
+
 		final HelpMojo myMojo = (HelpMojo) this.rule.lookupEmptyMojo("help", pom);
-		assertNotNull("POM file should not be null.", pom);
-		assertTrue("POM file should exist as file.",pom.exists() && pom.isFile());
 		assertNotNull("The 'help' mojo should exist", myMojo);
 		// set -Ddetail=true
 		rule.setVariableValueToObject(myMojo, "detail", true);

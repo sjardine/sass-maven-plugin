@@ -24,7 +24,7 @@ public enum TestConstantsEnum {
 	/** The groupId of the test project. */
 	TEST_GROUPID("nl.geodienstencentrum.maven.sass-maven-plugin"),
 	/** The version of the test project. */
-	TEST_VERSION("1.0");
+	TEST_VERSION("1.0-SNAPSHOT");
 	
 	/** our value. */
 	private final String constant;
