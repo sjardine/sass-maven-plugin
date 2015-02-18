@@ -546,7 +546,7 @@
 					<url>http://rubygems-proxy.torquebox.org/releases</url>
 					<releases>
 						<enabled>true</enabled>
-						<updatePolicy>never</updatePolicy>
+						<!--updatePolicy>never</updatePolicy-->
 					</releases>
 					<snapshots>
 						<enabled>false</enabled>
