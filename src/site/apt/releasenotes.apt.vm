@@ -29,14 +29,14 @@ ${project.name} ${project.version} Release Notes
 
   * update JRuby to latest release (${project.properties.get("jruby.version")})
 
-  * update Compass (${project.properties.get("compass.version")}) and Sass to latest release
+  * update Compass (${project.properties.get("compass.version")}) and Sass (${project.properties.get("sass.version")}) to latest release
 
   []
 
 * 2.1 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A$2.1+is%3Aclosed}milestone 2.1 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A2.1+is%3Aclosed}milestone 2.1 }}.
 
   This release features Compass version 1.0.3 running on JRuby 1.7.18.
   Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
