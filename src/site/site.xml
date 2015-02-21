@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2014 Mark Prins, GeoDienstenCentrum.
+  Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
   Copyright 2010-2014 Jasig.
- 
+
   See the NOTICE file distributed with this work for additional information
   regarding copyright ownership.
- 
+
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
   You may obtain a copy of the License at
- 
+
   http://www.apache.org/licenses/LICENSE-2.0
- 
+
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -48,12 +48,12 @@
 		</head>
 		<links>
 			<item name="Issues dashboard" href="${project.issueManagement.url}" />
-			<item name="Developer Notes" href="/development.html" />
 		</links>
 		<menu name="Information">
 			<item name="Home" href="/index.html" />
 			<item name="Usage" href="/plugin-info.html" />
 			<item name="Release notes" href="/releasenotes.html" />
+			<item name="Developer Notes" href="/development.html" />
 		</menu>
 		<menu ref="parent" />
 		<menu ref="modules" />
@@ -61,13 +61,13 @@
 	</body>
 	<poweredBy>
 		<logo href="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin"
-			img="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master" 
+			img="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master"
 			name="Travis-CI Build status" />
 		<logo href="https://ci.appveyor.com/project/mprins/sass-maven-plugin"
 			img="https://ci.appveyor.com/api/projects/status/qxc604b7o0rwxsel?svg=true"
 			name="AppVeyor-CI Build status" />
 		<logo href="https://coveralls.io/r/GeoDienstenCentrum/sass-maven-plugin"
-			img="https://img.shields.io/coveralls/GeoDienstenCentrum/sass-maven-plugin.svg" 
+			img="https://img.shields.io/coveralls/GeoDienstenCentrum/sass-maven-plugin.svg"
 			name="Coverage status" />
 		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
 			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
