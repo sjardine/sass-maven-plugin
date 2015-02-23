@@ -13,27 +13,22 @@ install:
   - mvn install -U -Dmaven.test.skip=true -B -V -fae -q -T2
 
 script:
-  # execute tests
+  # execute unit and integration tests
   - mvn -e verify -B
 
 after_success:
   # generate code coverage report
   - mvn -B -e -fae -Ptravis-ci clean verify jacoco:report coveralls:report
 
-# jdk:
-#  - openjdk7
-#  - oraclejdk7
-#  - oraclejdk8
-
 os:
   - linux
   - osx
 
 matrix:
-  - os: linux
-    # nothing special
-  - os: osx
-    env: JAVA_HOME=/usr/libexec/java_home
+#  - os: linux
+#    # nothing special
+#  - os: osx
+#    env: JAVA_HOME=/usr/libexec/java_home
 
 cache:
   directories:
