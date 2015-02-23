@@ -4,9 +4,10 @@ sudo: false
 
 before_install:
 #  - unset GEM_PATH
+   -  echo $JAVA_HOME
 
 install:
-  # install without testing
+  # install without any testing
   - mvn install -U -Dmaven.test.skip=true -B -V -fae -q -T2
 
 script:
@@ -27,9 +28,11 @@ os:
   - osx
 
 matrix:
-  fast_finish: true
+  - os: linux
+    # nothing special
+  - os: osx
+    env: JAVA_HOME=/usr/libexec/java_home
 
 cache:
   directories:
-  - cache
   - $HOME/.m2
