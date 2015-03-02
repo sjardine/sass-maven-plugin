@@ -186,13 +186,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>rubygems</groupId>
-			<artifactId>jrjackson</artifactId>
-			<version>0.2.8</version>
-			<scope>provided</scope>
-			<type>gem</type>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
 			<artifactId>maven-verifier</artifactId>
 			<version>1.5</version>
