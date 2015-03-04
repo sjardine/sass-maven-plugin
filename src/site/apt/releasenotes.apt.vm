@@ -27,6 +27,8 @@ ${project.name} ${project.version} Release Notes
 
 ** Enhancements
 
+  * add {{{https://github.com/causes/scss-lint}scss-lint} based linting and reporting
+
   * update JRuby to latest release (${project.properties.get("jruby.version")})
 
   * update Compass (${project.properties.get("compass.version")}) and Sass (${project.properties.get("sass.version")}) to latest release
