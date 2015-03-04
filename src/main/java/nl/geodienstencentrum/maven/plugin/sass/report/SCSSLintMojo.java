@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package nl.geodienstencentrum.maven.plugin.sass.report;
 
 import com.google.common.primitives.Ints;
+
 import java.io.File;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -29,16 +30,21 @@ import nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 /**
- * SCSSLintMojo executes scss-lint.
+ * SCSSLintMojo executes scss-lint goal.
  *
  * @author mprins
  * @since 2.3
  */
-@Mojo(name = "lint")
+@Mojo(name = "scss-lint",
+		defaultPhase = LifecyclePhase.COMPILE,
+		executionStrategy = "once-per-session",
+		threadSafe = true
+	)
 public class SCSSLintMojo extends AbstractSassMojo {
 
 	/**
@@ -46,8 +52,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 	 *
 	 * @since 2.3
 	 */
-	@Parameter(defaultValue = "${project.build.directory}/site/scss-lint.xml")
-	private File lintOutput;
+	@Parameter(defaultValue = "${project.build.directory}/scss-lint.xml")
+	private File outputFile;
 
 	/**
 	 * scss-lint exit codes and messages.
@@ -94,7 +100,6 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		public String toString() {
 			return code + ": " + msg;
 		}
-
 	};
 
 	/*
@@ -107,7 +112,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		final Log log = this.getLog();
 
 		// create directory
-		this.lintOutput.getParentFile().mkdirs();
+		this.outputFile.getParentFile().mkdirs();
 
 		log.info("Linting Sass sources in: " + this.getSassSourceDirectory());
 
@@ -123,15 +128,16 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		ScriptContext context = jruby.getContext();
 
 		context.setAttribute(ScriptEngine.ARGV,
-				new String[]{"--format=XML",
-					"-o" + this.lintOutput,
+				new String[]{
+					"--format=Checkstyle",
+					"-o" + this.outputFile,
 					//"--config "+TODO,
 					this.getSassSourceDirectory().getPath()},
 				ScriptContext.GLOBAL_SCOPE);
 		try {
 			ExitCode result = ExitCode.getExitCode(Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
-			log.debug(result.toString());
-
+			log.debug("scss-lin result: " + result.toString());
+			log.info("Reporting scss lint in: " + this.outputFile.getAbsolutePath());
 			switch (result) {
 				case CODE_0:
 					log.info(result.msg());
@@ -145,15 +151,18 @@ public class SCSSLintMojo extends AbstractSassMojo {
 						throw new MojoFailureException(result.toString());
 					}
 				case CODE_64:
+				// fall through
 				case CODE_66:
+				// fall through
 				case CODE_70:
+				// fall through
 				case CODE_78:
 					log.error(result.toString());
 					throw new MojoExecutionException(result.toString());
 			}
 		} catch (final ScriptException e) {
 			throw new MojoExecutionException(
-					"Failed to execute Sass ruby script:\n" + sassScript, e);
+					"Failed to execute scss-lint Ruby script:\n" + sassScript, e);
 		}
 	}
 
@@ -171,9 +180,12 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		// build up script
 		sassScript.append("require 'scss_lint'").append("\n");
 		sassScript.append("require 'scss_lint/cli'").append("\n");
+		sassScript.append("require 'scss_lint_reporter_checkstyle'").append("\n");
+
 		if (log.isDebugEnabled()) {
 			// make ruby give use some debugging info when requested
 			sassScript.append("require 'pp'").append("\n");
+			sassScript.append("puts 'parameters: '").append("\n");
 			sassScript.append("pp ARGV").append("\n");
 		}
 		sassScript.append("SCSSLint::CLI.new.run(ARGV)").append("\n");

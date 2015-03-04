@@ -28,6 +28,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<build>
+		<defaultGoal>compile</defaultGoal>
 		<plugins>
 			<plugin>
 				<groupId>nl.geodienstencentrum.maven</groupId>
@@ -35,12 +36,25 @@
 				<version>@project.version@</version>
 				<executions>
 					<execution>
-						<phase>compile</phase>
 						<goals>
-							<goal>lint</goal>
+							<goal>scss-lint</goal>
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>nl.geodienstencentrum.maven</groupId>
+							<artifactId>sass-maven-plugin</artifactId>
+							<version>@project.version@</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

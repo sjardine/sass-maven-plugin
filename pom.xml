@@ -171,6 +171,13 @@
 			<type>gem</type>
 		</dependency>
 		<dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>scss_lint_reporter_checkstyle</artifactId>
+			<version>0.1.0</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
@@ -206,6 +213,16 @@
 			<version>1.5</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.reporting</groupId>
+			<artifactId>maven-reporting-impl</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.doxia</groupId>
+			<artifactId>doxia-sink-api</artifactId>
+			<version>1.6</version>
+		</dependency>
 	</dependencies>
 	<repositories />
 	<pluginRepositories />
@@ -222,6 +239,13 @@
 					<exclude>**/examples/**</exclude>
 					<exclude>**/src/**</exclude>
 				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/xsl</directory>
+				<!-- targetPath>nl/geodienstencentrum/maven/plugin/sass/report</targetPath -->
+				<includes>
+					<include>*.xsl</include>
+				</includes>
 			</resource>
 		</resources>
 		<testResources>
