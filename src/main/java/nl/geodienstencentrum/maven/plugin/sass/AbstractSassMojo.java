@@ -114,7 +114,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "true")
-	private boolean failOnError;
+	protected boolean failOnError;
 
 	/**
 	 * Defines options for Sass::Plugin.options. See <a href=
@@ -417,5 +417,26 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 		}
 		return locations.iterator();
+	}
+
+	/**
+	 * @return the resources
+	 */
+	protected List<Resource> getResources() {
+		return this.resources;
+	}
+
+	/**
+	 * @return the useCompass
+	 */
+	protected boolean isUseCompass() {
+		return this.useCompass;
+	}
+
+	/**
+	 * @return the sassSourceDirectory
+	 */
+	protected File getSassSourceDirectory() {
+		return this.sassSourceDirectory;
 	}
 }

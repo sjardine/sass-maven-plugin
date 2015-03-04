@@ -1,0 +1,35 @@
+/** resources voor mainmenu_include.jsp */
+
+.mainMenu {
+	position: absolute;
+	top: 57px;
+	left: 260px;
+}
+
+.mainMenu ul {
+	list-style: none;
+	border-right: solid 1px #ececec;
+	height: 22px;
+	padding-right: 0px;
+}
+
+.mainMenu ul li {
+	border-left: solid 1px #ececec;
+	display: inline;
+	padding: 5px 5px 3px 6px;
+
+	&:hover {
+		color: #271d6c;
+		background: #ececec;
+		cursor: pointer;
+	}
+	
+	& a {
+		color: #271d6c;
+		font-size: 16px;
+		text-decoration: none;
+		&.active {
+			color: #005983;
+		}
+	}
+}

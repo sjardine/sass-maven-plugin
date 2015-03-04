@@ -1,0 +1,10 @@
+/**
+ * styles voor debug_include.jsp 
+ */
+.debug {
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	border: 0; 
+	z-index: $z-Debug;
+}

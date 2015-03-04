@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2015 Mark Prins, GeoDienstenCentrum.
  *
  * See the NOTICE file distributed with this work for additional information
  * regarding copyright ownership.
@@ -18,8 +18,9 @@
  */
 /**
  * Reporters for the Sass maven plugin.
+ * 
  * @author Mark
- *
+ * @since 2.3
  */
 package nl.geodienstencentrum.maven.plugin.sass.report;
 

@@ -1,0 +1,36 @@
+/** buttons in the core client (core_nav_buttons_include.jsp). */
+.kaartnavi {
+	position: absolute;
+	height: 480px;
+	padding-top: 30px;
+	overflow-y: auto;
+	display: inline;
+	margin-left: 1em;
+}
+
+.kaartnavi fieldset {
+	border: $ControlBorder;
+	padding: 2px;
+	@include border-radius(6px);
+}
+
+.kaartnavi button {
+	border: $ControlBorder;
+	cursor: pointer;
+	background-color: lighten($ControlBorderColour, 15%);
+	padding: 0 10px;
+	line-height: 2;
+	min-height: 2em;
+	color: #000;
+	font-weight: bold;
+	display: block;
+	@include border-radius(6px);
+	@include single-text-shadow(1px, 1px, 0px, false, #fff);
+	@include single-box-shadow(0, 1px, 0, 0, #fff, true);
+
+	&:hover, 
+	&:active {
+		@include single-box-shadow(0, 2px, 0, 0, $ControlBorderColour, true);
+		border: 1px solid darken($ControlBorderColour, 50%);;
+	}
+}
