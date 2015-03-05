@@ -48,11 +48,11 @@ import org.apache.maven.plugins.annotations.Parameter;
 public class SCSSLintMojo extends AbstractSassMojo {
 
 	/**
-	 * output file for the plugin.
+	 * Output file for the plugin.
 	 *
 	 * @since 2.3
 	 */
-	@Parameter(defaultValue = "${project.build.directory}/scss-lint.xml")
+	@Parameter(defaultValue = "${project.build.directory}/scss-lint.xml", readonly = true)
 	private File outputFile;
 
 	/**
@@ -131,13 +131,13 @@ public class SCSSLintMojo extends AbstractSassMojo {
 				new String[]{
 					"--format=Checkstyle",
 					"-o" + this.outputFile,
-					//"--config "+TODO,
-					this.getSassSourceDirectory().getPath()},
-				ScriptContext.GLOBAL_SCOPE);
+					// "--config " + TODO,
+					this.getSassSourceDirectory().getPath()
+					}, ScriptContext.GLOBAL_SCOPE);
 		try {
-			ExitCode result = ExitCode.getExitCode(Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
-			log.debug("scss-lin result: " + result.toString());
 			log.info("Reporting scss lint in: " + this.outputFile.getAbsolutePath());
+			ExitCode result = ExitCode.getExitCode(Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
+			log.debug("scss-lint result: " + result.toString());
 			switch (result) {
 				case CODE_0:
 					log.info(result.msg());

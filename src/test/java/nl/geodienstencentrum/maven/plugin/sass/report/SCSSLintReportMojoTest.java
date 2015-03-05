@@ -60,20 +60,4 @@ public class SCSSLintReportMojoTest {
 				projectCopy.toPath().resolve("target/site").toFile(),
 				new String[]{"scss-lint.html"});
 	}
-
-	@Test
-	@Ignore("this fails with a null pointer executing site")
-	public void testSite() throws Exception {
-		final File projectCopy = this.resources
-				.getBasedir("maven-lint-test");
-		assumeTrue("Project directory should exist as directory.",
-				projectCopy.exists() && projectCopy.isDirectory());
-		// TODO figure out how to do "mvn site"
-		this.rule.lookupConfiguredMojo(projectCopy, "maven-site-plugin").execute();
-
-		TestResources.assertDirectoryContents(
-				// site directory
-				projectCopy.toPath().resolve("target/site").toFile(),
-				new String[]{"scss-lint.html"});
-	}
 }

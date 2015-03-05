@@ -90,7 +90,8 @@
 	<contributors />
 	<mailingLists />
 	<prerequisites>
-		<maven>3.0</maven>
+		<!-- why at least 3.0.5? see: https://maven.apache.org/security.html -->
+		<maven>3.0.5</maven>
 	</prerequisites>
 	<scm>
 		<connection>scm:git:git://github.com/GeoDienstenCentrum/${project.artifactId}.git</connection>
@@ -284,7 +285,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<!-- Downloads and installs the required Ruby Gems -->
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
 				<version>1.0.8</version>
@@ -309,10 +309,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.4</version>
-				<configuration>
-					<!-- see http://jira.codehaus.org/browse/MNG-5346 -->
-					<skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
-				</configuration>
+				<configuration></configuration>
 				<executions>
 					<execution>
 						<id>mojo-descriptor</id>
@@ -465,9 +462,8 @@
 							<configuration>
 								<publishDateLocale>en</publishDateLocale>
 								<includeOpenIssues>false</includeOpenIssues>
-								<onlyMilestoneIssues>false</onlyMilestoneIssues>
-								<onlyCurrentVersion>false</onlyCurrentVersion>
-								<sortColumnNames>Fix Version DESC,Key DESC</sortColumnNames>
+								<sortColumnNames>Fix Version DESC,Id DESC</sortColumnNames>
+                                <columnNames>Fix Version, Id, Reporter, Summary, Type, Updated</columnNames>
 							</configuration>
 							<reportSets>
 								<reportSet>
@@ -576,14 +572,12 @@
 					<exists>src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java</exists>
 				</file>
 			</activation>
-			<!-- repository for ruby gems exposed as maven artifacts -->
 			<repositories>
 				<repository>
 					<id>rubygems-releases</id>
 					<url>http://rubygems-proxy.torquebox.org/releases</url>
 					<releases>
 						<enabled>true</enabled>
-						<!--updatePolicy>never</updatePolicy-->
 					</releases>
 					<snapshots>
 						<enabled>false</enabled>
@@ -602,7 +596,7 @@
 					<plugin>
 						<groupId>org.jacoco</groupId>
 						<artifactId>jacoco-maven-plugin</artifactId>
-						<version>0.7.2.201409121644</version>
+						<version>0.7.4.201502262128</version>
 						<executions>
 							<execution>
 								<id>pre-unit-test</id>
@@ -623,7 +617,6 @@
 								<configuration>
 								<append>true</append>
 									<propertyName>failsafeArgLine</propertyName>
-									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 							<execution>
@@ -633,7 +626,6 @@
 									<goal>report</goal>
 								</goals>
 								<configuration>
-									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 							<execution>
@@ -643,7 +635,6 @@
 									<goal>report-integration</goal>
 								</goals>
 								<configuration>
-									<!-- excludes><exclude>**/HelpMojo*</exclude></excludes -->
 								</configuration>
 							</execution>
 						</executions>

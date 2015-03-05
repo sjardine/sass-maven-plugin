@@ -64,19 +64,19 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	@Component
 	private Renderer siteRenderer;
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/**
+	 * Build the report, for now ignoring the locale.
+	 * @param locale ignored
+	 * 
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
 	@Override
 	public void executeReport(Locale locale) {
 		SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
-				getSink(), this.getDescription(null/* TODO */),
+				getSink(), this.getDescription(locale),
 				new File(getProject().getBasedir() + "/target", "scss-lint.xml"),
 				getLog());
 		generator.generateReport();
-
 	}
 
 	@Override
