@@ -393,7 +393,7 @@
 					<excludes>
 						<exclude>**/*IntegrationTest.java</exclude>
 					</excludes>
-					<argLine>${surefireArgLine}</argLine>
+					<argLine>${surefireArgLine} -Xmx512m -XX:MaxPermSize=256m</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
