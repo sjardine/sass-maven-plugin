@@ -380,7 +380,7 @@
 					<includes>
 						<include>**/*IntegrationTest.java</include>
 					</includes>
-					<argLine>@{failsafeArgLine}</argLine>
+					<argLine>${failsafeArgLine}</argLine>
 					<skipTests>${skip.integration.tests}</skipTests>
 				</configuration>
 			</plugin>
@@ -394,8 +394,7 @@
 						<exclude>**/*IntegrationTest.java</exclude>
 					</excludes>
 					<reuseForks>false</reuseForks>
-					<forkCount>1.5C</forkCount>
-					<argLine>@{surefireArgLine}</argLine>
+					<argLine>${surefireArgLine}</argLine>
 				</configuration>
 			</plugin>
 			<plugin>
