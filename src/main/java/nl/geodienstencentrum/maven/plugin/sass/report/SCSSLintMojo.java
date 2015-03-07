@@ -18,14 +18,19 @@ package nl.geodienstencentrum.maven.plugin.sass.report;
 import com.google.common.primitives.Ints;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 import nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo;
+import nl.geodienstencentrum.maven.plugin.sass.Resource;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -127,13 +132,15 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
 		ScriptContext context = jruby.getContext();
 
+		ArrayList<String> argv = new ArrayList<>();
+		argv.add("--format=Checkstyle");
+		argv.add("-o" + this.outputFile);
+		// argv.add("--config " + TODO,);
+		argv.addAll(this.getSourceDirs());
+		//this.getSassSourceDirectory().getPath()
 		context.setAttribute(ScriptEngine.ARGV,
-				new String[]{
-					"--format=Checkstyle",
-					"-o" + this.outputFile,
-					// "--config " + TODO,
-					this.getSassSourceDirectory().getPath()
-					}, ScriptContext.GLOBAL_SCOPE);
+				argv.toArray(new String[argv.size()]),
+				ScriptContext.GLOBAL_SCOPE);
 		try {
 			log.info("Reporting scss lint in: " + this.outputFile.getAbsolutePath());
 			ExitCode result = ExitCode.getExitCode(Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
@@ -191,4 +198,15 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		sassScript.append("SCSSLint::CLI.new.run(ARGV)").append("\n");
 	}
 
+	private Set<String> getSourceDirs() {
+		Set<String> dirs = new HashSet<>();
+		List<Resource> _resources = this.getResources();
+		if (_resources.isEmpty()) {
+			dirs.add(getSassSourceDirectory().getPath());
+		}
+		for (final Resource source : _resources) {
+			dirs.addAll(source.getDirectoriesAndDestinations().keySet());
+		}
+		return dirs;
+	}
 }

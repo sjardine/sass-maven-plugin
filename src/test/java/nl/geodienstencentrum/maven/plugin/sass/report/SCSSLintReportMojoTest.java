@@ -69,4 +69,32 @@ public class SCSSLintReportMojoTest {
 				projectCopy.toPath().resolve("target/site").toFile(),
 				new String[]{"scss-lint.html"});
 	}
+
+	/**
+	 * Test method for
+	 * {@link nl.geodienstencentrum.maven.plugin.sass.report.SCSSLintMojo#execute()}
+	 * .
+	 *
+	 * @throws Exception if any
+	 */
+	@Test
+	public void testLintAndReportWithResources() throws Exception {
+		final File projectCopy = this.resources
+				.getBasedir("maven-lint-resources-test");
+		final File pom = new File(projectCopy, "pom.xml");
+		assumeNotNull("POM file should not be null.", pom);
+		assumeTrue("POM file should exist as file.",
+				pom.exists() && pom.isFile());
+
+//		this.rule.executeMojo(projectCopy, "scss-lint");
+//		TestResources.assertDirectoryContents(
+//				// target directory
+//				projectCopy.toPath().resolve("target").toFile(),
+//				new String[]{"scss-lint.xml"});
+		this.rule.executeMojo(projectCopy, "scss-lint-report");
+		TestResources.assertDirectoryContents(
+				// site directory
+				projectCopy.toPath().resolve("target/site").toFile(),
+				new String[]{"scss-lint.html"});
+	}
 }

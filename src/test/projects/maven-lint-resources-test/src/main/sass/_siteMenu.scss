@@ -1,0 +1,17 @@
+/** resources voor sitemenu_include.jsp */
+
+.siteMenu {
+	height: 23px;
+	width: 260px;
+	float: right;
+	margin: 7px 13px 0 0;
+	
+	& a {
+		margin: 5px;
+		display: block;
+		float: left;
+		color: #666666;
+		font-size: 13px;
+		text-decoration: none;
+	}
+}
