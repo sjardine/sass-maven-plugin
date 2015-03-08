@@ -25,7 +25,6 @@ import nl.geodienstencentrum.maven.plugin.sass.Resource;
 import org.apache.maven.doxia.siterenderer.Renderer;
 import org.apache.maven.plugins.annotations.Component;
 import org.apache.maven.plugins.annotations.Execute;
-
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
@@ -45,24 +44,61 @@ import org.apache.maven.reporting.AbstractMavenReport;
 public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	/**
+	 * ignored for linting.
+	 *
 	 * @since 2.0
 	 */
 	@Parameter
 	private Map<String, String> sassOptions;
+
 	/**
-	 * Enable the use of Compass style library mixins.
+	 * ignored for linting.
 	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
+
 	/**
+	 * Directory containing Sass files, defaults to the Maven Web application
+	 * sources directory (${basedir}/src/main/sass).
+	 *
+	 * @since 2.3
+	 */
+	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
+	private File sassSourceDirectory;
+
+	/**
+	 * Sources for compilation with their destination directory containing Sass
+	 * files. Allows for multiple resource sources and destinations. If
+	 * specified it precludes the direct specification of
+	 * sassSourceDirectory/relativeOutputDirectory/destination parameters.
+	 *
+	 * Example configuration:
+	 *
+	 * <pre>
+	 *      &lt;resource&gt;
+	 *          &lt;source&gt;
+	 *              &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
+	 *              &lt;includes&gt;
+	 *                  &lt;include&gt;**&#47;scss&lt;/include&gt;
+	 *              &lt;/includes&gt;
+	 *          &lt;/source&gt;
+	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
+	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}&lt;/destination&gt;
+	 *      &lt;/resource&gt;
+	 * </pre>
+	 *
+	 * <em>Only {@code source/directory} paths are considered during
+	 * linting.<em>
+	 *
 	 * @since 2.0
 	 */
 	@Parameter
 	private List<Resource> resources = Collections.emptyList();
+
 	/**
-	 * Specifies if the build should fail upon a violation.
+	 * Specifies if the build should fail upon an error violation.
 	 */
 	@Parameter(defaultValue = "false")
 	private boolean failOnError;
@@ -88,15 +124,6 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	@Component
 	private Renderer siteRenderer;
-
-	/**
-	 * Directory containing Sass files, defaults to the Maven Web application
-	 * sources directory (${basedir}/src/main/sass).
-	 *
-	 * @since 2.3
-	 */
-	@Parameter(defaultValue = "${basedir}/src/main/sass", property = "sassSourceDirectory")
-	private File sassSourceDirectory;
 
 	/**
 	 * Build the report, for now ignoring the locale.

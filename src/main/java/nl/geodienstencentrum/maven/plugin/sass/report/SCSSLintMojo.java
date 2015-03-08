@@ -16,7 +16,6 @@
 package nl.geodienstencentrum.maven.plugin.sass.report;
 
 import com.google.common.primitives.Ints;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -28,10 +27,8 @@ import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-
 import nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo;
 import nl.geodienstencentrum.maven.plugin.sass.Resource;
-
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
@@ -124,10 +121,9 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		final StringBuilder sassScript = new StringBuilder();
 		this.buildBasicSassScript(sassScript);
 
+		log.debug("scss-lint ruby script:\n" + sassScript);
+
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
-
-		log.debug("Execute Sass Ruby script:\n" + sassScript);
-
 		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
 		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
 		ScriptContext context = jruby.getContext();
@@ -137,7 +133,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		argv.add("-o" + this.outputFile);
 		// argv.add("--config " + TODO,);
 		argv.addAll(this.getSourceDirs());
-		//this.getSassSourceDirectory().getPath()
+		// this.getSassSourceDirectory().getPath()
 		context.setAttribute(ScriptEngine.ARGV,
 				argv.toArray(new String[argv.size()]),
 				ScriptContext.GLOBAL_SCOPE);
