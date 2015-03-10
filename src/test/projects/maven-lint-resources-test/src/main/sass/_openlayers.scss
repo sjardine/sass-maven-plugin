@@ -1,0 +1,96 @@
+/* openlayers elementen, 
+ * zie https://github.com/openlayers/openlayers/blob/master/theme/default/style.css
+ */
+
+div.olMap {
+	z-index: 0;
+	padding: 0 !important;
+	margin: 0 !important;
+	cursor: default;
+}
+
+div.olMapViewport {
+	text-align: left;
+	-ms-touch-action: none;
+}
+
+div.olLayerDiv {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+/**
+ * Cursor styles
+ */
+.olCursorWait {
+	cursor: wait;
+}
+
+.olDragDown {
+	cursor: move;
+}
+
+.olDrawBox {
+	cursor: crosshair;
+}
+
+.olControlScaleLine {
+	display: block;
+	position: absolute;
+	left: 10px;
+	bottom: 24px;
+}
+
+.olControlScaleLineBottom {
+	border: solid 2px $BlueColour;
+	border-bottom: none;
+	margin-top:-2px;
+	text-align: center;
+}
+
+.olControlScaleLineTop {
+	border: solid 2px $BlueColour;
+	border-top: none;
+	text-align: center;
+}
+
+.olHandlerBoxZoomBox {
+	border: 2px solid $BlueColour;
+	position: absolute;
+	background-color: $BlueColour;
+	opacity: 0.50;
+	font-size: 1px;
+	/*top right bottom left*/
+	border-color: $BlueColourLighter $BlueColourDarker $BlueColourDarker $BlueColourLighter;
+	@include border-radius(4px);
+	@include box-shadow(2px 2px 2px #000);
+}
+
+.olLayerGrid .olTileImage {
+	@include transition(opacity 0.2s linear);
+}
+
+/* Turn on GPU support where available */
+.olTileImage {
+	@include translateZ(0);
+	@include backface-visibility(hidden);
+	@include perspective(1000px);
+}
+
+/* when replacing tiles, do not show tile and backbuffer at the same time */
+.olTileReplacing {
+	display: none;
+ }
+
+/* override any max-width image settings (e.g. bootstrap.css) */
+img.olTileImage {
+	max-width: none;
+}
+
+.olImageLoadError {
+	display: none !important;
+}
+
+.olButton:focus {
+	outline-width: 1px;
+}

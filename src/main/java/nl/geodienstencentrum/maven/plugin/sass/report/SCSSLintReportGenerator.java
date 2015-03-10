@@ -69,7 +69,7 @@ public class SCSSLintReportGenerator {
 			TransformerFactory factory = TransformerFactory.newInstance();
 			Templates template = factory.newTemplates(new StreamSource(this.getClass().getClassLoader().getResourceAsStream("scss-report.xsl")));
 			Transformer xformer = template.newTransformer();
-			log.debug("loading xml file: " + xmlFile.getAbsolutePath());
+			log.debug("loading scss-ling xml results: " + xmlFile.getAbsolutePath());
 			Source source = new StreamSource(new FileInputStream(this.xmlFile));
 			StringWriter outWriter = new StringWriter();
 			Result result = new StreamResult(outWriter);
@@ -78,7 +78,6 @@ public class SCSSLintReportGenerator {
 		} catch (FileNotFoundException | TransformerConfigurationException e) {
 			// error in the XSL file
 			log.error("Error during xml conversion of " + this.xmlFile, e);
-
 		} catch (TransformerException e) {
 			// error while applying the XSL file
 			SourceLocator locator = e.getLocator();
@@ -88,7 +87,7 @@ public class SCSSLintReportGenerator {
 					+ "line: " + line + ", col: " + col, e);
 		}
 
-		log.debug("translated xml\n" + translated);
+		log.debug("translated xml:\n" + translated);
 		return translated;
 	}
 }

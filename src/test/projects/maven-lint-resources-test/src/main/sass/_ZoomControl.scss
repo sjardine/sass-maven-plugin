@@ -1,0 +1,39 @@
+/** css voor ZoomControl.js */
+
+.ZoomControl {
+	position: absolute;
+	top: 35px;
+	right: 8px;
+	background: rgba(255, 255, 255, 0.2);
+	@include border-radius(4px);
+	padding: 2px;
+}
+
+.ZoomControl button {
+	display: block;
+	margin: 1px;
+	padding: 0;
+	color: white;
+	font-size: 18px;
+	font-family: 'Lucida Grande', Verdana, Geneva, Lucida, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	height: 22px;
+	width: 22px;
+	line-height: 19px;
+	background: $BlueColour;
+
+	&:hover, 
+	&:focus {
+		background: $BlueColourTransp;
+	}
+}
+
+.olControlZoomIn {
+	@include border-top-radius(4px);
+}
+
+.olControlZoomOut {
+	@include border-bottom-radius(4px);
+}

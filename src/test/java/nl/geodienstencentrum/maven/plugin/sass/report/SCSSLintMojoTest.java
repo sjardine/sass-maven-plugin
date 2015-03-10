@@ -70,17 +70,10 @@ public class SCSSLintMojoTest {
 
 		myMojo.getLog().debug("Linting directory: " + projectCopy);
 
-		// test if execution was succesful, if not fail
 		myMojo.execute();
-
 		TestResources.assertDirectoryContents(
 				// target directory
 				projectCopy.toPath().resolve("target").toFile(),
 				new String[]{"scss-lint.xml"});
-
-		// TestResources.assertFileContents(projectCopy,
-		// 				"scss-lint.expected",
-		//				"target/scss-lint.xml");
 	}
-
 }
