@@ -181,17 +181,17 @@ public class SCSSLintMojo extends AbstractSassMojo {
 			throws MojoExecutionException {
 		final Log log = this.getLog();
 		// build up script
-		sassScript.append("require 'scss_lint'").append("\n");
-		sassScript.append("require 'scss_lint/cli'").append("\n");
-		sassScript.append("require 'scss_lint_reporter_checkstyle'").append("\n");
+		sassScript.append("require 'scss_lint'").append('\n');
+		sassScript.append("require 'scss_lint/cli'").append('\n');
+		sassScript.append("require 'scss_lint_reporter_checkstyle'").append('\n');
 
 		if (log.isDebugEnabled()) {
 			// make ruby give use some debugging info when requested
-			sassScript.append("require 'pp'").append("\n");
-			sassScript.append("puts 'parameters: '").append("\n");
-			sassScript.append("pp ARGV").append("\n");
+			sassScript.append("require 'pp'").append('\n');
+			sassScript.append("puts 'parameters: '").append('\n');
+			sassScript.append("pp ARGV").append('\n');
 		}
-		sassScript.append("SCSSLint::CLI.new.run(ARGV)").append("\n");
+		sassScript.append("SCSSLint::CLI.new.run(ARGV)").append('\n');
 	}
 
 	private Set<String> getSourceDirs() {

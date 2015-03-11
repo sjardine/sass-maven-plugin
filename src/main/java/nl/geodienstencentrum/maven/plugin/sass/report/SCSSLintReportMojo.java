@@ -90,7 +90,7 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	 * </pre>
 	 *
 	 * <em>Only {@code source/directory} paths are considered during
-	 * linting.<em>
+	 * linting.</em>
 	 *
 	 * @since 2.0
 	 */
@@ -138,10 +138,11 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 		try {
 			SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
 					getSink(), this.getDescription(locale),
-					new File(getProject().getBasedir() + "/target", "scss-lint.xml"),
+					new File(getProject().getBasedir() + "/target",
+							"scss-lint.xml"),
 					getLog());
 			generator.generateReport();
-		} catch (Throwable t) {
+		} catch (Exception t) {
 			if (failOnError) {
 				throw t;
 			}

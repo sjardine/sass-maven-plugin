@@ -16,11 +16,11 @@ Development
 git checkout ${project.scm.url} ${project.artifactId}
 +----+
 
-  * build using Maven
+  * build using Maven, skipping tests
 
 +----+
 cd ${project.artifactId}
-mvn install
+mvn install -Dmaven.test.skip=true
 +----+
 
   []
@@ -32,7 +32,7 @@ mvn install
 
 * {Unit testing}
 
-  Please provide a unit or integration test with your pull request.
+  Please provide a unit or integration test with your pull request if it's a non-trivial change.
 
 * {Contributing}
 
@@ -40,6 +40,38 @@ mvn install
   document before submitting a pull request. You may be required to sign the
   {{{https://www.clahub.com/agreements/GeoDienstenCentrum/sass-maven-plugin} Contributor License Agreement}} before
   your contribution is merged.
+
+* {Building}
+
+  Use the following command sequence to do a full build:
+
++----+
+mvn install -U -Dmaven.test.skip=true -B -V -fae -q -T2
+mvn -e verify -B
++----+
+
+  The above will first install a copy of the plugin in your local maven repository so that it is available to the integration tests of the second command.
+  You may need to specify the -DWatchMojoTest.sleeptime=30000 parameter with a larger sleeptime for th ewatch test to pass.
+
+  Checkout the .travis.yml or the appveyor.yml for the latest on this.
+
+* {Updating dependencies}
+
+  Use the following commands to check for dependency (and plugin) updates:
+
+  run:
+
++----+
+mvn -U org.codehaus.mojo:versions-maven-plugin:2.1:display-dependency-updates
++----+
+
+  to check for dependency updates and run:
+
++----+
+mvn -U org.codehaus.mojo:versions-maven-plugin:2.1:display-plugin-updates -Prelease,travis-ci
++----+
+
+  to check for plugin updates.
 
 * {Creating a Release}
 

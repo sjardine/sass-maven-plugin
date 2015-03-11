@@ -37,6 +37,10 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 * Execute the compiler script.
 	 *
 	 * @see org.apache.maven.plugin.Mojo#execute()
+	 * @throws MojoExecutionException when the execution of the plugin
+	 *         errored
+	 * @throws MojoFailureException when the sass compilation fails
+	 *
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {

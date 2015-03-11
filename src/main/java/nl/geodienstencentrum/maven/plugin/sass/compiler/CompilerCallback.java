@@ -24,7 +24,7 @@ import org.apache.maven.plugin.logging.Log;
 /**
  * Callback to bind <a
  * href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html"
- * >Sass::Plugin::Compiler</a>
+ * >Sass::Plugin::Compiler</a>.
  */
 public class CompilerCallback {
 	/** compiler error indicator. */

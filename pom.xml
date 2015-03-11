@@ -26,7 +26,7 @@
 	<packaging>maven-plugin</packaging>
 	<name>Sass Compiler Plugin</name>
 	<description>A Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
-	<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
+	<url>https://geodienstencentrum.github.io/${project.artifactId}</url>
 	<inceptionYear>2014</inceptionYear>
 	<organization>
 		<name>GeoDienstenCentrum</name>
@@ -278,10 +278,10 @@
 						<!-- delimiter>${*}</delimiter -->
 						<delimiter>@</delimiter>
 					</delimiters>
-                    <nonFilteredFileExtensions>
-                        <nonFilteredFileExtension>css</nonFilteredFileExtension>
-                        <nonFilteredFileExtension>expected</nonFilteredFileExtension>
-                    </nonFilteredFileExtensions>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>css</nonFilteredFileExtension>
+						<nonFilteredFileExtension>expected</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -464,7 +464,7 @@
 								<publishDateLocale>en</publishDateLocale>
 								<includeOpenIssues>false</includeOpenIssues>
 								<sortColumnNames>Fix Version DESC,Id DESC</sortColumnNames>
-                                <columnNames>Fix Version, Id, Reporter, Summary, Type, Updated</columnNames>
+								<columnNames>Fix Version, Id, Reporter, Summary, Type, Updated</columnNames>
 							</configuration>
 							<reportSets>
 								<reportSet>
@@ -526,6 +526,64 @@
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-plugin-plugin</artifactId>
 							<version>3.4</version>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.5</version>
+						</plugin>
+						<!-- plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-linkcheck-plugin</artifactId>
+							<version>1.2</version>
+							<configuration>
+
+							</configuration>
+						</plugin -->
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.14</version>
+							<configuration>
+								<configLocation>${basedir}/checkstyle-ruleset.xml</configLocation>
+								<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
+								<enableRSS>true</enableRSS>
+								<excludes>**/HelpMojo.java</excludes>
+							</configuration>
+							<reportSets>
+								<reportSet>
+									<reports>
+										<report>checkstyle</report>
+									</reports>
+								</reportSet>
+							</reportSets>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-pmd-plugin</artifactId>
+							<version>3.4</version>
+							<configuration>
+								<rulesets>
+									<ruleset>${basedir}/pmd-ruleset.xml</ruleset>
+								</rulesets>
+								<linkXref>true</linkXref>
+								<minimumTokens>100</minimumTokens>
+								<targetJdk>${project.build.targetVersion}</targetJdk>
+								<excludeRoots>
+									<excludeRoot>${basedir}/target/generated-sources/</excludeRoot>
+								</excludeRoots>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>findbugs-maven-plugin</artifactId>
+							<version>3.0.0</version>
+							<configuration>
+								<effort>Default</effort>
+								<threshold>Default</threshold>
+								<xmlOutput>true</xmlOutput>
+								<onlyAnalyze>nl.geodienstencentrum.*</onlyAnalyze>
+							</configuration>
 						</plugin>
 					</reportPlugins>
 				</configuration>

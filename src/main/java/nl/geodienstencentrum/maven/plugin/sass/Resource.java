@@ -83,7 +83,7 @@ public class Resource {
 				final File sourceDir = new File(sourceDirectory, included);
 
 				File destDir = new File(this.destination, subdir);
-				if ((this.relativeOutputDirectory != null)
+				if (this.relativeOutputDirectory != null
 				        && !this.relativeOutputDirectory.isEmpty()) {
 					destDir = new File(destDir, this.relativeOutputDirectory);
 				}
