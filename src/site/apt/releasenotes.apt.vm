@@ -21,22 +21,20 @@ ${project.name} ${project.version} Release Notes
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
 
-  This release features Compass version ${project.properties.get("compass.version")} and Sass version ${project.properties.get("sass.version")} 
-  running on JRuby ${project.properties.get("jruby.version")}. 
+  This release features Compass version ${project.properties.get("compass.version")} and Sass version ${project.properties.get("sass.version")}
+  running on JRuby ${project.properties.get("jruby.version")}.
   Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
   specific Sass and other transitive dependencies included in this release.
 
 ** New
 
-  * add {{{https://github.com/causes/scss-lint}scss-lint}} based linting and reporting
-  
+  * Add {{{https://github.com/causes/scss-lint}scss-lint}} based linting and reporting. Enhance your QC now!
+
   []
 
 ** Enhancements
 
-  * update JRuby to latest release (${project.properties.get("jruby.version")})
-
-  * update Compass (${project.properties.get("compass.version")}) and Sass (${project.properties.get("sass.version")}) to latest release
+  * Update Sass to version (${project.properties.get("sass.version")})
 
   []
 
