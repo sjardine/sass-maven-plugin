@@ -59,13 +59,14 @@ public class WatchMojoTest {
 	@BeforeClass
 	public static void readEnvironment() {
 		try {
-			SLEEP_TIME = Long.parseLong(System.getProperty("WatchMojoTest.sleeptime"));
+			SLEEP_TIME = Long.parseLong(System.getProperty("WatchMojoTestSleeptime"));
 			if (SLEEP_TIME < 15000) {
 				SLEEP_TIME = 15000;
 			}
 		} catch (NumberFormatException e) {
 			SLEEP_TIME = 15000;
 		}
+		System.out.println("[TEST] SLEEP_TIME set to " + SLEEP_TIME);
 		IS_WINDOWS = (System.getProperty("os.name").toLowerCase().contains("win"));
 	}
 
@@ -107,7 +108,7 @@ public class WatchMojoTest {
 			System.out.println("[TEST] Waiting " + SLEEP_TIME / 1000 + " sec.");
 			this.wait(SLEEP_TIME);
 			// modify a file in the project
-            System.out.println("[TEST] Modify (touch) '_colours.scss'.");
+			System.out.println("[TEST] Modify (touch) '_colours.scss'.");
 			TestResources.touch(new File(projectCopy.getAbsolutePath() + "/src/main/sass/"),
 					"_colours.scss");
 			// wait for watcher to catch up...

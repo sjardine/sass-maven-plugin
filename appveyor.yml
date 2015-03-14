@@ -26,7 +26,7 @@ build: off
 
 test_script:
   - cd C:\projects\sass-maven-plugin
-  - mvn -e -DWatchMojoTest.sleeptime=30000 test -fae -B
+  - mvn -e -DWatchMojoTestSleeptime=60000 test -fae -B
 
 environment:
 
