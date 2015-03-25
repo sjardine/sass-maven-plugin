@@ -25,26 +25,16 @@ ${project.name} ${project.version} Release Notes
   running on JRuby ${project.properties.get("jruby.version")}.
   Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
   specific Sass and other transitive dependencies included in this release.
-  
+
 ** Fix
 
   * Use the latest version of the ffi gems which had serious bugs in the last release
-
-** New
-
-  *
 
   []
 
 ** Enhancements
 
   * Update scss-lint to version ${project.properties.get("scss-lint.version")}
-
-  * Update Sass to version ${project.properties.get("sass.version")}
-
-  * Update Compass to version ${project.properties.get("compass.version")}
-
-  * Update JRuby to ${project.properties.get("jruby.version")}
 
   []
 
