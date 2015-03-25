@@ -126,7 +126,7 @@
 		<sass.version>3.4.13</sass.version>
 		<jruby.version>1.7.19</jruby.version>
 		<maven.version>3.2.5</maven.version>
-		<scss-lint.version>0.34.0</scss-lint.version>
+		<scss-lint.version>0.35.0</scss-lint.version>
 		<debug>true</debug>
 		<github.username />
 		<github.password />
