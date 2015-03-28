@@ -108,7 +108,7 @@ public class UpdateStylesheetsMojoTest {
 
 		// this may fail when line endings differ, eg. on Windows
 		// set up git to check out with native file endings
-		TestResources.assertFileContents(projectCopy, "expected_images.css",
+		TestResources.assertFileContents(projectCopy, "expected_compiled.css",
 				"target/css/compiled.css");
 
 		TestResources.assertFileContents(projectCopy, "expected_print.css",
