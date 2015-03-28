@@ -32,7 +32,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  *
+  * Add an optional parameter to specify the compass.rb file
 
   []
 

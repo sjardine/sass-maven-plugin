@@ -147,11 +147,16 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
 
+	/**
+	 * specify an optional compass configuration file, eg. {@code compass.rb}
+	 *
+	 * @since 2.5
+	 */
 	@Parameter(property = "compassConfigFile")
 	private File compassConfigFile;
 
 	/**
-	 * Directory containing Sass files, defaults to the Maven Web application
+	 * Directory containing Sass files, defaults to the Maven
 	 * sources directory (${basedir}/src/main/sass).
 	 *
 	 * @since 2.0

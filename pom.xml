@@ -86,6 +86,12 @@
 			<email>me@jwachter.de</email>
 			<url>https://www.jwachter.de</url>
 		</developer>
+		<developer>
+			<id>StefanLiebenberg</id>
+			<name>Stefan Liebenberg</name>
+			<email>siga.fredo@gmail.com</email>
+			<url>https://stefanliebenberg.github.io/</url>
+		</developer>
 	</developers>
 	<contributors />
 	<mailingLists />

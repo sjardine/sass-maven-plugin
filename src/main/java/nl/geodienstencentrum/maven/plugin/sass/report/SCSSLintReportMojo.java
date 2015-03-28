@@ -44,7 +44,7 @@ import org.apache.maven.reporting.AbstractMavenReport;
 public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	/**
-	 * ignored for linting.
+	 * ignored for linting, sass options are not used.
 	 *
 	 * @since 2.0
 	 */
@@ -52,12 +52,20 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	private Map<String, String> sassOptions;
 
 	/**
-	 * ignored for linting.
+	 * ignored for linting, compass is not used.
 	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
+
+	/**
+	 * ignored for linting, compass is not used.
+	 *
+	 * @since 2.5
+	 */
+	@Parameter
+	private File compassConfigFile;
 
 	/**
 	 * Directory containing Sass files, defaults to the Maven Web application
