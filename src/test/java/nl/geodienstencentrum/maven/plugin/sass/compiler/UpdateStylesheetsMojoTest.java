@@ -108,7 +108,7 @@ public class UpdateStylesheetsMojoTest {
 
 		// this may fail when line endings differ, eg. on Windows
 		// set up git to check out with native file endings
-		TestResources.assertFileContents(projectCopy, "expected_compiled.css",
+		TestResources.assertFileContents(projectCopy, "expected_images.css",
 				"target/css/compiled.css");
 
 		TestResources.assertFileContents(projectCopy, "expected_print.css",
@@ -139,5 +139,21 @@ public class UpdateStylesheetsMojoTest {
 
 		myMojo.execute();
 		fail("A MojoFailureException should have been thrown executing UpdateStylesheetsMojo.");
+	}
+
+	@Test
+	public void testCompassConfigFile() throws Exception {
+		final File projectCopy = this.resources.getBasedir("maven-compass-configuration-file-test");
+		final File pom = new File(projectCopy, "pom.xml");
+		assertTrue("The POM file should exist as a file", pom.exists() && pom.isFile());
+
+		final UpdateStylesheetsMojo mojo = (UpdateStylesheetsMojo) this.rule.lookupConfiguredMojo(projectCopy, "update-stylesheets");
+		assertNotNull(mojo);
+
+		mojo.execute();
+
+		TestResources.assertFileContents(projectCopy, "expected_images.css", "target/css/images.css");
+
+
 	}
 }
