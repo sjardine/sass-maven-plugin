@@ -147,6 +147,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
 
+	@Parameter(property = "compassConfigFile")
+	private File compassConfigFile;
+
 	/**
 	 * Directory containing Sass files, defaults to the Maven Web application
 	 * sources directory (${basedir}/src/main/sass).
@@ -287,8 +290,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			sassScript.append("require 'compass/exec'").append('\n');
 			sassScript.append("require 'compass/core'").append('\n');
 			sassScript.append("require 'compass/import-once'").append('\n');
-			sassScript.append("Compass.add_project_configuration ")
-			        .append('\n');
+			if(compassConfigFile != null) {
+				sassScript.append("Compass.add_project_configuration '")
+						.append(compassConfigFile.getAbsolutePath())
+						.append("'\n");
+			} else {
+				sassScript.append("Compass.add_project_configuration ")
+						.append('\n');
+			}
 			this.sassOptions.put("load_paths",
 			        "Compass.configuration.sass_load_paths");
 		}
