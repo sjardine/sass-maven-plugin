@@ -16,6 +16,7 @@ ${project.name} ${project.version} Release Notes
 
 %{toc|section=1|fromDepth=2|toDepth=2}
 
+
 * ${project.version} Release Notes
 
   A complete list of issues can be seen in the tracker
@@ -38,21 +39,22 @@ ${project.name} ${project.version} Release Notes
 
   * Update scss-lint to version ${project.properties.get("scss-lint.version")}
 
-  * Update Sass to version ${project.properties.get("sass.version")}
+~~  * Update Sass to version ${project.properties.get("sass.version")}
 
-  * Update Compass to version ${project.properties.get("compass.version")}
+~~  * Update Compass to version ${project.properties.get("compass.version")}
 
-  * Update JRuby to ${project.properties.get("jruby.version")}
+~~  * Update JRuby to ${project.properties.get("jruby.version")}
 
   []
 
+
 * 2.4 Release Notes
 
-{{{${project.issueManagement.url}?q=milestone%3A$2.4+is%3Aclosed}milestone 2.4}}.
+  {{{${project.issueManagement.url}?q=milestone%3A$2.4+is%3Aclosed}milestone 2.4 }}.
 
-This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.19.
-Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to
-find out about the specific Sass and other transitive dependencies included in this release.
+  This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.19.
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to
+  find out about the specific Sass and other transitive dependencies included in this release.
 
 ** Fix
 
@@ -87,6 +89,7 @@ find out about the specific Sass and other transitive dependencies included in t
 
   []
 
+
 * 2.2 Release Notes
 
   A complete list of issues can be seen in the tracker
@@ -103,6 +106,7 @@ find out about the specific Sass and other transitive dependencies included in t
   * update Compass (1.0.3) and Sass (3.4.12) to latest release
 
   []
+
 
 * 2.1 Release Notes
 
