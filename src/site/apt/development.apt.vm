@@ -46,7 +46,7 @@ mvn install -Dmaven.test.skip=true
   Use the following command sequence to do a full build:
 
 +----+
-mvn install -U -Dmaven.test.skip=true -B -V -fae -q -T2
+mvn install -Dmaven.test.skip=true -B -V -fae -q -T2
 mvn -e verify -B
 +----+
 
@@ -65,7 +65,7 @@ mvn -e verify -B
 mvn -U org.codehaus.mojo:versions-maven-plugin:2.1:display-dependency-updates
 +----+
 
-  to check for dependency updates and run:
+  to check for plugin updates and run:
 
 +----+
 mvn -U org.codehaus.mojo:versions-maven-plugin:2.1:display-plugin-updates -Prelease,travis-ci

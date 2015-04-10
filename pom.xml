@@ -132,7 +132,7 @@
 		<sass.version>3.4.13</sass.version>
 		<jruby.version>1.7.19</jruby.version>
 		<maven-libs.version>3.3.1</maven-libs.version>
-		<scss-lint.version>0.35.0</scss-lint.version>
+		<scss-lint.version>0.36.1</scss-lint.version>
 		<maven.version></maven.version>
 		<debug>true</debug>
 		<github.username />
@@ -294,7 +294,7 @@
 			<plugin>
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
-				<version>1.0.8</version>
+				<version>1.0.9</version>
 				<executions>
 					<execution>
 						<id>install-gems</id>
@@ -335,7 +335,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
+				<version>3.3</version>
 				<configuration>
 					<debug>${debug}</debug>
 					<optimize>!${debug}</optimize>
@@ -366,7 +366,7 @@
 						<downloadPage>${project.url}/releases</downloadPage>
 						<mailingList />
 						<category>Maven plugin</category>
-						<shortdesc>${project.description}</shortdesc>
+						<shortdesc>${project.name}</shortdesc>
 					</doapOptions>
 				</configuration>
 			</plugin>

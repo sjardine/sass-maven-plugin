@@ -26,13 +26,9 @@ ${project.name} ${project.version} Release Notes
   Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
   specific Sass and other transitive dependencies included in this release.
 
-** Fix
-
-  *
-
 ** New
 
-  * Add an optional parameter to specify the compass.rb file
+  * Add an optional parameter to specify the <<<compass.rb>>> file
 
   []
 
