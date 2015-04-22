@@ -50,6 +50,7 @@ ${project.name} ${project.version} Release Notes
 
 * 2.4 Release Notes
 
+  A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A$2.4+is%3Aclosed}milestone 2.4 }}.
 
   This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.19.
