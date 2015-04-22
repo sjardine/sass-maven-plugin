@@ -50,8 +50,12 @@ mvn install -Dmaven.test.skip=true -B -V -fae -q -T2
 mvn -e verify -B
 +----+
 
-  The above will first install a copy of the plugin in your local maven repository so that it is available to the integration tests of the second command.
-  You may need to specify the -DWatchMojoTestSleeptime=30000 parameter with a larger sleeptime for the watch test to pass.
+  The above will first install a copy of the plugin in your local maven
+  repository so that it is available to the integration tests of the second
+  command. You may need to specify the <<<-DWatchMojoTestSleeptime=30000>>>
+  parameter (or provide that as an enviroment variable, eg.
+  <<<export WatchMojoTestSleeptime=60000>>>) with a larger sleeptime for the
+  watch test to pass.
 
   Checkout the .travis.yml or the appveyor.yml for the latest on this.
 
