@@ -156,300 +156,314 @@
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> useCompass;
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 
 <a class="jxr_linenumber" name="L150" href="#L150">150</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> <em class="jxr_javadoccomment">	 * Directory containing Sass files, defaults to the Maven Web application</em>
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> <em class="jxr_javadoccomment">	 * sources directory (${basedir}/src/main/sass).</em>
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 	@Parameter(defaultValue = <span class="jxr_string">"${basedir}/src/main/sass"</span>, property = <span class="jxr_string">"sassSourceDirectory"</span>)
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> 	<strong class="jxr_keyword">private</strong> File sassSourceDirectory;
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">	 * Defines files in the source directories to include.</em>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> <em class="jxr_javadoccomment">	 * specify an optional compass configuration file, eg. {@code compass.rb}</em>
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_javadoccomment">	 * @since 2.5</em>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 	@Parameter(property = <span class="jxr_string">"compassConfigFile"</span>)
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 	<strong class="jxr_keyword">private</strong> File compassConfigFile;
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> 
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> <em class="jxr_javadoccomment">	 * Directory containing Sass files, defaults to the Maven</em>
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> <em class="jxr_javadoccomment">	 * sources directory (${basedir}/src/main/sass).</em>
 <a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">	 * Defaults to: {@code **&amp;#47;scss}</em>
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> 	@Parameter
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 	<strong class="jxr_keyword">private</strong> String[] includes = <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"**/scss"</span> };
-<a class="jxr_linenumber" name="L168" href="#L168">168</a> 
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> <em class="jxr_javadoccomment">	 * Defines which of the included files in the source directories to exclude</em>
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_javadoccomment">	 * (none by default).</em>
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 	@Parameter
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 	<strong class="jxr_keyword">private</strong> String[] excludes;
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> <em class="jxr_javadoccomment">	 * Defines an additional path section when calculating the destination for</em>
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> <em class="jxr_javadoccomment">	 * the SCSS file. Allows, for example</em>
-<a class="jxr_linenumber" name="L181" href="#L181">181</a> <em class="jxr_javadoccomment">	 * "/media/skins/universality/coal/scss/portal.scss" to end up at</em>
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> <em class="jxr_javadoccomment">	 * "/media/skins/universality/coal/portal.css" by specifying ".."</em>
-<a class="jxr_linenumber" name="L183" href="#L183">183</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L184" href="#L184">184</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
-<a class="jxr_linenumber" name="L185" href="#L185">185</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 	@Parameter(defaultValue = <span class="jxr_string">".."</span>)
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 	<strong class="jxr_keyword">private</strong> String relativeOutputDirectory;
-<a class="jxr_linenumber" name="L188" href="#L188">188</a> 
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L190" href="#L190">190</a> <em class="jxr_javadoccomment">	 * Where to put the compiled CSS files.</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 	@Parameter(defaultValue = <span class="jxr_string">"${basedir}/src/main/sass"</span>, property = <span class="jxr_string">"sassSourceDirectory"</span>)
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 	<strong class="jxr_keyword">private</strong> File sassSourceDirectory;
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> <em class="jxr_javadoccomment">	 * Defines files in the source directories to include.</em>
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> <em class="jxr_javadoccomment">	 * Defaults to: {@code **&amp;#47;scss}</em>
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 	@Parameter
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 	<strong class="jxr_keyword">private</strong> String[] includes = <strong class="jxr_keyword">new</strong> String[] { <span class="jxr_string">"**/scss"</span> };
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> <em class="jxr_javadoccomment">	 * Defines which of the included files in the source directories to exclude</em>
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> <em class="jxr_javadoccomment">	 * (none by default).</em>
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 	@Parameter
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 	<strong class="jxr_keyword">private</strong> String[] excludes;
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> <em class="jxr_javadoccomment">	 * Defines an additional path section when calculating the destination for</em>
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> <em class="jxr_javadoccomment">	 * the SCSS file. Allows, for example</em>
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> <em class="jxr_javadoccomment">	 * "/media/skins/universality/coal/scss/portal.scss" to end up at</em>
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> <em class="jxr_javadoccomment">	 * "/media/skins/universality/coal/portal.css" by specifying ".."</em>
 <a class="jxr_linenumber" name="L191" href="#L191">191</a> <em class="jxr_javadoccomment">	 *</em>
 <a class="jxr_linenumber" name="L192" href="#L192">192</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
 <a class="jxr_linenumber" name="L193" href="#L193">193</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L194" href="#L194">194</a> 	@Parameter(defaultValue = <span class="jxr_string">"${project.build.directory}/${project.build.finalName}/css"</span>)
-<a class="jxr_linenumber" name="L195" href="#L195">195</a> 	<strong class="jxr_keyword">private</strong> File destination;
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> 	@Parameter(defaultValue = <span class="jxr_string">".."</span>)
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> 	<strong class="jxr_keyword">private</strong> String relativeOutputDirectory;
 <a class="jxr_linenumber" name="L196" href="#L196">196</a> 
 <a class="jxr_linenumber" name="L197" href="#L197">197</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L198" href="#L198">198</a> <em class="jxr_javadoccomment">	 * Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.</em>
-<a class="jxr_linenumber" name="L199" href="#L199">199</a> <em class="jxr_javadoccomment">	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} &lt;em&gt;(default)&lt;/em&gt; or</em>
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> <em class="jxr_javadoccomment">	 * {@code 2.0} &lt;em&gt;(experimental)&lt;/em&gt;.</em>
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L202" href="#L202">202</a> <em class="jxr_javadoccomment">	 * @since 2.1</em>
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L204" href="#L204">204</a> 	@Parameter(defaultValue = <span class="jxr_string">"1.9"</span>)
-<a class="jxr_linenumber" name="L205" href="#L205">205</a> 	<strong class="jxr_keyword">private</strong> Float rubyVersion;
-<a class="jxr_linenumber" name="L206" href="#L206">206</a> 
-<a class="jxr_linenumber" name="L207" href="#L207">207</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">	 * Execute the Sass Compilation Ruby Script.</em>
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> <em class="jxr_javadoccomment">	 * Where to put the compiled CSS files.</em>
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> <em class="jxr_javadoccomment">	 * @since 2.0</em>
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 	@Parameter(defaultValue = <span class="jxr_string">"${project.build.directory}/${project.build.finalName}/css"</span>)
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 	<strong class="jxr_keyword">private</strong> File destination;
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> 
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> <em class="jxr_javadoccomment">	 * Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.</em>
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> <em class="jxr_javadoccomment">	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} &lt;em&gt;(default)&lt;/em&gt; or</em>
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> <em class="jxr_javadoccomment">	 * {@code 2.0} &lt;em&gt;(experimental)&lt;/em&gt;.</em>
 <a class="jxr_linenumber" name="L209" href="#L209">209</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L210" href="#L210">210</a> <em class="jxr_javadoccomment">	 * @param sassScript</em>
-<a class="jxr_linenumber" name="L211" href="#L211">211</a> <em class="jxr_javadoccomment">	 *            the sass script</em>
-<a class="jxr_linenumber" name="L212" href="#L212">212</a> <em class="jxr_javadoccomment">	 * @throws MojoExecutionException</em>
-<a class="jxr_linenumber" name="L213" href="#L213">213</a> <em class="jxr_javadoccomment">	 *             the mojo execution exception</em>
-<a class="jxr_linenumber" name="L214" href="#L214">214</a> <em class="jxr_javadoccomment">	 * @throws MojoFailureException</em>
-<a class="jxr_linenumber" name="L215" href="#L215">215</a> <em class="jxr_javadoccomment">	 *             the mojo failure exception</em>
-<a class="jxr_linenumber" name="L216" href="#L216">216</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L217" href="#L217">217</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> executeSassScript(String sassScript)
-<a class="jxr_linenumber" name="L218" href="#L218">218</a> 	        <strong class="jxr_keyword">throws</strong> MojoExecutionException, MojoFailureException {
-<a class="jxr_linenumber" name="L219" href="#L219">219</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
-<a class="jxr_linenumber" name="L220" href="#L220">220</a> 		System.setProperty(<span class="jxr_string">"org.jruby.embed.localcontext.scope"</span>, <span class="jxr_string">"threadsafe"</span>);
-<a class="jxr_linenumber" name="L221" href="#L221">221</a> 		System.setProperty(<span class="jxr_string">"org.jruby.embed.compat.version"</span>,
-<a class="jxr_linenumber" name="L222" href="#L222">222</a> 		                   String.format(<span class="jxr_string">"ruby%2.0f"</span>, rubyVersion * 10));
-<a class="jxr_linenumber" name="L223" href="#L223">223</a> 		log.debug(<span class="jxr_string">"Setting 'org.jruby.embed.compat.version' to: "</span>
-<a class="jxr_linenumber" name="L224" href="#L224">224</a> 		          + String.format(<span class="jxr_string">"ruby%2.0f"</span>, rubyVersion * 10));
-<a class="jxr_linenumber" name="L225" href="#L225">225</a> 
-<a class="jxr_linenumber" name="L226" href="#L226">226</a> 		log.debug(<span class="jxr_string">"Execute Sass Ruby script:\n\n"</span> + sassScript);
-<a class="jxr_linenumber" name="L227" href="#L227">227</a> 		<strong class="jxr_keyword">final</strong> ScriptEngineManager scriptEngineManager = <strong class="jxr_keyword">new</strong> ScriptEngineManager();
-<a class="jxr_linenumber" name="L228" href="#L228">228</a> 		<strong class="jxr_keyword">final</strong> ScriptEngine jruby = scriptEngineManager.getEngineByName(<span class="jxr_string">"jruby"</span>);
-<a class="jxr_linenumber" name="L229" href="#L229">229</a> 		<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L230" href="#L230">230</a> 			<strong class="jxr_keyword">final</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a> compilerCallback = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a>(log);
-<a class="jxr_linenumber" name="L231" href="#L231">231</a> 			jruby.getBindings(ScriptContext.ENGINE_SCOPE).put(
-<a class="jxr_linenumber" name="L232" href="#L232">232</a> 			        <span class="jxr_string">"compiler_callback"</span>, compilerCallback);
-<a class="jxr_linenumber" name="L233" href="#L233">233</a> 			jruby.eval(sassScript);
-<a class="jxr_linenumber" name="L234" href="#L234">234</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.failOnError &amp;&amp; compilerCallback.hadError()) {
-<a class="jxr_linenumber" name="L235" href="#L235">235</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MojoFailureException(
-<a class="jxr_linenumber" name="L236" href="#L236">236</a> 				   <span class="jxr_string">"Sass compilation encountered errors (see above for details)."</span>);
-<a class="jxr_linenumber" name="L237" href="#L237">237</a> 			}
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> 		} <strong class="jxr_keyword">catch</strong> (<strong class="jxr_keyword">final</strong> ScriptException e) {
-<a class="jxr_linenumber" name="L239" href="#L239">239</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MojoExecutionException(
-<a class="jxr_linenumber" name="L240" href="#L240">240</a> 			        <span class="jxr_string">"Failed to execute Sass ruby script:\n"</span> + sassScript, e);
-<a class="jxr_linenumber" name="L241" href="#L241">241</a> 		}
-<a class="jxr_linenumber" name="L242" href="#L242">242</a> 		log.debug(<span class="jxr_string">"\n"</span>);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a> 	}
-<a class="jxr_linenumber" name="L244" href="#L244">244</a> 
-<a class="jxr_linenumber" name="L245" href="#L245">245</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> <em class="jxr_javadoccomment">	 * Builds the basic sass script.</em>
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> <em class="jxr_javadoccomment">	 * @param sassScript</em>
-<a class="jxr_linenumber" name="L249" href="#L249">249</a> <em class="jxr_javadoccomment">	 *            the sass script</em>
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> <em class="jxr_javadoccomment">	 * @throws MojoExecutionException</em>
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> <em class="jxr_javadoccomment">	 *             the mojo execution exception</em>
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L253" href="#L253">253</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> buildBasicSassScript(<strong class="jxr_keyword">final</strong> StringBuilder sassScript)
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 	        <strong class="jxr_keyword">throws</strong> MojoExecutionException {
-<a class="jxr_linenumber" name="L255" href="#L255">255</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
-<a class="jxr_linenumber" name="L256" href="#L256">256</a> 
-<a class="jxr_linenumber" name="L257" href="#L257">257</a> 		sassScript.append(<span class="jxr_string">"require 'rubygems'"</span>).append('\n');
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> 		<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.gemPaths.length &gt; 0) {
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> 			sassScript.append(<span class="jxr_string">"env = { 'GEM_PATH' =&gt; [\n"</span>);
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String gemPath : <strong class="jxr_keyword">this</strong>.gemPaths) {
-<a class="jxr_linenumber" name="L261" href="#L261">261</a> 				sassScript.append(<span class="jxr_string">"    '"</span>).append(gemPath).append(<span class="jxr_string">"',\n"</span>);
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> 			}
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> 
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> 			<strong class="jxr_keyword">final</strong> String gemPath = System.getenv(<span class="jxr_string">"GEM_PATH"</span>);
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> 			<strong class="jxr_keyword">if</strong> (gemPath != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L266" href="#L266">266</a> 				<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String p : gemPath.split(File.pathSeparator)) {
-<a class="jxr_linenumber" name="L267" href="#L267">267</a> 					sassScript.append(<span class="jxr_string">"    '"</span>).append(p).append(<span class="jxr_string">"',\n"</span>);
-<a class="jxr_linenumber" name="L268" href="#L268">268</a> 				}
-<a class="jxr_linenumber" name="L269" href="#L269">269</a> 			}
-<a class="jxr_linenumber" name="L270" href="#L270">270</a> 			<em class="jxr_comment">/* remove trailing comma+\n */</em>
-<a class="jxr_linenumber" name="L271" href="#L271">271</a> 			sassScript.setLength(sassScript.length() - 2);
-<a class="jxr_linenumber" name="L272" href="#L272">272</a> 			sassScript.append('\n');
-<a class="jxr_linenumber" name="L273" href="#L273">273</a> 			sassScript.append(<span class="jxr_string">"] }"</span>).append('\n');
-<a class="jxr_linenumber" name="L274" href="#L274">274</a> 			sassScript.append(<span class="jxr_string">"Gem.paths = env"</span>).append('\n');
-<a class="jxr_linenumber" name="L275" href="#L275">275</a> 		}
-<a class="jxr_linenumber" name="L276" href="#L276">276</a> 
-<a class="jxr_linenumber" name="L277" href="#L277">277</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String gem : <strong class="jxr_keyword">this</strong>.gems) {
-<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			sassScript.append(<span class="jxr_string">"require '"</span>).append(gem).append(<span class="jxr_string">"'\n"</span>);
-<a class="jxr_linenumber" name="L279" href="#L279">279</a> 		}
-<a class="jxr_linenumber" name="L280" href="#L280">280</a> 
-<a class="jxr_linenumber" name="L281" href="#L281">281</a> 		sassScript.append(<span class="jxr_string">"require 'sass/plugin'\n"</span>);
-<a class="jxr_linenumber" name="L282" href="#L282">282</a> 		sassScript.append(<span class="jxr_string">"require 'java'\n"</span>);
-<a class="jxr_linenumber" name="L283" href="#L283">283</a> 
-<a class="jxr_linenumber" name="L284" href="#L284">284</a> 		<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.useCompass) {
-<a class="jxr_linenumber" name="L285" href="#L285">285</a> 			log.info(<span class="jxr_string">"Running with Compass enabled."</span>);
-<a class="jxr_linenumber" name="L286" href="#L286">286</a> 			sassScript.append(<span class="jxr_string">"require 'compass'"</span>).append('\n');
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> 			sassScript.append(<span class="jxr_string">"require 'compass/exec'"</span>).append('\n');
-<a class="jxr_linenumber" name="L288" href="#L288">288</a> 			sassScript.append(<span class="jxr_string">"require 'compass/core'"</span>).append('\n');
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> 			sassScript.append(<span class="jxr_string">"require 'compass/import-once'"</span>).append('\n');
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> 			sassScript.append(<span class="jxr_string">"Compass.add_project_configuration "</span>)
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> 			        .append('\n');
-<a class="jxr_linenumber" name="L292" href="#L292">292</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"load_paths"</span>,
-<a class="jxr_linenumber" name="L293" href="#L293">293</a> 			        <span class="jxr_string">"Compass.configuration.sass_load_paths"</span>);
-<a class="jxr_linenumber" name="L294" href="#L294">294</a> 		}
-<a class="jxr_linenumber" name="L295" href="#L295">295</a> 
-<a class="jxr_linenumber" name="L296" href="#L296">296</a> 		<em class="jxr_comment">// Get all template locations from resources and set option</em>
-<a class="jxr_linenumber" name="L297" href="#L297">297</a> 		<em class="jxr_comment">// 'template_location' and</em>
-<a class="jxr_linenumber" name="L298" href="#L298">298</a> 		<em class="jxr_comment">// 'css_location' (to override default "./public/stylesheets/sass",</em>
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> 		<em class="jxr_comment">// "./public/stylesheets")</em>
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> 		<em class="jxr_comment">// remaining locations are added later with 'add_template_location'</em>
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 		<strong class="jxr_keyword">final</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; templateLocations = <strong class="jxr_keyword">this</strong>
-<a class="jxr_linenumber" name="L302" href="#L302">302</a> 		        .getTemplateLocations();
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> 		<strong class="jxr_keyword">if</strong> (templateLocations.hasNext()) {
-<a class="jxr_linenumber" name="L304" href="#L304">304</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; location = templateLocations.next();
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"template_location"</span>,
-<a class="jxr_linenumber" name="L306" href="#L306">306</a> 			                     <span class="jxr_string">"'"</span> + location.getKey() + <span class="jxr_string">"'"</span>);
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"css_location"</span>,
-<a class="jxr_linenumber" name="L308" href="#L308">308</a> 			                     <span class="jxr_string">"'"</span> + location.getValue() + <span class="jxr_string">"'"</span>);
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		}
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> 
-<a class="jxr_linenumber" name="L311" href="#L311">311</a> 		<em class="jxr_comment">// If not explicitly set place the cache location in the target dir</em>
-<a class="jxr_linenumber" name="L312" href="#L312">312</a> 		<strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.sassOptions.containsKey(<span class="jxr_string">"cache_location"</span>)) {
-<a class="jxr_linenumber" name="L313" href="#L313">313</a> 			<strong class="jxr_keyword">final</strong> File sassCacheDir = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.buildDirectory,
-<a class="jxr_linenumber" name="L314" href="#L314">314</a> 			        <span class="jxr_string">"sass_cache"</span>);
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 			<strong class="jxr_keyword">final</strong> String sassCacheDirStr = sassCacheDir.toString();
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"cache_location"</span>,
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> 			        <span class="jxr_string">"'"</span> + FilenameUtils.separatorsToUnix(sassCacheDirStr) + <span class="jxr_string">"'"</span>);
-<a class="jxr_linenumber" name="L318" href="#L318">318</a> 		}
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> 		<em class="jxr_comment">// Add the plugin configuration options</em>
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> 		sassScript.append(<span class="jxr_string">"Sass::Plugin.options.merge!("</span>).append('\n');
-<a class="jxr_linenumber" name="L322" href="#L322">322</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; entryItr = <strong class="jxr_keyword">this</strong>.sassOptions
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> 		        .entrySet().iterator(); entryItr.hasNext();) {
-<a class="jxr_linenumber" name="L324" href="#L324">324</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; optEntry = entryItr.next();
-<a class="jxr_linenumber" name="L325" href="#L325">325</a> 			<strong class="jxr_keyword">final</strong> String opt = optEntry.getKey();
-<a class="jxr_linenumber" name="L326" href="#L326">326</a> 			<strong class="jxr_keyword">final</strong> String value = optEntry.getValue();
-<a class="jxr_linenumber" name="L327" href="#L327">327</a> 			sassScript.append(<span class="jxr_string">"    :"</span>).append(opt).append(<span class="jxr_string">" =&gt; "</span>).append(value);
-<a class="jxr_linenumber" name="L328" href="#L328">328</a> 			<strong class="jxr_keyword">if</strong> (entryItr.hasNext()) {
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> 				sassScript.append(<span class="jxr_string">","</span>);
-<a class="jxr_linenumber" name="L330" href="#L330">330</a> 			}
-<a class="jxr_linenumber" name="L331" href="#L331">331</a> 			sassScript.append('\n');
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> <em class="jxr_javadoccomment">	 * @since 2.1</em>
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> 	@Parameter(defaultValue = <span class="jxr_string">"1.9"</span>)
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 	<strong class="jxr_keyword">private</strong> Float rubyVersion;
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> 
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L216" href="#L216">216</a> <em class="jxr_javadoccomment">	 * Execute the Sass Compilation Ruby Script.</em>
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> <em class="jxr_javadoccomment">	 * @param sassScript</em>
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> <em class="jxr_javadoccomment">	 *            the sass script</em>
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> <em class="jxr_javadoccomment">	 * @throws MojoExecutionException</em>
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> <em class="jxr_javadoccomment">	 *             the mojo execution exception</em>
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> <em class="jxr_javadoccomment">	 * @throws MojoFailureException</em>
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> <em class="jxr_javadoccomment">	 *             the mojo failure exception</em>
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> executeSassScript(String sassScript)
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> 	        <strong class="jxr_keyword">throws</strong> MojoExecutionException, MojoFailureException {
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 		System.setProperty(<span class="jxr_string">"org.jruby.embed.localcontext.scope"</span>, <span class="jxr_string">"threadsafe"</span>);
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> 		System.setProperty(<span class="jxr_string">"org.jruby.embed.compat.version"</span>,
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> 		                   String.format(<span class="jxr_string">"ruby%2.0f"</span>, rubyVersion * 10));
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> 		log.debug(<span class="jxr_string">"Setting 'org.jruby.embed.compat.version' to: "</span>
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 		          + String.format(<span class="jxr_string">"ruby%2.0f"</span>, rubyVersion * 10));
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> 
+<a class="jxr_linenumber" name="L234" href="#L234">234</a> 		log.debug(<span class="jxr_string">"Execute Sass Ruby script:\n\n"</span> + sassScript);
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 		<strong class="jxr_keyword">final</strong> ScriptEngineManager scriptEngineManager = <strong class="jxr_keyword">new</strong> ScriptEngineManager();
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 		<strong class="jxr_keyword">final</strong> ScriptEngine jruby = scriptEngineManager.getEngineByName(<span class="jxr_string">"jruby"</span>);
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 		<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 			<strong class="jxr_keyword">final</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a> compilerCallback = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a>(log);
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 			jruby.getBindings(ScriptContext.ENGINE_SCOPE).put(
+<a class="jxr_linenumber" name="L240" href="#L240">240</a> 			        <span class="jxr_string">"compiler_callback"</span>, compilerCallback);
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> 			jruby.eval(sassScript);
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.failOnError &amp;&amp; compilerCallback.hadError()) {
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> 				<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MojoFailureException(
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 				   <span class="jxr_string">"Sass compilation encountered errors (see above for details)."</span>);
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 			}
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 		} <strong class="jxr_keyword">catch</strong> (<strong class="jxr_keyword">final</strong> ScriptException e) {
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> MojoExecutionException(
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 			        <span class="jxr_string">"Failed to execute Sass ruby script:\n"</span> + sassScript, e);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> 		}
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		log.debug(<span class="jxr_string">"\n"</span>);
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 	}
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> <em class="jxr_javadoccomment">	 * Builds the basic sass script.</em>
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> <em class="jxr_javadoccomment">	 * @param sassScript</em>
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> <em class="jxr_javadoccomment">	 *            the sass script</em>
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> <em class="jxr_javadoccomment">	 * @throws MojoExecutionException</em>
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> <em class="jxr_javadoccomment">	 *             the mojo execution exception</em>
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> buildBasicSassScript(<strong class="jxr_keyword">final</strong> StringBuilder sassScript)
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 	        <strong class="jxr_keyword">throws</strong> MojoExecutionException {
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 		sassScript.append(<span class="jxr_string">"require 'rubygems'"</span>).append('\n');
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 		<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.gemPaths.length &gt; 0) {
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> 			sassScript.append(<span class="jxr_string">"env = { 'GEM_PATH' =&gt; [\n"</span>);
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String gemPath : <strong class="jxr_keyword">this</strong>.gemPaths) {
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> 				sassScript.append(<span class="jxr_string">"    '"</span>).append(gemPath).append(<span class="jxr_string">"',\n"</span>);
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> 			}
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> 			<strong class="jxr_keyword">final</strong> String gemPath = System.getenv(<span class="jxr_string">"GEM_PATH"</span>);
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> 			<strong class="jxr_keyword">if</strong> (gemPath != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 				<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String p : gemPath.split(File.pathSeparator)) {
+<a class="jxr_linenumber" name="L275" href="#L275">275</a> 					sassScript.append(<span class="jxr_string">"    '"</span>).append(p).append(<span class="jxr_string">"',\n"</span>);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 				}
+<a class="jxr_linenumber" name="L277" href="#L277">277</a> 			}
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			<em class="jxr_comment">/* remove trailing comma+\n */</em>
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 			sassScript.setLength(sassScript.length() - 2);
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> 			sassScript.append('\n');
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 			sassScript.append(<span class="jxr_string">"] }"</span>).append('\n');
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 			sassScript.append(<span class="jxr_string">"Gem.paths = env"</span>).append('\n');
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 		}
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> String gem : <strong class="jxr_keyword">this</strong>.gems) {
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> 			sassScript.append(<span class="jxr_string">"require '"</span>).append(gem).append(<span class="jxr_string">"'\n"</span>);
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> 		}
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> 		sassScript.append(<span class="jxr_string">"require 'sass/plugin'\n"</span>);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 		sassScript.append(<span class="jxr_string">"require 'java'\n"</span>);
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> 		<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.useCompass) {
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 			log.info(<span class="jxr_string">"Running with Compass enabled."</span>);
+<a class="jxr_linenumber" name="L294" href="#L294">294</a> 			sassScript.append(<span class="jxr_string">"require 'compass'"</span>).append('\n');
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> 			sassScript.append(<span class="jxr_string">"require 'compass/exec'"</span>).append('\n');
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 			sassScript.append(<span class="jxr_string">"require 'compass/core'"</span>).append('\n');
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 			sassScript.append(<span class="jxr_string">"require 'compass/import-once'"</span>).append('\n');
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 			<strong class="jxr_keyword">if</strong>(compassConfigFile != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 				sassScript.append(<span class="jxr_string">"Compass.add_project_configuration '"</span>)
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> 						.append(compassConfigFile.getAbsolutePath())
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 						.append(<span class="jxr_string">"'\n"</span>);
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 				sassScript.append(<span class="jxr_string">"Compass.add_project_configuration "</span>)
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> 						.append('\n');
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> 			}
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"load_paths"</span>,
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> 			        <span class="jxr_string">"Compass.configuration.sass_load_paths"</span>);
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> 		}
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> 
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 		<em class="jxr_comment">// Get all template locations from resources and set option</em>
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> 		<em class="jxr_comment">// 'template_location' and</em>
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 		<em class="jxr_comment">// 'css_location' (to override default "./public/stylesheets/sass",</em>
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> 		<em class="jxr_comment">// "./public/stylesheets")</em>
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> 		<em class="jxr_comment">// remaining locations are added later with 'add_template_location'</em>
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		<strong class="jxr_keyword">final</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; templateLocations = <strong class="jxr_keyword">this</strong>
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 		        .getTemplateLocations();
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		<strong class="jxr_keyword">if</strong> (templateLocations.hasNext()) {
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; location = templateLocations.next();
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"template_location"</span>,
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 			                     <span class="jxr_string">"'"</span> + location.getKey() + <span class="jxr_string">"'"</span>);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"css_location"</span>,
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 			                     <span class="jxr_string">"'"</span> + location.getValue() + <span class="jxr_string">"'"</span>);
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 		}
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 		<em class="jxr_comment">// If not explicitly set place the cache location in the target dir</em>
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 		<strong class="jxr_keyword">if</strong> (!<strong class="jxr_keyword">this</strong>.sassOptions.containsKey(<span class="jxr_string">"cache_location"</span>)) {
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 			<strong class="jxr_keyword">final</strong> File sassCacheDir = <strong class="jxr_keyword">new</strong> File(<strong class="jxr_keyword">this</strong>.buildDirectory,
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 			        <span class="jxr_string">"sass_cache"</span>);
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 			<strong class="jxr_keyword">final</strong> String sassCacheDirStr = sassCacheDir.toString();
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 			<strong class="jxr_keyword">this</strong>.sassOptions.put(<span class="jxr_string">"cache_location"</span>,
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> 			        <span class="jxr_string">"'"</span> + FilenameUtils.separatorsToUnix(sassCacheDirStr) + <span class="jxr_string">"'"</span>);
 <a class="jxr_linenumber" name="L332" href="#L332">332</a> 		}
-<a class="jxr_linenumber" name="L333" href="#L333">333</a> 		sassScript.append(<span class="jxr_string">")"</span>).append('\n');
-<a class="jxr_linenumber" name="L334" href="#L334">334</a> 
-<a class="jxr_linenumber" name="L335" href="#L335">335</a> 		<em class="jxr_comment">// add remaining template locations with 'add_template_location' (need</em>
-<a class="jxr_linenumber" name="L336" href="#L336">336</a> 		<em class="jxr_comment">// to be done after options.merge)</em>
-<a class="jxr_linenumber" name="L337" href="#L337">337</a> 		<strong class="jxr_keyword">while</strong> (templateLocations.hasNext()) {
-<a class="jxr_linenumber" name="L338" href="#L338">338</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; location = templateLocations.next();
-<a class="jxr_linenumber" name="L339" href="#L339">339</a> 			sassScript.append(<span class="jxr_string">"Sass::Plugin.add_template_location('"</span>)
-<a class="jxr_linenumber" name="L340" href="#L340">340</a> 			        .append(location.getKey()).append(<span class="jxr_string">"', '"</span>)
-<a class="jxr_linenumber" name="L341" href="#L341">341</a> 			        .append(location.getValue()).append(<span class="jxr_string">"')"</span>).append('\n');
-<a class="jxr_linenumber" name="L342" href="#L342">342</a> 		}
-<a class="jxr_linenumber" name="L343" href="#L343">343</a> 
-<a class="jxr_linenumber" name="L344" href="#L344">344</a> 		<em class="jxr_comment">// set up sass compiler callback for reporting</em>
-<a class="jxr_linenumber" name="L345" href="#L345">345</a> 		sassScript
-<a class="jxr_linenumber" name="L346" href="#L346">346</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }"</span>)
-<a class="jxr_linenumber" name="L347" href="#L347">347</a> 		        .append('\n');
-<a class="jxr_linenumber" name="L348" href="#L348">348</a> 		sassScript
-<a class="jxr_linenumber" name="L349" href="#L349">349</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }"</span>)
-<a class="jxr_linenumber" name="L350" href="#L350">350</a> 		        .append('\n');
-<a class="jxr_linenumber" name="L351" href="#L351">351</a> 		sassScript
-<a class="jxr_linenumber" name="L352" href="#L352">352</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }"</span>)
-<a class="jxr_linenumber" name="L353" href="#L353">353</a> 		        .append('\n');
-<a class="jxr_linenumber" name="L354" href="#L354">354</a> 		sassScript
-<a class="jxr_linenumber" name="L355" href="#L355">355</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }"</span>)
-<a class="jxr_linenumber" name="L356" href="#L356">356</a> 		        .append('\n');
-<a class="jxr_linenumber" name="L357" href="#L357">357</a> 		sassScript
-<a class="jxr_linenumber" name="L358" href="#L358">358</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }"</span>)
-<a class="jxr_linenumber" name="L359" href="#L359">359</a> 		        .append('\n');
-<a class="jxr_linenumber" name="L360" href="#L360">360</a> 
-<a class="jxr_linenumber" name="L361" href="#L361">361</a> 		<em class="jxr_comment">// make ruby give use some debugging info when requested</em>
-<a class="jxr_linenumber" name="L362" href="#L362">362</a> 		<strong class="jxr_keyword">if</strong> (log.isDebugEnabled()) {
-<a class="jxr_linenumber" name="L363" href="#L363">363</a> 			sassScript.append(<span class="jxr_string">"require 'pp'"</span>).append('\n');
-<a class="jxr_linenumber" name="L364" href="#L364">364</a> 			sassScript.append(<span class="jxr_string">"pp Sass::Plugin.options"</span>).append('\n');
-<a class="jxr_linenumber" name="L365" href="#L365">365</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.useCompass) {
-<a class="jxr_linenumber" name="L366" href="#L366">366</a> 				sassScript.append(<span class="jxr_string">"pp Compass.base_directory"</span>).append('\n');
-<a class="jxr_linenumber" name="L367" href="#L367">367</a> 				sassScript.append(<span class="jxr_string">"pp Compass::Core.base_directory"</span>).append('\n');
-<a class="jxr_linenumber" name="L368" href="#L368">368</a> 				sassScript.append(<span class="jxr_string">"pp Compass::configuration"</span>).append('\n');
-<a class="jxr_linenumber" name="L369" href="#L369">369</a> 			}
-<a class="jxr_linenumber" name="L370" href="#L370">370</a> 		}
-<a class="jxr_linenumber" name="L371" href="#L371">371</a> 	}
-<a class="jxr_linenumber" name="L372" href="#L372">372</a> 
-<a class="jxr_linenumber" name="L373" href="#L373">373</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L374" href="#L374">374</a> <em class="jxr_javadoccomment">	 * Gets the template locations.</em>
-<a class="jxr_linenumber" name="L375" href="#L375">375</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L376" href="#L376">376</a> <em class="jxr_javadoccomment">	 * @return the template locations</em>
-<a class="jxr_linenumber" name="L377" href="#L377">377</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L378" href="#L378">378</a> 	<strong class="jxr_keyword">private</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; getTemplateLocations() {
-<a class="jxr_linenumber" name="L379" href="#L379">379</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
-<a class="jxr_linenumber" name="L380" href="#L380">380</a> 		List&lt;Resource&gt; _resources = <strong class="jxr_keyword">this</strong>.resources;
-<a class="jxr_linenumber" name="L381" href="#L381">381</a> 
-<a class="jxr_linenumber" name="L382" href="#L382">382</a> 		<strong class="jxr_keyword">if</strong> (_resources.isEmpty()) {
-<a class="jxr_linenumber" name="L383" href="#L383">383</a> 			log.info(<span class="jxr_string">"No resource element was specified, using short configuration."</span>);
-<a class="jxr_linenumber" name="L384" href="#L384">384</a> 			<em class="jxr_comment">// If no resources specified, create a resource based on the other</em>
-<a class="jxr_linenumber" name="L385" href="#L385">385</a> 			<em class="jxr_comment">// parameters and defaults</em>
-<a class="jxr_linenumber" name="L386" href="#L386">386</a> 			<strong class="jxr_keyword">final</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/Resource.html">Resource</a> resource = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/Resource.html">Resource</a>();
-<a class="jxr_linenumber" name="L387" href="#L387">387</a> 			resource.source = <strong class="jxr_keyword">new</strong> FileSet();
-<a class="jxr_linenumber" name="L388" href="#L388">388</a> 
-<a class="jxr_linenumber" name="L389" href="#L389">389</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.sassSourceDirectory != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L390" href="#L390">390</a> 				log.debug(<span class="jxr_string">"Setting source directory: "</span>
-<a class="jxr_linenumber" name="L391" href="#L391">391</a> 						+ <strong class="jxr_keyword">this</strong>.sassSourceDirectory.toString());
-<a class="jxr_linenumber" name="L392" href="#L392">392</a> 				resource.source.setDirectory(<strong class="jxr_keyword">this</strong>.sassSourceDirectory
-<a class="jxr_linenumber" name="L393" href="#L393">393</a> 				        .toString());
-<a class="jxr_linenumber" name="L394" href="#L394">394</a> 			} <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L395" href="#L395">395</a> 				log.error(<span class="jxr_string">"\&quot;"</span> + <strong class="jxr_keyword">this</strong>.sassSourceDirectory
-<a class="jxr_linenumber" name="L396" href="#L396">396</a> 				        + <span class="jxr_string">"\&quot; is not a directory."</span>);
-<a class="jxr_linenumber" name="L397" href="#L397">397</a> 				resource.source.setDirectory(<span class="jxr_string">"./src/main/sass"</span>);
-<a class="jxr_linenumber" name="L398" href="#L398">398</a> 			}
-<a class="jxr_linenumber" name="L399" href="#L399">399</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.includes != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L400" href="#L400">400</a> 				log.debug(<span class="jxr_string">"Setting includes: "</span> + Arrays.toString(<strong class="jxr_keyword">this</strong>.includes));
-<a class="jxr_linenumber" name="L401" href="#L401">401</a> 				resource.source.setIncludes(Arrays.asList(<strong class="jxr_keyword">this</strong>.includes));
-<a class="jxr_linenumber" name="L402" href="#L402">402</a> 			}
-<a class="jxr_linenumber" name="L403" href="#L403">403</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.excludes != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L404" href="#L404">404</a> 				log.debug(<span class="jxr_string">"Setting excludes: "</span> + Arrays.toString(<strong class="jxr_keyword">this</strong>.excludes));
-<a class="jxr_linenumber" name="L405" href="#L405">405</a> 				resource.source.setExcludes(Arrays.asList(<strong class="jxr_keyword">this</strong>.excludes));
-<a class="jxr_linenumber" name="L406" href="#L406">406</a> 			}
-<a class="jxr_linenumber" name="L407" href="#L407">407</a> 			resource.relativeOutputDirectory = <strong class="jxr_keyword">this</strong>.relativeOutputDirectory;
-<a class="jxr_linenumber" name="L408" href="#L408">408</a> 			resource.destination = <strong class="jxr_keyword">this</strong>.destination;
-<a class="jxr_linenumber" name="L409" href="#L409">409</a> 			_resources = ImmutableList.of(resource);
-<a class="jxr_linenumber" name="L410" href="#L410">410</a> 		}
-<a class="jxr_linenumber" name="L411" href="#L411">411</a> 
-<a class="jxr_linenumber" name="L412" href="#L412">412</a> 		<strong class="jxr_keyword">final</strong> List&lt;Entry&lt;String, String&gt;&gt; locations = <strong class="jxr_keyword">new</strong> ArrayList&lt;Entry&lt;String, String&gt;&gt;();
-<a class="jxr_linenumber" name="L413" href="#L413">413</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Resource source : _resources) {
-<a class="jxr_linenumber" name="L414" href="#L414">414</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; entry : source
-<a class="jxr_linenumber" name="L415" href="#L415">415</a> 			        .getDirectoriesAndDestinations().entrySet()) {
-<a class="jxr_linenumber" name="L416" href="#L416">416</a> 				log.info(<span class="jxr_string">"Queueing Sass template for compile: "</span>
-<a class="jxr_linenumber" name="L417" href="#L417">417</a> 				        + entry.getKey() + <span class="jxr_string">" =&gt; "</span> + entry.getValue());
-<a class="jxr_linenumber" name="L418" href="#L418">418</a> 				locations.add(entry);
-<a class="jxr_linenumber" name="L419" href="#L419">419</a> 			}
-<a class="jxr_linenumber" name="L420" href="#L420">420</a> 		}
-<a class="jxr_linenumber" name="L421" href="#L421">421</a> 		<strong class="jxr_keyword">return</strong> locations.iterator();
-<a class="jxr_linenumber" name="L422" href="#L422">422</a> 	}
-<a class="jxr_linenumber" name="L423" href="#L423">423</a> 
-<a class="jxr_linenumber" name="L424" href="#L424">424</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L425" href="#L425">425</a> <em class="jxr_javadoccomment">	 * @return the resources</em>
-<a class="jxr_linenumber" name="L426" href="#L426">426</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L427" href="#L427">427</a> 	<strong class="jxr_keyword">protected</strong> List&lt;Resource&gt; getResources() {
-<a class="jxr_linenumber" name="L428" href="#L428">428</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.resources;
-<a class="jxr_linenumber" name="L429" href="#L429">429</a> 	}
-<a class="jxr_linenumber" name="L430" href="#L430">430</a> 
-<a class="jxr_linenumber" name="L431" href="#L431">431</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L432" href="#L432">432</a> <em class="jxr_javadoccomment">	 * @return the useCompass</em>
-<a class="jxr_linenumber" name="L433" href="#L433">433</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L434" href="#L434">434</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> isUseCompass() {
-<a class="jxr_linenumber" name="L435" href="#L435">435</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.useCompass;
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 		<em class="jxr_comment">// Add the plugin configuration options</em>
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> 		sassScript.append(<span class="jxr_string">"Sass::Plugin.options.merge!("</span>).append('\n');
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; entryItr = <strong class="jxr_keyword">this</strong>.sassOptions
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> 		        .entrySet().iterator(); entryItr.hasNext();) {
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; optEntry = entryItr.next();
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 			<strong class="jxr_keyword">final</strong> String opt = optEntry.getKey();
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 			<strong class="jxr_keyword">final</strong> String value = optEntry.getValue();
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> 			sassScript.append(<span class="jxr_string">"    :"</span>).append(opt).append(<span class="jxr_string">" =&gt; "</span>).append(value);
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 			<strong class="jxr_keyword">if</strong> (entryItr.hasNext()) {
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 				sassScript.append(<span class="jxr_string">","</span>);
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> 			}
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 			sassScript.append('\n');
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> 		}
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> 		sassScript.append(<span class="jxr_string">")"</span>).append('\n');
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> 
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> 		<em class="jxr_comment">// add remaining template locations with 'add_template_location' (need</em>
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> 		<em class="jxr_comment">// to be done after options.merge)</em>
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> 		<strong class="jxr_keyword">while</strong> (templateLocations.hasNext()) {
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> 			<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; location = templateLocations.next();
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> 			sassScript.append(<span class="jxr_string">"Sass::Plugin.add_template_location('"</span>)
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> 			        .append(location.getKey()).append(<span class="jxr_string">"', '"</span>)
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> 			        .append(location.getValue()).append(<span class="jxr_string">"')"</span>).append('\n');
+<a class="jxr_linenumber" name="L356" href="#L356">356</a> 		}
+<a class="jxr_linenumber" name="L357" href="#L357">357</a> 
+<a class="jxr_linenumber" name="L358" href="#L358">358</a> 		<em class="jxr_comment">// set up sass compiler callback for reporting</em>
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> 		sassScript
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }"</span>)
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> 		        .append('\n');
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> 		sassScript
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }"</span>)
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> 		        .append('\n');
+<a class="jxr_linenumber" name="L365" href="#L365">365</a> 		sassScript
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }"</span>)
+<a class="jxr_linenumber" name="L367" href="#L367">367</a> 		        .append('\n');
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> 		sassScript
+<a class="jxr_linenumber" name="L369" href="#L369">369</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }"</span>)
+<a class="jxr_linenumber" name="L370" href="#L370">370</a> 		        .append('\n');
+<a class="jxr_linenumber" name="L371" href="#L371">371</a> 		sassScript
+<a class="jxr_linenumber" name="L372" href="#L372">372</a> 		        .append(<span class="jxr_string">"Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }"</span>)
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 		        .append('\n');
+<a class="jxr_linenumber" name="L374" href="#L374">374</a> 
+<a class="jxr_linenumber" name="L375" href="#L375">375</a> 		<em class="jxr_comment">// make ruby give use some debugging info when requested</em>
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> 		<strong class="jxr_keyword">if</strong> (log.isDebugEnabled()) {
+<a class="jxr_linenumber" name="L377" href="#L377">377</a> 			sassScript.append(<span class="jxr_string">"require 'pp'"</span>).append('\n');
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> 			sassScript.append(<span class="jxr_string">"pp Sass::Plugin.options"</span>).append('\n');
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.useCompass) {
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> 				sassScript.append(<span class="jxr_string">"pp Compass.base_directory"</span>).append('\n');
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> 				sassScript.append(<span class="jxr_string">"pp Compass::Core.base_directory"</span>).append('\n');
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> 				sassScript.append(<span class="jxr_string">"pp Compass::configuration"</span>).append('\n');
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> 			}
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> 		}
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> 	}
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> 
+<a class="jxr_linenumber" name="L387" href="#L387">387</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> <em class="jxr_javadoccomment">	 * Gets the template locations.</em>
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> <em class="jxr_javadoccomment">	 * @return the template locations</em>
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a> 	<strong class="jxr_keyword">private</strong> Iterator&lt;Entry&lt;String, String&gt;&gt; getTemplateLocations() {
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> 		<strong class="jxr_keyword">final</strong> Log log = <strong class="jxr_keyword">this</strong>.getLog();
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> 		List&lt;Resource&gt; _resources = <strong class="jxr_keyword">this</strong>.resources;
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> 
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> 		<strong class="jxr_keyword">if</strong> (_resources.isEmpty()) {
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> 			log.info(<span class="jxr_string">"No resource element was specified, using short configuration."</span>);
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> 			<em class="jxr_comment">// If no resources specified, create a resource based on the other</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> 			<em class="jxr_comment">// parameters and defaults</em>
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> 			<strong class="jxr_keyword">final</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/Resource.html">Resource</a> resource = <strong class="jxr_keyword">new</strong> <a href="../../../../../nl/geodienstencentrum/maven/plugin/sass/Resource.html">Resource</a>();
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> 			resource.source = <strong class="jxr_keyword">new</strong> FileSet();
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> 
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.sassSourceDirectory != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 				log.debug(<span class="jxr_string">"Setting source directory: "</span>
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> 						+ <strong class="jxr_keyword">this</strong>.sassSourceDirectory.toString());
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> 				resource.source.setDirectory(<strong class="jxr_keyword">this</strong>.sassSourceDirectory
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> 				        .toString());
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> 			} <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> 				log.error(<span class="jxr_string">"\&quot;"</span> + <strong class="jxr_keyword">this</strong>.sassSourceDirectory
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> 				        + <span class="jxr_string">"\&quot; is not a directory."</span>);
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> 				resource.source.setDirectory(<span class="jxr_string">"./src/main/sass"</span>);
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> 			}
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.includes != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 				log.debug(<span class="jxr_string">"Setting includes: "</span> + Arrays.toString(<strong class="jxr_keyword">this</strong>.includes));
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> 				resource.source.setIncludes(Arrays.asList(<strong class="jxr_keyword">this</strong>.includes));
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> 			}
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> 			<strong class="jxr_keyword">if</strong> (<strong class="jxr_keyword">this</strong>.excludes != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> 				log.debug(<span class="jxr_string">"Setting excludes: "</span> + Arrays.toString(<strong class="jxr_keyword">this</strong>.excludes));
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> 				resource.source.setExcludes(Arrays.asList(<strong class="jxr_keyword">this</strong>.excludes));
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> 			}
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> 			resource.relativeOutputDirectory = <strong class="jxr_keyword">this</strong>.relativeOutputDirectory;
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 			resource.destination = <strong class="jxr_keyword">this</strong>.destination;
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> 			_resources = ImmutableList.of(resource);
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> 		}
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> 
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> 		<strong class="jxr_keyword">final</strong> List&lt;Entry&lt;String, String&gt;&gt; locations = <strong class="jxr_keyword">new</strong> ArrayList&lt;Entry&lt;String, String&gt;&gt;();
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> 		<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Resource source : _resources) {
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">final</strong> Entry&lt;String, String&gt; entry : source
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 			        .getDirectoriesAndDestinations().entrySet()) {
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 				log.info(<span class="jxr_string">"Queueing Sass template for compile: "</span>
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> 				        + entry.getKey() + <span class="jxr_string">" =&gt; "</span> + entry.getValue());
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> 				locations.add(entry);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> 			}
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> 		}
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> 		<strong class="jxr_keyword">return</strong> locations.iterator();
 <a class="jxr_linenumber" name="L436" href="#L436">436</a> 	}
 <a class="jxr_linenumber" name="L437" href="#L437">437</a> 
 <a class="jxr_linenumber" name="L438" href="#L438">438</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L439" href="#L439">439</a> <em class="jxr_javadoccomment">	 * @return the sassSourceDirectory</em>
+<a class="jxr_linenumber" name="L439" href="#L439">439</a> <em class="jxr_javadoccomment">	 * @return the resources</em>
 <a class="jxr_linenumber" name="L440" href="#L440">440</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L441" href="#L441">441</a> 	<strong class="jxr_keyword">protected</strong> File getSassSourceDirectory() {
-<a class="jxr_linenumber" name="L442" href="#L442">442</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.sassSourceDirectory;
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> 	<strong class="jxr_keyword">protected</strong> List&lt;Resource&gt; getResources() {
+<a class="jxr_linenumber" name="L442" href="#L442">442</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.resources;
 <a class="jxr_linenumber" name="L443" href="#L443">443</a> 	}
-<a class="jxr_linenumber" name="L444" href="#L444">444</a> }
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> 
+<a class="jxr_linenumber" name="L445" href="#L445">445</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L446" href="#L446">446</a> <em class="jxr_javadoccomment">	 * @return the useCompass</em>
+<a class="jxr_linenumber" name="L447" href="#L447">447</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L448" href="#L448">448</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> isUseCompass() {
+<a class="jxr_linenumber" name="L449" href="#L449">449</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.useCompass;
+<a class="jxr_linenumber" name="L450" href="#L450">450</a> 	}
+<a class="jxr_linenumber" name="L451" href="#L451">451</a> 
+<a class="jxr_linenumber" name="L452" href="#L452">452</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L453" href="#L453">453</a> <em class="jxr_javadoccomment">	 * @return the sassSourceDirectory</em>
+<a class="jxr_linenumber" name="L454" href="#L454">454</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L455" href="#L455">455</a> 	<strong class="jxr_keyword">protected</strong> File getSassSourceDirectory() {
+<a class="jxr_linenumber" name="L456" href="#L456">456</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.sassSourceDirectory;
+<a class="jxr_linenumber" name="L457" href="#L457">457</a> 	}
+<a class="jxr_linenumber" name="L458" href="#L458">458</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2014&#x2013;2015 <a href="https://github.com/GeoDienstenCentrum">GeoDienstenCentrum</a>. All rights reserved.</div>
