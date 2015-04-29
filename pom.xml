@@ -225,7 +225,18 @@
 			<version>1.6</version>
 		</dependency>
 	</dependencies>
-	<repositories />
+	<repositories>
+		<repository>
+			<id>jruby-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<pluginRepositories />
 	<build>
 		<resources>
