@@ -1,0 +1,8 @@
+.error,
+.todo {
+	background: url("../img/error.png") no-repeat scroll -12px 1px transparent;
+	padding-left: 16px;
+	color: $ErrorColor !important;
+	border: 1px solid $ErrorColor;
+	font-variant: small-caps;
+}
