@@ -132,7 +132,7 @@
 		<sass.version>3.4.13</sass.version>
 		<jruby.version>1.7.20</jruby.version>
 		<maven-libs.version>3.3.3</maven-libs.version>
-		<scss-lint.version>0.37.0</scss-lint.version>
+		<scss-lint.version>0.38.0</scss-lint.version>
 		<maven.version />
 		<debug>true</debug>
 		<github.username />
@@ -173,7 +173,7 @@
 		</dependency>
 		<dependency>
 			<groupId>rubygems</groupId>
-			<artifactId>scss-lint</artifactId>
+			<artifactId>scss_lint</artifactId>
 			<version>${scss-lint.version}</version>
 			<scope>provided</scope>
 			<type>gem</type>
