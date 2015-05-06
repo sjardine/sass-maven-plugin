@@ -131,7 +131,7 @@
 		<compass.version>1.0.3</compass.version>
 		<sass.version>3.4.13</sass.version>
 		<jruby.version>1.7.20</jruby.version>
-		<maven-libs.version>3.3.1</maven-libs.version>
+		<maven-libs.version>3.3.3</maven-libs.version>
 		<scss-lint.version>0.37.0</scss-lint.version>
 		<maven.version />
 		<debug>true</debug>
@@ -633,7 +633,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>2.5.2</version>
 				<configuration>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 					<useReleaseProfile>false</useReleaseProfile>
