@@ -130,7 +130,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
 		<sass.version>3.4.13</sass.version>
-		<jruby.version>1.7.19</jruby.version>
+		<jruby.version>1.7.20</jruby.version>
 		<maven-libs.version>3.3.1</maven-libs.version>
 		<scss-lint.version>0.37.0</scss-lint.version>
 		<maven.version />
@@ -225,7 +225,18 @@
 			<version>1.6</version>
 		</dependency>
 	</dependencies>
-	<repositories />
+	<repositories>
+		<repository>
+			<id>jruby-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<pluginRepositories />
 	<build>
 		<resources>
