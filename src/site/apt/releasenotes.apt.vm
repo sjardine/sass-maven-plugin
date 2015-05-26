@@ -36,7 +36,7 @@ ${project.name} ${project.version} Release Notes
 
   * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
 
-~~  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
+  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
 
   * Update Sass to version ${project.properties.get("sass.version")}
 
