@@ -659,6 +659,8 @@
 					<url>http://rubygems-proxy.torquebox.org/releases</url>
 					<releases>
 						<enabled>true</enabled>
+						<!-- one week -->
+						<updatePolicy>interval:10080</updatePolicy>
 					</releases>
 					<snapshots>
 						<enabled>false</enabled>

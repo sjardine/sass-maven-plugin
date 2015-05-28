@@ -21,16 +21,12 @@ ${project.name} ${project.version} Release Notes
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
 
-  This release features Compass version ${project.properties.get("compass.version")} and Sass version ${project.properties.get("sass.version")}
+  This release features Compass version ${project.properties.get("compass.version")}
+  and Sass version ${project.properties.get("sass.version")}
   running on JRuby ${project.properties.get("jruby.version")}.
-  Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
-  specific Sass and other transitive dependencies included in this release.
-
-** New
-
-  *
-
-  []
+  Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}}
+  to find out about the specific Sass and other transitive dependencies
+  included in this release.
 
 ** Enhancements
 
@@ -49,7 +45,7 @@ ${project.name} ${project.version} Release Notes
 * 2.5 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A2.5+is%3Aclosed}milestone 2.5 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A2.5+is%3Aclosed}milestone 2.5}}.
 
   This release features Compass version 1.0.3 and Sass version 3.4.13
   running on JRuby 1.7.9.
@@ -58,7 +54,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  * Add an optional parameter to specify the <<<compass.rb>>> file
+  * Add an optional parameter to specify a <<<compass.rb>>> file
 
   []
 
@@ -74,7 +70,7 @@ ${project.name} ${project.version} Release Notes
 * 2.4 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A$2.4+is%3Aclosed}milestone 2.4 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A$2.4+is%3Aclosed}milestone 2.4}}.
 
   This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.19.
   Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to
@@ -95,7 +91,7 @@ ${project.name} ${project.version} Release Notes
 * 2.3 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A2.3+is%3Aclosed}milestone 2.3 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A2.3+is%3Aclosed}milestone 2.3}}.
 
   This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.19.
   Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
@@ -117,7 +113,7 @@ ${project.name} ${project.version} Release Notes
 * 2.2 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A2.2+is%3Aclosed}milestone 2.2 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A2.2+is%3Aclosed}milestone 2.2}}.
 
   This release features Compass version 1.0.3 running on JRuby 1.7.19.
   Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
@@ -135,7 +131,7 @@ ${project.name} ${project.version} Release Notes
 * 2.1 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A2.1+is%3Aclosed}milestone 2.1 }}.
+  {{{${project.issueManagement.url}?q=milestone%3A2.1+is%3Aclosed}milestone 2.1}}.
 
   This release features Compass version 1.0.3 running on JRuby 1.7.18.
   Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
