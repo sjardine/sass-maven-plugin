@@ -24,7 +24,40 @@ ${project.name} ${project.version} Release Notes
   This release features Compass version ${project.properties.get("compass.version")}
   and Sass version ${project.properties.get("sass.version")}
   running on JRuby ${project.properties.get("jruby.version")}.
-  Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}}
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}}
+  to find out about the specific Sass and other transitive dependencies
+  included in this release.
+
+** New
+
+  * 
+
+  []
+
+
+** Enhancements
+
+  * 
+
+~~  * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
+
+~~  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
+
+~~  * Update Sass to version ${project.properties.get("sass.version")}
+
+~~  * Update Compass to version ${project.properties.get("compass.version")}
+
+~~  * Update JRuby to ${project.properties.get("jruby.version")}
+
+  []
+
+* 2.6 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
+
+  This release features Compass version 1.0.3 and Sass version 3.4.14 running on JRuby 1.7.20.
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}}
   to find out about the specific Sass and other transitive dependencies
   included in this release.
 
@@ -36,8 +69,6 @@ ${project.name} ${project.version} Release Notes
 
   * Update Sass to version ${project.properties.get("sass.version")}
 
-~~  * Update Compass to version ${project.properties.get("compass.version")}
-
   * Update JRuby to ${project.properties.get("jruby.version")}
 
   []
@@ -47,9 +78,8 @@ ${project.name} ${project.version} Release Notes
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A2.5+is%3Aclosed}milestone 2.5}}.
 
-  This release features Compass version 1.0.3 and Sass version 3.4.13
-  running on JRuby 1.7.9.
-  Please check the {{{${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
+  This release features Compass version 1.0.3 and Sass version 3.4.13 running on JRuby 1.7.9.
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}} to find out about the
   specific Sass and other transitive dependencies included in this release.
 
 ** New
