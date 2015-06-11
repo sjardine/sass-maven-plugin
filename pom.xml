@@ -439,7 +439,7 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>versions-maven-plugin</artifactId>
-							<version>2.1</version>
+							<version>2.2</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -498,7 +498,7 @@
 						<plugin>
 							<groupId>org.owasp</groupId>
 							<artifactId>dependency-check-maven</artifactId>
-							<version>1.2.8</version>
+							<version>1.2.11</version>
 							<configuration>
 								<name>OWASP Dependency Check</name>
 								<skipProvidedScope>false</skipProvidedScope>
@@ -564,7 +564,7 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>2.14</version>
+							<version>2.15</version>
 							<configuration>
 								<configLocation>${basedir}/checkstyle-ruleset.xml</configLocation>
 								<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
@@ -598,7 +598,7 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>findbugs-maven-plugin</artifactId>
-							<version>3.0.0</version>
+							<version>3.0.1</version>
 							<configuration>
 								<effort>Default</effort>
 								<threshold>Default</threshold>
