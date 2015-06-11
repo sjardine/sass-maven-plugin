@@ -30,14 +30,14 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  * 
+  *
 
   []
 
 
 ** Enhancements
 
-  * 
+  *
 
 ~~  * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
 
@@ -47,7 +47,7 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
-~~  * Update JRuby to ${project.properties.get("jruby.version")}
+  * Update JRuby to ${project.properties.get("jruby.version")}
 
   []
 
