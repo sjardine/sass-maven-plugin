@@ -73,5 +73,8 @@
 		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
 			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
               name="Maven Central" />
+        <logo href="http://sass-lang.com/" width="120px"
+              img="images/sass.png"
+              name="Sass" />
 	</poweredBy>
 </project>
