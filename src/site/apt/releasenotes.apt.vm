@@ -30,7 +30,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  *
+  * Add a {{{/${project.artifactId/faq.html}FAQ}} describing a Windows issue workaround
 
   []
 
