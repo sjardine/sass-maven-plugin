@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+      title="Frequently Asked Questions"
+      toplink="true">
+
+    <part id="windows">
+        <title>Windows</title>
+        <faq id="Compass">
+            <question>Compiling Compass on Windows fails</question>
+            <answer>
+                <p>Compiling Compass on Windows fails with an error similar to:</p>
+                <code>File to import not found or unreadable: compass/css3/opacity</code>
+                (<a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41">issue: #41</a>).
+                <p>The cause of this is in the way jruby constructs directory paths in jar file.
+                    As a workaround, on Windows, you can downgrade the JRuby version that is used
+                    by the plugin to 1.7.10. An example of how to do this using a property and
+                    a profile is shown below. </p>
+                <source>
+...
+&lt;!-- this is the jruby version included in the plugin (version 2.7) dependencies--&gt;
+&lt;properties&gt;
+    &lt;jruby.version&gt;1.7.20.1&lt;/jruby.version&gt;
+&lt;/properties&gt;
+...
+                        
+&lt;profiles&gt;
+    &lt;profile&gt;
+        &lt;activation&gt;
+            &lt;os&gt;
+                &lt;family&gt;windows&lt;/family&gt;
+            &lt;/os&gt;
+        &lt;/activation&gt;
+        &lt;properties&gt;
+            &lt;!-- downgrade version --&gt;
+            &lt;jruby.version&gt;1.7.10&lt;/jruby.version&gt;
+        &lt;/properties&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;
+    ...
+    
+&lt;build>&gt;
+    ...
+    
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;nl.geodienstencentrum.maven&lt;/groupId&gt;
+            &lt;artifactId&gt;sass-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;${sass-maven-plugin.version}&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;update-stylesheets&lt;/goal&gt;
+                    ...
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+            &lt;configuration&gt;
+                &lt;sassOptions&gt;
+                    &lt;always_update&gt;true&lt;/always_update&gt;
+                &lt;/sassOptions&gt;
+                &lt;useCompass&gt;true&lt;/useCompass&gt;
+                ...
+
+            &lt;/configuration&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.jruby&lt;/groupId&gt;
+                    &lt;artifactId&gt;jruby-complete&lt;/artifactId&gt;
+                    &lt;version&gt;${jruby.version}&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+            ...
+                </source>
+                <p>An example project demonstrating this solution is available at:
+                    <a href="https://github.com/mprins/maven-compass-example">https://github.com/mprins/maven-compass-example</a>
+                </p>
+            </answer>
+        </faq>
+    </part>
+</faqs>
