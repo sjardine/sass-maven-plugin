@@ -129,7 +129,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
-		<sass.version>3.4.14</sass.version>
+        <sass.version>3.4.15</sass.version>
 		<jruby.version>1.7.20.1</jruby.version>
 		<maven-libs.version>3.3.3</maven-libs.version>
 		<scss-lint.version>0.39.0</scss-lint.version>
