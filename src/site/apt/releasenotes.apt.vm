@@ -8,7 +8,8 @@
 
 ~~ http://maven.apache.org/doxia/references/apt-format.html
 
-~~ note that we're using eg. ${project.properties.get("jruby.version")} to work around a limitation getting pom properties with a dot.
+~~ note that we're using eg. ${project.properties.get("jruby.version")} to work
+~~     around a limitation getting pom properties with a dot.
 
 ${project.name} ${project.version} Release Notes
 
@@ -30,32 +31,56 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  * Add a {{{/${project.artifactId/faq.html}FAQ}} describing a Windows issue workaround
+  *
 
   []
 
 
 ** Enhancements
 
-  *
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
 ~~  * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
 
 ~~  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
 
-  * Update Sass to version ${project.properties.get("sass.version")}, please check
-    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}
-
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
-  * Update JRuby to ${project.properties.get("jruby.version")}
+~~  * Update JRuby to ${project.properties.get("jruby.version")}
+
+  []
+
+* 2.7 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.7+is%3Aclosed}milestone 2.7}}.
+
+  This release features Compass version 1.0.3 and Sass version 3.4.15 running on JRuby 1.7.20.1.
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}}
+  to find out about the specific Sass and other transitive dependencies
+  included in this release.
+
+** New
+
+  * Add a {{{/${project.artifactId}/faq.html}FAQ}} describing a Windows issue workaround
+
+  []
+
+
+** Enhancements
+
+  * Update Sass to version 3.4.15, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+  * Update JRuby dependency to 1.7.20.1 (security fix)
 
   []
 
 * 2.6 Release Notes
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A${project.version}+is%3Aclosed}milestone ${project.version} }}.
+  {{{${project.issueManagement.url}?q=milestone%3A$2.6+is%3Aclosed}milestone 2.6}}.
 
   This release features Compass version 1.0.3 and Sass version 3.4.14 running on JRuby 1.7.20.
   Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}}
@@ -66,11 +91,11 @@ ${project.name} ${project.version} Release Notes
 
   * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
 
-  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
+  * Update scss-lint to version 0.39.0
 
-  * Update Sass to version ${project.properties.get("sass.version")}
+  * Update Sass to version 3.4.14
 
-  * Update JRuby to ${project.properties.get("jruby.version")}
+  * Update JRuby to 1.7.20
 
   []
 
@@ -115,7 +140,7 @@ ${project.name} ${project.version} Release Notes
 
 ** Enhancements
 
-  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
+  * Update scss-lint to version 0.35.0
 
   []
 

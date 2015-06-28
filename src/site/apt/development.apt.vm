@@ -84,9 +84,12 @@ mvn -U org.codehaus.mojo:versions-maven-plugin:2.2:display-plugin-updates -Prele
 
 +----+
 mvn -Prelease clean release:clean release:prepare
-mvn install -Dmaven.test.skip=true -B -V -fae -q -T2
 mvn -Prelease release:perform
 +----+
+
+  Note that the nexus-staging-maven-plugin will throw an exception
+  <<<Unhandled: Missing staging repository: nlgeodienstencentrum-...>>>
+  because we're deploying straight away.
 
   Then deploy the site to github:
 
@@ -95,4 +98,9 @@ cd target/checkout
 mvn site-deploy -Dgithub.username=<username> -Dgithub.password=<password>
 +----+
 
-  Update the release notes to reflect the new release cycle.
+  Update and push the release notes to reflect the new release cycle.
+
++----+
+cd ../..
+mvn release:clean clean
++----+
