@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
  * Copyright 2010-2014 Jasig.
  *
  * See the NOTICE file distributed with this work for additional information
@@ -25,11 +25,12 @@ import java.util.Map;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.model.FileSet;
+import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.util.DirectoryScanner;
 import org.codehaus.plexus.util.StringUtils;
 
 /**
- * The Class Resource.
+ * A resource describes a set of sass files to compile and a target.
  */
 public class Resource {
 
@@ -50,10 +51,17 @@ public class Resource {
 	/**
 	 * Gets the source directories and target destinations.
 	 *
-	 * @return the directories and destinations
-	 */
-	public Map<String, String> getDirectoriesAndDestinations() {
+	 * @return the directories and destinations, may be an empty map if the
+	* source does not exist.
+	*/
+	public Map<String, String> getDirectoriesAndDestinations(Log log) {
 		final File sourceDirectory = new File(this.source.getDirectory());
+		final Map<String, String> result = new LinkedHashMap<>();
+
+		if (!sourceDirectory.exists()) {
+			log.error("Specified sourcedirectory (" + sourceDirectory + ") does not exist.");
+			return result;
+		}
 
 		// Scan for directories
 		final DirectoryScanner scanner = new DirectoryScanner();
@@ -69,8 +77,6 @@ public class Resource {
 		// http://plexus.codehaus.org/plexus-utils/apidocs/org/codehaus/plexus/util/AbstractScanner.html#addDefaultExcludes()
 		scanner.addDefaultExcludes();
 		scanner.scan();
-
-		final Map<String, String> result = new LinkedHashMap<String, String>();
 
 		result.put(FilenameUtils.separatorsToUnix(sourceDirectory.toString()),
 		        FilenameUtils.separatorsToUnix(this.destination.toString()));

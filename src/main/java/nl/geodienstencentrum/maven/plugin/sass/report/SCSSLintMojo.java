@@ -201,7 +201,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 			dirs.add(getSassSourceDirectory().getPath());
 		}
 		for (final Resource source : _resources) {
-			dirs.addAll(source.getDirectoriesAndDestinations().keySet());
+			dirs.addAll(source.getDirectoriesAndDestinations(this.getLog()).keySet());
 		}
 		return dirs;
 	}
