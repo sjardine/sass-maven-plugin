@@ -426,7 +426,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		final List<Entry<String, String>> locations = new ArrayList<Entry<String, String>>();
 		for (final Resource source : _resources) {
 			for (final Entry<String, String> entry : source
-			        .getDirectoriesAndDestinations().entrySet()) {
+			        .getDirectoriesAndDestinations(log).entrySet()) {
 				log.info("Queueing Sass template for compile: "
 				        + entry.getKey() + " => " + entry.getValue());
 				locations.add(entry);
