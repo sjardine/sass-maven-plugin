@@ -31,7 +31,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  *
+  * More elegant way of handling faulty resources {{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/57}}#57}
 
   []
 
@@ -43,7 +43,7 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update maven libraries to 3.3.3 and start using Maven 3.3.3 in builds
 
-~~  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
+  * Update scss-lint to version ${project.properties.get("scss-lint.version")}
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
