@@ -51,8 +51,8 @@
 		</links>
 		<menu name="Information">
 			<item name="Home" href="/index.html" />
-            <item name="Usage" href="/plugin-info.html" />
-            <item name="FAQ" href="/faq.html" />
+			<item name="Usage" href="/plugin-info.html" />
+			<item name="FAQ" href="/faq.html" />
 			<item name="Release notes" href="/releasenotes.html" />
 			<item name="Developer Notes" href="/development.html" />
 		</menu>
@@ -61,20 +61,20 @@
 		<menu ref="reports" />
 	</body>
 	<poweredBy>
-		<logo href="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin"
-			img="https://travis-ci.org/GeoDienstenCentrum/sass-maven-plugin.svg?branch=master"
-			name="Travis-CI Build status" />
-		<logo href="https://ci.appveyor.com/project/mprins/sass-maven-plugin"
+		<logo href="https://travis-ci.org/GeoDienstenCentrum/${project.artifactId}"
+			img="https://travis-ci.org/GeoDienstenCentrum/${project.artifactId}.svg?branch=master"
+			name="Travis-CI Build status (master branch)" />
+		<logo href="https://ci.appveyor.com/project/mprins/${project.artifactId}"
 			img="https://ci.appveyor.com/api/projects/status/qxc604b7o0rwxsel?svg=true"
-			name="AppVeyor-CI Build status" />
-		<logo href="https://coveralls.io/r/GeoDienstenCentrum/sass-maven-plugin"
-			img="https://img.shields.io/coveralls/GeoDienstenCentrum/sass-maven-plugin.svg"
-			name="Coverage status" />
+			name="AppVeyor-CI Build status (master branch)" />
+		<logo href="https://coveralls.io/github/GeoDienstenCentrum/${project.artifactId}?branch=master"
+			img="https://coveralls.io/repos/github/GeoDienstenCentrum/${project.artifactId}/badge.svg?branch=master"
+			name="Coverage status (master branch)" />
 		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
 			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
-              name="Maven Central" />
-        <logo href="http://sass-lang.com/" width="120px"
-              img="images/sass.png"
-              name="Sass" />
+			name="Maven Central" />
+		<logo href="http://sass-lang.com/" width="120px"
+			img="images/sass.png"
+			name="Sass" />
 	</poweredBy>
 </project>
