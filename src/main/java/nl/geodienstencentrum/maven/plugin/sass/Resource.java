@@ -51,9 +51,11 @@ public class Resource {
 	/**
 	 * Gets the source directories and target destinations.
 	 *
+	 * @param log
+	 *            the maven logging instance to use for messages
 	 * @return the directories and destinations, may be an empty map if the
-	* source does not exist.
-	*/
+	 *            source does not exist.
+	 */
 	public Map<String, String> getDirectoriesAndDestinations(Log log) {
 		final File sourceDirectory = new File(this.source.getDirectory());
 		final Map<String, String> result = new LinkedHashMap<>();

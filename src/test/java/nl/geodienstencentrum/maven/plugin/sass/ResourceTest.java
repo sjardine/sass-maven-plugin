@@ -46,12 +46,12 @@ public class ResourceTest {
 
 	/**
 	 * Test method for
-	 * {@link nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations() }
+	 * {@link nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations(org.apache.maven.plugin.logging.Log) }
 	 * .
 	 *
 	 * @throws Exception
 	 *             if any
-	 * @see nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations()
+	 * @see nl.geodienstencentrum.maven.plugin.sass.Resource#getDirectoriesAndDestinations(org.apache.maven.plugin.logging.Log)
 	 */
 	@Test
 	public void testGetDirectoriesAndDestinations() throws Exception {
