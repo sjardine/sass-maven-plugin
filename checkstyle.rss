@@ -27,7 +27,7 @@ under the License.
     <item>
       <title>File: 11,
              Errors: 0,
-             Warnings: 86,
+             Warnings: 89,
              Infos: 2
       </title>
             <link>https://geodienstencentrum.github.io/sass-maven-plugin/checkstyle.html</link>
@@ -94,7 +94,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  8
                 </td>
                 <td>
                   0
