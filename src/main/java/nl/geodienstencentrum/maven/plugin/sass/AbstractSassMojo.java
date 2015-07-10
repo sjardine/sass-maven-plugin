@@ -207,9 +207,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} <em>(default)</em> or
 	 * {@code 2.0} <em>(experimental)</em>.
 	 *
+	 * @deprecated since JRuby 9000
 	 * @since 2.1
 	 */
-	@Parameter(defaultValue = "1.9")
+	@Parameter(defaultValue = "2.1")
 	private Float rubyVersion;
 
 	/**
