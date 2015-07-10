@@ -36,6 +36,10 @@ ${project.name} ${project.version} Release Notes
 
   []
 
+** Fix
+
+  * As a result of updating JRuby some Windows issues are expected to be fixed 
+    ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41}#41}}),
 
 ** Enhancements
 
@@ -47,7 +51,7 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
-~~  * Update JRuby to ${project.properties.get("jruby.version")}
+  * Update JRuby to ${project.properties.get("jruby.version")}
 
   []
 
