@@ -186,6 +186,13 @@
 			<type>gem</type>
 		</dependency>
 		<dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>listen</artifactId>
+			<version>3.0.2</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>

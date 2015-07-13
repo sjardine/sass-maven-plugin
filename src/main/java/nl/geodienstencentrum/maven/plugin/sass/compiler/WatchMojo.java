@@ -30,6 +30,9 @@ import org.apache.maven.plugins.annotations.Mojo;
  */
 @Mojo(name = "watch")
 public class WatchMojo extends AbstractSassMojo {
+
+	private static final boolean IS_WINDOWS = (System.getProperty("os.name").toLowerCase().contains("win"));
+
 	/*
 	 * (non-Javadoc)
 	 *
@@ -41,6 +44,10 @@ public class WatchMojo extends AbstractSassMojo {
 		// build sass script
 		final StringBuilder sassBuilder = new StringBuilder();
 		this.buildBasicSassScript(sassBuilder);
+		if(IS_WINDOWS) {
+			sassBuilder.append("require 'listen'\n");
+			sassBuilder.append("Sass::Plugin.options.merge!(:poll => true)\n");
+		}
 		sassBuilder.append("Sass::Plugin.watch");
 		final String sassScript = sassBuilder.toString();
 
