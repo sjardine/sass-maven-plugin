@@ -32,7 +32,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  *
+  * A <<<skip>>> parameter was added to skip plugin execution
 
   []
 

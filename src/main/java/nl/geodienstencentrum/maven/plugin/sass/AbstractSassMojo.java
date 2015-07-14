@@ -214,6 +214,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	private Float rubyVersion;
 
 	/**
+	 * skip execution.
+	 *
+	 * @since 2.9
+	 */
+	@Parameter(defaultValue = "false")
+	private boolean skip;
+
+	/**
 	 * Execute the Sass Compilation Ruby Script.
 	 *
 	 * @param sassScript
@@ -224,7 +232,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *             the mojo failure exception
 	 */
 	protected void executeSassScript(final String sassScript)
-	        throws MojoExecutionException, MojoFailureException {
+            throws MojoExecutionException, MojoFailureException {
+		if (this.skip) {
+			return;
+		}
+
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
 		//System.setProperty("org.jruby.embed.compat.version",
@@ -443,6 +455,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 */
 	protected boolean isUseCompass() {
 		return this.useCompass;
+	}
+
+	/**
+	 * skip accessor.
+	 * @return whether to skip execution or not
+	 */
+	protected boolean isSkip() {
+		return this.skip;
 	}
 
 	/**

@@ -134,6 +134,14 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	private Renderer siteRenderer;
 
 	/**
+	 * skip execution.
+	 *
+	 * @since 2.9
+	 */
+	@Parameter(defaultValue = "false")
+	private boolean skip;
+
+	/**
 	 * Build the report, for now ignoring the locale.
 	 *
 	 * @param locale ignored
@@ -142,7 +150,10 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	 * @see #getBundle(java.util.Locale)
 	 */
 	@Override
-	public void executeReport(Locale locale) {
+	public void executeReport(final Locale locale) {
+		if (this.skip) {
+			return;
+		}
 		try {
 			SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
 					getSink(), this.getDescription(locale),
@@ -168,7 +179,7 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	}
 
 	@Override
-	public void setReportOutputDirectory(File reportOutputDirectory) {
+	public void setReportOutputDirectory(final File reportOutputDirectory) {
 		this.outputDirectory = reportOutputDirectory;
 	}
 
@@ -188,16 +199,16 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	}
 
 	@Override
-	public String getName(Locale locale) {
+    public String getName(final Locale locale) {
 		return "scss-lint report";
 	}
 
 	@Override
-	public String getDescription(Locale locale) {
+	public String getDescription(final Locale locale) {
 		return "A scss-lint report.";
 	}
 
-	private ResourceBundle getBundle(Locale locale) {
+    private ResourceBundle getBundle(final Locale locale) {
 		return ResourceBundle.getBundle("scss-lint-report", locale, this.getClass().getClassLoader());
 	}
 }

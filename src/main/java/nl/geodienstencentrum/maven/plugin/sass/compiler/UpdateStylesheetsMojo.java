@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Mark Prins, GeoDienstenCentrum.
+ * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
  * Copyright 2010-2014 Jasig.
  *
  * See the NOTICE file distributed with this work for additional information
@@ -44,6 +44,9 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
+		if (this.isSkip()) {
+			return;
+		}
 		this.getLog().info("Compiling Sass Templates");
 
 		// build sass script

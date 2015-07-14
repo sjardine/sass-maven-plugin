@@ -111,6 +111,9 @@ public class SCSSLintMojo extends AbstractSassMojo {
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
+		if (this.isSkip()) {
+			return;
+		}
 		final Log log = this.getLog();
 
 		// create directory
