@@ -56,7 +56,7 @@ public class Resource {
 	 * @return the directories and destinations, may be an empty map if the
 	 *            source does not exist.
 	 */
-	public Map<String, String> getDirectoriesAndDestinations(Log log) {
+	public Map<String, String> getDirectoriesAndDestinations(final Log log) {
 		final File sourceDirectory = new File(this.source.getDirectory());
 		final Map<String, String> result = new LinkedHashMap<>();
 

@@ -160,6 +160,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 				case CODE_70:
 				// fall through
 				case CODE_78:
+				// fall through
+				default:
 					log.error(result.toString());
 					throw new MojoExecutionException(result.toString());
 			}
@@ -177,21 +179,21 @@ public class SCSSLintMojo extends AbstractSassMojo {
 	 * (java.lang.StringBuilder)
 	 */
 	@Override
-	protected void buildBasicSassScript(StringBuilder sassScript)
+	protected void buildBasicSassScript(final StringBuilder sassScript)
 			throws MojoExecutionException {
 		final Log log = this.getLog();
 		// build up script
-		sassScript.append("require 'scss_lint'").append('\n');
-		sassScript.append("require 'scss_lint/cli'").append('\n');
-		sassScript.append("require 'scss_lint_reporter_checkstyle'").append('\n');
+		sassScript.append("require 'scss_lint'\n");
+		sassScript.append("require 'scss_lint/cli'\n");
+		sassScript.append("require 'scss_lint_reporter_checkstyle'\n");
 
 		if (log.isDebugEnabled()) {
 			// make ruby give use some debugging info when requested
-			sassScript.append("require 'pp'").append('\n');
-			sassScript.append("puts 'parameters: '").append('\n');
-			sassScript.append("pp ARGV").append('\n');
+			sassScript.append("require 'pp'\n");
+			sassScript.append("puts 'parameters: '\n");
+			sassScript.append("pp ARGV\n");
 		}
-		sassScript.append("SCSSLint::CLI.new.run(ARGV)").append('\n');
+		sassScript.append("SCSSLint::CLI.new.run(ARGV)\n");
 	}
 
 	private Set<String> getSourceDirs() {

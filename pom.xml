@@ -287,24 +287,19 @@
 		</testResources>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>buildnumber-maven-plugin</artifactId>
-				<version>1.3</version>
+				<groupId>ru.concerteza.buildnumber</groupId>
+				<artifactId>maven-jgit-buildnumber-plugin</artifactId>
+				<version>1.2.9</version>
 				<executions>
 					<execution>
-						<phase>validate</phase>
+						<id>git-buildnumber</id>
 						<goals>
-							<goal>create</goal>
+							<goal>extract-buildnumber</goal>
 						</goals>
+						<phase>prepare-package</phase>
 					</execution>
 				</executions>
-				<configuration>
-					<doCheck>false</doCheck>
-					<doUpdate>false</doUpdate>
-					<timestampFormat>{0,date,yyyy-MM-dd HH:mm:ssa}</timestampFormat>
-					<shortRevisionLength>5</shortRevisionLength>
-				</configuration>
-			</plugin>
+			</plugin> 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -439,6 +434,26 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Specification-Title>${project.name}</Specification-Title>
+							<Specification-Version>${project.version}</Specification-Version>
+							<Specification-Vendor>${project.specification_vendor}</Specification-Vendor>
+							<Implementation-Title>${project.groupId}.${project.artifactId}</Implementation-Title>
+							<Implementation-Version>${git.revision}</Implementation-Version>
+							<Implementation-Vendor>${project.implementation_vendor}</Implementation-Vendor>
+							<X-Git-Branch>${git.branch}</X-Git-Branch>
+							<X-Git-Tag>${git.tag}</X-Git-Tag>
+							<X-Git-Commits-Count>${git.commitsCount}</X-Git-Commits-Count>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.4</version>
 				<dependencies>
@@ -542,7 +557,7 @@
 								<show>protected</show>
 								<useStandardDocletOptions>true</useStandardDocletOptions>
 								<author>true</author>
-								<defaultVersion>${buildNumber}</defaultVersion>
+								<defaultVersion>${project.version}</defaultVersion>
 								<detectLinks>true</detectLinks>
 								<fixClassComment>true</fixClassComment>
 								<fixTags>all</fixTags>
@@ -577,7 +592,6 @@
 							<artifactId>maven-linkcheck-plugin</artifactId>
 							<version>1.2</version>
 							<configuration>
-
 							</configuration>
 						</plugin -->
 						<plugin>
@@ -587,7 +601,7 @@
 							<configuration>
 								<configLocation>${basedir}/checkstyle-ruleset.xml</configLocation>
 								<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
-								<enableRSS>true</enableRSS>
+								<enableRSS>false</enableRSS>
 								<excludes>**/HelpMojo.java</excludes>
 							</configuration>
 							<reportSets>
@@ -601,7 +615,7 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-pmd-plugin</artifactId>
-							<version>3.4</version>
+							<version>3.5</version>
 							<configuration>
 								<rulesets>
 									<ruleset>${basedir}/pmd-ruleset.xml</ruleset>
@@ -633,7 +647,7 @@
 				<artifactId>site-maven-plugin</artifactId>
 				<version>0.12</version>
 				<configuration>
-					<message>Site update for version ${project.version} (rev. ${buildNumber})</message>
+					<message>Site update for version ${project.version} (rev. ${git.revision})</message>
 					<password>${github.password}</password>
 					<userName>${github.username}</userName>
 					<host>api.github.com</host>

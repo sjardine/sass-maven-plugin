@@ -202,12 +202,12 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
 	private File destination;
 
-	/**
-	 * Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.
+	/* Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.
 	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} <em>(default)</em> or
 	 * {@code 2.0} <em>(experimental)</em>.
-	 *
-	 * @deprecated since JRuby 9000
+	 */
+	/**
+	 * @deprecated since JRuby 9000 / 2.9
 	 * @since 2.1
 	 */
 	@Parameter(defaultValue = "2.1")
@@ -223,14 +223,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @throws MojoFailureException
 	 *             the mojo failure exception
 	 */
-	protected void executeSassScript(String sassScript)
+	protected void executeSassScript(final String sassScript)
 	        throws MojoExecutionException, MojoFailureException {
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
-		System.setProperty("org.jruby.embed.compat.version",
-		                   String.format("ruby%2.0f", rubyVersion * 10));
-		log.debug("Setting 'org.jruby.embed.compat.version' to: "
-		          + String.format("ruby%2.0f", rubyVersion * 10));
+		//System.setProperty("org.jruby.embed.compat.version",
+		//                   String.format("ruby%2.0f", rubyVersion * 10));
+		//log.debug("Setting 'org.jruby.embed.compat.version' to: "
+		//          + String.format("ruby%2.0f", rubyVersion * 10));
 
 		log.debug("Execute Sass Ruby script:\n\n" + sassScript);
 		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
@@ -263,7 +263,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	        throws MojoExecutionException {
 		final Log log = this.getLog();
 
-		sassScript.append("require 'rubygems'").append('\n');
+		sassScript.append("require 'rubygems'\n");
 		if (this.gemPaths.length > 0) {
 			sassScript.append("env = { 'GEM_PATH' => [\n");
 			for (final String gemPath : this.gemPaths) {
@@ -278,9 +278,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			/* remove trailing comma+\n */
 			sassScript.setLength(sassScript.length() - 2);
-			sassScript.append('\n');
-			sassScript.append("] }").append('\n');
-			sassScript.append("Gem.paths = env").append('\n');
+			sassScript.append("\n] }\n");
+			sassScript.append("Gem.paths = env\n");
 		}
 
 		for (final String gem : this.gems) {
@@ -292,17 +291,16 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 		if (this.useCompass) {
 			log.info("Running with Compass enabled.");
-			sassScript.append("require 'compass'").append('\n');
-			sassScript.append("require 'compass/exec'").append('\n');
-			sassScript.append("require 'compass/core'").append('\n');
-			sassScript.append("require 'compass/import-once'").append('\n');
-			if(compassConfigFile != null) {
+			sassScript.append("require 'compass'\n");
+			sassScript.append("require 'compass/exec'\n");
+			sassScript.append("require 'compass/core'\n");
+			sassScript.append("require 'compass/import-once'\n");
+			if (compassConfigFile != null) {
 				sassScript.append("Compass.add_project_configuration '")
 						.append(compassConfigFile.getAbsolutePath())
 						.append("'\n");
 			} else {
-				sassScript.append("Compass.add_project_configuration ")
-						.append('\n');
+				sassScript.append("Compass.add_project_configuration \n");
 			}
 			this.sassOptions.put("load_paths",
 			        "Compass.configuration.sass_load_paths");
@@ -333,7 +331,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		}
 
 		// Add the plugin configuration options
-		sassScript.append("Sass::Plugin.options.merge!(").append('\n');
+		sassScript.append("Sass::Plugin.options.merge!(\n");
 		for (final Iterator<Entry<String, String>> entryItr = this.sassOptions
 		        .entrySet().iterator(); entryItr.hasNext();) {
 			final Entry<String, String> optEntry = entryItr.next();
@@ -345,7 +343,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			sassScript.append('\n');
 		}
-		sassScript.append(")").append('\n');
+		sassScript.append(")\n");
 
 		// add remaining template locations with 'add_template_location' (need
 		// to be done after options.merge)
@@ -353,34 +351,29 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			final Entry<String, String> location = templateLocations.next();
 			sassScript.append("Sass::Plugin.add_template_location('")
 			        .append(location.getKey()).append("', '")
-			        .append(location.getValue()).append("')").append('\n');
+			        .append(location.getValue()).append("')\n");
 		}
 
 		// set up sass compiler callback for reporting
 		sassScript
-		        .append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }")
-		        .append('\n');
+		        .append("Sass::Plugin.on_compilation_error {|error, template, css| $compiler_callback.compilationError(error.message, template, css) }\n");
 		sassScript
-		        .append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }")
-		        .append('\n');
+		        .append("Sass::Plugin.on_updated_stylesheet {|template, css| $compiler_callback.updatedStylesheeet(template, css) }\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }")
-		        .append('\n');
+		        .append("Sass::Plugin.on_template_modified {|template| $compiler_callback.templateModified(template) }\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }")
-		        .append('\n');
+		        .append("Sass::Plugin.on_template_created {|template| $compiler_callback.templateCreated(template) }\n");
 		sassScript
-		        .append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }")
-		        .append('\n');
+		        .append("Sass::Plugin.on_template_deleted {|template| $compiler_callback.templateDeleted(template) }\n");
 
 		// make ruby give use some debugging info when requested
 		if (log.isDebugEnabled()) {
-			sassScript.append("require 'pp'").append('\n');
-			sassScript.append("pp Sass::Plugin.options").append('\n');
+			sassScript.append("require 'pp'\n");
+			sassScript.append("pp Sass::Plugin.options\n");
 			if (this.useCompass) {
-				sassScript.append("pp Compass.base_directory").append('\n');
-				sassScript.append("pp Compass::Core.base_directory").append('\n');
-				sassScript.append("pp Compass::configuration").append('\n');
+				sassScript.append("pp Compass.base_directory\n");
+				sassScript.append("pp Compass::Core.base_directory\n");
+				sassScript.append("pp Compass::configuration\n");
 			}
 		}
 	}
@@ -392,9 +385,9 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 */
 	private Iterator<Entry<String, String>> getTemplateLocations() {
 		final Log log = this.getLog();
-		List<Resource> _resources = this.resources;
+		List<Resource> resList = this.resources;
 
-		if (_resources.isEmpty()) {
+		if (resList.isEmpty()) {
 			log.info("No resource element was specified, using short configuration.");
 			// If no resources specified, create a resource based on the other
 			// parameters and defaults
@@ -421,11 +414,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			resource.relativeOutputDirectory = this.relativeOutputDirectory;
 			resource.destination = this.destination;
-			_resources = ImmutableList.of(resource);
+			resList = ImmutableList.of(resource);
 		}
 
 		final List<Entry<String, String>> locations = new ArrayList<Entry<String, String>>();
-		for (final Resource source : _resources) {
+		for (final Resource source : resList) {
 			for (final Entry<String, String> entry : source
 			        .getDirectoriesAndDestinations(log).entrySet()) {
 				log.info("Queueing Sass template for compile: "
@@ -437,6 +430,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	}
 
 	/**
+	 * Resources accessor.
 	 * @return the resources
 	 */
 	protected List<Resource> getResources() {
@@ -444,6 +438,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	}
 
 	/**
+	 * Compass enabled accessor.
 	 * @return the useCompass
 	 */
 	protected boolean isUseCompass() {
@@ -451,6 +446,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	}
 
 	/**
+	 * Sass sources directory accessor.
 	 * @return the sassSourceDirectory
 	 */
 	protected File getSassSourceDirectory() {

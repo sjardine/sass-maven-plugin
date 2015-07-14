@@ -76,7 +76,6 @@ public class WatchMojoTest {
 	 *
 	 * @throws Exception if any
 	 * @see nl.geodienstencentrum.maven.plugin.sass.compiler.WatchMojo#execute()
-	 * @todo make this work on windows
 	 */
 	@Test
 	public void testExecute() throws Exception {
