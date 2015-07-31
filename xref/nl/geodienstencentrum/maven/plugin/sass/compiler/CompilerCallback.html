@@ -38,7 +38,7 @@
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  	<em class="jxr_javadoccomment">/** compiler error indicator. */</em>
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> compileError;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  	<em class="jxr_javadoccomment">/** maven logging instance. */</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	<strong class="jxr_keyword">private</strong> Log log;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Log log;
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>  	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">	 * Instantiates a new compiler callback.</em>
@@ -46,7 +46,7 @@
 <a class="jxr_linenumber" name="L38" href="#L38">38</a>  <em class="jxr_javadoccomment">	 * @param log</em>
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>  <em class="jxr_javadoccomment">	 *            the maven logging instance to use for messages</em>
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a>(Log log) {
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../../nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.html">CompilerCallback</a>(<strong class="jxr_keyword">final</strong> Log log) {
 <a class="jxr_linenumber" name="L42" href="#L42">42</a>  		<strong class="jxr_keyword">this</strong>.log = log;
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>  	}
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>  
@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">	 * @see &lt;a</em>
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">	 *      href="<a href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html" target="alexandria_uri">http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html</a>#on_compilation_error-instance_method"&gt;on_compilation_error&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> compilationError(String error, String template, String css) {
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> compilationError(<strong class="jxr_keyword">final</strong> String error, <strong class="jxr_keyword">final</strong> String template, <strong class="jxr_keyword">final</strong> String css) {
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>  		<strong class="jxr_keyword">this</strong>.log.error(<span class="jxr_string">"Compilation of template "</span> + template + <span class="jxr_string">" failed: "</span>
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>  				+ error);
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  		<strong class="jxr_keyword">this</strong>.compileError = <strong class="jxr_keyword">true</strong>;
@@ -78,7 +78,7 @@
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>  <em class="jxr_javadoccomment">	 * @see &lt;a</em>
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>  <em class="jxr_javadoccomment">	 *      href="<a href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html" target="alexandria_uri">http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html</a>#on_updated_stylesheet-instance_method"&gt;on_updated_stylesheet&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> updatedStylesheeet(String template, String css) {
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> updatedStylesheeet(<strong class="jxr_keyword">final</strong> String template, <strong class="jxr_keyword">final</strong> String css) {
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>  		<strong class="jxr_keyword">this</strong>.log.info(<span class="jxr_string">"    &gt;&gt; "</span> + template + <span class="jxr_string">" =&gt; "</span> + css);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>  	}
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
@@ -90,7 +90,7 @@
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>  <em class="jxr_javadoccomment">	 * @see &lt;a</em>
 <a class="jxr_linenumber" name="L83" href="#L83">83</a>  <em class="jxr_javadoccomment">	 *      href="<a href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html" target="alexandria_uri">http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html</a>#on_template_modified-instance_method"&gt;on_template_modified&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L84" href="#L84">84</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateModified(String template) {
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateModified(<strong class="jxr_keyword">final</strong> String template) {
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>  		<strong class="jxr_keyword">this</strong>.log.info(<span class="jxr_string">"File Change detected "</span> + template);
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  	}
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  
@@ -102,7 +102,7 @@
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  <em class="jxr_javadoccomment">	 * @see &lt;a</em>
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>  <em class="jxr_javadoccomment">	 *      href="<a href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html" target="alexandria_uri">http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html</a>#on_template_created-instance_method"&gt;on_template_created&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>  <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateCreated(String template) {
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateCreated(<strong class="jxr_keyword">final</strong> String template) {
 <a class="jxr_linenumber" name="L98" href="#L98">98</a>  		<strong class="jxr_keyword">this</strong>.log.info(<span class="jxr_string">"New File detected "</span> + template);
 <a class="jxr_linenumber" name="L99" href="#L99">99</a>  	}
 <a class="jxr_linenumber" name="L100" href="#L100">100</a> 
@@ -114,7 +114,7 @@
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">	 * @see &lt;a</em>
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">	 *      href="<a href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html" target="alexandria_uri">http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html</a>#on_template_deleted-instance_method"&gt;on_template_deleted&lt;/a&gt;</em>
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L109" href="#L109">109</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateDeleted(String template) {
+<a class="jxr_linenumber" name="L109" href="#L109">109</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> templateDeleted(<strong class="jxr_keyword">final</strong> String template) {
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 		<strong class="jxr_keyword">this</strong>.log.info(<span class="jxr_string">"File Delete detected "</span> + template);
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> 	}
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> 
