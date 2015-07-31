@@ -22,7 +22,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.geodienstencentrum.maven</groupId>
 	<artifactId>sass-maven-plugin</artifactId>
-	<version>2.9-SNAPSHOT</version>
+	<version>2.9</version>
 	<packaging>maven-plugin</packaging>
 	<name>Sass Compiler Plugin</name>
 	<description>A Maven Plugin that compiles Sass files, optionally using the Compass framework.</description>
@@ -103,7 +103,7 @@
 		<connection>scm:git:git://github.com/GeoDienstenCentrum/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:GeoDienstenCentrum/${project.artifactId}.git</developerConnection>
 		<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
-		<tag>HEAD</tag>
+		<tag>sass-maven-plugin-2.9</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
