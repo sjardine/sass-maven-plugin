@@ -202,12 +202,12 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
 	private File destination;
 
-	/* Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.
-	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} <em>(default)</em> or
-	 * {@code 2.0} <em>(experimental)</em>.
-	 */
 	/**
-	 * @deprecated since JRuby 9000 / 2.9
+	 * Ruby version to use. Valid versions depend on the currently embedded
+	 * JRuby runtime. For JRuby 1.7.x this is {@code 1.8}, {@code 1.9}
+	 * <em>(default)</em> or {@code 2.0} <em>(experimental)</em>.
+	 *
+	 * @deprecated ignored, since JRuby 9000 / v2.9 this is no longer supported
 	 * @since 2.1
 	 */
 	@Parameter(defaultValue = "2.1")
@@ -216,7 +216,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * skip execution.
 	 *
-	 * @since 2.9
+	 * @since 2.10
 	 */
 	@Parameter(defaultValue = "false")
 	private boolean skip;
