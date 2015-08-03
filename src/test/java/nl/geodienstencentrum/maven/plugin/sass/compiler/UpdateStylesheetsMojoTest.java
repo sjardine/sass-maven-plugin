@@ -24,6 +24,7 @@ import java.io.File;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.Assume.assumeTrue;
 import org.junit.Rule;
@@ -221,5 +222,34 @@ public class UpdateStylesheetsMojoTest {
 		// set up git to check out with native file endings
 		TestResources.assertFileContents(projectCopy, "expected.css",
 				"target/maven-compass-faulty-resources-test-1.0-SNAPSHOT/css/compiled.css");
+	}
+
+	/**
+	 * Test method for
+	 * {@link nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute() },
+	 * test the skip config parameter.
+	 *
+	 * @throws Exception if any
+	 * @see
+	 * nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute()
+	 */
+	@Test
+	public void testSkipExecutionProject() throws Exception {
+		final File projectCopy = this.resources
+				.getBasedir("skip-execution-project");
+		final File pom = new File(projectCopy, "pom.xml");
+		assumeNotNull("POM file should not be null.", pom);
+		assumeTrue("POM file should exist as file.",
+				pom.exists() && pom.isFile());
+
+		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
+				.lookupConfiguredMojo(projectCopy, "update-stylesheets");
+		assertNotNull(myMojo);
+
+		myMojo.execute();
+		// the target directory should not exist
+		assertFalse(
+				(new File(projectCopy.getAbsolutePath() 
+					+ "/target/skip-execution-project-1.0-SNAPSHOT/css/")).exists());
 	}
 }

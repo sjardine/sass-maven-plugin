@@ -106,7 +106,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}")
-	private File buildDirectory;
+	protected File buildDirectory;
 
 	/**
 	 * Fail the build if errors occur during compilation of sass/scss templates.
@@ -200,18 +200,26 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
-	private File destination;
+	protected File destination;
 
-	/* Ruby version to use. Valid versions depend on the currently embedded JRuby runtime.
-	 * For JRuby 1.7.x this is {@code 1.8}, {@code 1.9} <em>(default)</em> or
-	 * {@code 2.0} <em>(experimental)</em>.
-	 */
 	/**
-	 * @deprecated since JRuby 9000 / 2.9
+	 * Ruby version to use. Valid versions depend on the currently embedded
+	 * JRuby runtime. For JRuby 1.7.x this is {@code 1.8}, {@code 1.9}
+	 * <em>(default)</em> or {@code 2.0} <em>(experimental)</em>.
+	 *
+	 * @deprecated ignored, since JRuby 9000 / v2.9 this is no longer supported
 	 * @since 2.1
 	 */
 	@Parameter(defaultValue = "2.1")
 	private Float rubyVersion;
+
+	/**
+	 * skip execution.
+	 *
+	 * @since 2.10
+	 */
+	@Parameter(defaultValue = "false")
+	private boolean skip;
 
 	/**
 	 * Execute the Sass Compilation Ruby Script.
@@ -224,7 +232,11 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *             the mojo failure exception
 	 */
 	protected void executeSassScript(final String sassScript)
-	        throws MojoExecutionException, MojoFailureException {
+            throws MojoExecutionException, MojoFailureException {
+		if (this.skip) {
+			return;
+		}
+
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
 		//System.setProperty("org.jruby.embed.compat.version",
@@ -443,6 +455,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 */
 	protected boolean isUseCompass() {
 		return this.useCompass;
+	}
+
+	/**
+	 * skip accessor.
+	 * @return whether to skip execution or not
+	 */
+	protected boolean isSkip() {
+		return this.skip;
 	}
 
 	/**
