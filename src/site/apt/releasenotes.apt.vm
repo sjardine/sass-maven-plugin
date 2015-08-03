@@ -38,12 +38,11 @@ ${project.name} ${project.version} Release Notes
 
 ** Fix
 
-  * As a result of updating JRuby some Windows issues are expected to be fixed
-    ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41}#41}}),
+  * 
 
 ** Enhancements
 
-  * Update Sass to version ${project.properties.get("sass.version")}, please check
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
     the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
 ~~  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
@@ -51,7 +50,31 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
-  * Update JRuby to ${project.properties.get("jruby.version")}
+~~  * Update JRuby to ${project.properties.get("jruby.version")}
+
+  []
+
+* 2.9 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.9+is%3Aclosed}milestone 2.9 }}.
+
+  This release features Compass version 1.0.3 and Sass version 3.4.16 running on JRuby 9.0.0.0. 
+  Please check the {{{/${project.artifactId}/dependencies.html#provided}full dependencies}}
+  to find out about the specific Sass and other transitive dependencies
+  included in this release.
+
+** Fix
+
+  * As a result of updating JRuby some Windows issues are expected to be fixed
+    ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41}#41}}),
+
+** Enhancements
+
+  * Update Sass to version 3.4.16, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+  * Update JRuby to 9.0.0.0
 
   []
 
