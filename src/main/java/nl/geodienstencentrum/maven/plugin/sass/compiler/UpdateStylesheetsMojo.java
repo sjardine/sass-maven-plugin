@@ -19,8 +19,12 @@
  */
 package nl.geodienstencentrum.maven.plugin.sass.compiler;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Collection;
 import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 import nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo;
+import org.apache.commons.io.DirectoryWalker;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -45,9 +49,21 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		if (this.isSkip()) {
+			this.getLog().info("Skip compiling Sass templates");
 			return;
 		}
-		this.getLog().info("Compiling Sass Templates");
+		boolean buildRequired = true;
+		try {
+			buildRequired = buildRequired();
+		} catch (IOException e) {
+			throw new MojoExecutionException("Could not check file timestamps", e);
+		}
+		if (!buildRequired) {
+			this.getLog().info("Skip compiling Sass templates, no changes.");
+			return;
+		}
+
+		this.getLog().info("Compiling Sass templates");
 
 		// build sass script
 		final StringBuilder sassBuilder = new StringBuilder();
@@ -57,5 +73,81 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 
 		// ...and execute
 		this.executeSassScript(sassScript);
+	}
+
+	/**
+	 * Returns true if a build is required.
+	 *
+	 * @return
+	 * @throws IOException
+	 */
+	private boolean buildRequired() throws IOException {
+		// If target directory does not exist we need a build
+		if (!buildDirectory.exists()) {
+			return true;
+		}
+
+		LastModifiedWalker sourceWalker = new LastModifiedWalker(getSassSourceDirectory());
+		LastModifiedWalker targetWalker = new LastModifiedWalker(destination);
+		// If either directory is empty, we do a build to make sure
+		if (sourceWalker.getCount() == 0 || targetWalker.getCount() == 0) {
+			return true;
+		}
+
+		return sourceWalker.getYoungest() > targetWalker.getYoungest();
+	}
+
+	/** 
+	 * Directorywalker that looks at the lastModified timestamp of files.
+	 * 
+	 * @see File#lastModified()
+	 */
+	private class LastModifiedWalker extends DirectoryWalker<Void> {
+
+		private Long youngest, oldest;
+		private int count = 0;
+
+		public LastModifiedWalker(File startDirectory) throws IOException {
+			walk(startDirectory, null);
+			getLog().info("Checked " + count + " files for " + startDirectory);
+		}
+
+		@Override
+		protected void handleFile(File file, int depth, Collection<Void> results) throws IOException {
+			long lastMod = file.lastModified();
+			youngest = youngest == null ? lastMod : Math.max(youngest, lastMod);
+			oldest = oldest == null ? lastMod : Math.min(oldest, lastMod);
+			count++;
+			super.handleFile(file, depth, results);
+		}
+
+		/**
+		 * Get timestamp of the youngest file in the directory.
+		 *
+		 * @return timestamp of youngest file
+		 * @see File#lastModified()
+		 */
+		public Long getYoungest() {
+			return youngest;
+		}
+
+		/**
+		 * Get timestamp of the oldest file in the directory.
+		 *
+		 * @return timestamp of oldest file
+		 * @see File#lastModified()
+		 */
+		public Long getOldest() {
+			return oldest;
+		}
+
+		/**
+		 * get number of files in the directory.
+		 *
+		 * @return number of files
+		 */
+		public int getCount() {
+			return count;
+		}
 	}
 }

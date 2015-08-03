@@ -106,7 +106,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}")
-	private File buildDirectory;
+	protected File buildDirectory;
 
 	/**
 	 * Fail the build if errors occur during compilation of sass/scss templates.
@@ -200,7 +200,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
-	private File destination;
+	protected File destination;
 
 	/**
 	 * Ruby version to use. Valid versions depend on the currently embedded
