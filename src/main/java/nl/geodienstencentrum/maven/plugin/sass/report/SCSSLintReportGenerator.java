@@ -51,7 +51,7 @@ public class SCSSLintReportGenerator {
 	 * @param xmlFile input xml file to convert
 	 * @param log maven log
 	 */
-	public SCSSLintReportGenerator(final Sink sink, final String description, 
+	public SCSSLintReportGenerator(final Sink sink, final String description,
 	        final File xmlFile, final Log log) {
 		this.sink = sink;
 		this.description = description;
@@ -75,22 +75,22 @@ public class SCSSLintReportGenerator {
 		sink.close();
 	}
 
-	/** 
-	 * translate the xml using xslt. 
+	/**
+	 * translate the xml using xslt.
 	 * @return the transformed xml as string
 	 */
 	private String translateXML() {
 		String translated = null;
 		try {
-			TransformerFactory factory = TransformerFactory.newInstance();
-			Templates template = factory.newTemplates(
+			final TransformerFactory factory = TransformerFactory.newInstance();
+			final Templates template = factory.newTemplates(
 			    new StreamSource(
 			        this.getClass().getClassLoader().getResourceAsStream("scss-report.xsl")));
-			Transformer xformer = template.newTransformer();
+			final Transformer xformer = template.newTransformer();
 			log.debug("loading scss-ling xml results: " + xmlFile.getAbsolutePath());
-			Source source = new StreamSource(new FileInputStream(this.xmlFile));
-			StringWriter outWriter = new StringWriter();
-			Result result = new StreamResult(outWriter);
+			final Source source = new StreamSource(new FileInputStream(this.xmlFile));
+			final StringWriter outWriter = new StringWriter();
+			final Result result = new StreamResult(outWriter);
 			xformer.transform(source, result);
 			translated = outWriter.toString();
 		} catch (FileNotFoundException | TransformerConfigurationException e) {
@@ -98,9 +98,9 @@ public class SCSSLintReportGenerator {
 			log.error("Error during xml conversion of " + this.xmlFile, e);
 		} catch (TransformerException e) {
 			// error while applying the XSL file
-			SourceLocator locator = e.getLocator();
-			int col = locator.getColumnNumber();
-			int line = locator.getLineNumber();
+			final SourceLocator locator = e.getLocator();
+			final int col = locator.getColumnNumber();
+			final int line = locator.getLineNumber();
 			log.error("Error during xml transformation of " + this.xmlFile
 					+ "line: " + line + ", col: " + col, e);
 		}

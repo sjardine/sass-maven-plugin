@@ -156,8 +156,8 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 			return;
 		}
 		try {
-			SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
-                    getSink(), 
+			final SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
+                    getSink(),
                     this.getDescription(locale),
                     new File(getProject().getBasedir() + "/target", "scss-lint.xml"),
                     getLog());

@@ -87,8 +87,8 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 			return true;
 		}
 
-		LastModifiedWalker sourceWalker = new LastModifiedWalker(getSassSourceDirectory());
-		LastModifiedWalker targetWalker = new LastModifiedWalker(destination);
+		final LastModifiedWalker sourceWalker = new LastModifiedWalker(getSassSourceDirectory());
+		final LastModifiedWalker targetWalker = new LastModifiedWalker(destination);
 		// If either directory is empty, we do a build to make sure
 		if (sourceWalker.getCount() == 0 || targetWalker.getCount() == 0) {
 			return true;
@@ -97,9 +97,9 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 		return sourceWalker.getYoungest() > targetWalker.getYoungest();
 	}
 
-	/** 
+	/**
 	 * Directorywalker that looks at the lastModified timestamp of files.
-	 * 
+	 *
 	 * @see File#lastModified()
 	 */
 	private class LastModifiedWalker extends DirectoryWalker<Void> {
@@ -117,7 +117,7 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 		 * {@inheritDoc}
 		 */
 		@Override
-		protected void handleFile(final File file, final int depth, 
+		protected void handleFile(final File file, final int depth,
 		        final Collection<Void> results) throws IOException {
 			long lastMod = file.lastModified();
 			youngest = youngest == null ? lastMod : Math.max(youngest, lastMod);

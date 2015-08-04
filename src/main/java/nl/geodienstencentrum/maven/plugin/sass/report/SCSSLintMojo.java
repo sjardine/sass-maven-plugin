@@ -72,7 +72,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		private static final HashMap<Integer, ExitCode> LOOKUP = new HashMap<>();
 
 		static {
-			for (ExitCode c : EnumSet.allOf(ExitCode.class)) {
+			for (final ExitCode c : EnumSet.allOf(ExitCode.class)) {
 				LOOKUP.put(c.code, c);
 			}
 		}
@@ -97,9 +97,9 @@ public class SCSSLintMojo extends AbstractSassMojo {
 			return LOOKUP.get(code);
 		}
 
-		/** 
+		/**
 		 * Returns a string representation of this {@code ExitCode}.
-		 * 
+		 *
 		 * @return code and message concatanated
 		 */
 		@Override
@@ -206,7 +206,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 
 	private Set<String> getSourceDirs() {
 		Set<String> dirs = new HashSet<>();
-		List<Resource> resourceList = this.getResources();
+		final List<Resource> resourceList = this.getResources();
 		if (resourceList.isEmpty()) {
 			dirs.add(getSassSourceDirectory().getPath());
 		}
