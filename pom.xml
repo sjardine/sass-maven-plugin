@@ -510,7 +510,17 @@
 							<configuration>
 								<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
 							</configuration>
-						</plugin>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-plugin-plugin</artifactId>
+                            <version>3.4</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jxr-plugin</artifactId>
+                            <version>2.5</version>
+                        </plugin>
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-changes-plugin</artifactId>
@@ -577,16 +587,6 @@
 							<artifactId>taglist-maven-plugin</artifactId>
 							<version>2.4</version>
 						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-plugin-plugin</artifactId>
-							<version>3.4</version>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-jxr-plugin</artifactId>
-							<version>2.5</version>
-						</plugin>
 						<!-- plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-linkcheck-plugin</artifactId>
@@ -620,7 +620,8 @@
 								<rulesets>
 									<ruleset>${basedir}/pmd-ruleset.xml</ruleset>
 								</rulesets>
-								<linkXref>true</linkXref>
+                                <linkXRef>true</linkXRef>
+                                <includeXmlInSite>true</includeXmlInSite>
 								<minimumTokens>100</minimumTokens>
 								<targetJdk>${project.build.targetVersion}</targetJdk>
 								<excludeRoots>

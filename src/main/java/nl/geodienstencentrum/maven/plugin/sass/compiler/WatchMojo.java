@@ -31,11 +31,16 @@ import org.apache.maven.plugins.annotations.Mojo;
 @Mojo(name = "watch")
 public class WatchMojo extends AbstractSassMojo {
 
-	private static final boolean IS_WINDOWS = System.getProperty("os.name").toLowerCase().contains("win");
+	/** true when we are running on Windows. */
+	private static final boolean IS_WINDOWS = 
+	        System.getProperty("os.name").toLowerCase().contains("win");
 
-	/*
-	 * (non-Javadoc)
-	 *
+	/**
+	 * Start the watch process.
+	 * 
+	 * @throws MojoExecutionException when the execution of the plugin
+	 *         errored
+	 * @throws MojoFailureException when the Sass compilation fails
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
 	public void execute() throws MojoExecutionException, MojoFailureException {
@@ -47,7 +52,7 @@ public class WatchMojo extends AbstractSassMojo {
 		// build sass script
 		final StringBuilder sassBuilder = new StringBuilder();
 		this.buildBasicSassScript(sassBuilder);
-		if(IS_WINDOWS) {
+		if (IS_WINDOWS) {
 			sassBuilder.append("require 'listen'\nSass::Plugin.options.merge!(:poll => true)\n");
 		}
 		sassBuilder.append("Sass::Plugin.watch");

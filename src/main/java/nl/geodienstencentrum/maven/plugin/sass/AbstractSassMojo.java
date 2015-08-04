@@ -54,59 +54,20 @@ import com.google.common.collect.ImmutableMap;
 public abstract class AbstractSassMojo extends AbstractMojo {
 
 	/**
-	 * Sources for compilation with their destination directory containing Sass
-	 * files. Allows for multiple resource sources and destinations. If
-	 * specified it precludes the direct specification of
-	 * sassSourceDirectory/relativeOutputDirectory/destination parameters.
-	 *
-	 * Example configuration:
-	 *
-	 * <pre>
-	 *      &lt;resource&gt;
-	 *          &lt;source&gt;
-	 *              &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
-	 *              &lt;includes&gt;
-	 *                  &lt;include&gt;**&#47;scss&lt;/include&gt;
-	 *              &lt;/includes&gt;
-	 *          &lt;/source&gt;
-	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
-	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}&lt;/destination&gt;
-	 *      &lt;/resource&gt;
-	 * </pre>
-	 *
-	 * @since 2.0
-	 */
-	@Parameter
-	private List<Resource> resources = Collections.emptyList();
-
-	/**
-	 * Defines paths where jruby will look for gems. E.g. a maven build could
-	 * download gems into ${project.build.directory}/rubygems and a gemPath
-	 * pointed to this directory. Finally, individual gems can be loaded via the
-	 * &lt;gems&gt; configuration.
-	 *
-	 * @since 2.0
-	 */
-	@Parameter(defaultValue = "${project.build.directory}/rubygems")
-	private String[] gemPaths = new String[0];
-
-	/**
-	 * Defines gems to be loaded before Sass/Compass. This is useful to add gems
-	 * with custom Sass functions or stylesheets. Gems that hook into Compass
-	 * are transparently added to Sass' load_path.
-	 *
-	 * @since 2.0
-	 */
-	@Parameter
-	private String[] gems = new String[0];
-
-	/**
 	 * Build directory for the plugin.
 	 *
 	 * @since 2.0
 	 */
 	@Parameter(defaultValue = "${project.build.directory}")
 	protected File buildDirectory;
+
+	/**
+	 * Where to put the compiled CSS files.
+	 *
+	 * @since 2.0
+	 */
+	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
+	protected File destination;
 
 	/**
 	 * Fail the build if errors occur during compilation of sass/scss templates.
@@ -140,6 +101,54 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	                "always_update", "true", "style", ":expanded"));
 
 	/**
+	 * Sources for compilation with their destination directory containing Sass
+	 * files. Allows for multiple resource sources and destinations. If
+	 * specified it precludes the direct specification of
+	 * sassSourceDirectory/relativeOutputDirectory/destination parameters.
+	 *
+	 * Example configuration:
+	 *
+	 * <pre>
+	 *      &lt;resource&gt;
+	 *          &lt;source&gt;
+	 *              &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
+	 *              &lt;includes&gt;
+	 *                  &lt;include&gt;**&#x0002F;*.scss&lt;/include&gt;
+	 *              &lt;/includes&gt;
+	 *          &lt;/source&gt;
+	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
+	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}
+	 *              &lt;/destination&gt;
+	 *      &lt;/resource&gt;
+	 * </pre>
+	 *
+	 * @since 2.0
+	 */
+	@Parameter
+	private List<Resource> resources = Collections.emptyList();
+
+	/**
+	 * Defines paths where jruby will look for gems. E.g. a maven build could
+	 * download gems into ${project.build.directory}/rubygems and a gemPath
+	 * pointed to this directory. Finally, individual gems can be loaded via the
+	 * &lt;gems&gt; configuration.
+	 *
+	 * @since 2.0
+	 */
+	@Parameter(defaultValue = "${project.build.directory}/rubygems")
+	private String[] gemPaths = new String[0];
+
+	/**
+	 * Defines gems to be loaded before Sass/Compass. This is useful to add gems
+	 * with custom Sass functions or stylesheets. Gems that hook into Compass
+	 * are transparently added to Sass' load_path.
+	 *
+	 * @since 2.0
+	 */
+	@Parameter
+	private String[] gems = new String[0];
+
+	/**
 	 * Enable the use of Compass style library mixins.
 	 *
 	 * @since 2.0
@@ -167,12 +176,12 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * Defines files in the source directories to include.
 	 *
-	 * Defaults to: {@code **&#47;scss}
+	 * Defaults to: {@code **&#x0002F;*.scss}
 	 *
 	 * @since 2.0
 	 */
 	@Parameter
-	private String[] includes = new String[] { "**/scss" };
+	private String[] includes = new String[] { "**/*.scss" };
 
 	/**
 	 * Defines which of the included files in the source directories to exclude
@@ -195,14 +204,6 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	private String relativeOutputDirectory;
 
 	/**
-	 * Where to put the compiled CSS files.
-	 *
-	 * @since 2.0
-	 */
-	@Parameter(defaultValue = "${project.build.directory}/${project.build.finalName}/css")
-	protected File destination;
-
-	/**
 	 * Ruby version to use. Valid versions depend on the currently embedded
 	 * JRuby runtime. For JRuby 1.7.x this is {@code 1.8}, {@code 1.9}
 	 * <em>(default)</em> or {@code 2.0} <em>(experimental)</em>.
@@ -210,6 +211,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * @deprecated ignored, since JRuby 9000 / v2.9 this is no longer supported
 	 * @since 2.1
 	 */
+	@Deprecated
 	@Parameter(defaultValue = "2.1")
 	private Float rubyVersion;
 

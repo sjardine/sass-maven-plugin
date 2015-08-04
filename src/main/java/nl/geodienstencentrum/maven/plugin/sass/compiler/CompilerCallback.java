@@ -52,7 +52,8 @@ public class CompilerCallback {
 	 * @param css
 	 *            the css
 	 * @see <a
-	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_compilation_error-instance_method">on_compilation_error</a>
+	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html
+	 *           #on_compilation_error-instance_method">on_compilation_error</a>
 	 */
 	public void compilationError(final String error, final String template, final String css) {
 		this.log.error("Compilation of template " + template + " failed: "
@@ -68,7 +69,8 @@ public class CompilerCallback {
 	 * @param css
 	 *            the css
 	 * @see <a
-	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_updated_stylesheet-instance_method">on_updated_stylesheet</a>
+	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html
+	 *           #on_updated_stylesheet-instance_method">on_updated_stylesheet</a>
 	 */
 	public void updatedStylesheeet(final String template, final String css) {
 		this.log.info("    >> " + template + " => " + css);
@@ -80,7 +82,8 @@ public class CompilerCallback {
 	 * @param template
 	 *            the template
 	 * @see <a
-	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_template_modified-instance_method">on_template_modified</a>
+	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html
+	 *           #on_template_modified-instance_method">on_template_modified</a>
 	 */
 	public void templateModified(final String template) {
 		this.log.info("File Change detected " + template);
@@ -92,7 +95,8 @@ public class CompilerCallback {
 	 * @param template
 	 *            the template
 	 * @see <a
-	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_template_created-instance_method">on_template_created</a>
+	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html
+	 *           #on_template_created-instance_method">on_template_created</a>
 	 */
 	public void templateCreated(final String template) {
 		this.log.info("New File detected " + template);
@@ -104,7 +108,8 @@ public class CompilerCallback {
 	 * @param template
 	 *            the template
 	 * @see <a
-	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html#on_template_deleted-instance_method">on_template_deleted</a>
+	 *      href="http://sass-lang.com/docs/yardoc/Sass/Plugin/Compiler.html
+	 *           #on_template_deleted-instance_method">on_template_deleted</a>
 	 */
 	public void templateDeleted(final String template) {
 		this.log.info("File Delete detected " + template);

@@ -61,7 +61,6 @@ public class SCSSLintMojo extends AbstractSassMojo {
 	 * scss-lint exit codes and messages.
 	 */
 	public enum ExitCode {
-
 		CODE_0(0, "No lints were found"),
 		CODE_1(1, "Lints with a severity of 'warning' were reported (no errors)"),
 		CODE_2(2, "One or more errors were reported (and any number of warnings)"),
@@ -70,18 +69,18 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		CODE_70(70, "Internal software error"),
 		CODE_78(78, "Configuration error");
 
-		private static final HashMap<Integer, ExitCode> lookup = new HashMap<>();
+		private static final HashMap<Integer, ExitCode> LOOKUP = new HashMap<>();
 
 		static {
 			for (ExitCode c : EnumSet.allOf(ExitCode.class)) {
-				lookup.put(c.code, c);
+				LOOKUP.put(c.code, c);
 			}
 		}
 
 		private final String msg;
 		private final int code;
 
-		ExitCode(int code, String msg) {
+		ExitCode(final int code, final String msg) {
 			this.code = code;
 			this.msg = msg;
 		}
@@ -94,20 +93,29 @@ public class SCSSLintMojo extends AbstractSassMojo {
 			return code;
 		}
 
-		static ExitCode getExitCode(int code) {
-			return lookup.get(code);
+		static ExitCode getExitCode(final int code) {
+			return LOOKUP.get(code);
 		}
 
+		/** 
+		 * Returns a string representation of this {@code ExitCode}.
+		 * 
+		 * @return code and message concatanated
+		 */
 		@Override
 		public String toString() {
 			return code + ": " + msg;
 		}
 	};
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Execute the lint script.
 	 *
 	 * @see org.apache.maven.plugin.Mojo#execute()
+	 * @throws MojoExecutionException when the execution of the plugin
+	 *         errored
+	 * @throws MojoFailureException when the Sass compilation fails
+	 *
 	 */
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
@@ -134,7 +142,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		ArrayList<String> argv = new ArrayList<>();
 		argv.add("--format=Checkstyle");
 		argv.add("-o" + this.outputFile);
-		// argv.add("--config " + TODO,);
+		// argv.add("--config " + get config from some params,);
 		argv.addAll(this.getSourceDirs());
 		// this.getSassSourceDirectory().getPath()
 		context.setAttribute(ScriptEngine.ARGV,
@@ -142,7 +150,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 				ScriptContext.GLOBAL_SCOPE);
 		try {
 			log.info("Reporting scss lint in: " + this.outputFile.getAbsolutePath());
-			ExitCode result = ExitCode.getExitCode(Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
+			ExitCode result = ExitCode.getExitCode(
+			        Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
 			log.debug("scss-lint result: " + result.toString());
 			switch (result) {
 				case CODE_0:
@@ -174,12 +183,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo#buildBasicSassScript
-	 * (java.lang.StringBuilder)
+	/**
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected void buildBasicSassScript(final StringBuilder sassScript)
@@ -201,11 +206,11 @@ public class SCSSLintMojo extends AbstractSassMojo {
 
 	private Set<String> getSourceDirs() {
 		Set<String> dirs = new HashSet<>();
-		List<Resource> _resources = this.getResources();
-		if (_resources.isEmpty()) {
+		List<Resource> resourceList = this.getResources();
+		if (resourceList.isEmpty()) {
 			dirs.add(getSassSourceDirectory().getPath());
 		}
-		for (final Resource source : _resources) {
+		for (final Resource source : resourceList) {
 			dirs.addAll(source.getDirectoriesAndDestinations(this.getLog()).keySet());
 		}
 		return dirs;

@@ -33,7 +33,7 @@ import org.apache.maven.doxia.sink.Sink;
 import org.apache.maven.plugin.logging.Log;
 
 /**
- *
+ * Converts the xml report into a maven site html report.
  * @author mprins
  */
 public class SCSSLintReportGenerator {
@@ -43,13 +43,25 @@ public class SCSSLintReportGenerator {
 	private final File xmlFile;
 	private final Log log;
 
-	public SCSSLintReportGenerator(Sink sink, String description, File xmlFile, Log log) {
+	/**
+	 * Construct a configured instance of the report generator.
+	 *
+	 * @param sink (html) doxia sink to use
+	 * @param description description for the report
+	 * @param xmlFile input xml file to convert
+	 * @param log maven log
+	 */
+	public SCSSLintReportGenerator(final Sink sink, final String description, 
+	        final File xmlFile, final Log log) {
 		this.sink = sink;
 		this.description = description;
 		this.xmlFile = xmlFile;
 		this.log = log;
 	}
 
+	/**
+	 * translate the xml report to the format of the sink (html).
+	 */
 	public void generateReport() {
 		sink.head();
 		sink.title();
@@ -63,11 +75,17 @@ public class SCSSLintReportGenerator {
 		sink.close();
 	}
 
+	/** 
+	 * translate the xml using xslt. 
+	 * @return the transformed xml as string
+	 */
 	private String translateXML() {
 		String translated = null;
 		try {
 			TransformerFactory factory = TransformerFactory.newInstance();
-			Templates template = factory.newTemplates(new StreamSource(this.getClass().getClassLoader().getResourceAsStream("scss-report.xsl")));
+			Templates template = factory.newTemplates(
+			    new StreamSource(
+			        this.getClass().getClassLoader().getResourceAsStream("scss-report.xsl")));
 			Transformer xformer = template.newTransformer();
 			log.debug("loading scss-ling xml results: " + xmlFile.getAbsolutePath());
 			Source source = new StreamSource(new FileInputStream(this.xmlFile));

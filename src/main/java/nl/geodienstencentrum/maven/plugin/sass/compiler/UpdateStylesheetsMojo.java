@@ -43,7 +43,7 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 * @throws MojoExecutionException when the execution of the plugin
 	 *         errored
-	 * @throws MojoFailureException when the sass compilation fails
+	 * @throws MojoFailureException when the Sass compilation fails
 	 *
 	 */
 	@Override
@@ -78,11 +78,11 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	/**
 	 * Returns true if a build is required.
 	 *
-	 * @return
-	 * @throws IOException
+	 * @return true if a build is required
+	 * @throws IOException if one occurs checking the files and directories
 	 */
 	private boolean buildRequired() throws IOException {
-		// If target directory does not exist we need a build
+		// If the target directory does not exist we need a build
 		if (!buildDirectory.exists()) {
 			return true;
 		}
@@ -104,16 +104,21 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 */
 	private class LastModifiedWalker extends DirectoryWalker<Void> {
 
-		private Long youngest, oldest;
+		private Long youngest;
+		private Long oldest;
 		private int count = 0;
 
-		public LastModifiedWalker(File startDirectory) throws IOException {
+		public LastModifiedWalker(final File startDirectory) throws IOException {
 			walk(startDirectory, null);
 			getLog().info("Checked " + count + " files for " + startDirectory);
 		}
 
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
-		protected void handleFile(File file, int depth, Collection<Void> results) throws IOException {
+		protected void handleFile(final File file, final int depth, 
+		        final Collection<Void> results) throws IOException {
 			long lastMod = file.lastModified();
 			youngest = youngest == null ? lastMod : Math.max(youngest, lastMod);
 			oldest = oldest == null ? lastMod : Math.min(oldest, lastMod);

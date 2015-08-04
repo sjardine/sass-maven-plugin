@@ -93,7 +93,8 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	 *              &lt;/includes&gt;
 	 *          &lt;/source&gt;
 	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
-	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}&lt;/destination&gt;
+	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}
+	 * &lt;/destination&gt;
 	 *      &lt;/resource&gt;
 	 * </pre>
 	 *
@@ -156,10 +157,10 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 		}
 		try {
 			SCSSLintReportGenerator generator = new SCSSLintReportGenerator(
-					getSink(), this.getDescription(locale),
-					new File(getProject().getBasedir() + "/target",
-							"scss-lint.xml"),
-					getLog());
+                    getSink(), 
+                    this.getDescription(locale),
+                    new File(getProject().getBasedir() + "/target", "scss-lint.xml"),
+                    getLog());
 			generator.generateReport();
 		} catch (Exception t) {
 			if (failOnError) {
@@ -208,7 +209,8 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 		return "A scss-lint report.";
 	}
 
-    private ResourceBundle getBundle(final Locale locale) {
-		return ResourceBundle.getBundle("scss-lint-report", locale, this.getClass().getClassLoader());
+	private ResourceBundle getBundle(final Locale locale) {
+		return ResourceBundle.getBundle("scss-lint-report", locale,
+                this.getClass().getClassLoader());
 	}
 }

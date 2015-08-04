@@ -23,4 +23,3 @@
  * @since 2.3
  */
 package nl.geodienstencentrum.maven.plugin.sass.report;
-

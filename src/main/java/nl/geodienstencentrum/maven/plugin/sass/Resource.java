@@ -61,7 +61,8 @@ public class Resource {
 		final Map<String, String> result = new LinkedHashMap<>();
 
 		if (!sourceDirectory.exists()) {
-			log.error("Specified sourcedirectory (" + sourceDirectory + ") does not exist.");
+			log.error("Specified sourcedirectory (" + sourceDirectory
+			           + ") does not exist.");
 			return result;
 		}
 
@@ -73,10 +74,6 @@ public class Resource {
 		scanner.setExcludes(this.source.getExcludes().toArray(
 		        new String[this.source.getExcludes().size()]));
 
-		// Add default excludes to the list of excludes, see
-		// http://plexus.codehaus.org/plexus-utils/apidocs/org/codehaus/plexus/util/AbstractScanner.html#DEFAULTEXCLUDES
-		// or
-		// http://plexus.codehaus.org/plexus-utils/apidocs/org/codehaus/plexus/util/AbstractScanner.html#addDefaultExcludes()
 		scanner.addDefaultExcludes();
 		scanner.scan();
 
