@@ -3,14 +3,13 @@ language: java
 sudo: false
 
 before_install:
-#  - unset GEM_PATH
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
    - echo $JAVA_HOME
    - mvn --version
 
 install:
   # install without any testing
-  - mvn install -U -Dmaven.test.skip=true -B -V -fae -q -T2
+  - mvn install -U -Dmaven.test.skip=true -B -V -fae -T2
 
 script:
   # execute unit and integration tests
