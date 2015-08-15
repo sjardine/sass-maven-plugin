@@ -5,10 +5,9 @@ sudo: false
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
    - echo $JAVA_HOME
-   - mvn --version
 
 install:
-  # install without any testing
+  # install without any testing to get dependencies in place
   - mvn install -U -Dmaven.test.skip=true -B -V -fae -T2
 
 script:
@@ -24,10 +23,18 @@ os:
   - osx
 
 matrix:
-#  - os: linux
-#    # nothing special
-#  - os: osx
-#    env: JAVA_HOME=/usr/libexec/java_home
+  fast_finish: true
+  include:
+    # additional builds
+    - os: linux
+      jdk: openjdk7
+    - os: linux
+      jdk: oraclejdk8
+# this is the current Travis default JDK on linux
+#    - os: linux
+#      jdk: oraclejdk7
+#    - os: osx
+#      env: JAVA_HOME=/usr/libexec/java_home
 
 cache:
   directories:
