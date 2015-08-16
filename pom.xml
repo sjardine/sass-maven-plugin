@@ -133,11 +133,13 @@
 		<jruby.version>9.0.0.0</jruby.version>
 		<maven-libs.version>3.3.3</maven-libs.version>
 		<scss-lint.version>0.40.1</scss-lint.version>
+		<bourbon.version>4.2.3</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
 		<github.username />
 		<github.password />
 		<github.site.dryRun>false</github.site.dryRun>
+		<skipUnitTests>false</skipUnitTests>
 	</properties>
 	<dependencyManagement />
 	<dependencies>
@@ -189,6 +191,13 @@
 			<groupId>rubygems</groupId>
 			<artifactId>listen</artifactId>
 			<version>3.0.3</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency>
+		<dependency>
+			<groupId>rubygems</groupId>
+			<artifactId>bourbon</artifactId>
+			<version>${bourbon.version}</version>
 			<scope>provided</scope>
 			<type>gem</type>
 		</dependency>
@@ -299,7 +308,7 @@
 						<phase>prepare-package</phase>
 					</execution>
 				</executions>
-			</plugin> 
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -430,6 +439,7 @@
 					</excludes>
 					<reuseForks>false</reuseForks>
 					<argLine>${surefireArgLine}</argLine>
+					<skipTests>${skipUnitTests}</skipTests>
 				</configuration>
 			</plugin>
 			<plugin>
