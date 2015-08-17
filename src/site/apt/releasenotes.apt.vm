@@ -32,12 +32,9 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  * A <<<skip>>> parameter was added to skip plugin execution
-    ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/60}#60}})
+~~  * 
 
-  * Skip unmodified files ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/18}#18}})
-
-  []
+~~  []
 
 ~~ ** Fix
 
@@ -58,6 +55,23 @@ ${project.name} ${project.version} Release Notes
 ~~  * Update JRuby to ${project.properties.get("jruby.version")}
 
 ~~   []
+
+* 2.10 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A2.10+is%3Aclosed}milestone 2.10 }}.
+
+  This release features Compass version 1.0.3 and Sass version 3.4.16 running on JRuby 9.0.0.0.
+
+** New
+
+  * A <<<skip>>> parameter was added to skip plugin execution
+    ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/60}#60}})
+
+  * Skip unmodified files ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/18}#18}})
+
+  []
+
 
 * 2.9 Release Notes
 
