@@ -12,7 +12,7 @@ install:
 
 script:
   # execute unit and integration tests
-  - mvn -e verify -B
+  - mvn -e -fae -B -Dfailsafe.useFile=false -T2 clean test verify
 
 after_success:
   # generate code coverage report
