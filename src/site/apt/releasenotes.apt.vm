@@ -32,7 +32,7 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-~~  * 
+  * Support for {{{http://bourbon.io/}Bourbon}} was added ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/8}#8}})
 
 ~~  []
 

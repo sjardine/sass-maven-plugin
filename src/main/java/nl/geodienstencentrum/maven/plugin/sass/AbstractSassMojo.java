@@ -46,6 +46,15 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import org.apache.maven.shared.utils.io.IOUtil;
 
 /**
  * Base for batching Sass Mojos.
@@ -157,6 +166,14 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	private boolean useCompass;
 
 	/**
+	 * Enable the use of Bourbon style library mixins.
+	 *
+	 * @since 2.11
+	 */
+	@Parameter(defaultValue = "false")
+	private boolean useBourbon;
+
+	/**
 	 * specify an optional compass configuration file, eg. {@code compass.rb}
 	 *
 	 * @since 2.5
@@ -241,12 +258,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 		final Log log = this.getLog();
 		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
-		//System.setProperty("org.jruby.embed.compat.version",
-		//                   String.format("ruby%2.0f", rubyVersion * 10));
-		//log.debug("Setting 'org.jruby.embed.compat.version' to: "
-		//          + String.format("ruby%2.0f", rubyVersion * 10));
 
-		log.debug("Execute Sass Ruby script:\n\n" + sassScript);
+		log.debug("Execute Sass Ruby script:\n\n" + sassScript + "\n\n");
 		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
 		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
 		try {
@@ -311,8 +324,8 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			sassScript.append("require 'compass/import-once'\n");
 			if (compassConfigFile != null) {
 				sassScript.append("Compass.add_project_configuration '")
-						.append(compassConfigFile.getAbsolutePath())
-						.append("'\n");
+				        .append(compassConfigFile.getAbsolutePath())
+				        .append("'\n");
 			} else {
 				sassScript.append("Compass.add_project_configuration \n");
 			}
@@ -366,6 +379,17 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			sassScript.append("Sass::Plugin.add_template_location('")
 			        .append(location.getKey()).append("', '")
 			        .append(location.getValue()).append("')\n");
+		}
+
+		if (this.useBourbon) {
+			log.info("Running with Bourbon enabled.");
+			final String bDest = this.buildDirectory + "/bourbon";
+			this.extractBourbonResources(bDest);
+			// sassScript.append("require 'bourbon'\n");
+			sassScript.append("Sass::Plugin.add_template_location('")
+                    .append(bDest)
+                    .append("/app/assets/stylesheets', '")
+                    .append(destination).append("')\n");
 		}
 
 		// set up sass compiler callback for reporting
@@ -441,6 +465,55 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 		}
 		return locations.iterator();
+	}
+
+	/**
+	 * Extract the Bourbon assets to the build directory.
+	 */
+	private void extractBourbonResources(String destinationDir) {
+		final Log log = this.getLog();
+		try {
+			File destDir = new File(destinationDir);
+			if (destDir.isDirectory()) {
+				// skip extracting Bourbon, as it seems to hav been done
+				log.info("Bourbon resources seems to have been extracted before.");
+				return;
+			}
+			log.info("Extracting Bourbon resources to: " + destinationDir);
+			destDir.mkdirs();
+			// find the jar with the Bourbon directory in the classloader
+			URL urlJar = this.getClass().getClassLoader().getResource("scss-report.xsl");
+			String resourceFilePath = urlJar.getFile();
+			int index = resourceFilePath.indexOf("!");
+			String jarFileURI = resourceFilePath.substring(0, index);
+			File jarFile = new File(new URI(jarFileURI));
+			JarFile jar = new JarFile(jarFile);
+
+			// extract app/assets/stylesheets to destinationDir
+			for (Enumeration<JarEntry> enums = jar.entries(); enums.hasMoreElements();) {
+				JarEntry entry = enums.nextElement();
+
+				if (entry.getName().contains("app/assets/stylesheets")) {
+					// shorten the path a bit
+					index = entry.getName().indexOf("app/assets/stylesheets");
+					String fileName = destinationDir + File.separator + entry.getName().substring(index);
+
+					File f = new File(fileName);
+					if (fileName.endsWith("/")) {
+						f.mkdirs();
+					} else {
+						FileOutputStream fos = new FileOutputStream(f);
+						try {
+							IOUtil.copy(jar.getInputStream(entry), fos);
+						} finally {
+							IOUtil.close(fos);
+						}
+					}
+				}
+			}
+		} catch (IOException | URISyntaxException ex) {
+			log.error("Error extracting Bourbon resources.", ex);
+		}
 	}
 
 	/**
