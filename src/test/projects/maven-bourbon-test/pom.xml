@@ -47,7 +47,7 @@
 					<sassOptions>
 						<always_update>true</always_update>
 						<style>:expanded</style>
-						<debug_info>true</debug_info>
+						<debug_info>false</debug_info>
 					</sassOptions>
 				</configuration>
 			</plugin>

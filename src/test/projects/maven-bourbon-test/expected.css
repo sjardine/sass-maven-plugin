@@ -1,5 +1,4 @@
 /* colours we use. */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/mprins\/workspace\/sass-maven-plugin\/target\/test-classes\/maven-bourbon-test\/src\/main\/sass\/_style\.scss}line{font-family:\000031}}
 .todo {
   background: url("../img/error.png") no-repeat scroll -12px 1px transparent;
   padding-left: 16px;
@@ -10,12 +9,10 @@
   font-variant: small-caps;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/mprins\/workspace\/sass-maven-plugin\/target\/test-classes\/maven-bourbon-test\/src\/main\/sass\/_style\.scss}line{font-family:\0000311}}
 .hidden {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/mprins\/workspace\/sass-maven-plugin\/target\/test-classes\/maven-bourbon-test\/src\/main\/sass\/_style\.scss}line{font-family:\0000315}}
 .title {
   color: #001a3c;
   border-bottom: 1px solid #005ed5;

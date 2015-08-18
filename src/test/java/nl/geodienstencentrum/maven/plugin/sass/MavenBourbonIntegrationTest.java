@@ -70,17 +70,7 @@ public class MavenBourbonIntegrationTest {
 	}
 
 	/**
-	 * test for error free execution.
-	 *
-	 * @throws Exception if any
-	 */
-	@Test
-	public void testErrorFree() throws Exception {
-		this.verifier.verifyErrorFreeLog();
-	}
-
-	/**
-	 * test for equal-ness of result end if a result is actually there.
+	 * test for error free execution, equal-ness of result end if a result is actually there.
 	 *
 	 * @throws Exception if any
 	 */
@@ -98,6 +88,7 @@ public class MavenBourbonIntegrationTest {
 				+ "compiled.css.map";
 		final File actual = new File(compiled);
 
+		this.verifier.verifyErrorFreeLog();
 		this.verifier.assertFilePresent(compiled);
 		this.verifier.assertFilePresent(compiledMap);
 		assertTrue("Compiled output should be as expected.",
