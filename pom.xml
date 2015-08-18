@@ -200,6 +200,13 @@
 			<version>${bourbon.version}</version>
 			<scope>provided</scope>
 			<type>gem</type>
+			<exclusions>
+				<exclusion>
+					<!-- we don't need this -->
+					<groupId>rubygems</groupId>
+					<artifactId>thor</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
