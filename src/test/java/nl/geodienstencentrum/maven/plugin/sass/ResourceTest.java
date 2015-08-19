@@ -16,8 +16,9 @@
 package nl.geodienstencentrum.maven.plugin.sass;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import java.io.File;
 import java.util.List;
@@ -59,13 +60,13 @@ public class ResourceTest {
 				.getBasedir("maven-compass-resources-test");
 		final File pom = new File(projectCopy, "pom.xml");
 
-		assertNotNull("POM file should not be null.", pom);
-		assertTrue("POM file should exist as file.",
+		assumeNotNull("POM file should not be null.", pom);
+		assumeTrue("POM file should exist as file.",
 				pom.exists() && pom.isFile());
 
 		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
 				.lookupConfiguredMojo(projectCopy, "update-stylesheets");
-		assertNotNull(myMojo);
+		assumeNotNull(myMojo);
 
 		@SuppressWarnings("unchecked")
 		final List<Resource> reslist = (List<Resource>) this.rule

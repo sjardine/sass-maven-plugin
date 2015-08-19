@@ -39,6 +39,7 @@
 						<phase>process-sources</phase>
 						<goals>
 							<goal>update-stylesheets</goal>
+							<goal>scss-lint</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -62,6 +63,20 @@
 							<release>${project.version}</release>
 						</manifestEntries>
 					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>nl.geodienstencentrum.maven</groupId>
+							<artifactId>sass-maven-plugin</artifactId>
+							<version>@project.version@</version>
+						</plugin>
+					</reportPlugins>
 				</configuration>
 			</plugin>
 		</plugins>

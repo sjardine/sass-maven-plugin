@@ -1,5 +1,5 @@
 /*
- * Copyright 2014-2015 Mark Prins, GeoDienstenCentrum
+ * Copyright 2015 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,11 +15,8 @@
  */
 package nl.geodienstencentrum.maven.plugin.sass;
 
-import static org.junit.Assert.assertTrue;
-
 import java.io.File;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.maven.it.Verifier;
 import org.apache.maven.it.util.ResourceExtractor;
 import org.junit.After;
@@ -27,12 +24,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Integration test for determining if sass compilation works based on a simple
- * war project.
+ * Integration test for determining 'site' works on a Bourbon project.
  *
- * @author Mark C. Prins
+ * @author mprins
  */
-public class MavenSassIntegrationTest {
+public class BourbonReportIntegrationTest {
+
 	/** The Maven verifier. */
 	private Verifier verifier;
 
@@ -40,29 +37,29 @@ public class MavenSassIntegrationTest {
 	private File testDir;
 
 	/** The artifactId of the test project. */
-	private final String ARTIFACTID = "maven-sass-test";
+	private final String ARTIFACTID = "maven-bourbon-test";
 
 	/** The packaging of the test project. */
 	private final String PACKAGING = "war";
 
 	/**
-	 * setUp the Maven project and verifier, execute the 'compile' goal.
+	 * Delete any of this artifact in the local repository, setup the Maven
+	 * project and verifier and execute the 'compile' goal.
 	 *
 	 * @throws Exception
-	 *             if any
+	 *             the exception
 	 */
 	@Before
 	public void setUp() throws Exception {
-		this.testDir = ResourceExtractor.simpleExtractResources(
-				this.getClass(), "/" + this.ARTIFACTID);
-
+		this.testDir = ResourceExtractor.simpleExtractResources(this.getClass(),
+				"/" + this.ARTIFACTID);
 		this.verifier = new Verifier(this.testDir.getAbsolutePath());
 		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(),
-			this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(),
-			this.PACKAGING);
+				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(),
+				this.PACKAGING);
 		boolean debug = new Boolean(System.getProperty("debug"));
 		this.verifier.setMavenDebug(debug);
-		this.verifier.executeGoal("compile");
+        this.verifier.executeGoal("site");
 	}
 
 	/**
@@ -77,44 +74,28 @@ public class MavenSassIntegrationTest {
 	}
 
 	/**
-	 * test for equal-ness of result and if a result is actually there.
+	 * test if results are actually there.
 	 *
 	 * @throws Exception
-	 *             if any
+	 *             the exception
 	 */
 	@Test
-	public void testCompareResults() throws Exception {
-		final File expected = new File(this.testDir.getAbsolutePath()
-				+ File.separator + "expected.css");
-		final String compiled = this.verifier.getBasedir() + File.separator
-				+ "target" + File.separator + this.ARTIFACTID + "-"
-				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
-				+ "compiled.css";
-		final File actual = new File(compiled);
+	public void testForResults() throws Exception {
+		final String lintXML = this.verifier.getBasedir() + File.separator
+				+ "target" + File.separator + "scss-lint.xml";
 
-		this.verifier.assertFilePresent(compiled);
-		assertTrue("Compiled output should be as expected.",
-				FileUtils.contentEqualsIgnoreEOL(expected, actual, "UTF-8"));
+		final String lintHTMLReport = this.verifier.getBasedir() + File.separator
+				+ "target" + File.separator + "site" + File.separator + "scss-lint.html";
+
+		this.verifier.assertFilePresent(lintXML);
+		this.verifier.assertFilePresent(lintHTMLReport);
 	}
 
 	/**
-	 * test for sourcemap existence.
-	 */
-	@Test
-	public void testForSourceMap() {
-		final String compiledMap = this.verifier.getBasedir() + File.separator
-				+ "target" + File.separator + this.ARTIFACTID + "-"
-				+ TestConstantsEnum.TEST_VERSION + File.separator + "css" + File.separator
-				+ "compiled.css.map";
-
-		this.verifier.assertFilePresent(compiledMap);
-	}
-
-	/**
-	 * execute the 'clean' goal.
+	 *  reset after test.
 	 *
 	 * @throws Exception
-	 *             if any
+	 *             the exception
 	 */
 	@After
 	public void tearDown() throws Exception {

@@ -17,16 +17,17 @@ package nl.geodienstencentrum.maven.plugin.sass.compiler;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
+import static org.junit.Assume.assumeNotNull;
+import static org.junit.Assume.assumeTrue;
 
 import java.io.File;
 
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assume.assumeNotNull;
-import static org.junit.Assume.assumeTrue;
+
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -65,13 +66,13 @@ public class UpdateStylesheetsMojoTest {
 		final File projectCopy = this.resources
 				.getBasedir("maven-compass-test");
 		final File pom = new File(projectCopy, "pom.xml");
-		assertNotNull("POM file should not be null.", pom);
-		assertTrue("POM file should exist as file.",
+		assumeNotNull("POM file should not be null.", pom);
+		assumeTrue("POM file should exist as file.",
 				pom.exists() && pom.isFile());
 
 		final UpdateStylesheetsMojo myMojo = (UpdateStylesheetsMojo) this.rule
 				.lookupConfiguredMojo(projectCopy, "update-stylesheets");
-		assertNotNull(myMojo);
+		assumeNotNull(myMojo);
 
 		// test if execution was succesful, if not fail
 		myMojo.execute();
@@ -249,7 +250,7 @@ public class UpdateStylesheetsMojoTest {
 		myMojo.execute();
 		// the target directory should not exist
 		assertFalse(
-				(new File(projectCopy.getAbsolutePath() 
+				(new File(projectCopy.getAbsolutePath()
 					+ "/target/skip-execution-project-1.0-SNAPSHOT/css/")).exists());
 	}
 }
