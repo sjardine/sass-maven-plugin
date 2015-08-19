@@ -57,9 +57,10 @@ public class ReportIntegrationTest {
 		this.verifier.deleteArtifact(TestConstantsEnum.TEST_GROUPID.toString(),
 				this.ARTIFACTID, TestConstantsEnum.TEST_VERSION.toString(),
 				this.PACKAGING);
-		boolean debug = new Boolean(System.getProperty("debug"));
-		this.verifier.setMavenDebug(debug);
-        this.verifier.executeGoal("site");
+		//boolean debug = new Boolean(System.getProperty("debug"));
+		//this.verifier.setMavenDebug(debug);
+		this.verifier.setMavenDebug(true);
+		this.verifier.executeGoal("site");
 	}
 
 	/**

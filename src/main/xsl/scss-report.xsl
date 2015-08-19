@@ -1,20 +1,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:output method="html" indent="yes"/>
+	<xsl:output method="xml" indent="yes" omit-xml-declaration = "yes" />
 	<xsl:decimal-format decimal-separator="." grouping-separator="," />
 
 	<xsl:key name="files" match="file" use="@name" />
 	<xsl:template match="checkstyle">
-		<a name="top"></a>
-		<h1>scss-lint report</h1>
+		<h1 id="top">scss-lint report</h1>
 		<div class="section">
 			<h2>Summary</h2>
 			<!-- Summary part -->
-			<xsl:apply-templates select="." mode="summary"/>
+			<xsl:apply-templates select="." mode="summary" />
 		</div>
 		<div class="section">
 			<h2>Files</h2>
 			<!-- Package List part -->
-			<xsl:apply-templates select="." mode="filelist"/>
+			<xsl:apply-templates select="." mode="filelist" />
 		</div>
 		<div class="section">
 			<!-- For each package create its part -->

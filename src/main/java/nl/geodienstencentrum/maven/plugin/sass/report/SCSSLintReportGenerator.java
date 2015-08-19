@@ -87,7 +87,7 @@ public class SCSSLintReportGenerator {
 			    new StreamSource(
 			        this.getClass().getClassLoader().getResourceAsStream("scss-report.xsl")));
 			final Transformer xformer = template.newTransformer();
-			log.debug("loading scss-ling xml results: " + xmlFile.getAbsolutePath());
+			log.info("Transforming scss-lint xml results file: " + xmlFile.getAbsolutePath());
 			final Source source = new StreamSource(new FileInputStream(this.xmlFile));
 			final StringWriter outWriter = new StringWriter();
 			final Result result = new StreamResult(outWriter);
@@ -105,7 +105,7 @@ public class SCSSLintReportGenerator {
 					+ "line: " + line + ", col: " + col, e);
 		}
 
-		log.debug("translated xml:\n" + translated);
+		log.debug("Transformed scss-lint xml:\n" + translated);
 		return translated;
 	}
 }
