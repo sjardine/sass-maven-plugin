@@ -118,7 +118,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Example configuration:
 	 *
 	 * <pre>
-	 *      &lt;resource&gt;
+	 *      &lt;resources&gt;
 	 *          &lt;source&gt;
 	 *              &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
 	 *              &lt;includes&gt;
@@ -128,7 +128,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
 	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}
 	 *              &lt;/destination&gt;
-	 *      &lt;/resource&gt;
+	 *      &lt;/resources&gt;
 	 * </pre>
 	 *
 	 * @since 2.0
