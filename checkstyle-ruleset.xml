@@ -130,9 +130,9 @@
 		<module name="FinalClass">
 			<property name="severity" value="info" />
 		</module>
-        <module name="FinalParameters">
-            <property name="ignorePrimitiveTypes" value="true"/>
-        </module>
+		<module name="FinalParameters">
+			<property name="ignorePrimitiveTypes" value="true"/>
+		</module>
 		<module name="InnerTypeLast" />
 		<module name="TrailingComment" />
 	</module>

@@ -87,7 +87,8 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 			return true;
 		}
 
-		final LastModifiedWalker sourceWalker = new LastModifiedWalker(getSassSourceDirectory());
+		final LastModifiedWalker sourceWalker = 
+		        new LastModifiedWalker(getSassSourceDirectory());
 		final LastModifiedWalker targetWalker = new LastModifiedWalker(destination);
 		// If either directory is empty, we do a build to make sure
 		if (sourceWalker.getCount() == 0 || targetWalker.getCount() == 0) {
@@ -103,11 +104,23 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 	 * @see File#lastModified()
 	 */
 	private class LastModifiedWalker extends DirectoryWalker<Void> {
-
+		/**
+		 * timestamp of the youngest file.
+		 */
 		private Long youngest;
+		/**
+		 * timestamp of the oldest file.
+		 */
 		private Long oldest;
+		/**
+		 * number of files in the directory.
+		 */
 		private int count = 0;
 
+		/**
+		 * Create a "last modified" directory walker.
+		 * @param startDirectory The direcoty to start walking.
+		 */
 		public LastModifiedWalker(final File startDirectory) throws IOException {
 			walk(startDirectory, null);
 			getLog().info("Checked " + count + " files for " + startDirectory);
