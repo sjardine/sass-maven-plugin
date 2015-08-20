@@ -81,7 +81,7 @@
 			<property name="ignoreNumbers" value="-1, 0, 1, 2, 3, 4, 1000" />
 		</module>
 		<module name="MissingSwitchDefault" />
-		<module name="RedundantThrows" />
+        <module name="IllegalThrows"/>
 		<module name="SimplifyBooleanExpression" />
 		<module name="SimplifyBooleanReturn" />
 		<module name="HideUtilityClassConstructor" />
@@ -123,7 +123,6 @@
 		<module name="IllegalCatch">
 			<property name="severity" value="info" />
 		</module>
-		<module name="JUnitTestCase" />
 		<module name="MultipleVariableDeclarations" />
 		<module name="PackageDeclaration">
 			<property name="severity" value="error" />
@@ -131,7 +130,9 @@
 		<module name="FinalClass">
 			<property name="severity" value="info" />
 		</module>
-		<module name="FinalParameters" />
+        <module name="FinalParameters">
+            <property name="ignorePrimitiveTypes" value="true"/>
+        </module>
 		<module name="InnerTypeLast" />
 		<module name="TrailingComment" />
 	</module>
