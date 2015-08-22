@@ -33,20 +33,20 @@ ${project.name} ${project.version} Release Notes
 
 ** New
 
-  * Support for {{{http://bourbon.io/}Bourbon}} was added ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/8}#8}})
+~~   *
 
 ~~  []
 
-~~ ** Fix
+** Fix
 
 ~~   *
 
 ~~   []
 
- ** Enhancements
+** Enhancements
 
-  * Update Sass to version ${project.properties.get("sass.version")}, please check
-    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
+~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
 ~~  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
 ~~    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
@@ -55,7 +55,29 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update JRuby to ${project.properties.get("jruby.version")}
 
-   []
+~~  []
+
+* 2.11 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A2.11+is%3Aclosed}milestone 2.11 }}.
+
+  This release features Compass version 1.0.3, Bourbon version 4.2.4 and
+  Sass version 3.4.17 running on JRuby 9.0.0.0.
+
+** New
+
+  * Support for {{{http://bourbon.io/}Bourbon}} was added ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/8}#8}})
+
+  []
+
+** Enhancements
+
+  * Update Sass to version ${project.properties.get("sass.version")}, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+  []
+
 
 * 2.10 Release Notes
 
