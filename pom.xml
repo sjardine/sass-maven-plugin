@@ -129,11 +129,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
-		<sass.version>3.4.16</sass.version>
+		<sass.version>3.4.17</sass.version>
 		<jruby.version>9.0.0.0</jruby.version>
 		<maven-libs.version>3.3.3</maven-libs.version>
 		<scss-lint.version>0.40.1</scss-lint.version>
-		<bourbon.version>4.2.3</bourbon.version>
+		<bourbon.version>4.2.4</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
 		<github.username />
@@ -776,7 +776,7 @@
 					<plugin>
 						<groupId>org.eluder.coveralls</groupId>
 						<artifactId>coveralls-maven-plugin</artifactId>
-						<version>3.1.0</version>
+						<version>3.2.0</version>
 						<configuration>
 							<jacocoReports>
 								<file>${project.build.directory}/site/jacoco/jacoco.xml</file>
