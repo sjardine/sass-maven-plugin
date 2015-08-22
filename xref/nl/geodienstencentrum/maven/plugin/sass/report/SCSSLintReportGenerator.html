@@ -95,7 +95,7 @@
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  			    <strong class="jxr_keyword">new</strong> StreamSource(
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  			        <strong class="jxr_keyword">this</strong>.getClass().getClassLoader().getResourceAsStream(<span class="jxr_string">"scss-report.xsl"</span>)));
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  			<strong class="jxr_keyword">final</strong> Transformer xformer = template.newTransformer();
-<a class="jxr_linenumber" name="L90" href="#L90">90</a>  			log.debug(<span class="jxr_string">"loading scss-ling xml results: "</span> + xmlFile.getAbsolutePath());
+<a class="jxr_linenumber" name="L90" href="#L90">90</a>  			log.info(<span class="jxr_string">"Transforming scss-lint xml results file: "</span> + xmlFile.getAbsolutePath());
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>  			<strong class="jxr_keyword">final</strong> Source source = <strong class="jxr_keyword">new</strong> StreamSource(<strong class="jxr_keyword">new</strong> FileInputStream(<strong class="jxr_keyword">this</strong>.xmlFile));
 <a class="jxr_linenumber" name="L92" href="#L92">92</a>  			<strong class="jxr_keyword">final</strong> StringWriter outWriter = <strong class="jxr_keyword">new</strong> StringWriter();
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>  			<strong class="jxr_keyword">final</strong> Result result = <strong class="jxr_keyword">new</strong> StreamResult(outWriter);
@@ -113,7 +113,7 @@
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> 					+ <span class="jxr_string">"line: "</span> + line + <span class="jxr_string">", col: "</span> + col, e);
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> 		}
 <a class="jxr_linenumber" name="L107" href="#L107">107</a> 
-<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		log.debug(<span class="jxr_string">"translated xml:\n"</span> + translated);
+<a class="jxr_linenumber" name="L108" href="#L108">108</a> 		log.debug(<span class="jxr_string">"Transformed scss-lint xml:\n"</span> + translated);
 <a class="jxr_linenumber" name="L109" href="#L109">109</a> 		<strong class="jxr_keyword">return</strong> translated;
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 	}
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> }
