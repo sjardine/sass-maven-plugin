@@ -37,16 +37,11 @@ ${project.name} ${project.version} Release Notes
 
 ~~  []
 
-** Fix
 
-~~   *
+** Enhancements and Fixes
 
-~~   []
-
-** Enhancements
-
-~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
-~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+  * Update Sass to version ${project.properties.get("sass.version")}, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
   * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
@@ -64,6 +59,9 @@ ${project.name} ${project.version} Release Notes
 
   This release features Compass version 1.0.3, Bourbon version 4.2.4 and
   Sass version 3.4.17 running on JRuby 9.0.0.0.
+
+  <<Note>>: Due to a {{{https://github.com/sass/sass/issues/1806}bug in the included Sass library}}
+  using this release is not recommended.
 
 ** New
 
