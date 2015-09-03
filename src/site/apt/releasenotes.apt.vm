@@ -31,12 +31,34 @@ ${project.name} ${project.version} Release Notes
   to find out about the specific Sass and other transitive dependencies
   included in this release.
 
-** New
+~~ ** New
 
 ~~   *
 
 ~~  []
 
+
+** Enhancements and Fixes
+
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
+~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+~~  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
+~~    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
+
+~~  * Update Compass to version ${project.properties.get("compass.version")}
+
+  * Update JRuby to ${project.properties.get("jruby.version")}
+
+  []
+
+* 2.12 Release Notes
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.12+is%3Aclosed}milestone 2.12}}.
+
+  This release features Compass version 1.0.3, Bourbon version 4.2.4 and Sass version 3.4.18 
+  running on JRuby 9.0.0.0.
 
 ** Enhancements and Fixes
 
@@ -46,11 +68,7 @@ ${project.name} ${project.version} Release Notes
   * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
 
-~~  * Update Compass to version ${project.properties.get("compass.version")}
-
-~~  * Update JRuby to ${project.properties.get("jruby.version")}
-
-~~  []
+  []
 
 * 2.11 Release Notes
 
