@@ -53,9 +53,11 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	/**
 	 * ignored for linting, compass is not used.
-	 *
+	 * 
 	 * @since 2.0
+	 * @deprecated Compass support will be removed in 3.0
 	 */
+	@Deprecated
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
 
@@ -63,7 +65,9 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	 * ignored for linting, compass is not used.
 	 *
 	 * @since 2.5
+	 * @deprecated Compass support will be removed in 3.0
 	 */
+	@Deprecated
 	@Parameter
 	private File compassConfigFile;
 

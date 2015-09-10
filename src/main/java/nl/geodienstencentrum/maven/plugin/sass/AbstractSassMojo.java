@@ -161,7 +161,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * Enable the use of Compass style library mixins.
 	 *
 	 * @since 2.0
+	 * 
+	 * @deprecated Compass support will be removed in 3.0
 	 */
+	@Deprecated
 	@Parameter(defaultValue = "false")
 	private boolean useCompass;
 
@@ -177,7 +180,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	 * specify an optional compass configuration file, eg. {@code compass.rb}
 	 *
 	 * @since 2.5
+	 * 
+	 * @deprecated Compass support will be removed in 3.0
 	 */
+	@Deprecated
 	@Parameter(property = "compassConfigFile")
 	private File compassConfigFile;
 
@@ -318,6 +324,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 
 		if (this.useCompass) {
 			log.info("Running with Compass enabled.");
+			log.warn("Compass support is deprecated, it will be removed in version 3.0, see https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/77");
 			sassScript.append("require 'compass'\n");
 			sassScript.append("require 'compass/exec'\n");
 			sassScript.append("require 'compass/core'\n");
@@ -528,7 +535,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 	/**
 	 * Compass enabled accessor.
 	 * @return the useCompass
+	 * 
+	 * @deprecated Compass support will be removed in 3.0
 	 */
+	@Deprecated
 	protected boolean isUseCompass() {
 		return this.useCompass;
 	}
