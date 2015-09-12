@@ -11,15 +11,21 @@ version: "{build} ({branch})"
 
 skip_tags: true
 
-branches:
-  except:
-    - gh-pages
-
 install:
-  - set PATH=%PATH%;C:\bin\apache-maven-%MVN_VERSION%\bin
-  - IF NOT exist "C:\bin\apache-maven-%MVN_VERSION%\bin\*.*" (echo Maven %MVN_VERSION% not installed, so install it & cinst maven -Version %MVN_VERSION%) ELSE (echo Maven %MVN_VERSION% already installed)
+  - ps: >-
+      Add-Type -AssemblyName System.IO.Compression.FileSystem
+          if (!(Test-Path -Path "C:\maven" )) {
+            (new-object System.Net.WebClient).DownloadFile(
+              'http://www.us.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.zip',
+              'C:\maven-bin.zip'
+            )
+            [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\maven-bin.zip", "C:\maven")
+          }
+  - cmd: SET PATH=C:\maven\apache-maven-3.3.3\bin;%JAVA_HOME%\bin;%PATH%
+  - cmd: echo %PATH%
+  - cmd: java -version
   - cd C:\projects\sass-maven-plugin
-  - mvn install -U -Dmaven.test.skip=true -B -V -fae -e -T2
+  - mvn install -U -Dmaven.test.skip=true -B -V -fae -e -T4.2C
 
 build: off
 
@@ -28,17 +34,16 @@ test_script:
   - mvn -e -fae -B -DWatchMojoTestSleeptime=90000 -Dfailsafe.useFile=false -T2 clean test verify
 
 environment:
-  MVN_VERSION: 3.3.1
 
   matrix:
-    - myEnv: JDK7
-      JAVA_HOME: C:\Program Files\Java\jdk1.7.0
-    - myEnv: JDK8
-      JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+    - JAVA_HOME: C:\Program Files\Java\jdk1.7.0
+    - JAVA_HOME: C:\Program Files (x86)\Java\jdk1.7.0
+    - JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+    - JAVA_HOME: C:\Program Files (x86)\Java\jdk1.8.0
 
 matrix:
   fast_finish: true
 
 cache:
-  - C:\bin\apache-maven-%MVN_VERSION% -> appveyor.yml
+  - C:\maven\apache-maven-3.3.3 -> appveyor.yml
   - C:\Users\appveyor\.m2\repository -> pom.xml
