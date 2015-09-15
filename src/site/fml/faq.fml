@@ -10,13 +10,15 @@
         <faq id="Compass">
             <question>Compiling Compass on Windows fails</question>
             <answer>
+                <p><strong>This only applies to plugin version 2.8 or lower</strong></p>
                 <p>Compiling Compass on Windows fails with an error similar to:</p>
                 <code>File to import not found or unreadable: compass/css3/opacity</code>
                 (<a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41">issue: #41</a>).
                 <p>The cause of this is in the way jruby constructs directory paths in jar file.
                     As a workaround, on Windows, you can downgrade the JRuby version that is used
                     by the plugin to 1.7.10. An example of how to do this using a property and
-                    a profile is shown below. </p>
+                    a profile is shown below.</p>
+                    
                 <source>
 ...
 &lt;!-- this is the jruby version included in the plugin (version 2.7) dependencies--&gt;
