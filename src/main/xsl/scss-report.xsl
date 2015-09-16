@@ -23,7 +23,7 @@
 	</xsl:template>
 
 	<xsl:template match="checkstyle" mode="filelist">
-		<table  border="0" class="table table-striped">
+		<table class="table table-striped">
 			<tr>
 				<th>Name</th>
 				<th>Errors</th>
@@ -59,11 +59,11 @@
 	</xsl:template>
 
 	<xsl:template match="file">
-		<a name="f-{translate(@name,'\','/')}"></a>
-		<h3>
+		<!--a name="f-{translate(@name,'\','/')}"></a-->
+		<h3 id="f-{translate(@name,'\','/')}">
 			<xsl:value-of select="@name"/>
 		</h3>
-		<table  border="0" class="table table-striped">
+		<table class="table table-striped">
 			<tr>
 				<th>Severity</th>
 				<th>Error Description</th>
@@ -93,7 +93,7 @@
 		<xsl:variable name="errorCount" select="count(file/error[@severity='error'])"/>
 		<xsl:variable name="warningCount" select="count(file/error[@severity='warning'])"/>
 		<xsl:variable name="infoCount" select="count(file/error[@severity='info'])"/>
-		<table  border="0" class="table table-striped">
+		<table class="table table-striped">
 			<tr>
 				<th>Files</th>
 				<th>Errors</th>
