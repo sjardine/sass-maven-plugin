@@ -46,7 +46,8 @@ ${project.name} ${project.version} Release Notes
   * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
 
-  * Update Bourbon to version ${project.properties.get("bourbon.version")}
+  * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the 
+    {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
