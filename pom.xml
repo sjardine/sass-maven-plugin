@@ -78,7 +78,7 @@
 		<developer>
 			<id>joepjoosten</id>
 			<name>Joep Joosten</name>
-            <url>https://github.com/joepjoosten</url>
+			<url>https://github.com/joepjoosten</url>
 		</developer>
 		<developer>
 			<id>jwachter</id>
@@ -132,8 +132,8 @@
 		<sass.version>3.4.18</sass.version>
 		<jruby.version>9.0.1.0</jruby.version>
 		<maven-libs.version>3.3.3</maven-libs.version>
-		<scss-lint.version>0.41.0</scss-lint.version>
-		<bourbon.version>4.2.4</bourbon.version>
+		<scss-lint.version>0.42.1</scss-lint.version>
+		<bourbon.version>4.2.5</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
 		<github.username />
@@ -301,6 +301,85 @@
 				<filtering>true</filtering>
 			</testResource>
 		</testResources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.6.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.owasp</groupId>
+					<artifactId>dependency-check-maven</artifactId>
+					<version>1.3.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>versions-maven-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.8.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>3.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jxr-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-changes-plugin</artifactId>
+					<version>2.11</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>taglist-maven-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.16</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>3.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>2.18.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.18.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>ru.concerteza.buildnumber</groupId>
@@ -335,7 +414,7 @@
 			<plugin>
 				<groupId>de.saumya.mojo</groupId>
 				<artifactId>gem-maven-plugin</artifactId>
-				<version>1.0.10</version>
+				<version>1.1.0</version>
 				<executions>
 					<execution>
 						<id>install-gems</id>
@@ -354,9 +433,7 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
-				<version>3.4</version>
 				<configuration />
 				<executions>
 					<execution>
@@ -412,9 +489,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.18.1</version>
 				<executions>
 					<execution>
 						<goals>
@@ -433,9 +508,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.18.1</version>
 				<configuration>
 					<systemPropertyVariables>
 						<WatchMojoTestSleeptime>${WatchMojoTestSleeptime}</WatchMojoTestSleeptime>
@@ -490,7 +563,6 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>versions-maven-plugin</artifactId>
-							<version>2.2</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -503,7 +575,6 @@
 						<plugin>
 							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-project-info-reports-plugin</artifactId>
-							<version>2.8</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -527,21 +598,16 @@
 							<configuration>
 								<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
 							</configuration>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-plugin-plugin</artifactId>
-                            <version>3.4</version>
-                        </plugin>
-                        <plugin>
-                            <groupId>org.apache.maven.plugins</groupId>
-                            <artifactId>maven-jxr-plugin</artifactId>
-                            <version>2.5</version>
-                        </plugin>
+						</plugin>
 						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-plugin-plugin</artifactId>
+
+						</plugin>
+						<plugin>
+							<artifactId>maven-jxr-plugin</artifactId>
+						</plugin>
+						<plugin>
 							<artifactId>maven-changes-plugin</artifactId>
-							<version>2.11</version>
 							<configuration>
 								<publishDateLocale>en</publishDateLocale>
 								<includeOpenIssues>false</includeOpenIssues>
@@ -559,15 +625,12 @@
 						<plugin>
 							<groupId>org.owasp</groupId>
 							<artifactId>dependency-check-maven</artifactId>
-							<version>1.3.0</version>
 							<configuration>
 								<name>OWASP Dependency Check</name>
 							</configuration>
 						</plugin>
 						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-javadoc-plugin</artifactId>
-							<version>2.10.3</version>
 							<reportSets>
 								<reportSet>
 									<reports>
@@ -600,7 +663,6 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>taglist-maven-plugin</artifactId>
-							<version>2.4</version>
 						</plugin>
 						<!-- plugin>
 							<groupId>org.apache.maven.plugins</groupId>
@@ -610,9 +672,7 @@
 							</configuration>
 						</plugin -->
 						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-checkstyle-plugin</artifactId>
-							<version>2.16</version>
 							<configuration>
 								<configLocation>${basedir}/checkstyle-ruleset.xml</configLocation>
 								<suppressionsLocation>${basedir}/checkstyle-suppressions.xml</suppressionsLocation>
@@ -628,15 +688,14 @@
 							</reportSets>
 						</plugin>
 						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
 							<artifactId>maven-pmd-plugin</artifactId>
-							<version>3.5</version>
+
 							<configuration>
 								<rulesets>
 									<ruleset>${basedir}/pmd-ruleset.xml</ruleset>
 								</rulesets>
-                                <linkXRef>true</linkXRef>
-                                <includeXmlInSite>true</includeXmlInSite>
+								<linkXRef>true</linkXRef>
+								<includeXmlInSite>true</includeXmlInSite>
 								<minimumTokens>100</minimumTokens>
 								<targetJdk>${project.build.targetVersion}</targetJdk>
 								<excludeRoots>
@@ -647,7 +706,6 @@
 						<plugin>
 							<groupId>org.codehaus.mojo</groupId>
 							<artifactId>findbugs-maven-plugin</artifactId>
-							<version>3.0.2</version>
 							<configuration>
 								<effort>Default</effort>
 								<threshold>Default</threshold>
@@ -747,7 +805,7 @@
 									<goal>prepare-agent-integration</goal>
 								</goals>
 								<configuration>
-								<append>true</append>
+									<append>true</append>
 									<propertyName>failsafeArgLine</propertyName>
 								</configuration>
 							</execution>
@@ -801,7 +859,6 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.10.3</version>
 						<executions>
 							<execution>
 								<id>attach-javadocs</id>
