@@ -31,9 +31,9 @@ ${project.name} ${project.version} Release Notes
   to find out about the specific Sass and other transitive dependencies
   included in this release.
 
-~~ ** New
+** New
 
-~~   *
+  * Deprecate use of Compass ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/77}#77}})
 
 ~~  []
 
@@ -43,8 +43,10 @@ ${project.name} ${project.version} Release Notes
 ~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
 ~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
-~~  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
-~~    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
+  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
+    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
+
+  * Update Bourbon to version ${project.properties.get("bourbon.version")}
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
