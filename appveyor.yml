@@ -7,7 +7,7 @@ clone_folder: C:\projects\sass-maven-plugin
 # can't use shallow clone because we need to convert line endings in test expectations
 shallow_clone: false
 
-version: "{build} ({branch})"
+version: "{build}-{branch}"
 
 skip_tags: true
 
