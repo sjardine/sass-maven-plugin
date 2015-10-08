@@ -73,6 +73,12 @@
 		<logo href="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/"
 			img="https://maven-badges.herokuapp.com/maven-central/${project.groupId}/${project.artifactId}/badge.svg"
 			name="Maven Central" />
+		<logo href="http://isitmaintained.com/project/${project.groupId}/${project.artifactId}/"
+			img="http://isitmaintained.com/badge/open/${project.groupId}/${project.artifactId}.svg"
+			name="Percentage of issues still open" />
+		<logo href="http://isitmaintained.com/project/${project.groupId}/${project.artifactId}/"
+			img="http://isitmaintained.com/badge/resolution/${project.groupId}/${project.artifactId}.svg"
+			name="Average time to resolve an issue" />
 		<logo href="http://sass-lang.com/" width="120px"
 			img="images/sass.png"
 			name="Sass" />
