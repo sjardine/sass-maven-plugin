@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faqs xmlns="http://maven.apache.org/FML/1.0.1"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
-      title="Frequently Asked Questions"
-      toplink="true">
-
-    <part id="windows">
-        <title>Windows</title>
-        <faq id="Compass">
-            <question>Compiling Compass on Windows fails</question>
-            <answer>
-                <p><strong>This only applies to plugin version 2.8 or lower</strong></p>
-                <p>Compiling Compass on Windows fails with an error similar to:</p>
-                <code>File to import not found or unreadable: compass/css3/opacity</code>
-                (<a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41">issue: #41</a>).
-                <p>The cause of this is in the way jruby constructs directory paths in jar file.
-                    As a workaround, on Windows, you can downgrade the JRuby version that is used
-                    by the plugin to 1.7.10. An example of how to do this using a property and
-                    a profile is shown below.</p>
-                    
-                <source>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd" title="Frequently Asked Questions" toplink="true">
+  <part id="windows">
+	<title>Windows</title>
+		<faq id="Umlaut">
+			<question>Compiling Compass fails when there is an Umlaut in a path used</question>
+			<answer>
+				<p>This is due to the way path information is passed to Compass, either change 
+					your OS or move on to use directories without an Umlaut.</p>
+				<p>A branch isslustrating this behaviour is available in the 
+				<a href ="https://github.com/GeoDienstenCentrum/sass-maven-plugin/tree/umlaut-directory">
+					umlaut-directory</a> branch.</p>
+				<p>For all the details see <a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/79">issue #79</a></p>
+			</answer>
+		</faq>
+		<faq id="Compass">
+			<question>Compiling Compass on Windows fails</question>
+			<answer>
+				<p><strong>This only applies to plugin version 2.8 or lower</strong></p>
+				<p>Compiling Compass on Windows fails with an error similar to:</p>
+				<code>File to import not found or unreadable: compass/css3/opacity</code>
+				(<a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/41">issue: #41</a>).
+				<p>The cause of this is in the way jruby constructs directory paths in jar file.
+					As a workaround, on Windows, you can downgrade the JRuby version that is used
+					by the plugin to 1.7.10. An example of how to do this using a property and
+					a profile is shown below.</p>
+					
+				<source>
 ...
 &lt;!-- this is the jruby version included in the plugin (version 2.7) dependencies--&gt;
 &lt;properties&gt;
