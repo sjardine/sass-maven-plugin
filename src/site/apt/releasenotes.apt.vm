@@ -35,7 +35,7 @@ ${project.name} ${project.version} Release Notes
 
   * Deprecate use of Compass ({{{https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/77}#77}})
 
-~~  []
+  []
 
 
 ** Enhancements and Fixes
@@ -49,9 +49,9 @@ ${project.name} ${project.version} Release Notes
   * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the 
     {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
 
-~~  * Update Compass to version ${project.properties.get("compass.version")}
-
   * Update JRuby to ${project.properties.get("jruby.version")}
+
+~~* Update Compass to version ${project.properties.get("compass.version")}
 
   []
 
