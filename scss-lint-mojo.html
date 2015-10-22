@@ -332,19 +332,21 @@ sassSourceDirectory/relativeOutputDirectory/destination parameters.
 Example configuration: 
 
 <div>
-<pre>
-     &lt;resources&gt;
-         &lt;source&gt;
-             &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
-             &lt;includes&gt;
-                 &lt;include&gt;**/*.scss&lt;/include&gt;
-             &lt;/includes&gt;
-         &lt;/source&gt;
-         &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
-         &lt;destination&gt;${project.build.directory}/${project.build.finalName}
-             &lt;/destination&gt;
-     &lt;/resources&gt;
-</pre></div><br /></td>
+ <pre>
+      &lt;resources&gt;
+        &lt;resource&gt;
+          &lt;source&gt;
+              &lt;directory&gt;${basedir}/src/main/webapp&lt;/directory&gt;
+              &lt;includes&gt;
+                  &lt;include&gt;**&#x0002F;*.scss&lt;/include&gt;
+              &lt;/includes&gt;
+          &lt;/source&gt;
+          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
+          &lt;destination&gt;${project.build.directory}/${project.build.finalName}
+              &lt;/destination&gt;
+        &lt;/resource&gt;
+      &lt;/resources&gt;
+ </pre></div><br /></td>
           </tr>
           
 <tr class="b">
