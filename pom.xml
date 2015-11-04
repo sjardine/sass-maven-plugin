@@ -102,7 +102,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/GeoDienstenCentrum/${project.artifactId}.git</connection>
 		<developerConnection>scm:git:git@github.com:GeoDienstenCentrum/${project.artifactId}.git</developerConnection>
-		<url>https://github.com/GeoDienstenCentrum/${project.artifactId}</url>
+		<url>https://github.com/GeoDienstenCentrum/${project.artifactId}/</url>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
