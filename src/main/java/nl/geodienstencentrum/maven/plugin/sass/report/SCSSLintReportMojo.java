@@ -53,7 +53,7 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	/**
 	 * ignored for linting, compass is not used.
-	 * 
+	 *
 	 * @since 2.0
 	 * @deprecated Compass support will be removed in 3.0
 	 */
@@ -97,8 +97,9 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
 	 *              &lt;/includes&gt;
 	 *          &lt;/source&gt;
 	 *          &lt;relativeOutputDirectory&gt;..&lt;/relativeOutputDirectory&gt;
-	 *          &lt;destination&gt;${project.build.directory}/${project.build.finalName}
-	 * &lt;/destination&gt;
+	 *          &lt;destination&gt;
+	 *              ${project.build.directory}/${project.build.finalName}
+	 *          &lt;/destination&gt;
 	 *      &lt;/resource&gt;
 	 * </pre>
 	 *
@@ -167,6 +168,7 @@ public class SCSSLintReportMojo extends AbstractMavenReport {
                     getLog());
 			generator.generateReport();
 		} catch (Exception t) {
+			getLog().error("Error during SCSS Lint report generation", t);
 			if (failOnError) {
 				throw t;
 			}

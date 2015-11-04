@@ -19,13 +19,12 @@
  */
 package nl.geodienstencentrum.maven.plugin.sass.compiler;
 
+import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
-import static org.apache.maven.plugins.annotations.LifecyclePhase.PROCESS_SOURCES;
 import nl.geodienstencentrum.maven.plugin.sass.AbstractSassMojo;
 import org.apache.commons.io.DirectoryWalker;
-
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -87,7 +86,7 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 			return true;
 		}
 
-		final LastModifiedWalker sourceWalker = 
+		final LastModifiedWalker sourceWalker =
 		        new LastModifiedWalker(getSassSourceDirectory());
 		final LastModifiedWalker targetWalker = new LastModifiedWalker(destination);
 		// If either directory is empty, we do a build to make sure
@@ -120,6 +119,7 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 		/**
 		 * Create a "last modified" directory walker.
 		 * @param startDirectory The direcoty to start walking.
+		 * @throws IOException if any occurs while walking the directory tree.
 		 */
 		public LastModifiedWalker(final File startDirectory) throws IOException {
 			walk(startDirectory, null);
@@ -133,8 +133,10 @@ public class UpdateStylesheetsMojo extends AbstractSassMojo {
 		protected void handleFile(final File file, final int depth,
 		        final Collection<Void> results) throws IOException {
 			long lastMod = file.lastModified();
-			youngest = youngest == null ? lastMod : Math.max(youngest, lastMod);
-			oldest = oldest == null ? lastMod : Math.min(oldest, lastMod);
+			// CHECKSTYLE:OFF:AvoidInlineConditionals
+			youngest = (youngest == null ? lastMod : Math.max(youngest, lastMod));
+			oldest = (oldest == null ? lastMod : Math.min(oldest, lastMod));
+			// CHECKSTYLE:ON
 			count++;
 			super.handleFile(file, depth, results);
 		}

@@ -61,13 +61,21 @@ public class SCSSLintMojo extends AbstractSassMojo {
 	 * scss-lint exit codes and messages.
 	 */
 	public enum ExitCode {
+		/** "No lints were found" exitcode. */
 		CODE_0(0, "No lints were found"),
+		/** "One or more warnings were reported" exitcode. */
 		CODE_1(1, "Lints with a severity of 'warning' were reported (no errors)"),
+		/** "One or more errors were reported" exitcode. */
 		CODE_2(2, "One or more errors were reported (and any number of warnings)"),
+		/** "Command line usage error" exitcode. */
 		CODE_64(64, "Command line usage error (invalid flag, etc.)"),
+		/** "" exitcode. */
 		CODE_66(66, "Input file did not exist or was not readable"),
+		/** "Input file did not exist or was not readable" exitcode. */
 		CODE_70(70, "Internal software error"),
+		/** "Internal software error" exitcode. */
 		CODE_78(78, "Configuration error");
+		/** "Configuration error" exitcode. */
 
 		private static final HashMap<Integer, ExitCode> LOOKUP = new HashMap<>();
 
@@ -151,7 +159,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		try {
 			log.info("Reporting scss lint in: " + this.outputFile.getAbsolutePath());
 			ExitCode result = ExitCode.getExitCode(
-			        Ints.checkedCast((Long) jruby.eval(sassScript.toString(), context)));
+			        Ints.checkedCast((Long) jruby.eval(sassScript.toString(),
+			                             context)));
 			log.debug("scss-lint result: " + result.toString());
 			switch (result) {
 				case CODE_0:
@@ -165,6 +174,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 					if (this.failOnError) {
 						throw new MojoFailureException(result.toString());
 					}
+					break;
+				// CHECKSTYLE:OFF:FallThrough
 				case CODE_64:
 				// fall through
 				case CODE_66:
@@ -176,6 +187,7 @@ public class SCSSLintMojo extends AbstractSassMojo {
 				default:
 					log.error(result.toString());
 					throw new MojoExecutionException(result.toString());
+				// CHECKSTYLE:ON
 			}
 		} catch (final ScriptException e) {
 			throw new MojoExecutionException(
@@ -204,6 +216,10 @@ public class SCSSLintMojo extends AbstractSassMojo {
 		sassScript.append("SCSSLint::CLI.new.run(ARGV)\n");
 	}
 
+	/**
+	 * Get the names of the sources.
+	 * @return a set of String
+	 */
 	private Set<String> getSourceDirs() {
 		Set<String> dirs = new HashSet<>();
 		final List<Resource> resourceList = this.getResources();
