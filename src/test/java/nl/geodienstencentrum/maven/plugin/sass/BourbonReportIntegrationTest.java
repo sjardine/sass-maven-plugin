@@ -59,7 +59,7 @@ public class BourbonReportIntegrationTest {
 				this.PACKAGING);
 		boolean debug = new Boolean(System.getProperty("debug"));
 		this.verifier.setMavenDebug(debug);
-        this.verifier.executeGoal("site");
+		this.verifier.executeGoal("site");
 	}
 
 	/**
