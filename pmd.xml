@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.3.2" timestamp="2015-10-17T09:07:32.666">
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java">
-<violation beginline="63" endline="561" begincolumn="17" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<pmd version="5.3.2" timestamp="2015-11-18T16:51:32.793">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java">
+<violation beginline="63" endline="563" begincolumn="17" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'AbstractSassMojo' has a Cyclomatic Complexity of 5 (Highest = 16).
 </violation>
-<violation beginline="63" endline="561" begincolumn="17" endcolumn="1" rule="ModifiedCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ModifiedCyclomaticComplexity" priority="3">
+<violation beginline="63" endline="563" begincolumn="17" endcolumn="1" rule="ModifiedCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ModifiedCyclomaticComplexity" priority="3">
 The class 'AbstractSassMojo' has a Modified Cyclomatic Complexity of 5 (Highest = 16).
 </violation>
-<violation beginline="63" endline="561" begincolumn="17" endcolumn="1" rule="StdCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity" priority="3">
+<violation beginline="63" endline="563" begincolumn="17" endcolumn="1" rule="StdCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity" priority="3">
 The class 'AbstractSassMojo' has a Standard Cyclomatic Complexity of 5 (Highest = 16).
 </violation>
-<violation beginline="63" endline="561" begincolumn="17" endcolumn="1" rule="TooManyFields" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#TooManyFields" priority="3">
+<violation beginline="63" endline="563" begincolumn="17" endcolumn="1" rule="TooManyFields" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#TooManyFields" priority="3">
 Too many fields
 </violation>
 <violation beginline="71" endline="71" begincolumn="24" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="buildDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
@@ -34,215 +34,215 @@ If you run in Java5 or newer and have concurrent access, you should use the Conc
 <violation beginline="108" endline="108" begincolumn="37" endcolumn="47" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="sassOptions" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'sassOptions' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="137" endline="137" begincolumn="32" endcolumn="40" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="139" endline="139" begincolumn="32" endcolumn="40" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="137" endline="137" begincolumn="32" endcolumn="40" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="139" endline="139" begincolumn="32" endcolumn="40" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'resources' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="148" endline="148" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gemPaths" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="150" endline="150" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gemPaths" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="148" endline="148" begincolumn="26" endcolumn="33" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gemPaths" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="150" endline="150" begincolumn="26" endcolumn="33" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gemPaths" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'gemPaths' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="158" endline="158" begincolumn="26" endcolumn="29" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gems" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="160" endline="160" begincolumn="26" endcolumn="29" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gems" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="158" endline="158" begincolumn="26" endcolumn="29" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gems" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="160" endline="160" begincolumn="26" endcolumn="29" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="gems" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'gems' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="169" endline="169" begincolumn="17" endcolumn="35" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useCompass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
+<violation beginline="171" endline="171" begincolumn="17" endcolumn="35" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useCompass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
 Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
 </violation>
-<violation beginline="169" endline="169" begincolumn="25" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useCompass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="171" endline="171" begincolumn="25" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useCompass" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="177" endline="177" begincolumn="25" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useBourbon" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="179" endline="179" begincolumn="25" endcolumn="34" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="useBourbon" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="188" endline="188" begincolumn="17" endcolumn="39" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="compassConfigFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
+<violation beginline="190" endline="190" begincolumn="17" endcolumn="39" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="compassConfigFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
 Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
 </violation>
-<violation beginline="188" endline="188" begincolumn="22" endcolumn="38" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="compassConfigFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="190" endline="190" begincolumn="22" endcolumn="38" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="compassConfigFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="197" endline="197" begincolumn="22" endcolumn="40" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="sassSourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="199" endline="199" begincolumn="22" endcolumn="40" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="sassSourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="207" endline="207" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="includes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="209" endline="209" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="includes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="207" endline="207" begincolumn="26" endcolumn="33" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="includes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="209" endline="209" begincolumn="26" endcolumn="33" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="includes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'includes' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="216" endline="216" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="excludes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="218" endline="218" begincolumn="26" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="excludes" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="227" endline="227" begincolumn="24" endcolumn="46" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="relativeOutputDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="229" endline="229" begincolumn="24" endcolumn="46" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="relativeOutputDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="239" endline="239" begincolumn="23" endcolumn="33" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="rubyVersion" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
+<violation beginline="241" endline="241" begincolumn="23" endcolumn="33" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="rubyVersion" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'rubyVersion'.
 </violation>
-<violation beginline="239" endline="239" begincolumn="17" endcolumn="34" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="rubyVersion" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
+<violation beginline="241" endline="241" begincolumn="17" endcolumn="34" rule="FieldDeclarationsShouldBeAtStartOfClass" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="rubyVersion" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#FieldDeclarationsShouldBeAtStartOfClass" priority="3">
 Fields should be declared at the top of the class, before any method declarations, constructors, initializers or inner classes.
 </violation>
-<violation beginline="247" endline="247" begincolumn="25" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="skip" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="249" endline="249" begincolumn="25" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" variable="skip" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="268" endline="268" begincolumn="17" endcolumn="25" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="executeSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="270" endline="270" begincolumn="17" endcolumn="25" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="executeSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="268" endline="268" begincolumn="17" endcolumn="25" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="executeSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="270" endline="270" begincolumn="17" endcolumn="25" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="executeSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="295" endline="424" begincolumn="19" endcolumn="9" rule="ExcessiveMethodLength" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ExcessiveMethodLength" priority="3">
+<violation beginline="297" endline="426" begincolumn="19" endcolumn="9" rule="ExcessiveMethodLength" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ExcessiveMethodLength" priority="3">
 Avoid really long methods.
 </violation>
-<violation beginline="295" endline="319" begincolumn="25" endcolumn="80" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="gem" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'gem' (lines '295'-'319').
+<violation beginline="297" endline="321" begincolumn="25" endcolumn="80" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="gem" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'gem' (lines '297'-'321').
 </violation>
-<violation beginline="295" endline="303" begincolumn="33" endcolumn="89" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="gemPath" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'gemPath' (lines '295'-'303').
+<violation beginline="297" endline="305" begincolumn="33" endcolumn="89" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="gemPath" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'gemPath' (lines '297'-'305').
 </violation>
-<violation beginline="295" endline="309" begincolumn="41" endcolumn="91" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="p" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'p' (lines '295'-'309').
+<violation beginline="297" endline="311" begincolumn="41" endcolumn="91" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" variable="p" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'p' (lines '297'-'311').
 </violation>
-<violation beginline="295" endline="424" begincolumn="19" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
+<violation beginline="297" endline="426" begincolumn="19" endcolumn="9" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The method 'buildBasicSassScript' has a Cyclomatic Complexity of 16.
 </violation>
-<violation beginline="295" endline="424" begincolumn="19" endcolumn="9" rule="ModifiedCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ModifiedCyclomaticComplexity" priority="3">
+<violation beginline="297" endline="426" begincolumn="19" endcolumn="9" rule="ModifiedCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#ModifiedCyclomaticComplexity" priority="3">
 The method 'buildBasicSassScript' has a Modified Cyclomatic Complexity of 16.
 </violation>
-<violation beginline="295" endline="424" begincolumn="19" endcolumn="9" rule="StdCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity" priority="3">
+<violation beginline="297" endline="426" begincolumn="19" endcolumn="9" rule="StdCyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#StdCyclomaticComplexity" priority="3">
 The method 'buildBasicSassScript' has a Standard Cyclomatic Complexity of 16.
 </violation>
-<violation beginline="295" endline="424" begincolumn="19" endcolumn="9" rule="NPathComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#NPathComplexity" priority="3">
+<violation beginline="297" endline="426" begincolumn="19" endcolumn="9" rule="NPathComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/codesize.html#NPathComplexity" priority="3">
 The method buildBasicSassScript() has an NPath complexity of 6048
 </violation>
-<violation beginline="313" endline="313" begincolumn="25" endcolumn="44" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
+<violation beginline="315" endline="315" begincolumn="25" endcolumn="44" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
 StringBuffer constructor is initialized with size 16, but has at least 740 characters appended.
 </violation>
-<violation beginline="314" endline="314" begincolumn="42" endcolumn="52" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="316" endline="316" begincolumn="42" endcolumn="52" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 2 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="322" endline="322" begincolumn="34" endcolumn="60" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="324" endline="324" begincolumn="34" endcolumn="60" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 2 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="328" endline="328" begincolumn="42" endcolumn="64" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="330" endline="330" begincolumn="42" endcolumn="64" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 4 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="332" endline="338" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+<violation beginline="334" endline="340" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
 Avoid if (x != y) ..; else ..;
 </violation>
-<violation beginline="376" endline="376" begincolumn="51" endcolumn="53" rule="AppendCharacterWithChar" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#AppendCharacterWithChar" priority="3">
+<violation beginline="378" endline="378" begincolumn="51" endcolumn="53" rule="AppendCharacterWithChar" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#AppendCharacterWithChar" priority="3">
 Avoid appending characters as strings in StringBuffer.append.
 </violation>
-<violation beginline="404" endline="404" begincolumn="32" endcolumn="162" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="406" endline="406" begincolumn="32" endcolumn="162" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 5 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="416" endline="416" begincolumn="42" endcolumn="59" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="418" endline="418" begincolumn="42" endcolumn="59" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 2 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="419" endline="419" begincolumn="50" endcolumn="80" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="421" endline="421" begincolumn="50" endcolumn="80" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 3 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="431" endline="469" begincolumn="33" endcolumn="85" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="entry" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'entry' (lines '431'-'469').
+<violation beginline="433" endline="471" begincolumn="33" endcolumn="85" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="entry" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'entry' (lines '433'-'471').
 </violation>
-<violation beginline="431" endline="467" begincolumn="66" endcolumn="78" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="source" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'source' (lines '431'-'467').
+<violation beginline="433" endline="469" begincolumn="66" endcolumn="78" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="source" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'source' (lines '433'-'469').
 </violation>
-<violation beginline="432" endline="475" begincolumn="27" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="log" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'DU'-anomaly for variable 'log' (lines '432'-'475').
+<violation beginline="434" endline="477" begincolumn="27" endcolumn="45" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" variable="log" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'log' (lines '434'-'477').
 </violation>
-<violation beginline="442" endline="451" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
+<violation beginline="444" endline="453" begincolumn="25" endcolumn="25" rule="ConfusingTernary" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ConfusingTernary" priority="3">
 Avoid if (x != y) ..; else ..;
 </violation>
-<violation beginline="443" endline="443" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="445" endline="445" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="443" endline="443" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="445" endline="445" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="448" endline="448" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="450" endline="450" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="453" endline="453" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="455" endline="455" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="453" endline="453" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="455" endline="455" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="457" endline="457" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="459" endline="459" begincolumn="33" endcolumn="41" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="457" endline="457" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="459" endline="459" begincolumn="33" endcolumn="41" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="469" endline="469" begincolumn="33" endcolumn="40" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="471" endline="471" begincolumn="33" endcolumn="40" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="469" endline="469" begincolumn="33" endcolumn="40" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
+<violation beginline="471" endline="471" begincolumn="33" endcolumn="40" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="getTemplateLocations" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="481" endline="481" begincolumn="46" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="destinationDir" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
+<violation beginline="483" endline="483" begincolumn="46" endcolumn="66" rule="MethodArgumentCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="destinationDir" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#MethodArgumentCouldBeFinal" priority="3">
 Parameter 'destinationDir' is not assigned and could be declared final
 </violation>
-<violation beginline="484" endline="484" begincolumn="25" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="destDir" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="486" endline="486" begincolumn="25" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="destDir" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'destDir' could be declared final
 </violation>
-<violation beginline="490" endline="490" begincolumn="25" endcolumn="32" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="492" endline="492" begincolumn="25" endcolumn="32" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="490" endline="490" begincolumn="25" endcolumn="32" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
+<violation beginline="492" endline="492" begincolumn="25" endcolumn="32" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="493" endline="493" begincolumn="53" endcolumn="67" rule="UseProperClassLoader" ruleset="J2EE" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/j2ee.html#UseProperClassLoader" priority="3">
+<violation beginline="495" endline="495" begincolumn="53" endcolumn="67" rule="UseProperClassLoader" ruleset="J2EE" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/j2ee.html#UseProperClassLoader" priority="3">
 In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead.
 </violation>
-<violation beginline="493" endline="493" begincolumn="25" endcolumn="100" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="urlJar" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="495" endline="495" begincolumn="25" endcolumn="100" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="urlJar" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'urlJar' could be declared final
 </violation>
-<violation beginline="494" endline="494" begincolumn="25" endcolumn="66" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="resourceFilePath" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="496" endline="496" begincolumn="25" endcolumn="66" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="resourceFilePath" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'resourceFilePath' could be declared final
 </violation>
-<violation beginline="495" endline="495" begincolumn="37" endcolumn="60" rule="UseIndexOfChar" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#UseIndexOfChar" priority="3">
+<violation beginline="497" endline="497" begincolumn="37" endcolumn="60" rule="UseIndexOfChar" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#UseIndexOfChar" priority="3">
 String.indexOf(char) is faster than String.indexOf(String).
 </violation>
-<violation beginline="496" endline="496" begincolumn="25" endcolumn="80" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jarFileURI" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="498" endline="498" begincolumn="25" endcolumn="80" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jarFileURI" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'jarFileURI' could be declared final
 </violation>
-<violation beginline="497" endline="497" begincolumn="25" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jarFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="499" endline="499" begincolumn="25" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jarFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'jarFile' could be declared final
 </violation>
-<violation beginline="498" endline="498" begincolumn="25" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jar" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="500" endline="500" begincolumn="25" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="jar" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'jar' could be declared final
 </violation>
-<violation beginline="501" endline="501" begincolumn="30" endcolumn="72" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="enums" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="503" endline="503" begincolumn="30" endcolumn="72" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="enums" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'enums' could be declared final
 </violation>
-<violation beginline="502" endline="502" begincolumn="33" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="entry" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="504" endline="504" begincolumn="33" endcolumn="68" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="entry" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'entry' could be declared final
 </violation>
-<violation beginline="507" endline="507" begincolumn="41" endcolumn="124" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="fileName" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="509" endline="509" begincolumn="41" endcolumn="124" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="fileName" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'fileName' could be declared final
 </violation>
-<violation beginline="509" endline="509" begincolumn="50" endcolumn="67" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="511" endline="511" begincolumn="50" endcolumn="67" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="509" endline="509" begincolumn="41" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="f" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="511" endline="511" begincolumn="41" endcolumn="67" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="f" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'f' could be declared final
 </violation>
-<violation beginline="513" endline="513" begincolumn="72" endcolumn="94" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
+<violation beginline="515" endline="515" begincolumn="72" endcolumn="94" rule="AvoidInstantiatingObjectsInLoops" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#AvoidInstantiatingObjectsInLoops" priority="3">
 Avoid instantiating new objects inside loops
 </violation>
-<violation beginline="513" endline="513" begincolumn="49" endcolumn="94" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="fos" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="515" endline="515" begincolumn="49" endcolumn="94" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass" class="AbstractSassMojo" method="extractBourbonResources" variable="fos" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'fos' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/Resource.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/Resource.java">
 <violation beginline="38" endline="38" begincolumn="27" endcolumn="32" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="Resource" variable="source" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -277,7 +277,7 @@ Found 'DD'-anomaly for variable 'destDir' (lines '90'-'93').
 Avoid instantiating new objects inside loops
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.java">
 <violation beginline="31" endline="31" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="CompilerCallback" variable="compileError" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -285,35 +285,35 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/UpdateStylesheetsMojo.java">
-<violation beginline="53" endline="53" begincolumn="25" endcolumn="31" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/UpdateStylesheetsMojo.java">
+<violation beginline="52" endline="52" begincolumn="25" endcolumn="31" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
 A method should have only one exit point, and that should be the last statement in the method
 </violation>
-<violation beginline="55" endline="57" begincolumn="25" endcolumn="55" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'DD'-anomaly for variable 'buildRequired' (lines '55'-'57').
+<violation beginline="54" endline="56" begincolumn="25" endcolumn="55" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DD'-anomaly for variable 'buildRequired' (lines '54'-'56').
 </violation>
-<violation beginline="57" endline="76" begincolumn="25" endcolumn="55" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'DU'-anomaly for variable 'buildRequired' (lines '57'-'76').
+<violation beginline="56" endline="75" begincolumn="25" endcolumn="55" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'DU'-anomaly for variable 'buildRequired' (lines '56'-'75').
 </violation>
-<violation beginline="69" endline="69" begincolumn="37" endcolumn="47" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="sassBuilder" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
+<violation beginline="68" endline="68" begincolumn="37" endcolumn="47" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" variable="sassBuilder" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
 StringBuffer constructor is initialized with size 16, but has at least 31 characters appended.
 </violation>
-<violation beginline="87" endline="87" begincolumn="25" endcolumn="36" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
+<violation beginline="86" endline="86" begincolumn="25" endcolumn="36" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
 A method should have only one exit point, and that should be the last statement in the method
 </violation>
-<violation beginline="95" endline="95" begincolumn="25" endcolumn="36" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
+<violation beginline="94" endline="94" begincolumn="25" endcolumn="36" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="buildRequired" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
 A method should have only one exit point, and that should be the last statement in the method
 </violation>
-<violation beginline="110" endline="110" begincolumn="30" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="youngest" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="109" endline="109" begincolumn="30" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="youngest" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="114" endline="114" begincolumn="30" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="oldest" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="113" endline="113" begincolumn="30" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="oldest" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="118" endline="118" begincolumn="29" endcolumn="37" rule="RedundantFieldInitializer" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="count" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
+<violation beginline="117" endline="117" begincolumn="29" endcolumn="37" rule="RedundantFieldInitializer" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="count" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#RedundantFieldInitializer" priority="3">
 Avoid using redundant field initializer for 'count'
 </violation>
-<violation beginline="118" endline="118" begincolumn="29" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="count" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="117" endline="117" begincolumn="29" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" variable="count" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 <violation beginline="124" endline="127" begincolumn="24" endcolumn="17" rule="CallSuperInConstructor" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo$LastModifiedWalker" method="LastModifiedWalker" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#CallSuperInConstructor" priority="3">
@@ -323,65 +323,65 @@ It is a good practice to call super() in a constructor
 Local variable 'lastMod' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/WatchMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/WatchMojo.java">
 <violation beginline="53" endline="53" begincolumn="37" endcolumn="47" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="WatchMojo" method="execute" variable="sassBuilder" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
 StringBuffer constructor is initialized with size 16, but has at least 80 characters appended.
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintMojo.java">
 <violation beginline="58" endline="58" begincolumn="22" endcolumn="31" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" variable="outputFile" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="72" endline="72" begincolumn="38" endcolumn="63" rule="LooseCoupling" ruleset="Type Resolution" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
+<violation beginline="80" endline="80" begincolumn="38" endcolumn="63" rule="LooseCoupling" ruleset="Type Resolution" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/typeresolution.html#LooseCoupling" priority="3">
 Avoid using implementation types like 'HashMap'; use the interface instead
 </violation>
-<violation beginline="130" endline="130" begincolumn="17" endcolumn="24" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="138" endline="138" begincolumn="17" endcolumn="24" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="130" endline="130" begincolumn="17" endcolumn="24" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
+<violation beginline="138" endline="138" begincolumn="17" endcolumn="24" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="135" endline="135" begincolumn="17" endcolumn="25" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="143" endline="143" begincolumn="17" endcolumn="25" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="135" endline="135" begincolumn="17" endcolumn="25" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="143" endline="143" begincolumn="17" endcolumn="25" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="140" endline="140" begincolumn="17" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="context" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="148" endline="148" begincolumn="17" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="context" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'context' could be declared final
 </violation>
-<violation beginline="142" endline="142" begincolumn="17" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="argv" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="150" endline="150" begincolumn="17" endcolumn="58" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="argv" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'argv' could be declared final
 </violation>
-<violation beginline="152" endline="152" begincolumn="25" endcolumn="32" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="160" endline="160" begincolumn="25" endcolumn="32" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="152" endline="152" begincolumn="25" endcolumn="32" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
+<violation beginline="160" endline="160" begincolumn="25" endcolumn="32" rule="GuardLogStatementJavaUtil" ruleset="Java Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-java.html#GuardLogStatementJavaUtil" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="153" endline="154" begincolumn="25" endcolumn="100" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="result" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="161" endline="163" begincolumn="25" endcolumn="63" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" variable="result" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'result' could be declared final
 </violation>
-<violation beginline="155" endline="155" begincolumn="25" endcolumn="33" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
+<violation beginline="164" endline="164" begincolumn="25" endcolumn="33" rule="GuardLogStatement" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardLogStatement" priority="2">
 There is log block not surrounded by if
 </violation>
-<violation beginline="155" endline="155" begincolumn="25" endcolumn="33" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
+<violation beginline="164" endline="164" begincolumn="25" endcolumn="33" rule="GuardDebugLogging" ruleset="Jakarta Commons Logging" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/logging-jakarta-commons.html#GuardDebugLogging" priority="3">
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
-<violation beginline="194" endline="194" begincolumn="34" endcolumn="58" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="206" endline="206" begincolumn="34" endcolumn="58" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 3 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="200" endline="200" begincolumn="42" endcolumn="59" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
+<violation beginline="212" endline="212" begincolumn="42" endcolumn="59" rule="ConsecutiveLiteralAppends" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="buildBasicSassScript" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strings.html#ConsecutiveLiteralAppends" priority="3">
 StringBuffer (or StringBuilder).append is called 3 consecutive times with literal Strings. Use a single append with a single combined String.
 </violation>
-<violation beginline="207" endline="214" begincolumn="25" endcolumn="97" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="getSourceDirs" variable="source" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
-Found 'UR'-anomaly for variable 'source' (lines '207'-'214').
+<violation beginline="223" endline="230" begincolumn="25" endcolumn="97" rule="DataflowAnomalyAnalysis" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="getSourceDirs" variable="source" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/controversial.html#DataflowAnomalyAnalysis" priority="5">
+Found 'UR'-anomaly for variable 'source' (lines '223'-'230').
 </violation>
-<violation beginline="208" endline="208" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="getSourceDirs" variable="dirs" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
+<violation beginline="224" endline="224" begincolumn="17" endcolumn="50" rule="LocalVariableCouldBeFinal" ruleset="Optimization" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" method="getSourceDirs" variable="dirs" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/optimizations.html#LocalVariableCouldBeFinal" priority="3">
 Local variable 'dirs' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportGenerator.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportGenerator.java">
 <violation beginline="41" endline="41" begincolumn="28" endcolumn="31" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportGenerator" variable="sink" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -419,7 +419,7 @@ There is log block not surrounded by if
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportMojo.java">
 <violation beginline="52" endline="52" begincolumn="37" endcolumn="47" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="sassOptions" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'sassOptions'.
 </violation>
@@ -438,37 +438,37 @@ Fields should be declared at the top of the class, before any method declaration
 <violation beginline="81" endline="81" begincolumn="22" endcolumn="40" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="sassSourceDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'sassSourceDirectory'.
 </violation>
-<violation beginline="111" endline="111" begincolumn="32" endcolumn="40" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
+<violation beginline="112" endline="112" begincolumn="32" endcolumn="40" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'resources'.
 </violation>
-<violation beginline="111" endline="111" begincolumn="32" endcolumn="40" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
+<violation beginline="112" endline="112" begincolumn="32" endcolumn="40" rule="ImmutableField" ruleset="Design" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="resources" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/design.html#ImmutableField" priority="3">
 Private field 'resources' could be made final; it is only initialized in the declaration or constructor.
 </violation>
-<violation beginline="117" endline="117" begincolumn="25" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="failOnError" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="118" endline="118" begincolumn="25" endcolumn="35" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="failOnError" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="125" endline="125" begincolumn="24" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="outputName" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="126" endline="126" begincolumn="24" endcolumn="33" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="outputName" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="133" endline="133" begincolumn="22" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="outputDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="134" endline="134" begincolumn="22" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="outputDirectory" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="136" endline="136" begincolumn="30" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="project" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="137" endline="137" begincolumn="30" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="project" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="139" endline="139" begincolumn="26" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="siteRenderer" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="140" endline="140" begincolumn="26" endcolumn="37" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="siteRenderer" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="147" endline="147" begincolumn="25" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="skip" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
+<violation beginline="148" endline="148" begincolumn="25" endcolumn="28" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="skip" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
-<violation beginline="169" endline="169" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="executeReport" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
+<violation beginline="170" endline="170" begincolumn="26" endcolumn="34" rule="AvoidCatchingGenericException" ruleset="Strict Exceptions" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="executeReport" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/strictexception.html#AvoidCatchingGenericException" priority="3">
 Avoid catching generic exceptions such as NullPointerException, RuntimeException, Exception in try-catch block
 </violation>
-<violation beginline="216" endline="216" begincolumn="32" endcolumn="61" rule="UnusedPrivateMethod" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="getBundle" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateMethod" priority="3">
+<violation beginline="218" endline="218" begincolumn="32" endcolumn="61" rule="UnusedPrivateMethod" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="getBundle" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/unusedcode.html#UnusedPrivateMethod" priority="3">
 Avoid unused private methods such as 'getBundle(Locale)'.
 </violation>
-<violation beginline="218" endline="218" begincolumn="32" endcolumn="46" rule="UseProperClassLoader" ruleset="J2EE" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="getBundle" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/j2ee.html#UseProperClassLoader" priority="3">
+<violation beginline="220" endline="220" begincolumn="32" endcolumn="46" rule="UseProperClassLoader" ruleset="J2EE" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" method="getBundle" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.3.2/pmd-java/rules/java/j2ee.html#UseProperClassLoader" priority="3">
 In J2EE, getClassLoader() might not work as expected.  Use Thread.currentThread().getContextClassLoader() instead.
 </violation>
 </file>
