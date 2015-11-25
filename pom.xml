@@ -96,8 +96,7 @@
 	<contributors />
 	<mailingLists />
 	<prerequisites>
-		<!-- why at least 3.0.5? see: https://maven.apache.org/security.html -->
-		<maven>3.0.5</maven>
+		<maven>3.2.5</maven>
 	</prerequisites>
 	<scm>
 		<connection>scm:git:git://github.com/GeoDienstenCentrum/${project.artifactId}.git</connection>
