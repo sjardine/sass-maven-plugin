@@ -40,6 +40,8 @@ ${project.name} ${project.version} Release Notes
 
 ** Enhancements and Fixes
 
+   * The minimum required version has been updated to ${project.prerequisites.maven}
+
 ~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
 ~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
@@ -57,8 +59,8 @@ ${project.name} ${project.version} Release Notes
 
 * 2.14 Release Notes
 
-  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.19 
-  running on JRuby 9.0.4.0. 
+  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.19
+  running on JRuby 9.0.4.0.
 
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A$2.14+is%3Aclosed}milestone 2.14}}.

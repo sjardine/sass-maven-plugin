@@ -3,7 +3,14 @@ language: java
 sudo: false
 
 before_install:
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then export JAVA_HOME=$(/usr/libexec/java_home); fi
+   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+         brew update --quiet;
+         brew upgrade maven;
+     fi
+   - if [ "$TRAVIS_OS_NAME" == "osx" ] && [ "$JVM" == "latest" ]; then
+         brew tap caskroom/cask;
+         brew install Caskroom/cask/java;
+     fi
    - echo $JAVA_HOME
 
 install:
@@ -30,12 +37,16 @@ matrix:
       jdk: openjdk7
     - os: linux
       jdk: oraclejdk8
-# this is the current Travis default JDK on linux
+    - os: osx
+      env: JVM=latest
+# these are the current Travis default JDKs on linux/osx
 #    - os: linux
 #      jdk: oraclejdk7
 #    - os: osx
 #      env: JAVA_HOME=/usr/libexec/java_home
 
 cache:
+  brew: true
   directories:
   - $HOME/.m2
+  #- /Library/Caches/Homebrew
