@@ -131,7 +131,7 @@
 		<sass.version>3.4.19</sass.version>
 		<jruby.version>9.0.4.0</jruby.version>
 		<maven-libs.version>3.3.9</maven-libs.version>
-		<scss-lint.version>0.43.0</scss-lint.version>
+		<scss-lint.version>0.43.2</scss-lint.version>
 		<bourbon.version>4.2.6</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
