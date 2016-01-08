@@ -18,7 +18,6 @@ package nl.geodienstencentrum.maven.plugin.sass.compiler;
 import com.google.common.base.Stopwatch;
 import java.io.File;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo;
 import org.apache.maven.plugin.testing.MojoRule;
 import org.apache.maven.plugin.testing.resources.TestResources;
 import static org.junit.Assume.assumeNotNull;
@@ -28,7 +27,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 /**
- * benchmark sass/compass compilation.
+ * benchmark sass compilation.
  *
  * @author mprins
  */
