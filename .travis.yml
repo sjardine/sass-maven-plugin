@@ -44,6 +44,8 @@ matrix:
 #      jdk: oraclejdk7
 #    - os: osx
 #      env: JAVA_HOME=/usr/libexec/java_home
+  allow_failures:
+   - env: JVM=latest
 
 cache:
   brew: true

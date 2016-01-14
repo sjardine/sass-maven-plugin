@@ -40,7 +40,7 @@ ${project.name} ${project.version} Release Notes
 
 ** Enhancements and Fixes
 
-   * The minimum required version has been updated to ${project.prerequisites.maven}
+  * The minimum required Maven version has been updated to ${project.prerequisites.maven}
 
   * Update Sass to version ${project.properties.get("sass.version")}, please check
     the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
