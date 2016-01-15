@@ -20,21 +20,27 @@
 package nl.geodienstencentrum.maven.plugin.sass;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-
-import nl.geodienstencentrum.maven.plugin.sass.compiler.CompilerCallback;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.model.FileSet;
@@ -43,18 +49,14 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.shared.utils.io.IOUtil;
+import org.jruby.embed.LocalContextScope;
+import org.jruby.embed.ScriptingContainer;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import org.apache.maven.shared.utils.io.IOUtil;
+
+import nl.geodienstencentrum.maven.plugin.sass.compiler.CompilerCallback;
 
 /**
  * Base for batching Sass Mojos.
@@ -265,23 +267,18 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 		}
 
 		final Log log = this.getLog();
-		System.setProperty("org.jruby.embed.localcontext.scope", "threadsafe");
-
 		log.debug("Execute Sass Ruby script:\n\n" + sassScript + "\n\n");
-		final ScriptEngineManager scriptEngineManager = new ScriptEngineManager();
-		final ScriptEngine jruby = scriptEngineManager.getEngineByName("jruby");
-		try {
-			final CompilerCallback compilerCallback = new CompilerCallback(log);
-			jruby.getBindings(ScriptContext.ENGINE_SCOPE).put(
-			        "compiler_callback", compilerCallback);
-			jruby.eval(sassScript);
-			if (this.failOnError && compilerCallback.hadError()) {
-				throw new MojoFailureException(
-				   "Sass compilation encountered errors (see above for details).");
-			}
-		} catch (final ScriptException e) {
-			throw new MojoExecutionException(
-			        "Failed to execute Sass ruby script:\n" + sassScript, e);
+
+		final ScriptingContainer scriptingContainer = new ScriptingContainer(LocalContextScope.SINGLETHREAD);
+		final CompilerCallback compilerCallback = new CompilerCallback(log);
+
+		scriptingContainer.setHomeDirectory("uri:classloader://META-INF/jruby.home");
+		scriptingContainer.put("$compiler_callback", compilerCallback);
+		scriptingContainer.runScriptlet(sassScript);
+
+		if (this.failOnError && compilerCallback.hadError()) {
+			throw new MojoFailureException(
+			   "Sass compilation encountered errors (see above for details).");
 		}
 		log.debug("\n");
 	}
