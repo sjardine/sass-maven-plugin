@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Mark Prins, GeoDienstenCentrum
+ * Copyright 2015-2016 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import org.apache.maven.plugins.annotations.Execute;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.reporting.AbstractMavenReport;
 
@@ -38,9 +39,12 @@ import org.apache.maven.reporting.AbstractMavenReport;
  * @since 2.3
  */
 @Mojo(name = "scss-lint-report",
-		defaultPhase = LifecyclePhase.SITE,
-		threadSafe = true)
-@Execute(goal = "scss-lint", phase = LifecyclePhase.COMPILE)
+        defaultPhase = LifecyclePhase.SITE,
+        requiresDependencyResolution = ResolutionScope.COMPILE_PLUS_RUNTIME,
+        threadSafe = false)
+@Execute(goal = "scss-lint"
+//        , phase = LifecyclePhase.COMPILE
+)
 public class SCSSLintReportMojo extends AbstractMavenReport {
 
 	/**

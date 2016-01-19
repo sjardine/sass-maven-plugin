@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
+    Copyright 2014-2016 Mark Prins, GeoDienstenCentrum.
 	Copyright 2010-2014 Jasig.
 
 	See the NOTICE file distributed with this work for additional information
@@ -44,7 +44,8 @@
 		<developer>
 			<id>mprins</id>
 			<name>Mark Prins</name>
-			<email>mprins@users.sf.net</email>
+            <email>mprins@users.sf.net</email>
+            <url>https://github.com/mprins/</url>
 			<organization>GeodienstenCentrum</organization>
 			<organizationUrl>http://www.geodienstencentrum.nl/</organizationUrl>
 		</developer>
@@ -91,9 +92,15 @@
 			<name>Stefan Liebenberg</name>
 			<email>siga.fredo@gmail.com</email>
 			<url>https://stefanliebenberg.github.io/</url>
-		</developer>
+        </developer>
+        <developer>
+            <id>mrdanpsmith</id>
+            <name>Dan P. Smith</name>
+            <url>https://github.com/mrdanpsmith/</url>
+            <organizationUrl>http://siirush.com/</organizationUrl>
+        </developer>
 	</developers>
-	<contributors />
+    <contributors/>
 	<mailingLists />
 	<prerequisites>
 		<maven>3.2.5</maven>
