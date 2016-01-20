@@ -45,7 +45,8 @@ matrix:
 #    - os: osx
 #      env: JAVA_HOME=/usr/libexec/java_home
   allow_failures:
-   - env: JVM=latest
+#   - env: JVM=latest
+    - os: osx
 
 cache:
   brew: true
