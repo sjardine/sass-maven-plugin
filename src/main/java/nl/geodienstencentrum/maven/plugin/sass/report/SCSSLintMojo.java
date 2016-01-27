@@ -149,10 +149,9 @@ public class SCSSLintMojo extends AbstractSassMojo {
 
 		ArrayList<String> argv = new ArrayList<>();
 		argv.add("--format=Checkstyle");
+		argv.add("--no-color");
 		argv.add("-o" + this.outputFile);
-		// argv.add("--config " + get config from some params,);
 		argv.addAll(this.getSourceDirs());
-		// this.getSassSourceDirectory().getPath()
 		context.setAttribute(ScriptEngine.ARGV,
 				argv.toArray(new String[argv.size()]),
 				ScriptContext.GLOBAL_SCOPE);
@@ -213,7 +212,8 @@ public class SCSSLintMojo extends AbstractSassMojo {
 			sassScript.append("puts 'parameters: '\n");
 			sassScript.append("pp ARGV\n");
 		}
-		sassScript.append("SCSSLint::CLI.new.run(ARGV)\n");
+		sassScript.append("logger = SCSSLint::Logger.new(STDOUT)\n");
+		sassScript.append("SCSSLint::CLI.new(logger).run(ARGV)\n");
 	}
 
 	/**
