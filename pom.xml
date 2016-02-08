@@ -215,6 +215,15 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<!-- temporary workaround for building, see: 
+			http://lists.ruby-lang.org/pipermail/jruby/2016-February/000338.html -->
+			<groupId>rubygems</groupId>
+			<artifactId>rb-inotify</artifactId>
+			<version>0.9.5</version>
+			<scope>provided</scope>
+			<type>gem</type>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
