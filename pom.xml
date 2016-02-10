@@ -215,15 +215,15 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<!-- temporary workaround for building, see: 
-			http://lists.ruby-lang.org/pipermail/jruby/2016-February/000338.html -->
-			<groupId>rubygems</groupId>
-			<artifactId>rb-inotify</artifactId>
-			<version>0.9.5</version>
-			<scope>provided</scope>
-			<type>gem</type>
-		</dependency>
-		<dependency>
+			<!-- temporary workaround for building, see:
+				http://lists.ruby-lang.org/pipermail/jruby/2016-February/000338.html -->
+				<groupId>rubygems</groupId>
+				<artifactId>rb-inotify</artifactId>
+				<version>0.9.5</version>
+				<scope>provided</scope>
+				<type>gem</type>
+		   </dependency>
+		   <dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
@@ -255,13 +255,7 @@
 		<dependency>
 			<groupId>org.apache.maven.doxia</groupId>
 			<artifactId>doxia-sink-api</artifactId>
-			<version>1.6</version>
-			<exclusions>
-				<exclusion>
-					<groupId>xerces</groupId>
-					<artifactId>xercesImpl</artifactId>
-				</exclusion>
-			</exclusions>
+			<version>1.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.reporting</groupId>
@@ -396,7 +390,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.5</version>
+					<version>3.5.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -628,7 +622,7 @@
 					<dependency>
 						<groupId>org.apache.maven.doxia</groupId>
 						<artifactId>doxia-module-markdown</artifactId>
-						<version>1.6</version>
+						<version>1.7</version>
 					</dependency>
 				</dependencies>
 				<configuration>
