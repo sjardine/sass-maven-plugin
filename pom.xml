@@ -138,7 +138,7 @@
 		<sass.version>3.4.21</sass.version>
 		<jruby.version>9.0.5.0</jruby.version>
 		<maven-libs.version>3.3.9</maven-libs.version>
-		<scss-lint.version>0.44.0</scss-lint.version>
+		<scss-lint.version>0.45.0</scss-lint.version>
 		<bourbon.version>4.2.6</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
@@ -214,16 +214,16 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
 			<!-- temporary workaround for building, see:
 				http://lists.ruby-lang.org/pipermail/jruby/2016-February/000338.html -->
+		<dependency>
 				<groupId>rubygems</groupId>
 				<artifactId>rb-inotify</artifactId>
 				<version>0.9.5</version>
 				<scope>provided</scope>
 				<type>gem</type>
-		   </dependency>
-		   <dependency>
+		</dependency>
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
@@ -415,7 +415,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>2.4</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
