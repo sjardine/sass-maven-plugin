@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faqs xmlns="http://maven.apache.org/FML/1.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd" title="Frequently Asked Questions" toplink="true">
-  <part id="windows">
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+		title="Frequently Asked Questions" toplink="true">
+<part id="windows">
 	<title>Windows</title>
 		<faq id="Umlaut">
 			<question>Compiling Compass fails when there is an Umlaut in a path used</question>
 			<answer>
-				<p>This is due to the way path information is passed to Compass, either change 
+				<p>This is due to the way path information is passed to Compass, either change
 					your OS or move on to use directories without an Umlaut.</p>
-				<p>A branch isslustrating this behaviour is available in the 
+				<p>A branch isslustrating this behaviour is available in the
 				<a href ="https://github.com/GeoDienstenCentrum/sass-maven-plugin/tree/umlaut-directory">
 					umlaut-directory</a> branch.</p>
 				<p>For all the details see <a href="https://github.com/GeoDienstenCentrum/sass-maven-plugin/issues/79">issue #79</a></p>
 			</answer>
 		</faq>
+
 		<faq id="Compass">
 			<question>Compiling Compass on Windows fails</question>
 			<answer>
@@ -24,7 +28,7 @@
 					As a workaround, on Windows, you can downgrade the JRuby version that is used
 					by the plugin to 1.7.10. An example of how to do this using a property and
 					a profile is shown below.</p>
-					
+
 				<source>
 ...
 &lt;!-- this is the jruby version included in the plugin (version 2.7) dependencies--&gt;
@@ -32,7 +36,7 @@
     &lt;jruby.version&gt;1.7.20.1&lt;/jruby.version&gt;
 &lt;/properties&gt;
 ...
-                        
+
 &lt;profiles&gt;
     &lt;profile&gt;
         &lt;activation&gt;
@@ -47,10 +51,10 @@
     &lt;/profile&gt;
 &lt;/profiles&gt;
     ...
-    
+
 &lt;build>&gt;
     ...
-    
+
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;nl.geodienstencentrum.maven&lt;/groupId&gt;
@@ -80,11 +84,8 @@
                 &lt;/dependency&gt;
             &lt;/dependencies&gt;
             ...
-                </source>
-                <p>An example project demonstrating this solution is available at:
-                    <a href="https://github.com/mprins/maven-compass-example">https://github.com/mprins/maven-compass-example</a>
-                </p>
-            </answer>
-        </faq>
-    </part>
+				</source>
+			</answer>
+		</faq>
+	</part>
 </faqs>
