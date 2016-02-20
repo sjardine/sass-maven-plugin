@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright 2014-2015 Mark Prins, GeoDienstenCentrum.
+  Copyright 2014-2016 Mark Prins, GeoDienstenCentrum.
   Copyright 2010-2014 Jasig.
 
   See the NOTICE file distributed with this work for additional information
@@ -18,9 +18,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/DECORATION/1.3.0"
+<project xmlns="http://maven.apache.org/DECORATION/1.7.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.7.0 http://maven.apache.org/xsd/decoration-1.7.0.xsd"
 	name="${project.name} ${project.version}">
 	<publishDate position="left" format="dd-MMMM-yyyy" />
 	<version position="left" />

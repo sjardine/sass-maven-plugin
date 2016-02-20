@@ -55,12 +55,14 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
+  * various plugin updates
+
   []
 
 
 * 2.15 Release Notes
 
-  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.21 
+  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.21
   running on JRuby 9.0.4.0.
 
   A complete list of issues can be seen in the tracker
