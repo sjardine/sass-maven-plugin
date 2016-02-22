@@ -1,9 +1,9 @@
 <!--
-This is a simple template for filing isuses.
+This is a simple template for filing issues.
 
 Please help us help you by providing the information below.
 
-Text inside XML comment  (such as this) tags will not be shown in your report.
+Text inside XML comment  (such as this) tags will not be shown in your report, use the preview button above to check that.
 -->
 
 ### Environment and configuration
