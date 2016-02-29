@@ -755,6 +755,7 @@
 								<rulesets>
 									<ruleset>${basedir}/pmd-ruleset.xml</ruleset>
 								</rulesets>
+								<linkXRef>true</linkXRef>
 								<includeXmlInSite>true</includeXmlInSite>
 								<minimumTokens>100</minimumTokens>
 								<targetJdk>${project.build.targetVersion}</targetJdk>
