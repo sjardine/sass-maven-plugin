@@ -12,7 +12,7 @@ before_install:
          brew install Caskroom/cask/java;
      fi
    - echo $JAVA_HOME
-   - java -Xshare:dump
+#  - java -Xshare:dump
 
 install:
   # install without any testing to get dependencies in place
