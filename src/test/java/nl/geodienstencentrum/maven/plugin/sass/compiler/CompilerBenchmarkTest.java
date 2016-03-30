@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Mark Prins, GeoDienstenCentrum
+ * Copyright 2015-2016 Mark Prins, GeoDienstenCentrum
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import org.junit.Test;
 /**
  * benchmark sass/compass compilation.
  *
- * @author Mark Prins <mark@b3partners.nl>
+ * @author mprins
  */
 public class CompilerBenchmarkTest {
 
