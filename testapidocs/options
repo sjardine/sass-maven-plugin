@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sass Compiler Plugin 2.17 Test API'
+'Sass Compiler Plugin 2.18 Test API'
 -link
 '../apidocs'
 -link
@@ -43,4 +43,4 @@
 -use
 -version
 -windowtitle
-'Sass Compiler Plugin 2.17 Test API'
+'Sass Compiler Plugin 2.18 Test API'

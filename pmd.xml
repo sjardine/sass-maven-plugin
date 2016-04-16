@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.3.5" timestamp="2016-03-30T15:57:02.466">
+<pmd version="5.3.5" timestamp="2016-04-16T14:32:48.138">
 <file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java">
 <violation beginline="60" endline="555" begincolumn="17" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'AbstractSassMojo' has a Cyclomatic Complexity of 5 (Highest = 16).

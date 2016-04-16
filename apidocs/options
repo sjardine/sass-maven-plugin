@@ -15,7 +15,7 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Sass Compiler Plugin 2.17 API'
+'Sass Compiler Plugin 2.18 API'
 -link
 'http://maven.apache.org/ref/3.3.9/maven-core/apidocs'
 -link
@@ -41,4 +41,4 @@
 -use
 -version
 -windowtitle
-'Sass Compiler Plugin 2.17 API'
+'Sass Compiler Plugin 2.18 API'
