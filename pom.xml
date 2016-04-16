@@ -138,8 +138,8 @@
 		<sass.version>3.4.22</sass.version>
 		<jruby.version>9.0.5.0</jruby.version>
 		<maven-libs.version>3.3.9</maven-libs.version>
-		<scss-lint.version>0.47.1</scss-lint.version>
-		<bourbon.version>4.2.6</bourbon.version>
+		<scss-lint.version>0.48.0</scss-lint.version>
+		<bourbon.version>4.2.7</bourbon.version>
 		<maven.version />
 		<debug>true</debug>
 		<github.username />

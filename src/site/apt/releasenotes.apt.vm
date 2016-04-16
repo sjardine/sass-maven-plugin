@@ -42,41 +42,57 @@ ${project.name} ${project.version} Release Notes
 
 ~~  * The minimum required Maven version has been updated to ${project.prerequisites.maven}
 
-  * Update Sass to version ${project.properties.get("sass.version")}, please check
-    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
+~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
 
   * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
 
-~~  * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the
-~~    {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
+  * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the
+    {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
 
 ~~  * Update JRuby to ${project.properties.get("jruby.version")}
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
+  []
+
+* 2.17 Release Notes
+
+  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.22 running on JRuby 9.0.5.0.
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.17+is%3Aclosed}milestone 2.17}}.
+
+** Enhancements and Fixes
+
+  * Update Sass to version 3.4.22, please check
+    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+  * Update SCSS-Lint to version 0.47.1, please check
+    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
 
   []
 
 * 2.16 Release Notes
 
-  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.21 
-  running on JRuby 9.0.5.0. 
+  This release features Compass version 1.0.3, Bourbon version 4.2.6 and Sass version 3.4.21
+  running on JRuby 9.0.5.0.
 
   A complete list of issues can be seen in the tracker
-  {{{${project.issueManagement.url}?q=milestone%3A$2.15+is%3Aclosed}milestone 2.16}}.
+  {{{${project.issueManagement.url}?q=milestone%3A$2.16+is%3Aclosed}milestone 2.16}}.
 
 ** Enhancements and Fixes
 
   * Update SCSS-Lint to version 0.45.0, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
-  
+
   * Update JRuby to 9.0.5.0
 
   * various plugin updates
 
   []
-  
+
 
 * 2.15 Release Notes
 
