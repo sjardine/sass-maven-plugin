@@ -203,7 +203,7 @@
 		<dependency>
 			<groupId>rubygems</groupId>
 			<artifactId>listen</artifactId>
-			<version>3.0.6</version>
+			<version>3.1.1</version>
 			<scope>provided</scope>
 			<type>gem</type>
 		</dependency>
@@ -224,7 +224,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
+			<version>2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugin-testing</groupId>
