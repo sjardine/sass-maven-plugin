@@ -136,7 +136,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
 		<sass.version>3.4.22</sass.version>
-		<jruby.version>9.0.5.0</jruby.version>
+		<jruby.version>9.1.1.0</jruby.version>
 		<maven-libs.version>3.3.9</maven-libs.version>
 		<scss-lint.version>0.48.0</scss-lint.version>
 		<bourbon.version>4.2.7</bourbon.version>
@@ -203,7 +203,7 @@
 		<dependency>
 			<groupId>rubygems</groupId>
 			<artifactId>listen</artifactId>
-			<version>3.1.1</version>
+			<version>3.1.5</version>
 			<scope>provided</scope>
 			<type>gem</type>
 		</dependency>
@@ -269,8 +269,18 @@
 	</dependencies>
 	<repositories>
 		<repository>
-			<id>jruby-snapshots</id>
+			<id>sonatype-snapshots</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>jruby-snapshots</id>
+			<url>http://ci.jruby.org/snapshots/maven/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -393,7 +403,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.7</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -403,7 +413,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>2.6</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>

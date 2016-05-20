@@ -51,7 +51,7 @@ ${project.name} ${project.version} Release Notes
   * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the
     {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
 
-~~  * Update JRuby to ${project.properties.get("jruby.version")}
+  * Update JRuby to ${project.properties.get("jruby.version")}
 
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
