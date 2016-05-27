@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lifecycleMappingMetadata>
+	<pluginExecutions>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<goals>
+					<goal>scss-lint</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<runOnIncremental>true</runOnIncremental>
+			</action>
+		</pluginExecution>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<goals>
+					<goal>scss-lint-report</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<runOnIncremental>true</runOnIncremental>
+			</action>
+		</pluginExecution>
+		<pluginExecution>
+			<pluginExecutionFilter>
+				<goals>
+					<goal>update-stylesheets</goal>
+				</goals>
+			</pluginExecutionFilter>
+			<action>
+				<runOnIncremental>true</runOnIncremental>
+			</action>
+		</pluginExecution>
+	</pluginExecutions>
+</lifecycleMappingMetadata>

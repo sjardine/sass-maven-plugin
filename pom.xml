@@ -305,6 +305,9 @@
 				</excludes>
 			</resource>
 			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
 				<directory>src/main/xsl</directory>
 				<!-- targetPath>nl/geodienstencentrum/maven/plugin/sass/report</targetPath -->
 				<includes>
