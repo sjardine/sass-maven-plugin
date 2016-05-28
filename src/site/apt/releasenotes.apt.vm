@@ -31,11 +31,11 @@ ${project.name} ${project.version} Release Notes
   to find out about the specific Sass and other transitive dependencies
   included in this release.
 
-~~ ** New
+ ** New
 
-~~   *
+   * support for Eclipse m2e plugin was added
 
-~~   []
+   []
 
 
 ** Enhancements and Fixes
@@ -56,6 +56,22 @@ ${project.name} ${project.version} Release Notes
 ~~  * Update Compass to version ${project.properties.get("compass.version")}
 
   []
+
+* 2.18 Release Notes
+
+  This release features Compass version 1.0.3, Bourbon version 4.2.7 and Sass version 3.4.22 running on JRuby 9.0.5.0.
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.18+is%3Aclosed}milestone 2.18}}.
+
+
+** Enhancements and Fixes
+
+  * Update SCSS-Lint to version 0.48.0, please check
+    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
+
+  * Update Bourbon to version 4.2.7, please check the
+    {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
 
 * 2.17 Release Notes
 
