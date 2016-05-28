@@ -99,6 +99,12 @@
 			<url>https://github.com/mrdanpsmith/</url>
 			<organizationUrl>http://siirush.com/</organizationUrl>
 		</developer>
+		<developer>
+			<id>agabrys</id>
+			<name>Adam Gabryś</name>
+			<url>https://github.com/agabrys</url>
+			<organizationUrl>http://www.adam.gabrys.biz/</organizationUrl>
+		</developer>
 	</developers>
 	<contributors />
 	<mailingLists />
@@ -136,7 +142,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<compass.version>1.0.3</compass.version>
 		<sass.version>3.4.22</sass.version>
-		<jruby.version>9.1.1.0</jruby.version>
+		<jruby.version>9.1.2.0</jruby.version>
 		<maven-libs.version>3.3.9</maven-libs.version>
 		<scss-lint.version>0.48.0</scss-lint.version>
 		<bourbon.version>4.2.7</bourbon.version>
