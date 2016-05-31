@@ -8,7 +8,9 @@
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<runOnIncremental>true</runOnIncremental>
+				<execute>
+					<runOnIncremental>true</runOnIncremental>
+				</execute>
 			</action>
 		</pluginExecution>
 		<pluginExecution>
@@ -18,7 +20,9 @@
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<runOnIncremental>true</runOnIncremental>
+				<execute>
+					<runOnIncremental>true</runOnIncremental>
+				</execute>
 			</action>
 		</pluginExecution>
 		<pluginExecution>
@@ -28,7 +32,9 @@
 				</goals>
 			</pluginExecutionFilter>
 			<action>
-				<runOnIncremental>true</runOnIncremental>
+				<execute>
+					<runOnIncremental>true</runOnIncremental>
+				</execute>
 			</action>
 		</pluginExecution>
 	</pluginExecutions>
