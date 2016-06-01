@@ -31,6 +31,38 @@ ${project.name} ${project.version} Release Notes
   to find out about the specific Sass and other transitive dependencies
   included in this release.
 
+~~** New
+
+~~   *
+
+~~   []
+
+** Enhancements and Fixes
+
+
+~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
+~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
+
+~~  * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
+    the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
+
+~~  * Update Bourbon to version ${project.properties.get("bourbon.version")}, please check the
+    {{{https://github.com/thoughtbot/bourbon/releases}Bourbon changelog}}
+
+  * Update JRuby to ${project.properties.get("jruby.version")}
+
+  * fix m2e processing
+
+  []
+
+* 2.19 Release Notes
+
+  This release features Compass version 1.0.3, Bourbon version 4.2.7 and Sass version
+  3.4.22 running on JRuby 9.1.2.0.
+
+  A complete list of issues can be seen in the tracker
+  {{{${project.issueManagement.url}?q=milestone%3A$2.19+is%3Aclosed}milestone 2.19}}.
+
 ** New
 
    * support for Eclipse m2e plugin was added
@@ -40,11 +72,6 @@ ${project.name} ${project.version} Release Notes
 
 ** Enhancements and Fixes
 
-~~  * The minimum required Maven version has been updated to ${project.prerequisites.maven}
-
-~~  * Update Sass to version ${project.properties.get("sass.version")}, please check
-~~    the {{{http://sass-lang.com/documentation/file.SASS_CHANGELOG.html}Sass changelog}}
-
   * Update SCSS-Lint to version ${project.properties.get("scss-lint.version")}, please check
     the {{{https://github.com/brigade/scss-lint/blob/master/CHANGELOG.md}SCSS-Lint changelog}}
 
@@ -53,13 +80,12 @@ ${project.name} ${project.version} Release Notes
 
   * Update JRuby to ${project.properties.get("jruby.version")}
 
-~~  * Update Compass to version ${project.properties.get("compass.version")}
-
   []
 
 * 2.18 Release Notes
 
-  This release features Compass version 1.0.3, Bourbon version 4.2.7 and Sass version 3.4.22 running on JRuby 9.0.5.0.
+  This release features Compass version 1.0.3, Bourbon version 4.2.7 and Sass version 3.4.22
+  running on JRuby 9.0.5.0.
 
   A complete list of issues can be seen in the tracker
   {{{${project.issueManagement.url}?q=milestone%3A$2.18+is%3Aclosed}milestone 2.18}}.
