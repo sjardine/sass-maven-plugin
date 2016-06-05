@@ -14,9 +14,10 @@ Provide at least:
 * Java version
 * Operating system and platform
 
-Running maven with the option `mvn --version` will provide this information
+Running maven with the option `mvn --version ...` will provide this information
 
 * plugin configuration, the full/complete snippet of your pom.xml for the sass-maven-plugin
+* provide a debug log of your maven run using `mvn -X ...`
 -->
 
 ### Expected Behavior
