@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.3.5" timestamp="2016-06-01T13:43:51.828">
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java">
+<pmd version="5.3.5" timestamp="2016-06-05T15:00:36.133">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/AbstractSassMojo.java">
 <violation beginline="60" endline="555" begincolumn="17" endcolumn="1" rule="CyclomaticComplexity" ruleset="Code Size" package="nl.geodienstencentrum.maven.plugin.sass" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/codesize.html#CyclomaticComplexity" priority="3">
 The class 'AbstractSassMojo' has a Cyclomatic Complexity of 5 (Highest = 16).
 </violation>
@@ -233,7 +233,7 @@ Avoid instantiating new objects inside loops
 Local variable 'fos' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/Resource.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/Resource.java">
 <violation beginline="38" endline="38" begincolumn="27" endcolumn="32" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass" class="Resource" variable="source" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -268,7 +268,7 @@ Found 'DD'-anomaly for variable 'destDir' (lines '90'-'93').
 Avoid instantiating new objects inside loops
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/CompilerCallback.java">
 <violation beginline="30" endline="30" begincolumn="25" endcolumn="36" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="CompilerCallback" variable="compileError" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -276,7 +276,7 @@ Found non-transient, non-static member. Please mark as transient or provide acce
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/UpdateStylesheetsMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/UpdateStylesheetsMojo.java">
 <violation beginline="52" endline="52" begincolumn="25" endcolumn="31" rule="OnlyOneReturn" ruleset="Controversial" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="UpdateStylesheetsMojo" method="execute" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/controversial.html#OnlyOneReturn" priority="3">
 A method should have only one exit point, and that should be the last statement in the method
 </violation>
@@ -314,12 +314,12 @@ It is a good practice to call super() in a constructor
 Local variable 'lastMod' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/WatchMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/compiler/WatchMojo.java">
 <violation beginline="53" endline="53" begincolumn="37" endcolumn="47" rule="InsufficientStringBufferDeclaration" ruleset="String and StringBuffer" package="nl.geodienstencentrum.maven.plugin.sass.compiler" class="WatchMojo" method="execute" variable="sassBuilder" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/strings.html#InsufficientStringBufferDeclaration" priority="3">
 StringBuffer constructor is initialized with size 16, but has at least 80 characters appended.
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintMojo.java">
 <violation beginline="58" endline="58" begincolumn="22" endcolumn="31" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintMojo" variable="outputFile" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -375,7 +375,7 @@ Found 'UR'-anomaly for variable 'source' (lines '223'-'230').
 Local variable 'dirs' could be declared final
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportGenerator.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportGenerator.java">
 <violation beginline="41" endline="41" begincolumn="28" endcolumn="31" rule="BeanMembersShouldSerialize" ruleset="JavaBeans" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportGenerator" variable="sink" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/javabeans.html#BeanMembersShouldSerialize" priority="3">
 Found non-transient, non-static member. Please mark as transient or provide accessors.
 </violation>
@@ -413,7 +413,7 @@ There is log block not surrounded by if
 debug logging that involves string concatenation should be guarded with isDebugEnabled() checks
 </violation>
 </file>
-<file name="/home/mprins/workspace/sass-maven-plugin/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportMojo.java">
+<file name="/home/mprins/workspace/sass-maven-plugin/target/checkout/src/main/java/nl/geodienstencentrum/maven/plugin/sass/report/SCSSLintReportMojo.java">
 <violation beginline="56" endline="56" begincolumn="37" endcolumn="47" rule="UnusedPrivateField" ruleset="Unused Code" package="nl.geodienstencentrum.maven.plugin.sass.report" class="SCSSLintReportMojo" variable="sassOptions" externalInfoUrl="https://pmd.github.io/pmd-5.3.5/pmd-java/rules/java/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'sassOptions'.
 </violation>
