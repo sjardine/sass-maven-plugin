@@ -305,6 +305,10 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			/* remove trailing comma+\n */
 			sassScript.setLength(sassScript.length() - 2);
+			// TODO
+			// quick fix for the deprecation message coming from Gem.paths, this should be cleaned up; 
+			// there's a round trip of splitting into array in java and then unsplitting the array in ruby...
+			// see #118
 			sassScript.append("\n].uniq.join(File::PATH_SEPARATOR) }\n");
 			sassScript.append("Gem.paths = env\n");
 		}
