@@ -305,7 +305,7 @@ public abstract class AbstractSassMojo extends AbstractMojo {
 			}
 			/* remove trailing comma+\n */
 			sassScript.setLength(sassScript.length() - 2);
-			sassScript.append("\n] }\n");
+			sassScript.append("\n].uniq.join(File::PATH_SEPARATOR) }\n");
 			sassScript.append("Gem.paths = env\n");
 		}
 
