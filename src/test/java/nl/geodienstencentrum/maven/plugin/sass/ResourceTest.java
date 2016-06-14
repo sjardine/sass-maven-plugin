@@ -57,7 +57,7 @@ public class ResourceTest {
 	@Test
 	public void testGetDirectoriesAndDestinations() throws Exception {
 		final File projectCopy = this.resources
-				.getBasedir("maven-compass-resources-test");
+				.getBasedir("maven-resources-test");
 		final File pom = new File(projectCopy, "pom.xml");
 
 		assumeNotNull("POM file should not be null.", pom);

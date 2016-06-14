@@ -27,12 +27,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Integration test for determining if compass compilation works based on a
+ * Integration test for determining if compilation works based on a
  * simple war project.
  *
  * @author Mark C. Prins
  */
-public class MavenResourcesCompassIntegrationTest {
+public class MavenResourcesIntegrationTest {
 
 	/** The Maven verifier. */
 	private Verifier verifier;
@@ -41,7 +41,7 @@ public class MavenResourcesCompassIntegrationTest {
 	private File testDir;
 
 	/** The artifactId of the test project. */
-	private final String ARTIFACTID = "maven-compass-resources-test";
+	private final String ARTIFACTID = "maven-resources-test";
 
 	/** The packaging of the test project. */
 	private final String PACKAGING = "war";
