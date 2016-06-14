@@ -32,7 +32,7 @@ import org.junit.Test;
  *
  * @author Mark C. Prins
  */
-public class MavenResourcesCompassIntegrationTest {
+public class MavenResourcesIntegrationTest {
 
 	/** The Maven verifier. */
 	private Verifier verifier;
@@ -41,7 +41,7 @@ public class MavenResourcesCompassIntegrationTest {
 	private File testDir;
 
 	/** The artifactId of the test project. */
-	private final String ARTIFACTID = "maven-compass-resources-test";
+	private final String ARTIFACTID = "maven-resources-test";
 
 	/** The packaging of the test project. */
 	private final String PACKAGING = "war";
