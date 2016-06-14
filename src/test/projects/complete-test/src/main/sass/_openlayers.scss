@@ -62,19 +62,19 @@ div.olLayerDiv {
 	font-size: 1px;
 	/*top right bottom left*/
 	border-color: $BlueColourLighter $BlueColourDarker $BlueColourDarker $BlueColourLighter;
-	@include border-radius(4px);
-	@include box-shadow(2px 2px 2px #000);
+	//@include border-radius(4px);
+	//@include box-shadow(2px 2px 2px #000);
 }
 
 .olLayerGrid .olTileImage {
-	@include transition(opacity 0.2s linear);
+	//@include transition(opacity 0.2s linear);
 }
 
 /* Turn on GPU support where available */
 .olTileImage {
-	@include translateZ(0);
-	@include backface-visibility(hidden);
-	@include perspective(1000px);
+	//@include translateZ(0);
+	//@include backface-visibility(hidden);
+	//@include perspective(1000px);
 }
 
 /* when replacing tiles, do not show tile and backbuffer at the same time */

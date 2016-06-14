@@ -5,7 +5,7 @@
 	top: 35px;
 	right: 8px;
 	background: rgba(255, 255, 255, 0.2);
-	@include border-radius(4px);
+	//@include border-radius(4px);
 	padding: 2px;
 }
 
@@ -31,9 +31,9 @@
 }
 
 .olControlZoomIn {
-	@include border-top-radius(4px);
+	//@include border-top-radius(4px);
 }
 
 .olControlZoomOut {
-	@include border-bottom-radius(4px);
+	//@include border-bottom-radius(4px);
 }

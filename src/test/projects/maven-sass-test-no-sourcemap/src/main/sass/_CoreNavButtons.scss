@@ -11,7 +11,7 @@
 .kaartnavi fieldset {
 	border: $ControlBorder;
 	padding: 2px;
-	@include border-radius(6px);
+	//@include border-radius(6px);
 }
 
 .kaartnavi button {
@@ -24,13 +24,13 @@
 	color: #000;
 	font-weight: bold;
 	display: block;
-	@include border-radius(6px);
-	@include single-text-shadow(1px, 1px, 0px, false, #fff);
-	@include single-box-shadow(0, 1px, 0, 0, #fff, true);
+	//@include border-radius(6px);
+	//@include single-text-shadow(1px, 1px, 0px, false, #fff);
+	//@include single-box-shadow(0, 1px, 0, 0, #fff, true);
 
 	&:hover, 
 	&:active {
-		@include single-box-shadow(0, 2px, 0, 0, $ControlBorderColour, true);
+		//@include single-box-shadow(0, 2px, 0, 0, $ControlBorderColour, true);
 		border: 1px solid darken($ControlBorderColour, 50%);;
 	}
 }

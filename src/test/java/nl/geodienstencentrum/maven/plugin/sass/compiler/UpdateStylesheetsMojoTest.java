@@ -64,7 +64,7 @@ public class UpdateStylesheetsMojoTest {
 	@Test
 	public void testExecute() throws Exception {
 		final File projectCopy = this.resources
-				.getBasedir("maven-compass-test");
+                .getBasedir("maven-sass-test");
 		final File pom = new File(projectCopy, "pom.xml");
 		assumeNotNull("POM file should not be null.", pom);
 		assumeTrue("POM file should exist as file.",
@@ -78,12 +78,12 @@ public class UpdateStylesheetsMojoTest {
 		myMojo.execute();
 		TestResources.assertDirectoryContents(
 				new File(projectCopy.getAbsolutePath()
-						+ "/target/maven-compass-test-1.0-SNAPSHOT/css/"),
-				"compiled.css.map", "compiled.css");
+                        + "/target/maven-sass-test-1.0-SNAPSHOT/css/"),
+            				"compiled.css.map", "compiled.css");
 		// this may fail when line endings differ, eg. on Windows
 		// set up git to check out with native file endings
 		TestResources.assertFileContents(projectCopy, "expected.css",
-				"target/maven-compass-test-1.0-SNAPSHOT/css/compiled.css");
+                "target/maven-sass-test-1.0-SNAPSHOT/css/compiled.css");
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class UpdateStylesheetsMojoTest {
 	 * nl.geodienstencentrum.maven.plugin.sass.compiler.UpdateStylesheetsMojo#execute()
 	 */
 	@Test
-	public void testExecute2() throws Exception {
+    public void testExecute_complete_test() throws Exception {
 		final File projectCopy = this.resources.getBasedir("complete-test");
 		final File pom = new File(projectCopy, "pom.xml");
 		assertNotNull("POM file should not be null.", pom);
@@ -150,7 +150,7 @@ public class UpdateStylesheetsMojoTest {
 	}
 
 	@Test
-	public void testCompassConfigFile() throws Exception {
+    public void testSassSyntaxFile() throws Exception {
         final File projectCopy = this.resources.getBasedir("maven-sass-syntax-test");
 		final File pom = new File(projectCopy, "pom.xml");
 		assertTrue("The POM file should exist as a file", pom.exists() && pom.isFile());

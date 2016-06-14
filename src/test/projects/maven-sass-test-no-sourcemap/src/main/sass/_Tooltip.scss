@@ -16,11 +16,11 @@
 		will-change: opacity, clip;
 		opacity: 0;
 
-		@include animation-name(fadeIn);
-		@include animation-timing-function(ease);
-		@include animation-delay(.35s);
-		@include animation-duration(5s);
-		@include animation-iteration-count(1);
+		//@include animation-name(fadeIn);
+		//@include animation-timing-function(ease);
+		//@include animation-delay(.35s);
+		//@include animation-duration(5s);
+		//@include animation-iteration-count(1);
 	}
 
 	&:hover span, 
@@ -45,11 +45,11 @@
 		//opacity: 1;
 
 		//@include single-transition(opacity 0.5s ease-in 0.1s);
-		@include animation-name(fadeOut);
+		//@include animation-name(fadeOut);
 	}
 }
 
-
+/*
 @include keyframes(fadeIn){
 	0% { 
 		opacity: 0;
@@ -67,3 +67,4 @@
 		opacity:0;
 	}
 }
+*/

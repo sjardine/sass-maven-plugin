@@ -1,4 +1,3 @@
-/* Compass mixins */
 /* kleuren en instellingen */
 /* veel gebruikte kleuren, oa. voor controls in de kaart.*/
 /* control borders in de kaart */
@@ -119,34 +118,9 @@ div.olLayerDiv {
   font-size: 1px;
   /*top right bottom left*/
   border-color: #362894 #181244 #181244 #362894;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-box-shadow: 2px 2px 2px #000;
-  -webkit-box-shadow: 2px 2px 2px #000;
-  box-shadow: 2px 2px 2px #000;
-}
-
-.olLayerGrid .olTileImage {
-  -moz-transition: opacity 0.2s linear;
-  -o-transition: opacity 0.2s linear;
-  -webkit-transition: opacity 0.2s linear;
-  transition: opacity 0.2s linear;
 }
 
 /* Turn on GPU support where available */
-.olTileImage {
-  -moz-transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-perspective: 1000px;
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-}
-
 /* when replacing tiles, do not show tile and backbuffer at the same time */
 .olTileReplacing {
   display: none;
@@ -193,9 +167,6 @@ img.olTileImage {
   bottom: 150px;
   /* afstand vanaf de rand van de kaart */
   right: 10px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   /* -right iets (2px) meer dan de breedte van de achtergrond sprite>40px */
   padding: 2px 50px 2px 10px;
   z-index: 900;
@@ -227,9 +198,6 @@ img.olTileImage {
   z-index: 900;
   top: 53px;
   right: 55px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
   border: 6px solid;
   height: 3px;
   width: 200px;
@@ -250,9 +218,6 @@ img.olTileImage {
   color: #fff;
   cursor: pointer;
   outline: none;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
 }
 .transparantieslider .ui-slider-handle:hover {
   background-color: rgba(39, 29, 108, 0.8);
@@ -497,9 +462,6 @@ ul.adressen li a {
   top: 35px;
   right: 8px;
   background: rgba(255, 255, 255, 0.2);
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   padding: 2px;
 }
 
@@ -520,24 +482,6 @@ ul.adressen li a {
 }
 .ZoomControl button:hover, .ZoomControl button:focus {
   background: rgba(39, 29, 108, 0.8);
-}
-
-.olControlZoomIn {
-  -moz-border-radius-topleft: 4px;
-  -webkit-border-top-left-radius: 4px;
-  border-top-left-radius: 4px;
-  -moz-border-radius-topright: 4px;
-  -webkit-border-top-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.olControlZoomOut {
-  -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
 
 /**
@@ -586,21 +530,6 @@ a.skipLink:active, a.skipLink:focus {
   overflow: hidden;
   will-change: opacity, clip;
   opacity: 0;
-  -moz-animation-name: fadeIn;
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
-  -moz-animation-timing-function: ease;
-  -webkit-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -moz-animation-delay: 0.35s;
-  -webkit-animation-delay: 0.35s;
-  animation-delay: 0.35s;
-  -moz-animation-duration: 5s;
-  -webkit-animation-duration: 5s;
-  animation-duration: 5s;
-  -moz-animation-iteration-count: 1;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
 }
 .hasTooltip:hover span, .hasTooltip:focus span {
   clip: auto;
@@ -620,59 +549,27 @@ a.skipLink:active, a.skipLink:focus {
   /* @include box-shadow(2px 2px 2px $ControlBorderColour); */
   font-size: 12px;
   font-weight: normal;
-  -moz-animation-name: fadeOut;
-  -webkit-animation-name: fadeOut;
-  animation-name: fadeOut;
 }
 
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+/*
+@include keyframes(fadeIn){
+	0% { 
+		opacity: 0;
+	}
+	100% { 
+		opacity: 0;
+	}
 }
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
+
+@include keyframes(fadeOut){
+	from { 
+		opacity: 1;
+	}
+	to {
+		opacity:0;
+	}
 }
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-moz-keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
+*/
 /** resources voor sitemenu_include.jsp */
 .siteMenu {
   height: 23px;
@@ -735,9 +632,6 @@ a.skipLink:active, a.skipLink:focus {
 .kaartnavi fieldset {
   border: 1px solid #aaaaaa;
   padding: 2px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
 }
 
 .kaartnavi button {
@@ -750,18 +644,8 @@ a.skipLink:active, a.skipLink:focus {
   color: #000;
   font-weight: bold;
   display: block;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  text-shadow: 1px 1px 0px #fff;
-  -moz-box-shadow: inset 0 1px 0 0 #fff;
-  -webkit-box-shadow: inset 0 1px 0 0 #fff;
-  box-shadow: inset 0 1px 0 0 #fff;
 }
 .kaartnavi button:hover, .kaartnavi button:active {
-  -moz-box-shadow: inset 0 2px 0 0 #aaaaaa;
-  -webkit-box-shadow: inset 0 2px 0 0 #aaaaaa;
-  box-shadow: inset 0 2px 0 0 #aaaaaa;
   border: 1px solid #2b2b2b;
 }
 
